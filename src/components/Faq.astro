@@ -1,0 +1,53 @@
+---
+const faq = [
+  {
+    q: "A Feniê vende para consumidor final?",
+    a: "Não. A Feniê atende exclusivamente profissionais e salões cadastrados — não fazemos venda para consumidor final.",
+  },
+  {
+    q: "Como faço para conhecer os preços e condições?",
+    a: "Preços e condições comerciais são apresentados por um consultor, ajustados ao perfil e ao volume do seu salão. Fale pelo WhatsApp para receber essas informações.",
+  },
+  {
+    q: "Posso solicitar orientação sobre os produtos?",
+    a: "Sim. O atendimento consultivo faz parte do trabalho da Feniê — um consultor te ajuda a entender protocolo, indicação e uso correto das linhas antes e depois da compra.",
+  },
+  {
+    q: "Como funcionam os cursos da Feniê Academy?",
+    a: "A Feniê Academy reúne cursos, oficinas e formações com profissionais convidados. A agenda com datas e inscrições abertas fica em /academy.",
+  },
+  {
+    q: "A Feniê atende fora de Curitiba?",
+    a: "A operação é baseada em Curitiba e região. Para outras cidades, consulte um consultor sobre disponibilidade e condições de atendimento.",
+  },
+];
+---
+
+<section class="bg-midnight-alt py-26">
+  <div class="container-editorial max-w-160">
+    <h2 class="reveal text-[clamp(1.6rem,3vw,2.2rem)]">Perguntas frequentes</h2>
+
+    <div class="mt-10 border-t border-white/10">
+      {
+        faq.map((item) => (
+          <details class="reveal group border-b border-white/10 py-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 marker:content-none">
+              <span class="font-body text-[0.98rem] font-semibold">{item.q}</span>
+              <svg
+                class="h-4 w-4 shrink-0 text-gold transition-transform duration-(--dur-hover-card) ease-(--ease-editorial) group-open:rotate-45"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              >
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </summary>
+            <p class="mt-3.5 max-w-[62ch] text-[0.92rem] text-platina">{item.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

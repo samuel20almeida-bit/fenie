@@ -1,0 +1,50 @@
+---
+import Button from "./Button.astro";
+import { whatsappLink } from "../lib/whatsapp";
+
+const consultants = [
+  { name: "[Nome do consultor]", region: "Consultor regional · Curitiba" },
+  { name: "[Nome da consultora]", region: "Consultora regional · Região metropolitana" },
+  { name: "[Nome do consultor]", region: "Consultor regional · Litoral" },
+];
+---
+
+<section class="bg-midnight py-26">
+  <div class="container-editorial">
+    <div class="reveal mb-12 max-w-[60ch]">
+      <p class="eyebrow mb-4">Quem vai te atender</p>
+      <h2 class="text-[clamp(1.7rem,2.8vw,2.2rem)]">
+        Atendimento profissional com base em Curitiba.
+      </h2>
+      <p class="mt-4 max-w-[52ch] text-platina">
+        A Feniê atua a partir de Curitiba e atende profissionais e salões conforme sua operação
+        comercial e rotas regionais.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        consultants.map((c) => (
+          <div class="reveal flex items-center gap-4 rounded-editorial border border-white/10 bg-midnight-card p-6">
+            <div
+              class="h-16 w-16 shrink-0 rounded-full border border-white/10 bg-midnight-card"
+              style="background-image: repeating-linear-gradient(135deg, color-mix(in oklab, var(--color-gold) 10%, transparent) 0px, color-mix(in oklab, var(--color-gold) 10%, transparent) 1px, transparent 1px, transparent 15px);"
+              aria-hidden="true"
+            />
+            <div>
+              <h3 class="font-body text-[0.98rem] font-bold">{c.name}</h3>
+              <p class="mt-0.5 text-[0.82rem] text-platina">{c.region}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <Button
+      href={whatsappLink("Olá! Quero consultar o atendimento da Feniê na minha região.")}
+      class="mt-9"
+    >
+      Consultar atendimento na minha região
+    </Button>
+  </div>
+</section>

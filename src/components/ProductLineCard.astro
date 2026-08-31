@@ -1,0 +1,37 @@
+---
+import type { ProductLine } from "../data/olenka";
+
+interface Props {
+  linha: ProductLine;
+}
+
+const { linha } = Astro.props;
+---
+
+<article class="reveal flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-6 transition-colors duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold">
+  <div class="flex h-45 items-center justify-center rounded-editorial bg-white/[0.03] p-3">
+    <img
+      src={linha.imagem}
+      alt={`Embalagem ${linha.nome}, Olenka Cosméticos`}
+      class="h-full w-full object-contain"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div>
+    <h3 class="font-body text-[1.05rem] font-bold">{linha.nome}</h3>
+    <p class="mt-1.5 font-body text-[0.86rem] font-medium text-gold">{linha.headline}</p>
+    <p class="mt-2.5 text-[0.86rem] text-platina">{linha.descricao}</p>
+    <ul class="mt-3.5 flex flex-col gap-1.5">
+      {
+        linha.beneficios.map((b) => (
+          <li class="flex items-start gap-2 text-[0.8rem] text-platina">
+            <span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+            {b}
+          </li>
+        ))
+      }
+    </ul>
+    {linha.rendimento && <p class="eyebrow mt-3.5 text-platina">Rendimento médio · {linha.rendimento}</p>}
+  </div>
+</article>

@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import { whatsappLink } from "../lib/whatsapp";
+---
+
+<Layout
+  title="Página não encontrada"
+  description="Essa página não existe ou foi movida. Volte para a Home da Feniê Pro ou fale com um consultor."
+>
+  <section class="py-33 text-center">
+    <div class="container-editorial mx-auto max-w-140">
+      <p class="eyebrow mb-5">Erro 404</p>
+      <h1 class="text-[clamp(2.2rem,5vw,3.6rem)]">Essa página não existe.</h1>
+      <p class="mt-5 text-lg text-platina">
+        O endereço pode ter mudado ou nunca ter existido. Volte para a Home ou fale direto com um
+        consultor.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <Button href="/">Voltar para a Home</Button>
+        <Button href={whatsappLink("Olá! Cheguei numa página que não existe mais no site da Feniê Pro.")} variant="outline">
+          Falar com um consultor
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>

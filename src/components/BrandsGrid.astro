@@ -1,0 +1,64 @@
+---
+// TODO: quando o catálogo de marcas crescer, migrar para uma content
+// collection (src/content/marcas) em vez desta lista fixa.
+import Button from "./Button.astro";
+import PlaceholderMedia from "./PlaceholderMedia.astro";
+---
+
+<section class="bg-midnight py-26">
+  <div class="container-editorial">
+    <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-[52ch]">
+        <p class="eyebrow mb-4">Portfólio profissional</p>
+        <h2 class="text-[clamp(1.8rem,3vw,2.4rem)]">Marcas parceiras</h2>
+        <p class="mt-4 text-platina">
+          Um portfólio selecionado para diferentes serviços, técnicas e rotinas do salão.
+        </p>
+      </div>
+      <a href="/marcas" class="border-b border-gold pb-0.5 text-sm font-semibold">
+        Ver todas as marcas →
+      </a>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[1.3fr_1fr_1fr]">
+      <div class="reveal group flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-7 transition-colors duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold">
+        <div class="flex h-55 items-center justify-center rounded-editorial bg-white/[0.03] p-5">
+          <img
+            src="/images/marcas/olenka/royal-look.webp"
+            alt="Kit Royal Look, alisamento capilar Olenka"
+            class="h-full w-full object-contain"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div>
+          <p class="eyebrow mb-2.5">Tratamento · Transformação</p>
+          <h3 class="font-body text-[1.3rem] font-bold">Olenka Cosméticos</h3>
+          <div class="mt-3.5 flex flex-wrap gap-5">
+            <a href="/marcas/olenka" class="border-b border-gold pb-0.5 text-[13.5px] font-semibold">
+              Conhecer a marca →
+            </a>
+            <a
+              href="/academy#curso-formas"
+              class="border-b border-white/10 pb-0.5 text-[13.5px] font-semibold text-platina hover:border-gold hover:text-gold"
+            >
+              Ver curso relacionado →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {
+        [0, 1].map(() => (
+          <div class="reveal flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-7">
+            <PlaceholderMedia label="Espaço reservado" class="h-37.5" />
+            <div>
+              <p class="eyebrow mb-2.5 text-platina">[Categoria]</p>
+              <h3 class="font-body text-[1.1rem] font-bold text-platina">[Marca parceira]</h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

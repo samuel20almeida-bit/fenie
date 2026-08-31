@@ -1,0 +1,48 @@
+---
+import Button from "./Button.astro";
+import PlaceholderMedia from "./PlaceholderMedia.astro";
+---
+
+<section id="agenda" class="bg-midnight-alt py-26">
+  <div class="container-editorial grid items-center gap-16 lg:grid-cols-2">
+    <PlaceholderMedia
+      class="reveal order-2 h-95"
+      caption="Turma da Feniê Academy em aula prática"
+    />
+
+    <div class="reveal order-1">
+      <p class="eyebrow mb-4">Feniê Academy</p>
+      <h2 class="text-[clamp(1.7rem,2.8vw,2.2rem)]">
+        Conhecimento técnico para transformar prática em <em>evolução</em> profissional.
+      </h2>
+      <p class="mt-4.5 max-w-[48ch] text-platina">
+        A Feniê Academy reúne cursos, oficinas, formações e encontros com profissionais
+        convidados para ampliar repertório, técnica e segurança no salão.
+      </p>
+      <Button href="/academy" variant="outline" class="mt-6.5">Ver agenda de cursos →</Button>
+
+      <div
+        id="curso-formas"
+        class="mt-8 flex items-center gap-5 rounded-editorial border border-white/10 bg-midnight-card p-6"
+      >
+        <div class="min-w-14 text-center">
+          <p class="font-display text-[1.7rem] font-bold">21</p>
+          <p class="eyebrow text-platina">Set</p>
+        </div>
+        <div class="flex-1 border-l border-white/10 pl-5">
+          <p class="eyebrow mb-1.5 text-gold">Inscrições abertas</p>
+          <h3 class="font-body text-[1.05rem] font-bold">Curso — Formas</h3>
+          <p class="mt-1 text-[0.86rem] text-platina">
+            Feniê Academy · Curitiba — com [Nome do educador]
+          </p>
+          <a
+            href="/marcas/olenka"
+            class="mt-2 inline-block border-b border-gold pb-0.5 text-[13px] font-semibold"
+          >
+            Ver marcas usadas no curso →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

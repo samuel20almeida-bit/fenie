@@ -1,0 +1,56 @@
+---
+import Button from "./Button.astro";
+import { whatsappLink } from "../lib/whatsapp";
+
+const steps = [
+  {
+    n: "01",
+    title: "Fale com a equipe",
+    text: "Inicie o atendimento pelo WhatsApp e conte o que procura.",
+  },
+  {
+    n: "02",
+    title: "Apresente a realidade do salão",
+    text: "Informe sua cidade, perfil de atendimento, principais serviços e marcas de interesse.",
+  },
+  {
+    n: "03",
+    title: "Receba orientação comercial",
+    text: "Um consultor apresenta possibilidades, condições e próximos passos adequados ao seu perfil.",
+  },
+  {
+    n: "04",
+    title: "Desenvolva o relacionamento",
+    text: "Após o primeiro pedido, o atendimento continua com reposição, acompanhamento e suporte.",
+  },
+];
+---
+
+<section class="bg-midnight py-26 text-center">
+  <div class="container-editorial">
+    <p class="eyebrow mb-5">Primeiro atendimento</p>
+    <h2 class="mx-auto max-w-[22ch] text-[clamp(1.8rem,3.2vw,2.4rem)]">
+      Começar uma conversa com a Feniê é simples.
+    </h2>
+
+    <div class="mt-16 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-gold/40 pt-8 text-left md:grid-cols-4 md:gap-8">
+      {
+        steps.map((step, i) => (
+          <div class="reveal relative" style={`transition-delay: ${i * 75}ms`}>
+            <span class="absolute -top-[33px] left-0 h-2 w-2 rounded-full bg-gold" aria-hidden="true" />
+            <p class="eyebrow text-platina">{step.n}</p>
+            <h3 class="mt-2 font-body text-[0.98rem] font-semibold">{step.title}</h3>
+            <p class="mt-2 text-[0.86rem] text-platina">{step.text}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <Button
+      href={whatsappLink("Olá! Quero começar uma conversa com a Feniê.")}
+      class="mt-14"
+    >
+      Quero falar com um consultor
+    </Button>
+  </div>
+</section>
