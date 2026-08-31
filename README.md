@@ -81,6 +81,15 @@ componente já existe, só falta o material real entrar:
   um arquivo de dados + `<ProductLineCard>` por marca quando o catálogo
   dela chegar.
 
+## SEO
+
+`src/layouts/Layout.astro` gera canonical, Open Graph e Twitter Card por
+página (título, descrição e `og:image` — usa `public/images/og-default.jpg`
+por padrão, ou passe `ogImage` como prop numa página específica). Sitemap
+automático via `@astrojs/sitemap` (`/sitemap-index.xml`) e `public/robots.txt`
+apontando pra ele. Existe uma página 404 no mesmo sistema visual do site
+(`src/pages/404.astro`).
+
 ## Catálogo Olenka
 
 `src/data/olenka.ts` tem as 21 linhas de produto agrupadas em 7
