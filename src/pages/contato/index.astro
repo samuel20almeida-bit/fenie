@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
+import ProfessionalSignupForm from "../../components/ProfessionalSignupForm.astro";
+import Faq from "../../components/Faq.astro";
 import { whatsappLink } from "../../lib/whatsapp";
 ---
 
@@ -27,13 +29,10 @@ import { whatsappLink } from "../../lib/whatsapp";
       </p>
     </div>
 
-    <div id="cadastro" class="container-editorial mt-19 max-w-160 border-t border-white/10 pt-14">
-      <p class="eyebrow mb-5">Cadastro profissional</p>
-      <h2 class="text-[clamp(1.6rem,3vw,2rem)]">Ainda não é cliente Feniê?</h2>
-      <p class="mt-4 text-platina">
-        Formulário de cadastro profissional em construção. Por enquanto, fale direto com um
-        consultor pelo WhatsApp.
-      </p>
+    <div class="container-editorial mt-19 max-w-160">
+      <ProfessionalSignupForm />
     </div>
   </section>
+
+  <Faq />
 </Layout>

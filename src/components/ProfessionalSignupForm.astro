@@ -1,0 +1,76 @@
+---
+import { WHATSAPP_NUMBER } from "../lib/whatsapp";
+
+const interests = [
+  "Conhecer marcas e produtos",
+  "Cursos da Feniê Academy",
+  "Já sou cliente — reposição",
+  "Outro assunto",
+];
+
+const fieldClass =
+  "w-full rounded-editorial border border-white/15 bg-midnight px-4 py-3 font-body text-[0.95rem] text-bone outline-none transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) placeholder:text-platina/50 focus:border-gold";
+---
+
+<div id="cadastro" class="border-t border-white/10 pt-14">
+  <p class="eyebrow mb-5">Cadastro profissional</p>
+  <h2 class="text-[clamp(1.6rem,3vw,2rem)]">Ainda não é cliente Feniê?</h2>
+  <p class="mt-4 max-w-[52ch] text-platina">
+    Preencha os dados abaixo — a conversa abre no WhatsApp já com o seu contexto, pronta para um
+    consultor continuar.
+  </p>
+
+  <form id="signup-form" data-wa-number={WHATSAPP_NUMBER} class="mt-8 grid max-w-130 gap-5" novalidate>
+    <div>
+      <label for="nome" class="eyebrow mb-2 block text-platina">Nome</label>
+      <input id="nome" name="nome" type="text" required class={fieldClass} placeholder="Seu nome" />
+    </div>
+    <div>
+      <label for="salao" class="eyebrow mb-2 block text-platina">Salão</label>
+      <input id="salao" name="salao" type="text" required class={fieldClass} placeholder="Nome do salão" />
+    </div>
+    <div>
+      <label for="cidade" class="eyebrow mb-2 block text-platina">Cidade</label>
+      <input id="cidade" name="cidade" type="text" required class={fieldClass} placeholder="Sua cidade" />
+    </div>
+    <div>
+      <label for="interesse" class="eyebrow mb-2 block text-platina">Principal interesse</label>
+      <select id="interesse" name="interesse" required class={fieldClass}>
+        <option value="" disabled selected>Selecione uma opção</option>
+        {interests.map((item) => <option value={item}>{item}</option>)}
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 font-body text-[14.5px] font-semibold text-midnight transition-transform duration-(--dur-hover-btn) ease-(--ease-editorial) hover:scale-[1.02] hover:bg-gold-hover active:scale-[0.97]"
+    >
+      Enviar e continuar no WhatsApp
+    </button>
+    <p class="font-mono text-[11.5px] text-platina">
+      Seus dados só são usados para abrir a conversa — nada é armazenado neste site.
+    </p>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("signup-form") as HTMLFormElement | null;
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const nome = String(data.get("nome") ?? "").trim();
+    const salao = String(data.get("salao") ?? "").trim();
+    const cidade = String(data.get("cidade") ?? "").trim();
+    const interesse = String(data.get("interesse") ?? "").trim();
+    const number = form.dataset.waNumber;
+
+    const message =
+      `Olá! Meu nome é ${nome}, do salão ${salao}, em ${cidade}. ` +
+      `Quero falar sobre: ${interesse}.`;
+
+    window.location.href = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  });
+</script>

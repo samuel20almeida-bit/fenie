@@ -54,9 +54,12 @@ placeholder óbvio de trocar antes de publicar.
 /contato          Contato + cadastro profissional
 ```
 
-`/a-fenie`, `/solucoes` e `/contato` (parte de cadastro) ainda são
-esqueleto — existem para o menu e os links do rodapé não quebrarem
-enquanto o conteúdo de cada uma é escrito.
+Todas as páginas do menu têm conteúdo real agora. `/contato` inclui um
+formulário de cadastro profissional (`ProfessionalSignupForm.astro`) que
+monta a mensagem de WhatsApp a partir dos campos preenchidos — sem
+backend, sem dado armazenado no site — e um FAQ (`Faq.astro`, accordion
+nativo em `<details>`, sem JS). `/solucoes` reaproveita o conteúdo real
+já publicado no site atual (`SolutionsList.astro`, `ProcessSteps.astro`).
 
 ## O que ainda depende de conteúdo real, não de código
 

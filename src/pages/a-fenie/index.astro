@@ -1,15 +1,79 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import StubHero from "../../components/StubHero.astro";
+import Button from "../../components/Button.astro";
+import Pillars from "../../components/Pillars.astro";
+import CtaFinal from "../../components/CtaFinal.astro";
+import { whatsappLink } from "../../lib/whatsapp";
 ---
 
 <Layout
   title="A Feniê"
-  description="Conheça a Feniê Pro: distribuição profissional, conhecimento técnico e suporte comercial para salões e profissionais da beleza."
+  description="A Feniê Pro conecta produtos profissionais, conhecimento técnico e suporte comercial para o salão trabalhar com mais segurança, resultado e crescimento."
 >
-  <StubHero
-    eyebrow="Institucional"
-    title="A Feniê"
-    text="A Feniê Pro conecta produtos profissionais, conhecimento técnico e suporte comercial para o salão trabalhar com mais segurança, resultado e crescimento. Esta página está em construção — a história completa da marca entra aqui."
-  />
+  <section class="pt-33 pb-6">
+    <div class="container-editorial max-w-160">
+      <p class="eyebrow mb-5">Institucional</p>
+      <h1 class="text-[clamp(2.1rem,4.4vw,3.4rem)]">
+        Deixar de ser onde eu compro e passar a ser com quem eu <em>cresço</em>.
+      </h1>
+      <p class="mt-6 text-lg text-platina">
+        A Feniê Pro conecta produtos profissionais, conhecimento técnico e suporte comercial para
+        o salão trabalhar com mais segurança, resultado e crescimento.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="container-editorial grid gap-8 border-t border-white/10 pt-14 max-w-160 md:grid-cols-[auto_1fr] md:gap-x-14">
+      <div class="flex items-baseline gap-3 md:contents">
+        <p class="eyebrow shrink-0 text-platina/60 line-through decoration-platina/40">Sai</p>
+        <p class="font-body text-[1.05rem] text-platina/70 italic">
+          "Somos uma distribuidora e temos estes produtos."
+        </p>
+      </div>
+      <div class="mt-8 flex items-baseline gap-3 md:contents">
+        <p class="eyebrow shrink-0">Entra</p>
+        <p class="font-body text-[1.15rem] font-medium text-bone">
+          "Conectamos produtos profissionais, conhecimento técnico e suporte comercial para o
+          salão trabalhar com mais segurança, resultado e crescimento."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Pillars />
+
+  <section class="bg-midnight py-26">
+    <div class="container-editorial max-w-160">
+      <p class="eyebrow mb-5">Presença próxima</p>
+      <h2 class="text-[clamp(1.7rem,2.8vw,2.2rem)]">
+        Atendimento profissional com base em Curitiba.
+      </h2>
+      <p class="mt-4 max-w-[52ch] text-platina">
+        A Feniê atua a partir de Curitiba e atende profissionais e salões conforme sua operação
+        comercial e rotas regionais. Entre em contato para confirmar disponibilidade, prazo e
+        condições para sua cidade.
+      </p>
+      <Button
+        href={whatsappLink("Olá! Quero consultar o atendimento da Feniê na minha região.")}
+        variant="outline"
+        class="mt-7"
+      >
+        Consultar atendimento na minha região →
+      </Button>
+    </div>
+  </section>
+
+  <section class="bg-midnight-alt py-26">
+    <div class="container-editorial max-w-160">
+      <blockquote class="border-l-2 border-gold pl-7">
+        <p class="font-display text-[clamp(1.4rem,2.6vw,1.9rem)] italic">
+          "A Feniê seleciona boas marcas, entende tecnicamente o mercado, desenvolve profissionais
+          e pode ajudar meu salão a evoluir."
+        </p>
+      </blockquote>
+    </div>
+  </section>
+
+  <CtaFinal />
 </Layout>

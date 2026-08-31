@@ -1,0 +1,65 @@
+---
+const items = [
+  {
+    n: "01",
+    title: "Escolha",
+    text: "Apoio para entender a necessidade do salão, selecionar linhas e organizar protocolos de atendimento.",
+  },
+  {
+    n: "02",
+    title: "Técnica",
+    text: "Atendimento comercial e encaminhamento técnico dentro das informações e protocolos oficiais das marcas.",
+  },
+  {
+    n: "03",
+    title: "Capacitação",
+    text: "Cursos, oficinas e encontros técnicos para ampliar conhecimento e segurança no dia a dia do salão.",
+  },
+  {
+    n: "04",
+    title: "Venda",
+    text: "Combinações comerciais, lançamentos e oportunidades pensadas para apoiar vendas e rentabilidade.",
+  },
+  {
+    n: "05",
+    title: "Reposição",
+    text: "Consultores responsáveis por prospecção, manutenção da carteira, reposição e acompanhamento das oportunidades.",
+  },
+  {
+    n: "06",
+    title: "Relacionamento",
+    text: "Continuidade no atendimento para dúvidas, reposição e encaminhamento técnico quando necessário.",
+  },
+];
+---
+
+<section class="bg-midnight-alt py-26">
+  <div class="container-editorial grid gap-12 lg:grid-cols-[0.9fr_1.4fr]">
+    <div class="reveal lg:sticky lg:top-28 lg:self-start">
+      <p class="eyebrow mb-4">Apoio ao negócio</p>
+      <h2 class="max-w-[14ch] text-[clamp(1.8rem,3.2vw,2.6rem)]">
+        A relação não termina na compra.
+      </h2>
+      <p class="mt-4 max-w-[38ch] text-platina">
+        Soluções que acompanham o salão antes, durante e depois da compra.
+      </p>
+    </div>
+
+    <div>
+      {
+        items.map((item, i) => (
+          <div
+            class="reveal grid grid-cols-[44px_1fr] gap-6 border-t border-white/10 py-7 first:border-t-0 md:grid-cols-[64px_1fr]"
+            style={`transition-delay: ${i * 75}ms`}
+          >
+            <p class="eyebrow pt-0.5 text-platina">{item.n}</p>
+            <div>
+              <h3 class="font-body text-[1.05rem] font-semibold">{item.title}</h3>
+              <p class="mt-2 max-w-[52ch] text-[0.92rem] text-platina">{item.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
