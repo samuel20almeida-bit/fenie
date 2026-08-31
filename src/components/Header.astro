@@ -1,0 +1,34 @@
+---
+import { whatsappLink } from "../lib/whatsapp";
+import Button from "./Button.astro";
+
+const nav = [
+  { label: "A Feniê", href: "/a-fenie" },
+  { label: "Marcas", href: "/marcas" },
+  { label: "Soluções", href: "/solucoes" },
+  { label: "Academy", href: "/academy" },
+  { label: "Contato", href: "/contato" },
+];
+---
+
+<header class="sticky top-0 z-20 border-b border-white/10 bg-midnight/95 backdrop-blur">
+  <div class="container-immersive flex items-center justify-between gap-6 py-5">
+    <a href="/" class="font-body text-[19px] font-bold tracking-wide uppercase">
+      Feniê <span class="text-gold">Pro</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Navegação principal">
+      {
+        nav.map((item) => (
+          <a href={item.href} class="text-sm font-medium text-bone transition-colors hover:text-gold">
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <Button href={whatsappLink("Olá! Vim pelo site da Feniê Pro e quero falar com um consultor.")} class="hidden sm:inline-flex">
+      Falar com um consultor
+    </Button>
+  </div>
+</header>

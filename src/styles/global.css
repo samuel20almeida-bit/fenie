@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/*
+  Feniê Pro — brand tokens
+  Origem: briefing estratégico (paleta medida, contraste, movimento e
+  dimensionamento). Não são valores arbitrários — cada um tem uma razão
+  documentada no briefing; não redefinir sem revisar lá primeiro.
+*/
+@theme {
+  --color-midnight: #0b0f22;
+  --color-midnight-alt: #11162e;
+  --color-midnight-card: #161c3a;
+  --color-midnight-hover: #1e2547;
+  --color-gold: #c8932e;
+  --color-gold-hover: #d5a13f;
+  --color-platina: #c5c5c2;
+  --color-bone: #ede7da;
+  --color-coral: #c96a4f;
+
+  --font-display: "Bodoni Moda", Georgia, "Times New Roman", serif;
+  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --radius-editorial: 6px;
+}
+
+:root {
+  /* fio de ouro, nunca área — usado em bordas de 1px e sublinhas */
+  --hairline: color-mix(in oklab, var(--color-bone) 10%, transparent);
+  --hairline-hover: color-mix(in oklab, var(--color-platina) 14%, transparent);
+
+  /* curva única — vale para tudo (briefing cap. 06) */
+  --ease-editorial: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-scroll: 550ms;
+  --dur-cascade: 75ms;
+  --dur-hover-card: 240ms;
+  --dur-hover-btn: 200ms;
+  --dur-image: 700ms;
+
+  /* respiro de seção: 76 / 104px, fecho 132px */
+  --section-y-sm: 4.75rem;
+  --section-y: 6.5rem;
+  --section-y-lg: 8.25rem;
+}
+
+html {
+  background: var(--color-midnight);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-midnight);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-midnight);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+/* contêiner 1180px padrão · imersivo 1440px (briefing cap. 06) */
+.container-editorial {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+.container-immersive {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container-editorial,
+  .container-immersive {
+    padding-inline: 2.5rem;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* entrada por scroll — estado inicial; JS liga .is-visible, once (cap. 06) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--dur-scroll) var(--ease-editorial),
+    transform var(--dur-scroll) var(--ease-editorial);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

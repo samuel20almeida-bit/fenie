@@ -1,0 +1,28 @@
+---
+// Página ainda não desenvolvida em detalhe — existe pra manter o menu e a
+// arquitetura de rotas coerentes enquanto o conteúdo real é construído.
+import Button from "./Button.astro";
+import { whatsappLink } from "../lib/whatsapp";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  text: string;
+}
+
+const { eyebrow, title, text } = Astro.props;
+---
+
+<section class="py-33">
+  <div class="container-editorial max-w-160">
+    <p class="eyebrow mb-5">{eyebrow}</p>
+    <h1 class="text-[clamp(2rem,4vw,3rem)]">{title}</h1>
+    <p class="mt-5 text-lg text-platina">{text}</p>
+    <Button
+      href={whatsappLink(`Olá! Quero saber mais sobre ${title.toLowerCase()} na Feniê Pro.`)}
+      class="mt-7"
+    >
+      Falar com um consultor
+    </Button>
+  </div>
+</section>

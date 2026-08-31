@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import AcademyTeaser from "../../components/AcademyTeaser.astro";
+---
+
+<Layout
+  title="Feniê Academy"
+  description="Cursos, oficinas e formações técnicas da Feniê Academy para o profissional da beleza evoluir com segurança."
+>
+  <div class="pt-33">
+    <div class="container-editorial mb-4 max-w-160">
+      <p class="eyebrow mb-5">Feniê Academy</p>
+      <h1 class="text-[clamp(2rem,4vw,3rem)]">Agenda de cursos</h1>
+      <p class="mt-5 text-lg text-platina">
+        A agenda completa e a página de cada educador entram aqui — com estado real de
+        inscrições e trajetória de quem dá aula.
+      </p>
+    </div>
+  </div>
+  <div id="educadores">
+    <AcademyTeaser />
+  </div>
+</Layout>

@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
+import PlaceholderMedia from "../../components/PlaceholderMedia.astro";
+import { whatsappLink } from "../../lib/whatsapp";
+---
+
+<Layout
+  title="Olenka Cosméticos"
+  description="Linha Olenka na Feniê Pro: tratamento e transformação capilar, protocolo técnico e curso relacionado."
+>
+  <section class="py-33">
+    <div class="container-editorial grid items-center gap-16 lg:grid-cols-2">
+      <div>
+        <p class="eyebrow mb-5">Tratamento · Transformação</p>
+        <h1 class="text-[clamp(2rem,4vw,3rem)]">Olenka Cosméticos</h1>
+        <p class="mt-5 max-w-[48ch] text-lg text-platina">
+          Linha profissional de reconstrução e tratamento capilar. Protocolo técnico completo,
+          direto com a equipe Feniê — da escolha da linha ao acompanhamento pós-venda.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <Button href={whatsappLink("Olá! Quero saber mais sobre a Olenka Cosméticos.")}>
+            Falar sobre a Olenka
+          </Button>
+          <Button href="/academy#curso-formas" variant="outline">Ver curso relacionado →</Button>
+        </div>
+      </div>
+      <PlaceholderMedia label="Packshot oficial" caption="Linha Olenka Royal Look" class="h-95" />
+    </div>
+  </section>
+</Layout>
