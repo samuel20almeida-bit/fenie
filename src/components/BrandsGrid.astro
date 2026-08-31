@@ -22,7 +22,15 @@ import PlaceholderMedia from "./PlaceholderMedia.astro";
 
     <div class="grid gap-6 lg:grid-cols-[1.3fr_1fr_1fr]">
       <div class="reveal group flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-7 transition-colors duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold">
-        <PlaceholderMedia label="Packshot oficial" caption="Linha Olenka Royal Look" class="h-55" />
+        <div class="flex h-55 items-center justify-center rounded-editorial bg-white/[0.03] p-5">
+          <img
+            src="/images/marcas/olenka/royal-look.webp"
+            alt="Kit Royal Look, alisamento capilar Olenka"
+            class="h-full w-full object-contain"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
         <div>
           <p class="eyebrow mb-2.5">Tratamento · Transformação</p>
           <h3 class="font-body text-[1.3rem] font-bold">Olenka Cosméticos</h3>

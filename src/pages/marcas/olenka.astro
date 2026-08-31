@@ -1,22 +1,31 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
-import PlaceholderMedia from "../../components/PlaceholderMedia.astro";
+import ProductLineCard from "../../components/ProductLineCard.astro";
+import CtaFinal from "../../components/CtaFinal.astro";
 import { whatsappLink } from "../../lib/whatsapp";
+import { categories } from "../../data/olenka";
 ---
 
 <Layout
   title="Olenka Cosméticos"
-  description="Linha Olenka na Feniê Pro: tratamento e transformação capilar, protocolo técnico e curso relacionado."
+  description="Catálogo completo Olenka Cosméticos na Feniê Pro: alisamento, coloração, reconstrução, finalizadores e mais — protocolo técnico e curso relacionado."
 >
-  <section class="py-33">
+  <section class="pt-33 pb-4">
     <div class="container-editorial grid items-center gap-16 lg:grid-cols-2">
       <div>
-        <p class="eyebrow mb-5">Tratamento · Transformação</p>
-        <h1 class="text-[clamp(2rem,4vw,3rem)]">Olenka Cosméticos</h1>
+        <img
+          src="/images/brand-logos/olenka-logo.webp"
+          alt="Olenka Cosméticos"
+          class="h-24 w-auto rounded-editorial"
+        />
+        <p class="eyebrow mt-7 mb-4">Marca parceira · Portfólio completo</p>
+        <h1 class="text-[clamp(2rem,4vw,3rem)]">
+          Alisamento, cor e reconstrução em um portfólio profissional completo.
+        </h1>
         <p class="mt-5 max-w-[48ch] text-lg text-platina">
-          Linha profissional de reconstrução e tratamento capilar. Protocolo técnico completo,
-          direto com a equipe Feniê — da escolha da linha ao acompanhamento pós-venda.
+          A Olenka é uma marca profissional genuína: vendida exclusivamente a distribuidores
+          credenciados e salões de beleza — nunca em perfumarias, farmácias ou marketplace.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <Button href={whatsappLink("Olá! Quero saber mais sobre a Olenka Cosméticos.")}>
@@ -25,7 +34,73 @@ import { whatsappLink } from "../../lib/whatsapp";
           <Button href="/academy#curso-formas" variant="outline">Ver curso relacionado →</Button>
         </div>
       </div>
-      <PlaceholderMedia label="Packshot oficial" caption="Linha Olenka Royal Look" class="h-95" />
+      <div class="flex items-center justify-center rounded-editorial border border-white/10 bg-midnight-card p-10">
+        <img
+          src="/images/marcas/olenka/royal-look.webp"
+          alt="Kit Royal Look, alisamento capilar Olenka"
+          class="h-full max-h-100 w-auto object-contain"
+        />
+      </div>
     </div>
   </section>
+
+  <section class="bg-midnight-alt py-19 mt-14">
+    <div class="container-editorial flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+      <div class="max-w-[56ch]">
+        <p class="eyebrow mb-3">Originalidade</p>
+        <p class="font-body text-[1.02rem] text-bone">
+          A Olenka não vende para consumidor final nem em marketplaces — apenas por distribuidores
+          credenciados, como a Feniê Pro. Produto Olenka fora desse canal é falsificado.
+        </p>
+      </div>
+      <Button href={whatsappLink("Olá! Quero confirmar a autenticidade dos produtos Olenka na Feniê.")} variant="outline" class="shrink-0">
+        Confirmar autenticidade →
+      </Button>
+    </div>
+  </section>
+
+  {
+    categories.map((cat, ci) => (
+      <section class:list={["py-19", ci % 2 === 1 && "bg-midnight-alt"]}>
+        <div class="container-editorial">
+          <p class="eyebrow reveal mb-8">{cat.nome}</p>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {cat.linhas.map((linha) => (
+              <ProductLineCard linha={linha} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="bg-midnight py-26">
+    <div class="container-editorial grid items-center gap-14 lg:grid-cols-[1fr_1.1fr]">
+      <img
+        src="/images/marcas/olenka/embaixador-rodrigo-cintra.webp"
+        alt="Rodrigo Cintra, embaixador técnico da marca Olenka, em um salão de beleza ao lado de um expositor de produtos Olenka"
+        class="reveal w-full rounded-editorial border border-white/10"
+      />
+      <div class="reveal">
+        <p class="eyebrow mb-5">Embaixador técnico</p>
+        <h2 class="text-[clamp(1.6rem,2.8vw,2.1rem)]">
+          "Resultado de salão, só no salão."
+        </h2>
+        <p class="mt-5 max-w-[52ch] text-platina">
+          Rodrigo Cintra é o embaixador técnico da marca Olenka. Em casa é manutenção — cuidado
+          com o cabelo continua sendo trabalho de profissional, e Olenka é uma marca pensada para
+          o salão, não para concorrer com ele.
+        </p>
+        <Button
+          href="/academy#curso-formas"
+          variant="outline"
+          class="mt-7"
+        >
+          Ver protocolo técnico e curso →
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal />
 </Layout>

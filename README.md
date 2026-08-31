@@ -74,5 +74,23 @@ componente já existe, só falta o material real entrar:
 - **Academy**: `src/components/AcademyTeaser.astro` tem um curso de
   exemplo; a agenda real e a página de cada educador precisam de dono
   definido antes do lançamento (regra do briefing, não só boa prática).
-- **Marcas**: só a Olenka está com página própria
-  (`src/pages/marcas/olenka.astro`) — é o modelo para as próximas.
+- **Marcas**: a Olenka já tem catálogo completo e real — 21 linhas de
+  produto, packshots oficiais e a foto do embaixador técnico, extraídos
+  da apresentação oficial da marca (`src/data/olenka.ts`,
+  `public/images/marcas/olenka/`). É o modelo para as próximas marcas:
+  um arquivo de dados + `<ProductLineCard>` por marca quando o catálogo
+  dela chegar.
+
+## Catálogo Olenka
+
+`src/data/olenka.ts` tem as 21 linhas de produto agrupadas em 7
+categorias (Alisamento & liso, Coloração & loiros, Reconstrução &
+nutrição, Finalizadores, Home care, Couro cabeludo & anti-queda, Men's
+Care), renderizadas em `src/pages/marcas/olenka.astro` via
+`<ProductLineCard>`. As imagens em `public/images/marcas/olenka/` são
+packshots isolados (fundo transparente) extraídos da apresentação
+oficial da marca e comprimidos em WebP — a pasta inteira pesa ~680KB.
+Se a apresentação for atualizada, repita o processo: `pdfimages -png`
+para extrair, `convert ... -alpha off -compose CopyOpacity -composite`
+para juntar imagem+máscara, `convert ... -resize 700x700` para exportar
+em WebP.
