@@ -38,9 +38,9 @@ direto num componente — sempre pela variável/utility já existente:
 
 Todo CTA usa `whatsappLink(mensagem)` de `src/lib/whatsapp.ts`, que já
 abre a conversa com o contexto certo (marca, curso, região) em vez de um
-número solto — é a regra "contexto no clique" do briefing. O número real
-vem de `PUBLIC_WHATSAPP_NUMBER` (ver `.env.example`); sem isso, cai num
-placeholder óbvio de trocar antes de publicar.
+número solto — é a regra "contexto no clique" do briefing. O número já é
+o real (+55 41 9840-2800); `PUBLIC_WHATSAPP_NUMBER` (ver `.env.example`)
+só precisa ser definida se algum ambiente exigir um número diferente.
 
 ## Estrutura de rotas (as quatro portas)
 
