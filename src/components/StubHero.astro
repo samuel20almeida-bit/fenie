@@ -14,15 +14,17 @@ const { eyebrow, title, text } = Astro.props;
 ---
 
 <section class="py-33">
-  <div class="container-editorial max-w-160">
-    <p class="eyebrow mb-5">{eyebrow}</p>
-    <h1 class="text-[clamp(2rem,4vw,3rem)]">{title}</h1>
-    <p class="mt-5 text-lg text-platina">{text}</p>
-    <Button
-      href={whatsappLink(`Olá! Quero saber mais sobre ${title.toLowerCase()} na Fenié Pro.`)}
-      class="mt-7"
-    >
-      Falar com um consultor
-    </Button>
+  <div class="container-editorial">
+    <div class="max-w-160">
+      <p class="eyebrow mb-5">{eyebrow}</p>
+      <h1 class="text-[clamp(2rem,4vw,3rem)]">{title}</h1>
+      <p class="mt-5 text-lg text-platina">{text}</p>
+      <Button
+        href={whatsappLink(`Olá! Quero saber mais sobre ${title.toLowerCase()} na Fenié Pro.`)}
+        class="mt-7"
+      >
+        Falar com um consultor
+      </Button>
+    </div>
   </div>
 </section>
