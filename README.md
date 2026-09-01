@@ -80,8 +80,9 @@ componente já existe, só falta o material real entrar:
 - **Fotografia**: todo lugar com `<PlaceholderMedia>` está marcado e
   pronto para virar um `<img>` assim que o acervo fechar (briefing
   cap. 09 — nunca IA, sempre material oficial).
-- **Consultores**: nomes/fotos em `src/components/Consultants.astro`
-  estão como `[Nome do consultor]`.
+- **Time Fenié**: `src/components/Consultants.astro` já tem os nomes
+  reais (Osvaldir Niejelski, CEO; Ricardo Souza, Diretor de Marketing e
+  Comercial); só falta a foto de cada um substituir o círculo placeholder.
 - **Academy**: `src/components/AcademyTeaser.astro` tem um curso de
   exemplo; a agenda real e a página de cada educador precisam de dono
   definido antes do lançamento (regra do briefing, não só boa prática).

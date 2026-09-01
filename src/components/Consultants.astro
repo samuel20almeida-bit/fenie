@@ -2,28 +2,25 @@
 import Button from "./Button.astro";
 import { whatsappLink } from "../lib/whatsapp";
 
-const consultants = [
-  { name: "[Nome do consultor]", region: "Consultor regional · Curitiba" },
-  { name: "[Nome da consultora]", region: "Consultora regional · Região metropolitana" },
-  { name: "[Nome do consultor]", region: "Consultor regional · Litoral" },
+const team = [
+  { name: "Osvaldir Niejelski", role: "CEO" },
+  { name: "Ricardo Souza", role: "Diretor de Marketing e Comercial" },
 ];
 ---
 
 <section class="bg-midnight py-26">
   <div class="container-editorial">
     <div class="reveal mb-12 max-w-[60ch]">
-      <h2 class="text-[clamp(1.7rem,2.8vw,2.2rem)]">
-        Atendimento profissional com base em Curitiba.
-      </h2>
+      <h2 class="text-[clamp(1.7rem,2.8vw,2.2rem)]">Time Fenié.</h2>
       <p class="mt-4 max-w-[52ch] text-platina">
-        A Fenié atua a partir de Curitiba e atende profissionais e salões conforme sua operação
-        comercial e rotas regionais.
+        As pessoas à frente da Fenié: de quem decide o rumo da empresa a quem toca o comercial e o
+        relacionamento com o salão no dia a dia.
       </p>
     </div>
 
     <div class="reveal flex flex-col divide-y divide-white/10 border-t border-white/10 sm:flex-row sm:divide-x sm:divide-y-0 sm:border-t-0 sm:border-b">
       {
-        consultants.map((c) => (
+        team.map((p) => (
           <div class="flex flex-1 items-center gap-4 py-6 sm:px-8 sm:py-0 first:sm:pl-0">
             <div
               class="h-14 w-14 shrink-0 rounded-full border border-white/10 bg-midnight-card"
@@ -31,19 +28,16 @@ const consultants = [
               aria-hidden="true"
             />
             <div>
-              <h3 class="font-body text-[0.98rem] font-bold">{c.name}</h3>
-              <p class="mt-0.5 text-[0.82rem] text-platina">{c.region}</p>
+              <h3 class="font-body text-[0.98rem] font-bold">{p.name}</h3>
+              <p class="mt-0.5 text-[0.82rem] text-platina">{p.role}</p>
             </div>
           </div>
         ))
       }
     </div>
 
-    <Button
-      href={whatsappLink("Olá! Quero consultar o atendimento da Fenié na minha região.")}
-      class="mt-9"
-    >
-      Consultar atendimento na minha região
+    <Button href={whatsappLink("Olá! Quero falar com a equipe da Fenié Pro.")} class="mt-9">
+      Falar com a equipe Fenié
     </Button>
   </div>
 </section>
