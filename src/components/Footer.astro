@@ -1,5 +1,6 @@
 ---
 import { whatsappLink } from "../lib/whatsapp";
+import { empresa, enderecoLinha, mapaLink } from "../data/empresa";
 
 const columns = [
   {
@@ -26,18 +27,19 @@ const columns = [
     ],
   },
 ];
+
+const ano = new Date().getFullYear();
 ---
 
 <footer class="border-t border-white/10 bg-midnight">
-  <div class="container-immersive grid gap-12 py-19 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+  <div
+    class="container-immersive grid gap-12 py-19 md:grid-cols-2 lg:grid-cols-[1.3fr_0.9fr_0.9fr_0.9fr_1.1fr]"
+  >
     <div>
       <p class="font-body text-[19px] font-bold tracking-wide uppercase">
         Fenié <span class="text-gold">Pro</span>
       </p>
-      <p class="mt-3.5 max-w-[32ch] text-sm text-platina">
-        Produtos profissionais, conhecimento técnico e suporte comercial para salões e
-        profissionais da beleza.
-      </p>
+      <p class="mt-3.5 max-w-[32ch] text-sm text-platina">{empresa.descricaoCurta}</p>
       <a
         href={whatsappLink("Olá! Vim pelo site da Fenié Pro e quero falar com um consultor.")}
         class="mt-4 inline-block border-b border-gold pb-0.5 text-[13.5px] font-semibold text-bone hover:text-gold"
@@ -60,5 +62,39 @@ const columns = [
         </div>
       ))
     }
+
+    <div>
+      <p class="eyebrow mb-4">Contato</p>
+      <address class="flex flex-col gap-2.5 text-sm not-italic text-platina">
+        <a href={mapaLink} target="_blank" rel="noopener" class="max-w-[26ch] hover:text-gold">
+          {enderecoLinha}
+        </a>
+        <a href={`tel:${empresa.telefoneE164}`} class="hover:text-gold">{empresa.telefone}</a>
+        <a href={`mailto:${empresa.email}`} class="break-all hover:text-gold">{empresa.email}</a>
+        <span class="font-mono text-[11.5px]">{empresa.horario}</span>
+      </address>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div
+      class="container-immersive flex flex-col-reverse gap-4 py-6 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p class="font-mono text-[11.5px] text-platina">© {ano} Fenié Pro</p>
+      <div class="flex flex-wrap gap-6">
+        {
+          empresa.redes.map((rede) => (
+            <a
+              href={rede.href}
+              target="_blank"
+              rel="noopener"
+              class="text-[13.5px] font-semibold text-platina hover:text-gold"
+            >
+              {rede.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </footer>

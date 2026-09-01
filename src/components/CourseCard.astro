@@ -1,0 +1,49 @@
+---
+import type { Curso } from "../data/cursos";
+import { whatsappLink } from "../lib/whatsapp";
+
+interface Props {
+  curso: Curso;
+  class?: string;
+}
+
+const { curso, class: className = "" } = Astro.props;
+---
+
+<div
+  id={curso.slug}
+  class:list={[
+    "flex scroll-mt-28 items-start gap-4 rounded-editorial sm:gap-5 border border-white/10 bg-midnight-card p-6 transition-[border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold pointer-fine:hover:-translate-y-0.5",
+    className,
+  ]}
+>
+  <div class="min-w-12 text-center sm:min-w-16">
+    <p class="text-[1.7rem] leading-none font-bold tracking-tight">{curso.dataTopo}</p>
+    <p class="eyebrow mt-1.5 text-platina">{curso.dataBase}</p>
+  </div>
+
+  <div class="flex-1 border-l border-white/10 pl-4 sm:pl-5">
+    <h3 class="font-body text-[1.05rem] font-bold">
+      {curso.nome}{curso.educador && <span class="text-gold"> · {curso.educador}</span>}
+    </h3>
+    <p class="mt-2 max-w-[56ch] text-[0.9rem] text-platina">{curso.descricao}</p>
+
+    <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+      <span class="font-mono text-[11.5px] text-platina">{curso.local}</span>
+      {
+        curso.detalhes.map((d) => (
+          <span class="rounded-full border border-white/15 px-2.5 py-0.5 font-mono text-[10.5px] tracking-wide text-platina uppercase">
+            {d}
+          </span>
+        ))
+      }
+    </div>
+
+    <a
+      href={whatsappLink(`Olá! Quero informações sobre o curso "${curso.nome}" da Fenié Academy.`)}
+      class="mt-3.5 inline-block border-b border-gold pb-0.5 text-[13px] font-semibold"
+    >
+      Saber mais e garantir vaga →
+    </a>
+  </div>
+</div>

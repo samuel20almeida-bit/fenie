@@ -2,13 +2,14 @@
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
 import ProfessionalSignupForm from "../../components/ProfessionalSignupForm.astro";
+import ContactDetails from "../../components/ContactDetails.astro";
 import Faq from "../../components/Faq.astro";
 import { whatsappLink } from "../../lib/whatsapp";
 ---
 
 <Layout
   title="Contato"
-  description="Fale com um consultor Fenié Pro ou faça seu cadastro profissional."
+  description="Fale com um consultor Fenié Pro ou faça seu cadastro profissional. Rua Dr. Goulin, 1123 — Juvevê, Curitiba/PR · (41) 99840-2800."
 >
   <section class="py-33">
     <div class="container-editorial max-w-160">
@@ -27,6 +28,10 @@ import { whatsappLink } from "../../lib/whatsapp";
       <p class="mt-4 font-mono text-[11.5px] text-platina">
         Ao iniciar a conversa, informe seu nome, salão, cidade e principal interesse.
       </p>
+    </div>
+
+    <div class="container-editorial mt-19 max-w-160">
+      <ContactDetails />
     </div>
 
     <div class="container-editorial mt-19 max-w-160">
