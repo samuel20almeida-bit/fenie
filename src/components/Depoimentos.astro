@@ -1,30 +1,28 @@
 ---
-import {
-  depoimentoDestaque,
-  depoimentosPrincipais,
-  depoimentosComplementares,
-} from "../data/institucional";
+import { depoimentos } from "../data/institucional";
 
 interface Props {
-  /** Precisa casar com o fundo da seção: os grids usam gap-px + bg-white/10
-   *  para desenhar os fios, então a face dos cards herda a mesma cor. */
   surface?: "midnight" | "midnight-alt";
 }
 
 const { surface = "midnight-alt" } = Astro.props;
-
-// Tailwind precisa das classes literais no código para gerá-las.
 const bg = surface === "midnight" ? "bg-midnight" : "bg-midnight-alt";
 
-// Hierarquia em três degraus (1 destaque → 2 principais → 3 complementares),
-// como pede o material: seis cards idênticos viram parede de avaliação, não
-// coleção editorial de experiências. Sem foto de cliente porque não temos
-// nenhuma real — inventar rosto aqui seria o pior tipo de prova social.
+// Porte do "Stagger Testimonials" (21st.dev, @vaib215) para Astro: o original
+// é React com estado, e aqui o site é estático por regra. A mecânica é a
+// mesma — cards sobrepostos, o do centro em destaque e elevado, os laterais
+// rotacionados, clique em qualquer um traz ele para o centro — mas em JS
+// vanilla, sem reordenar o DOM: cada card só recalcula a própria posição.
+//
+// Duas adaptações de conteúdo: o original tem um bloco de foto do cliente,
+// que não temos de ninguém (e o material da Fenié proíbe inventar), então o
+// lugar dele é ocupado pela categoria do depoimento; e as superfícies saem
+// do neobrutalismo do original para o midnight + gold da marca.
 ---
 
 <section class={`${bg} py-26`}>
   <div class="container-editorial">
-    <div class="reveal mb-12 max-w-[54ch]">
+    <div class="reveal max-w-[54ch]">
       <p class="eyebrow mb-5">Depoimentos</p>
       <h2 class="text-[clamp(1.9rem,3.4vw,2.7rem)]">
         Quem vive a experiência Fenié, <em>recomenda</em>.
@@ -34,56 +32,212 @@ const bg = surface === "midnight" ? "bg-midnight" : "bg-midnight-alt";
         evoluir seus negócios.
       </p>
     </div>
+  </div>
 
-    <figure class={`reveal border-t border-gold/40 pt-10 md:pt-12`}>
-      <p class="eyebrow mb-6 text-platina">{depoimentoDestaque.categoria}</p>
-      <blockquote>
-        <p class="max-w-[26ch] font-display text-[clamp(1.7rem,3.4vw,2.7rem)] leading-[1.25] italic text-bone md:max-w-[34ch]">
-          “{depoimentoDestaque.texto}”
-        </p>
-      </blockquote>
-      <figcaption class="mt-8 font-body text-feature font-bold">
-        {depoimentoDestaque.autor}
-      </figcaption>
-    </figure>
+  <div
+    id="depo-palco"
+    class="reveal relative mt-12 h-[400px] overflow-hidden sm:h-[460px]"
+    data-total={depoimentos.length}
+  >
+    {
+      depoimentos.map((d, i) => (
+        <button type="button" class="depo-card" data-index={i}>
+          <span class="depo-bisel" aria-hidden="true" />
+          <span class="depo-categoria">{d.categoria}</span>
+          <span class="depo-texto">“{d.texto}”</span>
+          <span class="depo-autor">{d.autor}</span>
+        </button>
+      ))
+    }
+  </div>
 
-    <div class="mt-14 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
-      {
-        depoimentosPrincipais.map((d, i) => (
-          <figure
-            class={`reveal flex flex-col justify-between gap-7 ${bg} p-8 md:p-10`}
-            style={`transition-delay: ${i * 75}ms`}
-          >
-            <div>
-              <p class="eyebrow mb-4 text-platina">{d.categoria}</p>
-              <blockquote>
-                <p class="font-display text-[clamp(1.15rem,1.8vw,1.4rem)] leading-relaxed italic text-bone">
-                  “{d.texto}”
-                </p>
-              </blockquote>
-            </div>
-            <figcaption class="font-body text-base font-bold">{d.autor}</figcaption>
-          </figure>
-        ))
-      }
-    </div>
-
-    <div class="mt-10 grid gap-x-10 gap-y-9 border-t border-white/10 pt-10 md:grid-cols-3">
-      {
-        depoimentosComplementares.map((d, i) => (
-          <figure class="reveal" style={`transition-delay: ${i * 75}ms`}>
-            <p class="eyebrow mb-3 text-platina">{d.categoria}</p>
-            <blockquote>
-              <p class="max-w-[38ch] font-body text-base leading-relaxed text-platina">
-                “{d.texto}”
-              </p>
-            </blockquote>
-            <figcaption class="mt-4 font-mono text-micro tracking-wide text-bone uppercase">
-              {d.autor}
-            </figcaption>
-          </figure>
-        ))
-      }
-    </div>
+  <div class="mt-8 flex items-center justify-center gap-3">
+    <button
+      type="button"
+      id="depo-anterior"
+      aria-label="Depoimento anterior"
+      class="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-bone transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) hover:border-gold hover:text-gold"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 5l-7 7 7 7" />
+      </svg>
+    </button>
+    <p id="depo-contador" class="min-w-16 text-center font-mono text-micro tracking-wide text-platina" aria-hidden="true"></p>
+    <button
+      type="button"
+      id="depo-proximo"
+      aria-label="Próximo depoimento"
+      class="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-bone transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) hover:border-gold hover:text-gold"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
   </div>
 </section>
+
+<style>
+  /* O canto superior direito chanfrado é a assinatura do componente
+     original; aqui ele vira um fio da mesma família dos outros fios de 1px
+     do site, em vez da barra grossa neobrutalista. */
+  .depo-card {
+    --bisel: 2.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    width: var(--card, 17rem);
+    height: var(--card, 17rem);
+    cursor: pointer;
+    flex-direction: column;
+    gap: 0.9rem;
+    border: 1px solid color-mix(in srgb, white 10%, transparent);
+    background: var(--color-midnight-card);
+    padding: 1.6rem;
+    text-align: left;
+    transition:
+      transform 500ms var(--ease-editorial),
+      background-color 300ms var(--ease-editorial),
+      border-color 300ms var(--ease-editorial),
+      box-shadow 300ms var(--ease-editorial);
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--bisel)) 0,
+      100% var(--bisel),
+      100% 100%,
+      0 100%
+    );
+  }
+
+  .depo-bisel {
+    position: absolute;
+    top: calc(var(--bisel) / 2 - 1px);
+    right: calc(var(--bisel) / -2);
+    width: calc(var(--bisel) * 1.4142);
+    height: 1px;
+    transform: rotate(-45deg);
+    background: color-mix(in srgb, white 14%, transparent);
+  }
+
+  .depo-card:hover {
+    border-color: color-mix(in srgb, var(--color-gold) 45%, transparent);
+  }
+
+  .depo-card.is-center {
+    z-index: 10;
+    border-color: var(--color-gold);
+    background: var(--color-gold);
+    box-shadow: 0 18px 40px -12px rgb(0 0 0 / 0.55);
+    cursor: default;
+  }
+
+  .depo-categoria {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .depo-texto {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-bone);
+  }
+
+  .depo-autor {
+    margin-top: auto;
+    font-family: var(--font-body);
+    font-size: var(--text-caption);
+    font-weight: 700;
+    color: var(--color-bone);
+  }
+
+  .depo-card.is-center .depo-categoria,
+  .depo-card.is-center .depo-texto,
+  .depo-card.is-center .depo-autor {
+    color: var(--color-midnight);
+  }
+
+  .depo-card.is-center .depo-bisel {
+    background: color-mix(in srgb, var(--color-midnight) 30%, transparent);
+  }
+
+  @media (min-width: 640px) {
+    .depo-card {
+      --card: 21rem;
+      padding: 2rem;
+    }
+    .depo-texto {
+      font-size: 1.05rem;
+    }
+  }
+</style>
+
+<script>
+  const palco = document.getElementById("depo-palco");
+  const cards = [...document.querySelectorAll<HTMLButtonElement>(".depo-card")];
+  const contador = document.getElementById("depo-contador");
+  const anterior = document.getElementById("depo-anterior");
+  const proximo = document.getElementById("depo-proximo");
+
+  if (palco && cards.length && contador && anterior && proximo) {
+    const total = cards.length;
+    // Fatia da distância entre um card e o seguinte — o original usa
+    // cardSize/1.5, que é o que faz um card cobrir parte do vizinho.
+    const passo = () => (window.matchMedia("(min-width: 640px)").matches ? 336 : 272) / 1.5;
+    let centro = 0;
+
+    function posicaoDe(i: number) {
+      // Normaliza para a faixa simétrica em torno de zero: com 6 cards,
+      // -3..2. Sem isso, quem está no fim da lista sairia voando para o
+      // lado errado ao invés de dar a volta.
+      let p = (((i - centro) % total) + total) % total;
+      if (p > Math.floor((total - 1) / 2)) p -= total;
+      return p;
+    }
+
+    function desenhar() {
+      const dx = passo();
+      cards.forEach((card, i) => {
+        const p = posicaoDe(i);
+        const ehCentro = p === 0;
+        const y = ehCentro ? -52 : p % 2 ? 14 : -14;
+        const giro = ehCentro ? 0 : p % 2 ? 2.5 : -2.5;
+        card.style.transform = `translate(-50%, -50%) translateX(${dx * p}px) translateY(${y}px) rotate(${giro}deg)`;
+        card.classList.toggle("is-center", ehCentro);
+        // Todos os seis continuam no fluxo de teclado e legíveis por leitor
+        // de tela — o texto está visível na tela, esconder da árvore de
+        // acessibilidade seria mentir sobre o que a página mostra. O card do
+        // centro só se marca como o atual; clicar nele não faz nada.
+        card.setAttribute("aria-current", ehCentro ? "true" : "false");
+      });
+      contador.textContent = `${String(centro + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+    }
+
+    function mover(passos: number) {
+      centro = (((centro + passos) % total) + total) % total;
+      desenhar();
+    }
+
+    cards.forEach((card, i) => {
+      card.addEventListener("click", () => {
+        const p = posicaoDe(i);
+        if (p !== 0) mover(p);
+      });
+    });
+
+    anterior.addEventListener("click", () => mover(-1));
+    proximo.addEventListener("click", () => mover(1));
+
+    let redimensionar: number;
+    window.addEventListener("resize", () => {
+      window.clearTimeout(redimensionar);
+      redimensionar = window.setTimeout(desenhar, 120);
+    });
+
+    desenhar();
+  }
+</script>

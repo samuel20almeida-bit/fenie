@@ -101,6 +101,32 @@ item de `realidade` em `data/institucional.ts` carrega o campo `origem`,
 apontando qual dos `motivos` reais o sustenta. Não acrescentar dor,
 número ou etapa sem origem rastreável no material da Fenié.
 
+## Depoimentos (componente portado)
+
+`Depoimentos.astro` é um porte do **Stagger Testimonials** de
+[@vaib215 no 21st.dev](https://21st.dev/@vaib215/components/stagger-testimonials).
+O original é React com estado; aqui o site é estático por regra, então a
+mecânica foi reescrita em JS vanilla — e sem reordenar o DOM: cada card só
+recalcula a própria posição em relação ao centro, com volta ao início nas
+pontas.
+
+Duas adaptações que valem saber antes de mexer:
+
+- **Não há foto de cliente.** O card do original é construído em volta de
+  uma foto, e não temos nenhuma dos seis (o material da Fenié proíbe
+  inventar). O lugar dela é ocupado pela categoria do depoimento, que é
+  informação real e ainda conecta a fala ao pilar da marca que ela
+  comprova.
+- **As superfícies saíram do neobrutalismo** do original (borda de 2px,
+  sombra dura deslocada) para o midnight + gold da marca. O que ficou do
+  desenho original é o que lhe dá identidade: o empilhamento, a rotação
+  alternada dos laterais, o card central elevado e o canto chanfrado.
+
+Acessibilidade: os seis cards continuam no fluxo de teclado e legíveis por
+leitor de tela — o texto está visível na tela, escondê-lo da árvore de
+acessibilidade seria mentir sobre o que a página mostra. O card central
+leva `aria-current="true"` e clicar nele não faz nada.
+
 ## Estrutura de rotas (as quatro portas)
 
 ```
