@@ -71,7 +71,7 @@ import { categories } from "../../data/olenka";
     categories.map((cat, ci) => (
       <section class:list={["py-19", ci % 2 === 1 && "bg-midnight-alt"]}>
         <div class="container-editorial">
-          <p class="eyebrow reveal mb-8">{cat.nome}</p>
+          <h2 class="eyebrow reveal mb-8">{cat.nome}</h2>
           <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {cat.linhas.map((linha) => (
               <ProductLineCard linha={linha} />

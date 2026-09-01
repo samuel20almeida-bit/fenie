@@ -27,8 +27,53 @@ const nav = [
       }
     </nav>
 
-    <Button href={whatsappLink("Olá! Vim pelo site da Fenié Pro e quero falar com um consultor.")} class="hidden sm:inline-flex">
-      Falar com um consultor
-    </Button>
+    <div class="flex items-center gap-3">
+      <Button href={whatsappLink("Olá! Vim pelo site da Fenié Pro e quero falar com um consultor.")}>
+        Falar com um consultor
+      </Button>
+
+      <details class="relative md:hidden">
+        <summary
+          class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/15 text-bone transition-colors hover:border-gold hover:text-gold [&::-webkit-details-marker]:hidden"
+          aria-label="Abrir menu"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M3 6h14M3 10h14M3 14h14" />
+          </svg>
+        </summary>
+        <nav
+          class="absolute top-[calc(100%+0.75rem)] right-0 w-64 rounded-editorial border border-white/10 bg-midnight-card p-2 shadow-xl"
+          aria-label="Navegação principal"
+        >
+          {
+            nav.map((item) => (
+              <a
+                href={item.href}
+                class="block rounded-editorial px-4 py-3 text-sm font-medium text-bone hover:bg-white/5 hover:text-gold"
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+    </div>
   </div>
 </header>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>("header details");
+  if (menu) {
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.open = false;
+      });
+    });
+    document.addEventListener("click", (event) => {
+      if (menu.open && !menu.contains(event.target as Node)) menu.open = false;
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) menu.open = false;
+    });
+  }
+</script>

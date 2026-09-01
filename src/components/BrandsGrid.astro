@@ -19,7 +19,7 @@ const plateClass =
 <section class="bg-midnight py-26">
   <div class="container-editorial">
     {
-      showHeading && (
+      showHeading ? (
         <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-6">
           <div class="max-w-[52ch]">
             <h2 class="text-[clamp(1.8rem,3vw,2.4rem)]">Marcas parceiras</h2>
@@ -31,6 +31,11 @@ const plateClass =
             Ver todas as marcas →
           </a>
         </div>
+      ) : (
+        // A página que embute o grid sem repetir o título (/marcas) já tem "Marcas
+        // parceiras" no h1 do hero — este h2 fica só pra hierarquia de heading não
+        // pular do h1 direto pros h3 dos cards.
+        <h2 class="sr-only">Marcas parceiras</h2>
       )
     }
 
