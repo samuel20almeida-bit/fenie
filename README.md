@@ -1,4 +1,4 @@
-# Feniê Pro — site institucional
+# Fenié Pro — site institucional
 
 ## Stack
 
@@ -26,9 +26,11 @@ direto num componente — sempre pela variável/utility já existente:
 - Cores: `bg-midnight`, `bg-midnight-alt`, `bg-midnight-card`, `bg-gold`,
   `text-platina`, `text-bone` — os quatro degraus de elevação do
   briefing (Midnight → seção alternada → card → hover).
-- Tipografia: `font-display` (Bodoni Moda, manchetes), `font-body`
-  (Archivo, corpo — é o padrão do `<body>`), `font-mono` (JetBrains
-  Mono, etiquetas/números — ver classe utilitária `.eyebrow`).
+- Tipografia: títulos (h1/h2/h3) e corpo usam `font-body` (Archivo —
+  títulos em 700 bold, alinhados à identidade sans da logo); `font-display`
+  (Bodoni Moda) fica reservada só para citações entre aspas (`blockquote`);
+  `font-mono` (JetBrains Mono) em etiquetas/números — ver classe
+  utilitária `.eyebrow`.
 - Movimento: `--ease-editorial` é a curva única do briefing
   (`cubic-bezier(.23,1,.32,1)`); a classe `.reveal` implementa a entrada
   por scroll (550ms, dispara uma vez só) via `IntersectionObserver` em
@@ -50,7 +52,7 @@ só precisa ser definida se algum ambiente exigir um número diferente.
 /marcas           Portfólio de marcas
 /marcas/olenka    Página de marca (modelo — replicar por marca)
 /solucoes         Apoio ao negócio
-/academy          Feniê Academy / agenda de cursos
+/academy          Fenié Academy / agenda de cursos
 /contato          Contato + cadastro profissional
 ```
 
