@@ -90,22 +90,29 @@ em {
   font-weight: 500;
 }
 
-/* contêiner 1180px padrão · imersivo 1440px (briefing cap. 06) */
-.container-editorial {
-  max-width: 1180px;
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-}
-.container-immersive {
-  max-width: 1440px;
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-}
+/* contêiner 1180px padrão · imersivo 1440px (briefing cap. 06)
 
-@media (min-width: 640px) {
-  .container-editorial,
+   Precisa viver em @layer components: CSS sem layer vence as utilities do
+   Tailwind (que ficam em @layer utilities), e sem isso todo `max-w-160`
+   escrito ao lado de .container-editorial era silenciosamente ignorado —
+   a coluna de texto abria 1180px em vez dos 640px pedidos. */
+@layer components {
+  .container-editorial {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
   .container-immersive {
-    padding-inline: 2.5rem;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-editorial,
+    .container-immersive {
+      padding-inline: 2.5rem;
+    }
   }
 }
 

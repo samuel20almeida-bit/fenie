@@ -2,35 +2,46 @@
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
 import ProfessionalSignupForm from "../../components/ProfessionalSignupForm.astro";
+import ContactDetails from "../../components/ContactDetails.astro";
 import Faq from "../../components/Faq.astro";
 import { whatsappLink } from "../../lib/whatsapp";
 ---
 
 <Layout
   title="Contato"
-  description="Fale com um consultor Fenié Pro ou faça seu cadastro profissional."
+  description="Fale com um consultor Fenié Pro ou faça seu cadastro profissional. Rua Dr. Goulin, 1123 — Juvevê, Curitiba/PR · (41) 99840-2800."
 >
   <section class="py-33">
-    <div class="container-editorial max-w-160">
-      <p class="eyebrow mb-5">Primeiro atendimento</p>
-      <h1 class="text-[clamp(2rem,4vw,3rem)]">Vamos entender o que seu salão precisa?</h1>
-      <p class="mt-5 text-lg text-platina">
-        Fale com a equipe da Fenié e receba um atendimento inicial para conhecer marcas,
-        soluções e condições comerciais.
-      </p>
-      <Button
-        href={whatsappLink("Olá! Vim pelo site da Fenié Pro e quero falar com um consultor.")}
-        class="mt-7"
-      >
-        Falar com um consultor
-      </Button>
-      <p class="mt-4 font-mono text-[11.5px] text-platina">
-        Ao iniciar a conversa, informe seu nome, salão, cidade e principal interesse.
-      </p>
+    <div class="container-editorial">
+      <div class="max-w-160">
+        <p class="eyebrow mb-5">Primeiro atendimento</p>
+        <h1 class="text-[clamp(2rem,4vw,3rem)]">Vamos entender o que seu salão precisa?</h1>
+        <p class="mt-5 text-lg text-platina">
+          Fale com a equipe da Fenié e receba um atendimento inicial para conhecer marcas,
+          soluções e condições comerciais.
+        </p>
+        <Button
+          href={whatsappLink("Olá! Vim pelo site da Fenié Pro e quero falar com um consultor.")}
+          class="mt-7"
+        >
+          Falar com um consultor
+        </Button>
+        <p class="mt-4 font-mono text-[11.5px] text-platina">
+          Ao iniciar a conversa, informe seu nome, salão, cidade e principal interesse.
+        </p>
+      </div>
     </div>
 
-    <div class="container-editorial mt-19 max-w-160">
-      <ProfessionalSignupForm />
+    <div class="container-editorial">
+      <div class="mt-19 max-w-160">
+        <ContactDetails />
+      </div>
+    </div>
+
+    <div class="container-editorial">
+      <div class="mt-19 max-w-160">
+        <ProfessionalSignupForm />
+      </div>
     </div>
   </section>
 

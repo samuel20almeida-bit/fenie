@@ -1,0 +1,54 @@
+---
+import { empresa, enderecoLinha, mapaLink } from "../data/empresa";
+
+const items = [
+  { label: "Endereço", value: enderecoLinha, href: mapaLink, external: true },
+  { label: "Telefone", value: empresa.telefone, href: `tel:${empresa.telefoneE164}` },
+  { label: "E-mail", value: empresa.email, href: `mailto:${empresa.email}` },
+  { label: "Atendimento", value: empresa.horario },
+];
+---
+
+<div class="border-t border-white/10 pt-14">
+  <p class="eyebrow mb-5">Onde encontrar a Fenié</p>
+
+  <dl class="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2">
+    {
+      items.map((item) => (
+        <div class="bg-midnight p-6">
+          <dt class="eyebrow text-platina">{item.label}</dt>
+          <dd class="mt-2 font-body text-[0.98rem] text-bone">
+            {item.href ? (
+              <a
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener" : undefined}
+                class="hover:text-gold"
+              >
+                {item.value}
+              </a>
+            ) : (
+              item.value
+            )}
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+
+  <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+    <p class="eyebrow text-platina">Redes</p>
+    {
+      empresa.redes.map((rede) => (
+        <a
+          href={rede.href}
+          target="_blank"
+          rel="noopener"
+          class="border-b border-white/10 pb-0.5 text-[13.5px] font-semibold text-platina hover:border-gold hover:text-gold"
+        >
+          {rede.label} <span class="font-mono text-[11.5px]">{rede.handle}</span>
+        </a>
+      ))
+    }
+  </div>
+</div>

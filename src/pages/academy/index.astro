@@ -1,23 +1,112 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import AcademyTeaser from "../../components/AcademyTeaser.astro";
+import Button from "../../components/Button.astro";
+import CourseCard from "../../components/CourseCard.astro";
+import CtaFinal from "../../components/CtaFinal.astro";
+import { cursos, educadores, modalidades } from "../../data/cursos";
+import { whatsappLink } from "../../lib/whatsapp";
 ---
 
 <Layout
   title="Fenié Academy"
-  description="Cursos, oficinas e formações técnicas da Fenié Academy para o profissional da beleza evoluir com segurança."
+  description="Cursos técnicos, formações e imersões da Fenié Academy em Curitiba. Veja a agenda confirmada de 2026 e garanta sua vaga."
 >
-  <div class="pt-33">
-    <div class="container-editorial mb-4 max-w-160">
-      <p class="eyebrow mb-5">Fenié Academy</p>
-      <h1 class="text-[clamp(2rem,4vw,3rem)]">Agenda de cursos</h1>
-      <p class="mt-5 text-lg text-platina">
-        A agenda completa e a página de cada educador entram aqui, com estado real de
-        inscrições e trajetória de quem dá aula.
+  <section class="pt-33 pb-6">
+    <div class="container-editorial">
+      <div class="max-w-160">
+        <p class="eyebrow mb-5">Fenié Academy</p>
+        <h1 class="text-[clamp(2rem,4vw,3rem)]">
+          Formação profissional para quem vive da <em>beleza</em>.
+        </h1>
+        <p class="mt-5 text-lg text-platina">
+          A Fenié Academy oferece cursos técnicos, formações e imersões profissionais para quem
+          busca evolução real, segurança técnica e crescimento no salão.
+        </p>
+        <Button href="#agenda" variant="outline" class="mt-7">Ver agenda confirmada →</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-19">
+    <div class="container-editorial">
+      <div class="grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+        {
+          modalidades.map((m, i) => (
+            <div class="reveal bg-midnight p-8" style={`transition-delay: ${i * 75}ms`}>
+              <p class="eyebrow text-platina">{String(i + 1).padStart(2, "0")}</p>
+              <h2 class="mt-2.5 font-body text-[1.15rem] font-semibold">{m.nome}</h2>
+              <p class="mt-2.5 text-[0.92rem] text-platina">{m.descricao}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda" class="scroll-mt-24 bg-midnight-alt py-26">
+    <div class="container-editorial">
+      <div class="reveal mb-12 max-w-[60ch]">
+        <p class="eyebrow mb-4">Agenda confirmada · 2026</p>
+        <h2 class="text-[clamp(1.7rem,2.8vw,2.2rem)]">Próximos cursos e imersões</h2>
+        <p class="mt-4 text-platina">
+          Selecione o treinamento e fale com a equipe para ver detalhes, condições e garantir
+          vaga.
+        </p>
+      </div>
+
+      <div class="grid gap-5">
+        {cursos.map((curso, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 75}ms`}>
+            <CourseCard curso={curso} />
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-8 font-mono text-[11.5px] text-platina">
+        Datas e formatos podem mudar. Confirme com um consultor antes de se programar.
       </p>
     </div>
-  </div>
-  <div id="educadores">
-    <AcademyTeaser />
-  </div>
+  </section>
+
+  <section id="educadores" class="scroll-mt-24 bg-midnight py-26">
+    <div class="container-editorial">
+      <div class="reveal mb-12 max-w-[60ch]">
+        <p class="eyebrow mb-4">Educadores convidados</p>
+        <h2 class="text-[clamp(1.7rem,2.8vw,2.2rem)]">Quem assina os cursos da agenda</h2>
+        <p class="mt-4 text-platina">
+          Cada imersão é conduzida por um profissional convidado. A trajetória completa de cada
+          educador entra aqui conforme o material é publicado.
+        </p>
+      </div>
+
+      <div class="reveal flex flex-col divide-y divide-white/10 border-y border-white/10 sm:flex-row sm:divide-x sm:divide-y-0">
+        {
+          educadores.map((e) => (
+            <div class="flex flex-1 items-center gap-4 py-6 sm:px-8 sm:py-7 first:sm:pl-0">
+              <div
+                class="h-14 w-14 shrink-0 rounded-full border border-white/10 bg-midnight-card"
+                style="background-image: repeating-linear-gradient(135deg, color-mix(in oklab, var(--color-gold) 10%, transparent) 0px, color-mix(in oklab, var(--color-gold) 10%, transparent) 1px, transparent 1px, transparent 15px);"
+                aria-hidden="true"
+              />
+              <div>
+                <h3 class="font-body text-[0.98rem] font-bold">{e.nome}</h3>
+                <a href={`#${e.slug}`} class="mt-0.5 block text-[0.82rem] text-platina hover:text-gold">
+                  {e.curso} →
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <Button
+        href={whatsappLink("Olá! Quero receber a agenda de cursos da Fenié Academy.")}
+        class="mt-10"
+      >
+        Quero receber a agenda de cursos
+      </Button>
+    </div>
+  </section>
+
+  <CtaFinal />
 </Layout>

@@ -1,59 +1,97 @@
 ---
-// TODO: quando o catálogo de marcas crescer, migrar para uma content
-// collection (src/content/marcas) em vez desta lista fixa.
-import Button from "./Button.astro";
-import PlaceholderMedia from "./PlaceholderMedia.astro";
+import { marcaDestaque, marcasSecundarias } from "../data/marcas";
+import { whatsappLink } from "../lib/whatsapp";
+
+interface Props {
+  /** Na página /marcas o título da seção já está no hero — não repetir. */
+  showHeading?: boolean;
+}
+
+const { showHeading = true } = Astro.props;
+const destaque = marcaDestaque.destaque!;
+
+// Logos oficiais das marcas são pretos sobre fundo branco: ficam ilegíveis
+// direto no midnight, por isso cada um vive numa placa clara.
+const plateClass =
+  "flex h-24 items-center justify-center rounded-editorial bg-white p-5";
 ---
 
 <section class="bg-midnight py-26">
   <div class="container-editorial">
-    <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-6">
-      <div class="max-w-[52ch]">
-        <h2 class="text-[clamp(1.8rem,3vw,2.4rem)]">Marcas parceiras</h2>
-        <p class="mt-4 text-platina">
-          Um portfólio selecionado para diferentes serviços, técnicas e rotinas do salão.
-        </p>
-      </div>
-      <a href="/marcas" class="border-b border-gold pb-0.5 text-sm font-semibold">
-        Ver todas as marcas →
-      </a>
-    </div>
+    {
+      showHeading && (
+        <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-6">
+          <div class="max-w-[52ch]">
+            <h2 class="text-[clamp(1.8rem,3vw,2.4rem)]">Marcas parceiras</h2>
+            <p class="mt-4 text-platina">
+              Um portfólio selecionado para diferentes serviços, técnicas e rotinas do salão.
+            </p>
+          </div>
+          <a href="/marcas" class="border-b border-gold pb-0.5 text-sm font-semibold">
+            Ver todas as marcas →
+          </a>
+        </div>
+      )
+    }
 
-    <div class="grid gap-6 lg:grid-cols-[1.3fr_1fr_1fr]">
-      <div class="reveal group flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-7 transition-[color,background-color,border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold pointer-fine:hover:-translate-y-0.5">
-        <div class="flex h-55 items-center justify-center rounded-editorial bg-white/[0.03] p-5">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:grid-rows-3">
+      <div
+        class="reveal group flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-7 transition-[color,background-color,border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold sm:col-span-2 lg:col-span-1 lg:row-span-3 pointer-fine:hover:-translate-y-0.5"
+      >
+        <div class="flex flex-1 items-center justify-center rounded-editorial bg-white/[0.03] p-5">
           <img
-            src="/images/marcas/olenka/royal-look.webp"
-            alt="Kit Royal Look, alisamento capilar Olenka"
-            class="h-full w-full object-contain"
+            src={destaque.imagem}
+            alt={destaque.imagemAlt}
+            class="max-h-70 w-full object-contain"
             loading="lazy"
             decoding="async"
           />
         </div>
         <div>
-          <p class="eyebrow mb-2.5">Tratamento · Transformação</p>
-          <h3 class="font-body text-[1.3rem] font-bold">Olenka Cosméticos</h3>
+          <p class="eyebrow mb-2.5">{destaque.eyebrow}</p>
+          <h3 class="font-body text-[1.3rem] font-bold">{marcaDestaque.nome}</h3>
+          <p class="mt-2.5 max-w-[42ch] text-[0.92rem] text-platina">{destaque.resumo}</p>
           <div class="mt-3.5 flex flex-wrap gap-5">
-            <a href="/marcas/olenka" class="border-b border-gold pb-0.5 text-[13.5px] font-semibold">
+            <a
+              href={marcaDestaque.href}
+              class="border-b border-gold pb-0.5 text-[13.5px] font-semibold"
+            >
               Conhecer a marca →
             </a>
             <a
-              href="/academy#curso-formas"
+              href="/academy#agenda"
               class="border-b border-white/10 pb-0.5 text-[13.5px] font-semibold text-platina hover:border-gold hover:text-gold"
             >
-              Ver curso relacionado →
+              Ver agenda da Academy →
             </a>
           </div>
         </div>
       </div>
 
       {
-        [0, 1].map(() => (
-          <div class="reveal flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-7">
-            <PlaceholderMedia label="Espaço reservado" class="h-37.5" />
-            <div>
-              <p class="eyebrow mb-2.5 text-platina">[Categoria]</p>
-              <h3 class="font-body text-[1.1rem] font-bold text-platina">[Marca parceira]</h3>
+        marcasSecundarias.map((marca, i) => (
+          <div
+            class="reveal group flex flex-col gap-4 rounded-editorial border border-white/10 bg-midnight-card p-6 transition-[border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold pointer-fine:hover:-translate-y-0.5"
+            style={`transition-delay: ${i * 75}ms`}
+          >
+            <div class={plateClass}>
+              <img
+                src={marca.logo}
+                alt={`Logo ${marca.nome}`}
+                class="h-full w-full object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="flex flex-1 flex-col justify-end">
+              <p class="eyebrow mb-1.5 text-platina">Marca parceira</p>
+              <h3 class="font-body text-[1.05rem] font-bold">{marca.nome}</h3>
+              <a
+                href={whatsappLink(`Olá! Quero saber mais sobre a marca ${marca.nome} na Fenié Pro.`)}
+                class="mt-2.5 self-start border-b border-white/10 pb-0.5 text-[13px] font-semibold text-platina transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) hover:border-gold hover:text-gold"
+              >
+                Falar sobre a marca →
+              </a>
             </div>
           </div>
         ))

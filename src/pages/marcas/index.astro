@@ -8,14 +8,16 @@ import BrandsGrid from "../../components/BrandsGrid.astro";
   description="Conheça o portfólio de marcas parceiras da Fenié Pro, selecionadas para diferentes serviços, técnicas e rotinas do salão."
 >
   <div class="pt-33">
-    <div class="container-editorial mb-4 max-w-160">
-      <p class="eyebrow mb-5">Portfólio profissional</p>
-      <h1 class="text-[clamp(2rem,4vw,3rem)]">Marcas parceiras</h1>
-      <p class="mt-5 text-lg text-platina">
-        Cada marca do portfólio entra aqui com sua própria página: linhas, protocolo técnico,
-        curso relacionado e o consultor certo para falar sobre ela.
-      </p>
+    <div class="container-editorial">
+      <div class="mb-4 max-w-160">
+        <p class="eyebrow mb-5">Portfólio profissional</p>
+        <h1 class="text-[clamp(2rem,4vw,3rem)]">Marcas parceiras</h1>
+        <p class="mt-5 text-lg text-platina">
+          São sete marcas representadas pela Fenié. A Olenka já tem página completa com linhas e
+          protocolo técnico; as demais recebem a sua conforme o material oficial é publicado.
+        </p>
+      </div>
     </div>
   </div>
-  <BrandsGrid />
+  <BrandsGrid showHeading={false} />
 </Layout>
