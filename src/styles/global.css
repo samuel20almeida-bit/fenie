@@ -133,9 +133,12 @@ button:focus-visible,
   transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce) {
+  /* reduced motion é mais suave, não zero: mantém um fade curto de
+     opacidade e só remove o deslocamento (briefing cap. 06 + regra do
+     Emil Kowalski — "gentler, not zero"). !important vence a regra
+     universal de 0.001ms acima, que existe como piso de segurança. */
   .reveal {
-    opacity: 1;
     transform: none;
-    transition: none;
+    transition: opacity 150ms ease !important;
   }
 }

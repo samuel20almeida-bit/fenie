@@ -8,7 +8,7 @@ interface Props {
 const { linha } = Astro.props;
 ---
 
-<article class="reveal flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-6 transition-colors duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold">
+<article class="reveal flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-6 transition-[color,background-color,border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold pointer-fine:hover:-translate-y-0.5">
   <div class="flex h-45 items-center justify-center rounded-editorial bg-white/[0.03] p-3">
     <img
       src={linha.imagem}
