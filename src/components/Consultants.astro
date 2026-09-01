@@ -3,8 +3,12 @@ import Button from "./Button.astro";
 import { whatsappLink } from "../lib/whatsapp";
 
 const team = [
-  { name: "Osvaldir Niejelski", role: "CEO" },
-  { name: "Ricardo Souza", role: "Diretor de Marketing e Comercial" },
+  { name: "Osvaldir Niejelski", role: "CEO", photo: "/images/team/osvaldir-niejelski.webp" },
+  {
+    name: "Ricardo Souza",
+    role: "Diretor de Marketing e Comercial",
+    photo: "/images/team/ricardo-souza.webp",
+  },
 ];
 ---
 
@@ -22,10 +26,13 @@ const team = [
       {
         team.map((p) => (
           <div class="flex flex-1 items-center gap-4 py-6 sm:px-8 sm:py-0 first:sm:pl-0">
-            <div
-              class="h-14 w-14 shrink-0 rounded-full border border-white/10 bg-midnight-card"
-              style="background-image: repeating-linear-gradient(135deg, color-mix(in oklab, var(--color-gold) 10%, transparent) 0px, color-mix(in oklab, var(--color-gold) 10%, transparent) 1px, transparent 1px, transparent 15px);"
-              aria-hidden="true"
+            <img
+              src={p.photo}
+              alt={p.name}
+              width="112"
+              height="112"
+              class="h-14 w-14 shrink-0 rounded-full border border-white/10 object-cover"
+              loading="lazy"
             />
             <div>
               <h3 class="font-body text-[0.98rem] font-bold">{p.name}</h3>
