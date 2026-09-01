@@ -131,8 +131,8 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
       bubble.textContent = text;
       bubble.className =
         from === "eu"
-          ? "ml-auto max-w-[85%] rounded-editorial bg-gold px-3.5 py-2.5 font-body text-sm text-midnight"
-          : "mr-auto max-w-[85%] rounded-editorial bg-midnight-hover px-3.5 py-2.5 font-body text-sm text-bone";
+          ? "ml-auto max-w-[85%] rounded-editorial bg-gold px-3.5 py-2.5 font-body text-sm text-midnight whitespace-pre-line"
+          : "mr-auto max-w-[85%] rounded-editorial bg-midnight-hover px-3.5 py-2.5 font-body text-sm text-bone whitespace-pre-line";
       messages.appendChild(bubble);
       scrollToEnd();
       return bubble;
@@ -211,7 +211,7 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
       }, 7000);
 
       const controller = new AbortController();
-      const abortTimer = window.setTimeout(() => controller.abort(), 45000);
+      const abortTimer = window.setTimeout(() => controller.abort(), 75000);
 
       try {
         const response = await fetch(assistantUrl, {
@@ -220,7 +220,10 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
           body: JSON.stringify({ pergunta, sessionId }),
           signal: controller.signal,
         });
-        if (!response.ok) throw new Error(`status ${response.status}`);
+        if (!response.ok) {
+          const bodyText = await response.text().catch(() => "");
+          throw new Error(`HTTP ${response.status} ${bodyText.slice(0, 200)}`);
+        }
         const data = await response.json();
         typing.remove();
         addMessage(
@@ -229,10 +232,14 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
             : "Não consegui responder agora — tenta de novo ou chama a gente no WhatsApp aí embaixo.",
           "nina"
         );
-      } catch {
+      } catch (err) {
         typing.remove();
+        // DIAGNÓSTICO TEMPORÁRIO — remover assim que a causa da falha em
+        // produção for confirmada (ver conversa/commit). Mostra o erro real
+        // na própria bolha pra não depender do DevTools do navegador.
+        const detail = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
         addMessage(
-          "Deu um problema pra responder agora. Chama a gente direto no WhatsApp aí embaixo que a equipe continua o atendimento.",
+          `Deu um problema pra responder agora. Chama a gente direto no WhatsApp aí embaixo que a equipe continua o atendimento.\n\n[diagnóstico temporário: ${detail}]`,
           "nina"
         );
       } finally {
