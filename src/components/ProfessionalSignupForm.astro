@@ -1,6 +1,18 @@
 ---
 import { WHATSAPP_NUMBER } from "../lib/whatsapp";
 
+// "Eu sou" veio do formulário do site anterior. Serve para qualificar o lead
+// na entrada — e para avisar o consumidor final, que a Fenié não atende, antes
+// de ele abrir uma conversa que não vai a lugar nenhum.
+const perfis = [
+  "Cabeleireiro(a)",
+  "Gestor(a) de salão",
+  "Cabeleireiro(a) e gestor(a)",
+  "Consumidor(a) final",
+];
+
+const CONSUMIDOR_FINAL = perfis[3];
+
 const interests = [
   "Conhecer marcas e produtos",
   "Cursos da Fenié Academy",
@@ -20,7 +32,13 @@ const fieldClass =
     consultor continuar.
   </p>
 
-  <form id="signup-form" data-wa-number={WHATSAPP_NUMBER} class="mt-8 grid max-w-130 gap-5" novalidate>
+  <form
+    id="signup-form"
+    data-wa-number={WHATSAPP_NUMBER}
+    data-consumidor-final={CONSUMIDOR_FINAL}
+    class="mt-8 grid max-w-130 gap-5"
+    novalidate
+  >
     <div>
       <label for="nome" class="eyebrow mb-2 block text-platina">Nome</label>
       <input id="nome" name="nome" type="text" required class={fieldClass} placeholder="Seu nome" />
@@ -33,6 +51,23 @@ const fieldClass =
       <label for="cidade" class="eyebrow mb-2 block text-platina">Cidade</label>
       <input id="cidade" name="cidade" type="text" required class={fieldClass} placeholder="Sua cidade" />
     </div>
+
+    <div>
+      <label for="perfil" class="eyebrow mb-2 block text-platina">Eu sou</label>
+      <select id="perfil" name="perfil" required class={fieldClass}>
+        <option value="" disabled selected>Selecione uma opção</option>
+        {perfis.map((item) => <option value={item}>{item}</option>)}
+      </select>
+      <p
+        id="aviso-consumidor"
+        hidden
+        class="mt-2.5 max-w-[52ch] border-l-2 border-coral pl-3.5 font-body text-[0.86rem] text-platina"
+      >
+        A Fenié atende exclusivamente profissionais e salões cadastrados — não vendemos para
+        consumidor final. Se quiser produtos Fenié, procure um salão parceiro.
+      </p>
+    </div>
+
     <div>
       <label for="interesse" class="eyebrow mb-2 block text-platina">Principal interesse</label>
       <select id="interesse" name="interesse" required class={fieldClass}>
@@ -40,6 +75,20 @@ const fieldClass =
         {interests.map((item) => <option value={item}>{item}</option>)}
       </select>
     </div>
+
+    <label for="consentimento" class="flex cursor-pointer items-start gap-3">
+      <input
+        id="consentimento"
+        name="consentimento"
+        type="checkbox"
+        required
+        class="mt-0.5 h-4 w-4 shrink-0 accent-gold"
+      />
+      <span class="font-body text-[0.86rem] text-platina">
+        Autorizo que a Fenié Pro utilize meus dados para entrar em contato e responder minha
+        solicitação.
+      </span>
+    </label>
 
     <button
       type="submit"
@@ -55,6 +104,14 @@ const fieldClass =
 
 <script>
   const form = document.getElementById("signup-form") as HTMLFormElement | null;
+  const perfil = document.getElementById("perfil") as HTMLSelectElement | null;
+  const aviso = document.getElementById("aviso-consumidor") as HTMLParagraphElement | null;
+
+  // Avisa na hora da escolha, não depois de enviar: consumidor final não é
+  // atendido, e é melhor ele saber antes de abrir a conversa.
+  perfil?.addEventListener("change", () => {
+    if (aviso) aviso.hidden = perfil.value !== form?.dataset.consumidorFinal;
+  });
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -64,11 +121,13 @@ const fieldClass =
     const nome = String(data.get("nome") ?? "").trim();
     const salao = String(data.get("salao") ?? "").trim();
     const cidade = String(data.get("cidade") ?? "").trim();
+    const perfilSelecionado = String(data.get("perfil") ?? "").trim();
     const interesse = String(data.get("interesse") ?? "").trim();
     const number = form.dataset.waNumber;
 
     const message =
       `Olá! Meu nome é ${nome}, do salão ${salao}, em ${cidade}. ` +
+      `Sou ${perfilSelecionado.toLowerCase()}. ` +
       `Quero falar sobre: ${interesse}.`;
 
     window.location.href = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
