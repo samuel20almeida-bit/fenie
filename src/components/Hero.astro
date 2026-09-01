@@ -1,6 +1,5 @@
 ---
 import Button from "./Button.astro";
-import PlaceholderMedia from "./PlaceholderMedia.astro";
 import { whatsappLink } from "../lib/whatsapp";
 ---
 
@@ -29,9 +28,24 @@ import { whatsappLink } from "../lib/whatsapp";
       </p>
     </div>
 
-    <PlaceholderMedia
-      class="reveal h-[420px] lg:h-[520px]"
-      caption="Consultora Fenié atendendo um salão parceiro: bastidor real, não still de produto"
-    />
+    {
+      /* Espaço reservado para a foto real (consultora Fenié atendendo um salão
+      parceiro: bastidor real, não still de produto — briefing cap. 09, nunca
+      IA). Até a foto chegar, a onda da marca substitui o hachurado genérico
+      do PlaceholderMedia no espaço mais visível do site. */
+    }
+    <div class="reveal relative flex h-[420px] items-center justify-center overflow-hidden rounded-editorial border border-white/10 bg-midnight-card lg:h-[520px]">
+      <div
+        class="absolute inset-0"
+        style="background: radial-gradient(ellipse 65% 55% at 50% 45%, color-mix(in oklab, var(--color-gold) 16%, transparent), transparent 70%);"
+        aria-hidden="true"
+      />
+      <img
+        src="/images/logo/fenie-pro-mark.webp"
+        alt=""
+        aria-hidden="true"
+        class="relative w-[62%] max-w-90 opacity-95"
+      />
+    </div>
   </div>
 </section>
