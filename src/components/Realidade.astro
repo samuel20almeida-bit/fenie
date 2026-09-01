@@ -24,11 +24,11 @@ import { realidade } from "../data/institucional";
         </p>
       </div>
 
-      <ol class="border-t border-white/10">
+      <ol class="border-t border-border-subtle">
         {
           realidade.map((item, i) => (
             <li
-              class="reveal grid grid-cols-[2.5rem_1fr] gap-x-5 border-b border-white/10 py-7 md:grid-cols-[3.5rem_1fr] md:gap-x-6"
+              class="reveal grid grid-cols-[2.5rem_1fr] gap-x-5 border-b border-border-subtle py-7 md:grid-cols-[3.5rem_1fr] md:gap-x-6"
               style={`transition-delay: ${i * 60}ms`}
             >
               <p class="eyebrow pt-1 text-platina">{item.n}</p>

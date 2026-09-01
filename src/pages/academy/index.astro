@@ -29,7 +29,7 @@ import { whatsappLink } from "../../lib/whatsapp";
 
   <section class="py-19">
     <div class="container-editorial">
-      <div class="grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+      <div class="grid gap-px border border-border-subtle bg-border-subtle md:grid-cols-3">
         {
           modalidades.map((m, i) => (
             <div class="reveal bg-midnight p-8" style={`transition-delay: ${i * 75}ms`}>
@@ -79,12 +79,12 @@ import { whatsappLink } from "../../lib/whatsapp";
         </p>
       </div>
 
-      <div class="reveal flex flex-col divide-y divide-white/10 border-y border-white/10 sm:flex-row sm:divide-x sm:divide-y-0">
+      <div class="reveal flex flex-col divide-y divide-border-subtle border-y border-border-subtle sm:flex-row sm:divide-x sm:divide-y-0">
         {
           educadores.map((e) => (
             <div class="flex flex-1 items-center gap-4 py-6 sm:px-8 sm:py-7 first:sm:pl-0">
               <div
-                class="h-14 w-14 shrink-0 rounded-full border border-white/10 bg-midnight-card"
+                class="h-14 w-14 shrink-0 rounded-full border border-border-subtle bg-midnight-card"
                 style="background-image: repeating-linear-gradient(135deg, color-mix(in oklab, var(--color-gold) 10%, transparent) 0px, color-mix(in oklab, var(--color-gold) 10%, transparent) 1px, transparent 1px, transparent 15px);"
                 aria-hidden="true"
               />

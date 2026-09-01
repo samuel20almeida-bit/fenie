@@ -3,19 +3,32 @@
 /*
   Fenié Pro — brand tokens
   Origem: briefing estratégico (paleta medida, contraste, movimento e
-  dimensionamento). Não são valores arbitrários — cada um tem uma razão
-  documentada no briefing; não redefinir sem revisar lá primeiro.
+  dimensionamento) + documento "Paleta visual Fenié", que fixou os HEX
+  oficiais. Os NOMES dos tokens são os do projeto (usados em ~200 lugares);
+  os VALORES são os do documento de paleta. Não são valores arbitrários —
+  cada um tem uma razão documentada; não redefinir sem revisar lá primeiro.
 */
 @theme {
-  --color-midnight: #0b0f22;
-  --color-midnight-alt: #11162e;
-  --color-midnight-card: #161c3a;
-  --color-midnight-hover: #1e2547;
-  --color-gold: #c8932e;
-  --color-gold-hover: #d5a13f;
-  --color-platina: #c5c5c2;
-  --color-bone: #ede7da;
-  --color-coral: #c96a4f;
+  --color-midnight: #0d1228; /* fundo principal */
+  --color-midnight-alt: #11172e; /* seção alternada — degrau entre fundo e card */
+  --color-midnight-card: #151b33; /* superfície: cards, blocos, inputs */
+  --color-midnight-hover: #1d2440; /* card em hover — um passo acima da superfície */
+  --color-gold: #d99a28; /* acento de marca: CTA, links, destaques */
+  --color-gold-hover: #e7b34a; /* gold light: hover e estados ativos */
+  --color-platina: #9da2b3; /* texto secundário, metadados, labels */
+  --color-bone: #f4f1e9; /* off-white: títulos e texto de maior peso */
+  --color-coral: #c96a4f; /* fora da paleta: só o aviso de consumidor final */
+
+  /* Bordas em dois degraus. O documento fixa uma cor só (#343A50), mas o
+     site tem 44 fios estruturais: jogar todos nela deixaria a grade mais
+     forte que a borda de input e menu, invertendo a hierarquia e batendo
+     de frente com a regra "bordas sutis" do próprio documento. Então
+     #343A50 fica no papel que ele já ocupa por contraste (elementos
+     interativos, 1,65:1) e o fio estrutural é ele mesmo diluído no fundo
+     — 1,31:1, o mesmo peso do border-white/10 de antes, mas agora
+     derivado do navy da paleta em vez de branco cru. */
+  --color-border: #343a50;
+  --color-border-subtle: #242a40;
 
   --font-display: "Bodoni Moda", Georgia, "Times New Roman", serif;
   --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -34,9 +47,11 @@
 }
 
 :root {
-  /* fio de ouro, nunca área — usado em bordas de 1px e sublinhas */
-  --hairline: color-mix(in oklab, var(--color-bone) 10%, transparent);
-  --hairline-hover: color-mix(in oklab, var(--color-platina) 14%, transparent);
+  /* fio de ouro, nunca área — usado em bordas de 1px e sublinhas.
+     Agora descende dos tokens de borda da paleta, não mais de bone/platina
+     diluídos: a cor da borda passa a ter um dono só. */
+  --hairline: var(--color-border-subtle);
+  --hairline-hover: var(--color-border);
 
   /* curva única — vale para tudo (briefing cap. 06) */
   --ease-editorial: cubic-bezier(0.23, 1, 0.32, 1);

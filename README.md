@@ -25,7 +25,18 @@ direto num componente — sempre pela variável/utility já existente:
 
 - Cores: `bg-midnight`, `bg-midnight-alt`, `bg-midnight-card`, `bg-gold`,
   `text-platina`, `text-bone` — os quatro degraus de elevação do
-  briefing (Midnight → seção alternada → card → hover).
+  briefing (Midnight → seção alternada → card → hover). Os HEX vêm do
+  documento "Paleta visual Fenié"; os nomes dos tokens são os do projeto.
+- Bordas: `border-border` (elementos interativos: input, menu, botão
+  outline) e `border-border-subtle` (fios estruturais de seção e card).
+  **Não usar `border-white/10` e afins** — branco cru não descende da
+  paleta e some do controle quando o fundo muda. Mesma regra para fundo:
+  `bg-midnight-hover` no lugar de `bg-white/5`.
+- Texto secundário: `text-platina` puro, **sem modificador de opacidade**.
+  O platina da paleta (#9DA2B3) já é o degrau de texto secundário, com
+  7,28:1 sobre o fundo; diluir para /70 derruba para ~4,1 e reprova no
+  WCAG AA. Diluição só em decoração (risco de line-through, bolinhas do
+  "digitando"), nunca em texto.
 - Tipografia: títulos (h1/h2/h3) e corpo usam `font-body` (Archivo —
   títulos em 700 bold, alinhados à identidade sans da logo); `font-display`
   (Bodoni Moda) fica reservada só para citações entre aspas (`blockquote`);

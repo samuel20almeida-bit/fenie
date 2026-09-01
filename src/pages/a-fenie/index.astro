@@ -36,10 +36,10 @@ import {
 
   <section class="py-8">
     <div class="container-editorial">
-      <div class="grid gap-8 border-t border-white/10 pt-14 max-w-160 md:grid-cols-[auto_1fr] md:gap-x-14">
+      <div class="grid gap-8 border-t border-border-subtle pt-14 max-w-160 md:grid-cols-[auto_1fr] md:gap-x-14">
         <div class="flex items-baseline gap-3 md:contents">
-          <p class="eyebrow shrink-0 text-platina/60 line-through decoration-platina/40">Sai</p>
-          <p class="font-body text-h3 text-platina/70 italic">
+          <p class="eyebrow shrink-0 text-platina line-through decoration-platina/40">Sai</p>
+          <p class="font-body text-h3 text-platina italic">
             "Somos uma distribuidora e temos estes produtos."
           </p>
         </div>
@@ -56,7 +56,7 @@ import {
 
   <section class="py-19">
     <div class="container-editorial">
-      <div class="reveal grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
+      <div class="reveal grid gap-px border border-border-subtle bg-border-subtle md:grid-cols-2">
         <div class="bg-midnight p-9">
           <p class="eyebrow mb-3.5">Nossa missão</p>
           <p class="max-w-[42ch] font-body text-base text-bone">{missao}</p>
@@ -86,7 +86,7 @@ import {
 
   <section class="bg-midnight pb-19">
     <div class="container-editorial">
-      <div class="grid gap-12 border-t border-white/10 pt-14 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+      <div class="grid gap-12 border-t border-border-subtle pt-14 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
         <div class="reveal">
           <p class="eyebrow mb-4">Sobre a Fenié</p>
           <h2 class="max-w-[22ch] text-[clamp(1.6rem,2.8vw,2.1rem)]">{declaracao.titulo}</h2>
@@ -99,10 +99,10 @@ import {
           </p>
         </div>
 
-        <ul class="reveal self-start border-t border-white/10">
+        <ul class="reveal self-start border-t border-border-subtle">
           {
             diferenciais.map((item) => (
-              <li class="flex items-start gap-3.5 border-b border-white/10 py-3.5">
+              <li class="flex items-start gap-3.5 border-b border-border-subtle py-3.5">
                 <span class="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
                 <span class="font-body text-base text-bone">{item}</span>
               </li>
@@ -124,16 +124,16 @@ import {
         </h2>
       </div>
 
-      <div class="max-w-216 border-t border-white/10">
+      <div class="max-w-216 border-t border-border-subtle">
         {
           motivos.map((m, i) => (
             <div
-              class="reveal grid grid-cols-[44px_1fr] items-baseline gap-x-6 gap-y-1 border-b border-white/10 py-7 md:grid-cols-[64px_1fr_auto]"
+              class="reveal grid grid-cols-[44px_1fr] items-baseline gap-x-6 gap-y-1 border-b border-border-subtle py-7 md:grid-cols-[64px_1fr_auto]"
               style={`transition-delay: ${i * 75}ms`}
             >
               <p class="eyebrow text-platina">{m.n}</p>
               <h3 class="font-body text-h3 font-semibold">{m.titulo}</h3>
-              <p class="col-start-2 font-body text-base text-platina/70 italic md:col-start-3 md:text-right">
+              <p class="col-start-2 font-body text-base text-platina italic md:col-start-3 md:text-right">
                 {m.contra}
               </p>
             </div>
