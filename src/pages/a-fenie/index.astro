@@ -4,6 +4,7 @@ import Button from "../../components/Button.astro";
 import Pillars from "../../components/Pillars.astro";
 import CtaFinal from "../../components/CtaFinal.astro";
 import { whatsappLink } from "../../lib/whatsapp";
+import { depoimentos, missao, motivos, numeros, visao } from "../../data/institucional";
 ---
 
 <Layout
@@ -45,7 +46,93 @@ import { whatsappLink } from "../../lib/whatsapp";
     </div>
   </section>
 
+  <section class="py-19">
+    <div class="container-editorial">
+      <div class="reveal grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
+        <div class="bg-midnight p-9">
+          <p class="eyebrow mb-3.5">Nossa missão</p>
+          <p class="max-w-[42ch] font-body text-[1.02rem] text-bone">{missao}</p>
+        </div>
+        <div class="bg-midnight p-9">
+          <p class="eyebrow mb-3.5">Nossa visão</p>
+          <p class="max-w-[42ch] font-body text-[1.02rem] text-bone">{visao}</p>
+        </div>
+      </div>
+
+      <dl class="reveal mt-12 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-gold/40 pt-9 md:grid-cols-4">
+        {
+          numeros.map((n, i) => (
+            <div style={`transition-delay: ${i * 75}ms`}>
+              <dt class="text-[clamp(1.9rem,3.4vw,2.6rem)] leading-none font-bold tracking-tight">
+                {n.valor}
+              </dt>
+              <dd class="mt-2.5 max-w-[22ch] font-mono text-[11.5px] tracking-wide text-platina uppercase">
+                {n.label}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
   <Pillars />
+
+  <section class="bg-midnight py-26">
+    <div class="container-editorial">
+      <div class="reveal mb-12 max-w-[60ch]">
+        <p class="eyebrow mb-4">Insatisfeito com o distribuidor atual?</p>
+        <h2 class="text-[clamp(1.8rem,3vw,2.4rem)]">
+          Por que salões estão <em>migrando</em> para a Fenié.
+        </h2>
+      </div>
+
+      <div class="max-w-216 border-t border-white/10">
+        {
+          motivos.map((m, i) => (
+            <div
+              class="reveal grid grid-cols-[44px_1fr] items-baseline gap-x-6 gap-y-1 border-b border-white/10 py-7 md:grid-cols-[64px_1fr_auto]"
+              style={`transition-delay: ${i * 75}ms`}
+            >
+              <p class="eyebrow text-platina">{m.n}</p>
+              <h3 class="font-body text-[1.05rem] font-semibold">{m.titulo}</h3>
+              <p class="col-start-2 font-body text-[0.95rem] text-platina/70 italic md:col-start-3 md:text-right">
+                {m.contra}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-midnight-alt py-26">
+    <div class="container-editorial">
+      <p class="eyebrow reveal mb-10">O que dizem os clientes</p>
+      <div class="grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
+        {
+          depoimentos.map((d, i) => (
+            <figure
+              class="reveal flex flex-col justify-between gap-6 bg-midnight-alt p-9"
+              style={`transition-delay: ${i * 75}ms`}
+            >
+              <blockquote>
+                <p class="font-display text-[1.15rem] leading-relaxed italic text-bone">
+                  “{d.texto}”
+                </p>
+              </blockquote>
+              <figcaption>
+                <p class="font-body text-[0.95rem] font-bold">{d.autor}</p>
+                <p class="mt-0.5 font-mono text-[11.5px] tracking-wide text-platina uppercase">
+                  {d.papel}
+                </p>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
   <section class="bg-midnight py-26">
     <div class="container-editorial">
