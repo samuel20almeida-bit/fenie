@@ -58,6 +58,25 @@ número solto — é a regra "contexto no clique" do briefing. O número já é
 o real (+55 41 9840-2800); `PUBLIC_WHATSAPP_NUMBER` (ver `.env.example`)
 só precisa ser definida se algum ambiente exigir um número diferente.
 
+## Assistente do popup (Nina)
+
+`AssistantePopup.astro` (montado globalmente no `Layout.astro`, canto
+inferior direito) é um tira-dúvidas em vanilla JS/TS — sem framework,
+mesmo padrão dos outros componentes interativos do site. Ele conversa
+com um workflow n8n (`src/lib/assistant.ts` → `PUBLIC_ASSISTENTE_URL`,
+ver `.env.example`) que roda um agente com modelo gratuito da
+OpenRouter, memória por sessão e limite de 8 perguntas por sessão por
+dia (controlado por data table no próprio n8n, não no site).
+
+Não há nenhuma ferramenta de escalonamento no backend — quando alguém
+quer falar com um humano, é o próprio front que resolve: o link de
+WhatsApp fica sempre visível no rodapé do painel do assistente (decisão
+explícita: mais simples e mais confiável do que depender da IA acionar
+uma ferramenta de aviso). O modelo gratuito às vezes demora bastante
+(~60s observado em teste) — por isso o indicador de "digitando" troca
+de mensagem depois de alguns segundos, e o front tem um timeout de 45s
+antes de cair no fallback pedindo para usar o WhatsApp.
+
 ## Estrutura de rotas (as quatro portas)
 
 ```

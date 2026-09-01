@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import AssistantePopup from "../components/AssistantePopup.astro";
 import { empresa, mapaLink } from "../data/empresa";
 import "../styles/global.css";
 
@@ -89,6 +90,7 @@ const localBusiness = {
       <slot />
     </main>
     <Footer />
+    <AssistantePopup />
 
     <script>
       // Entrada por scroll — 550ms, once (briefing cap. 06). Reanimar na

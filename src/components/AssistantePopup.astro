@@ -1,0 +1,245 @@
+---
+import { whatsappLink } from "../lib/whatsapp";
+import { ASSISTANT_URL } from "../lib/assistant";
+
+const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com um consultor.");
+---
+
+<div
+  id="assistente-popup"
+  data-assistant-url={ASSISTANT_URL}
+  class="fixed right-5 bottom-5 z-30 flex flex-col items-end gap-3 sm:right-6 sm:bottom-6"
+>
+  <div
+    id="assistente-panel"
+    hidden
+    class="flex w-[min(340px,calc(100vw-2.5rem))] max-h-[min(50vh,26rem)] origin-bottom-right flex-col overflow-hidden rounded-editorial border border-white/10 bg-midnight-card shadow-2xl"
+  >
+    <header class="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3.5">
+      <div>
+        <p class="font-body text-sm font-semibold text-bone">Nina · Fenié Pro</p>
+        <p class="font-mono text-micro text-platina">Tira-dúvidas rápido, sem compromisso</p>
+      </div>
+      <button
+        id="assistente-fechar"
+        type="button"
+        aria-label="Fechar assistente"
+        class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-platina transition-colors hover:bg-white/5 hover:text-gold"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 3l10 10M13 3L3 13" />
+        </svg>
+      </button>
+    </header>
+
+    <div
+      id="assistente-mensagens"
+      class="flex-1 space-y-3 overflow-y-auto px-4 py-4"
+      role="log"
+      aria-live="polite"
+      aria-label="Conversa com a Nina"
+    >
+    </div>
+
+    <form id="assistente-form" class="flex items-center gap-2 border-t border-white/10 p-3">
+      <label for="assistente-input" class="sr-only">Digite sua dúvida</label>
+      <input
+        id="assistente-input"
+        type="text"
+        autocomplete="off"
+        placeholder="Digite sua dúvida..."
+        class="min-w-0 flex-1 rounded-full border border-white/15 bg-midnight px-4 py-2.5 font-body text-sm text-bone outline-none transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) placeholder:text-platina/50 focus:border-gold"
+      />
+      <button
+        type="submit"
+        aria-label="Enviar pergunta"
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold text-midnight transition-transform duration-(--dur-hover-btn) ease-(--ease-editorial) hover:bg-gold-hover active:scale-[0.93]"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 8h12M9 3l5 5-5 5" />
+        </svg>
+      </button>
+    </form>
+
+    <a
+      href={wa}
+      target="_blank"
+      rel="noopener"
+      class="flex items-center justify-center gap-1.5 border-t border-white/10 px-4 py-3 font-body text-sm font-medium text-platina transition-colors hover:text-gold"
+    >
+      Prefere falar com a equipe agora? WhatsApp →
+    </a>
+  </div>
+
+  <button
+    id="assistente-abrir"
+    type="button"
+    aria-label="Abrir assistente Nina"
+    aria-expanded="false"
+    class="flex h-14 w-14 items-center justify-center rounded-full bg-gold text-midnight shadow-2xl transition-transform duration-(--dur-hover-btn) ease-(--ease-editorial) hover:scale-105 hover:bg-gold-hover active:scale-95"
+  >
+    <svg id="assistente-icone-chat" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 12a8 8 0 1 1 3.06 6.29L4 20l1.06-3.4A7.96 7.96 0 0 1 4 12Z" />
+    </svg>
+    <svg id="assistente-icone-fechar" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" hidden aria-hidden="true">
+      <path d="M3 3l10 10M13 3L3 13" />
+    </svg>
+  </button>
+</div>
+
+<script>
+  const root = document.getElementById("assistente-popup") as HTMLDivElement | null;
+  const panel = document.getElementById("assistente-panel") as HTMLDivElement | null;
+  const openBtn = document.getElementById("assistente-abrir") as HTMLButtonElement | null;
+  const closeBtn = document.getElementById("assistente-fechar") as HTMLButtonElement | null;
+  const iconChat = document.getElementById("assistente-icone-chat") as SVGElement | null;
+  const iconClose = document.getElementById("assistente-icone-fechar") as SVGElement | null;
+  const messages = document.getElementById("assistente-mensagens") as HTMLDivElement | null;
+  const form = document.getElementById("assistente-form") as HTMLFormElement | null;
+  const input = document.getElementById("assistente-input") as HTMLInputElement | null;
+
+  if (root && panel && openBtn && closeBtn && iconChat && iconClose && messages && form && input) {
+    const assistantUrl = root.dataset.assistantUrl ?? "";
+    let opened = false;
+    let greeted = false;
+    let waiting = false;
+
+    // localStorage pode falhar (modo privado, cota cheia) — a sessão
+    // sobrevive só na aba atual nesse caso, não é crítico.
+    function getSessionId(): string {
+      const key = "fenie-assistente-sid";
+      const makeId = () =>
+        crypto.randomUUID?.() ?? `sid-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+      try {
+        const existing = localStorage.getItem(key);
+        if (existing) return existing;
+        const id = makeId();
+        localStorage.setItem(key, id);
+        return id;
+      } catch {
+        return makeId();
+      }
+    }
+    const sessionId = getSessionId();
+
+    function scrollToEnd() {
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function addMessage(text: string, from: "nina" | "eu") {
+      const bubble = document.createElement("p");
+      bubble.textContent = text;
+      bubble.className =
+        from === "eu"
+          ? "ml-auto max-w-[85%] rounded-editorial bg-gold px-3.5 py-2.5 font-body text-sm text-midnight"
+          : "mr-auto max-w-[85%] rounded-editorial bg-midnight-hover px-3.5 py-2.5 font-body text-sm text-bone";
+      messages.appendChild(bubble);
+      scrollToEnd();
+      return bubble;
+    }
+
+    function addTypingIndicator() {
+      const wrap = document.createElement("div");
+      wrap.id = "assistente-digitando";
+      wrap.className = "mr-auto flex w-fit items-center gap-1.5 rounded-editorial bg-midnight-hover px-4 py-3.5";
+      wrap.innerHTML = `
+        <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-platina/70" style="animation-delay:0ms"></span>
+        <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-platina/70" style="animation-delay:120ms"></span>
+        <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-platina/70" style="animation-delay:240ms"></span>
+      `;
+      messages.appendChild(wrap);
+      scrollToEnd();
+      return wrap;
+    }
+
+    function openPanel() {
+      opened = true;
+      panel.hidden = false;
+      openBtn.setAttribute("aria-expanded", "true");
+      iconChat.hidden = true;
+      iconClose.hidden = false;
+      if (!greeted) {
+        greeted = true;
+        addMessage(
+          "Oi! Eu sou a Nina, da Fenié Pro. Posso ajudar com dúvidas sobre marcas, atendimento ou a Fenié Academy — o que você quer saber?",
+          "nina"
+        );
+      }
+      requestAnimationFrame(() => input.focus());
+    }
+
+    function closePanel() {
+      opened = false;
+      panel.hidden = true;
+      openBtn.setAttribute("aria-expanded", "false");
+      iconChat.hidden = false;
+      iconClose.hidden = true;
+    }
+
+    openBtn.addEventListener("click", () => (opened ? closePanel() : openPanel()));
+    closeBtn.addEventListener("click", closePanel);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && opened) closePanel();
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const pergunta = input.value.trim();
+      if (!pergunta || waiting) return;
+
+      if (!assistantUrl) {
+        addMessage(pergunta, "eu");
+        input.value = "";
+        addMessage(
+          "O assistente ainda não está ativo por aqui — mas dá pra falar direto com a equipe pelo WhatsApp aí embaixo.",
+          "nina"
+        );
+        return;
+      }
+
+      addMessage(pergunta, "eu");
+      input.value = "";
+      waiting = true;
+
+      const typing = addTypingIndicator();
+      // o modelo gratuito às vezes demora — avisa sem deixar parecer travado
+      const patienceTimer = window.setTimeout(() => {
+        const dots = typing.querySelectorAll("span");
+        if (dots.length) {
+          typing.innerHTML = `<span class="font-body text-sm text-platina">Só um instante, já te respondo…</span>`;
+        }
+      }, 7000);
+
+      const controller = new AbortController();
+      const abortTimer = window.setTimeout(() => controller.abort(), 45000);
+
+      try {
+        const response = await fetch(assistantUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ pergunta, sessionId }),
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error(`status ${response.status}`);
+        const data = await response.json();
+        typing.remove();
+        addMessage(
+          typeof data.resposta === "string" && data.resposta
+            ? data.resposta
+            : "Não consegui responder agora — tenta de novo ou chama a gente no WhatsApp aí embaixo.",
+          "nina"
+        );
+      } catch {
+        typing.remove();
+        addMessage(
+          "Deu um problema pra responder agora. Chama a gente direto no WhatsApp aí embaixo que a equipe continua o atendimento.",
+          "nina"
+        );
+      } finally {
+        window.clearTimeout(patienceTimer);
+        window.clearTimeout(abortTimer);
+        waiting = false;
+      }
+    });
+  }
+</script>
