@@ -65,7 +65,11 @@ export const motivos: Motivo[] = [
 // FENIÉ" do site anterior. Ou seja: não é dor inventada para soar consultivo,
 // é exatamente o que a própria Fenié já afirma resolver, dito do ponto de
 // vista de quem vive o problema. Não acrescentar item sem origem real.
+// Os títulos ficam em caixa mista aqui e sobem para caixa alta pelo CSS:
+// o texto acessível continua natural para leitor de tela, e a decisão de
+// estilo fica num lugar só, no componente.
 export interface Realidade {
+  n: string;
   titulo: string;
   texto: string;
   /** Qual `motivo` sustenta esta leitura — rastreabilidade, não exibido. */
@@ -74,28 +78,41 @@ export interface Realidade {
 
 export const realidade: Realidade[] = [
   {
-    titulo: "Catálogo grande não é curadoria",
+    n: "01",
+    titulo: "Catálogo cheio não significa escolha certa",
     texto:
-      "Escolher sozinho entre dezenas de linhas parecidas custa tempo, dinheiro e prateleira parada.",
+      "Entre dezenas de produtos parecidos, escolher sozinho custa tempo, dinheiro e pode deixar o estoque parado.",
     origem: "03 · kits pensados no salão, não no estoque",
   },
   {
-    titulo: "Entregar no prazo é o mínimo",
+    n: "02",
+    titulo: "Entrega no prazo é obrigação. Suporte é diferencial",
     texto:
-      "O que sustenta o salão é o suporte depois do pedido — e é justamente ele que costuma sumir.",
+      "Quando surge uma dúvida, o salão precisa de alguém que responda com rapidez e atenção. Não de mais um número de pedido.",
     origem: "02 · suporte técnico de verdade, não só entrega",
   },
   {
-    titulo: "Marca que todo mundo tem não diferencia ninguém",
+    n: "03",
+    titulo: "Produto comum não constrói posicionamento",
     texto:
-      "Trabalhar só com o que qualquer casa de cosméticos vende deixa o seu serviço na média do mercado.",
+      "Trabalhar com as mesmas linhas que todo mundo deixa seu serviço mais parecido. A escolha certa pode ajudar seu salão a ser lembrado.",
     origem: "01 · marcas exclusivas, fora de casas de cosméticos",
   },
   {
-    titulo: "Equipe parada trava o crescimento",
+    n: "04",
+    titulo: "Sua equipe precisa continuar evoluindo",
     texto:
-      "Capacitação não pode depender de sobra de agenda nem de curso avulso caro.",
+      "Técnica não pode depender de oportunidade. Conhecimento precisa fazer parte da rotina.",
     origem: "05 · formação contínua, não apenas vendas",
+  },
+  {
+    n: "05",
+    titulo: "Crescer sozinho custa mais",
+    texto:
+      "Quando produto, conhecimento e suporte não caminham juntos, cada decisão fica mais difícil.",
+    // Fecha a seção abrindo o Método: é a tese dos três movimentos ditos
+    // do ponto de vista de quem sente a falta deles.
+    origem: "04 · relacionamento humanizado + ponte para o Método",
   },
 ];
 
