@@ -232,14 +232,10 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
             : "Não consegui responder agora — tenta de novo ou chama a gente no WhatsApp aí embaixo.",
           "nina"
         );
-      } catch (err) {
+      } catch {
         typing.remove();
-        // DIAGNÓSTICO TEMPORÁRIO — remover assim que a causa da falha em
-        // produção for confirmada (ver conversa/commit). Mostra o erro real
-        // na própria bolha pra não depender do DevTools do navegador.
-        const detail = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
         addMessage(
-          `Deu um problema pra responder agora. Chama a gente direto no WhatsApp aí embaixo que a equipe continua o atendimento.\n\n[diagnóstico temporário: ${detail}]`,
+          "Deu um problema pra responder agora. Chama a gente direto no WhatsApp aí embaixo que a equipe continua o atendimento.",
           "nina"
         );
       } finally {
