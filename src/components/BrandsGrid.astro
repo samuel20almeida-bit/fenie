@@ -11,9 +11,11 @@ const { showHeading = true } = Astro.props;
 const destaque = marcaDestaque.destaque!;
 
 // Logos oficiais das marcas são pretos sobre fundo branco: ficam ilegíveis
-// direto no midnight, por isso cada um vive numa placa clara.
+// direto no midnight, por isso cada um vive numa placa clara. Bone em vez
+// de branco puro: mantém o logo legível sem quebrar o clima editorial
+// escuro do resto do site com 6 retângulos branco-puro em sequência.
 const plateClass =
-  "flex h-24 items-center justify-center rounded-editorial bg-white p-5";
+  "flex h-24 items-center justify-center rounded-editorial bg-bone p-5";
 ---
 
 <section class="bg-midnight py-26">
