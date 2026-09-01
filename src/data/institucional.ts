@@ -135,26 +135,68 @@ export const metodo: EtapaMetodo[] = [
   },
 ];
 
-// Depoimentos reais publicados no site anterior. Só os erros evidentes de
-// digitação do original foram corrigidos ("guenhei" → "ganhei", "então" →
-// "são"); a voz de cada cliente segue intacta.
+// Depoimentos reais de clientes, na curadoria e na ordem de prioridade que a
+// Fenié entregou. `peso` define a hierarquia da seção — um destaque, dois
+// principais e três complementares — para não virar parede de seis cards
+// iguais. A categoria de cada um vira a eyebrow do card.
+//
+// Regras de edição (do próprio material): não reescrever para soar
+// publicitário, não inventar cargo, empresa ou foto, não mudar o sentido.
+// A única correção aplicada é de digitação evidente, do jeito que o site
+// anterior já fazia: no depoimento da Simone, "os produtos então
+// maravilhosos" → "são". Nenhuma outra palavra foi tocada.
 export interface Depoimento {
   texto: string;
   autor: string;
-  papel: string;
+  /** Categoria do depoimento — vira a eyebrow do card. */
+  categoria: string;
+  peso: "destaque" | "principal" | "complementar";
 }
 
 export const depoimentos: Depoimento[] = [
   {
     texto:
-      "Atendimento perfeito, chegou tudo certinho, equipe muito atenciosa e os produtos são maravilhosos, entrega rápida! Super recomendo.",
-    autor: "Simone L.",
-    papel: "Cabeleireira",
+      "Não foi apenas um dia de dicas sobre técnicas e procedimentos de salão de beleza, mas um curso que conversa com o teu íntimo e te lembra quem você nasceu pra ser.",
+    autor: "Letícia Antunes",
+    categoria: "Experiência · Educação",
+    peso: "destaque",
   },
   {
     texto:
-      "Chegou antes do esperado. Todos os produtos certos e ainda ganhei uns mimos. Amei, obrigada Fenié.",
-    autor: "Denise dos Santos",
-    papel: "Cliente Fenié",
+      "Minha experiência com a distribuidora Fenié é de alavanca profissional, de recomeçar e me permitir evoluir...",
+    autor: "Irayma Ribas",
+    categoria: "Desenvolvimento profissional",
+    peso: "principal",
+  },
+  {
+    texto:
+      "Sempre que preciso estão ali para me atender! Se preciso de algo urgente, eles fazem de tudo para me entregar! Recomendo demais, e não troco por nada.",
+    autor: "Angelita Araújo",
+    categoria: "Atendimento · Relacionamento",
+    peso: "principal",
+  },
+  {
+    texto:
+      "Atingiu todas as minhas expectativas, pois aprendi detalhes que em todos os meus anos de curso nunca tinha recebido.",
+    autor: "Carol Alencar",
+    categoria: "Educação · Conhecimento técnico",
+    peso: "complementar",
+  },
+  {
+    texto: "Consultores capacitados, preços mais competitivos e atendimento técnico.",
+    autor: "Anaruez Virmond",
+    categoria: "Consultoria · Atendimento técnico",
+    peso: "complementar",
+  },
+  {
+    texto:
+      "Atendimento perfeito, chegou tudo certinho, equipe muito atenciosa e os produtos são maravilhosos, entrega rápida!! Super recomendo.",
+    autor: "Simone Linzmeyer",
+    categoria: "Produtos · Atendimento · Logística",
+    peso: "complementar",
   },
 ];
+
+export const depoimentoDestaque = depoimentos.find((d) => d.peso === "destaque")!;
+export const depoimentosPrincipais = depoimentos.filter((d) => d.peso === "principal");
+export const depoimentosComplementares = depoimentos.filter((d) => d.peso === "complementar");

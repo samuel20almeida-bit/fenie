@@ -1,65 +1,89 @@
 ---
-import { depoimentos } from "../data/institucional";
+import {
+  depoimentoDestaque,
+  depoimentosPrincipais,
+  depoimentosComplementares,
+} from "../data/institucional";
 
 interface Props {
-  /** Precisa casar com o fundo da seção: o grid usa gap-px + bg-white/10
+  /** Precisa casar com o fundo da seção: os grids usam gap-px + bg-white/10
    *  para desenhar os fios, então a face dos cards herda a mesma cor. */
   surface?: "midnight" | "midnight-alt";
-  eyebrow?: string;
-  titulo?: string;
 }
 
-// A seção sempre precisa de um h2 de verdade: antes era só uma eyebrow em
-// <p>, o que deixava um bloco inteiro da página sem cabeçalho na árvore
-// semântica (leitor de tela pula de "Marcas parceiras" direto para "Time
-// Fenié" sem saber que passou por depoimentos).
-const {
-  surface = "midnight-alt",
-  eyebrow = "Depoimentos",
-  titulo = "O que diz quem já <em>trabalha</em> com a gente.",
-} = Astro.props;
+const { surface = "midnight-alt" } = Astro.props;
 
 // Tailwind precisa das classes literais no código para gerá-las.
 const bg = surface === "midnight" ? "bg-midnight" : "bg-midnight-alt";
+
+// Hierarquia em três degraus (1 destaque → 2 principais → 3 complementares),
+// como pede o material: seis cards idênticos viram parede de avaliação, não
+// coleção editorial de experiências. Sem foto de cliente porque não temos
+// nenhuma real — inventar rosto aqui seria o pior tipo de prova social.
 ---
 
 <section class={`${bg} py-26`}>
   <div class="container-editorial">
-    <div class="reveal mb-10 max-w-[52ch]">
-      <p class="eyebrow">{eyebrow}</p>
-      <h2 class="mt-5 text-[clamp(1.8rem,3vw,2.4rem)]" set:html={titulo} />
+    <div class="reveal mb-12 max-w-[54ch]">
+      <p class="eyebrow mb-5">Depoimentos</p>
+      <h2 class="text-[clamp(1.9rem,3.4vw,2.7rem)]">
+        Quem vive a experiência Fenié, <em>recomenda</em>.
+      </h2>
+      <p class="mt-5 max-w-[52ch] text-lg text-platina">
+        Profissionais que confiam na Fenié para encontrar produtos, conhecimento e suporte para
+        evoluir seus negócios.
+      </p>
     </div>
 
-    <div class="grid gap-px border border-white/10 bg-white/10 lg:grid-cols-[1.4fr_1fr]">
-      <figure class={`reveal flex flex-col justify-between gap-8 ${bg} p-10 md:p-13`}>
-        <blockquote>
-          <p class="font-display text-[clamp(1.5rem,2.4vw,2rem)] leading-snug italic text-bone">
-            “{depoimentos[0].texto}”
-          </p>
-        </blockquote>
-        <figcaption>
-          <p class="font-body text-base font-bold">{depoimentos[0].autor}</p>
-          <p class="mt-0.5 font-mono text-micro tracking-wide text-platina uppercase">
-            {depoimentos[0].papel}
-          </p>
-        </figcaption>
-      </figure>
-      <figure
-        class={`reveal flex flex-col justify-between gap-6 ${bg} p-9`}
-        style="transition-delay: 75ms"
-      >
-        <blockquote>
-          <p class="font-display text-lg leading-relaxed italic text-bone">
-            “{depoimentos[1].texto}”
-          </p>
-        </blockquote>
-        <figcaption>
-          <p class="font-body text-base font-bold">{depoimentos[1].autor}</p>
-          <p class="mt-0.5 font-mono text-micro tracking-wide text-platina uppercase">
-            {depoimentos[1].papel}
-          </p>
-        </figcaption>
-      </figure>
+    <figure class={`reveal border-t border-gold/40 pt-10 md:pt-12`}>
+      <p class="eyebrow mb-6 text-platina">{depoimentoDestaque.categoria}</p>
+      <blockquote>
+        <p class="max-w-[26ch] font-display text-[clamp(1.7rem,3.4vw,2.7rem)] leading-[1.25] italic text-bone md:max-w-[34ch]">
+          “{depoimentoDestaque.texto}”
+        </p>
+      </blockquote>
+      <figcaption class="mt-8 font-body text-feature font-bold">
+        {depoimentoDestaque.autor}
+      </figcaption>
+    </figure>
+
+    <div class="mt-14 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
+      {
+        depoimentosPrincipais.map((d, i) => (
+          <figure
+            class={`reveal flex flex-col justify-between gap-7 ${bg} p-8 md:p-10`}
+            style={`transition-delay: ${i * 75}ms`}
+          >
+            <div>
+              <p class="eyebrow mb-4 text-platina">{d.categoria}</p>
+              <blockquote>
+                <p class="font-display text-[clamp(1.15rem,1.8vw,1.4rem)] leading-relaxed italic text-bone">
+                  “{d.texto}”
+                </p>
+              </blockquote>
+            </div>
+            <figcaption class="font-body text-base font-bold">{d.autor}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 grid gap-x-10 gap-y-9 border-t border-white/10 pt-10 md:grid-cols-3">
+      {
+        depoimentosComplementares.map((d, i) => (
+          <figure class="reveal" style={`transition-delay: ${i * 75}ms`}>
+            <p class="eyebrow mb-3 text-platina">{d.categoria}</p>
+            <blockquote>
+              <p class="max-w-[38ch] font-body text-base leading-relaxed text-platina">
+                “{d.texto}”
+              </p>
+            </blockquote>
+            <figcaption class="mt-4 font-mono text-micro tracking-wide text-bone uppercase">
+              {d.autor}
+            </figcaption>
+          </figure>
+        ))
+      }
     </div>
   </div>
 </section>
