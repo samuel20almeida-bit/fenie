@@ -30,7 +30,12 @@ direto num componente — sempre pela variável/utility já existente:
   títulos em 700 bold, alinhados à identidade sans da logo); `font-display`
   (Bodoni Moda) fica reservada só para citações entre aspas (`blockquote`);
   `font-mono` (JetBrains Mono) em etiquetas/números — ver classe
-  utilitária `.eyebrow`.
+  utilitária `.eyebrow`. Tamanho de texto vem sempre de um degrau nomeado:
+  `text-micro` (11px, legenda mono), `text-caption` (13px, link/meta
+  pequeno), `text-sm`/`text-base`/`text-lg` (14/16/18px, do próprio
+  Tailwind), `text-h3` (16.8px, título de card) e `text-feature` (21.6px,
+  título em destaque num grid) — nunca `text-[...]` arbitrário para um
+  papel que já existe na escala.
 - Movimento: `--ease-editorial` é a curva única do briefing
   (`cubic-bezier(.23,1,.32,1)`); a classe `.reveal` implementa a entrada
   por scroll (550ms, dispara uma vez só) via `IntersectionObserver` em
