@@ -20,6 +20,29 @@ export const numeros: Numero[] = [
   { valor: "+1.000", label: "aplicações profissionais com produtos Fenié" },
 ];
 
+// Declaração institucional que aparece assinada pelo CEO na home do site
+// anterior. Não é uma fala em primeira pessoa: é o texto da empresa com a
+// assinatura dele embaixo — por isso entra como declaração assinada, e não
+// como citação entre aspas. Se o Osvaldir mandar uma frase própria, é aqui
+// que ela substitui este texto.
+export const declaracao = {
+  // Título vem do bloco equivalente em /about; o da home repetia "12 anos",
+  // que a faixa de números logo acima já mostra.
+  titulo: "Potencializamos salões e profissionais com técnica, resultado e inovação.",
+  texto:
+    "Na Fenié Pro, conectamos salões de beleza e cabeleireiros às marcas mais inovadoras e profissionais do mercado. Com atendimento consultivo, suporte técnico e logística ágil, entregamos muito mais do que produtos: entregamos confiança e transformação.",
+  assinatura: { nome: "Osvaldir Niejelski", cargo: "CEO · Fenié Pro" },
+};
+
+export const diferenciais: string[] = [
+  "Logística ágil e entregas programadas",
+  "Atendimento comercial humanizado",
+  "Treinamentos técnicos contínuos",
+  "Produtos profissionais de alta performance",
+  "Marcas exclusivas e inovadoras",
+  "Suporte pós-venda e fidelização",
+];
+
 // Os 5 motivos vieram da seção "Por Que Muitos Estão Migrando para a FENIÉ".
 // Cada um é uma afirmação com um contraponto embutido — mesma gramática do
 // bloco Sai/Entra no topo da página, por isso a divisão em duas partes.

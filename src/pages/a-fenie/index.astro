@@ -4,7 +4,15 @@ import Button from "../../components/Button.astro";
 import Pillars from "../../components/Pillars.astro";
 import CtaFinal from "../../components/CtaFinal.astro";
 import { whatsappLink } from "../../lib/whatsapp";
-import { depoimentos, missao, motivos, numeros, visao } from "../../data/institucional";
+import {
+  declaracao,
+  depoimentos,
+  diferenciais,
+  missao,
+  motivos,
+  numeros,
+  visao,
+} from "../../data/institucional";
 ---
 
 <Layout
@@ -73,6 +81,35 @@ import { depoimentos, missao, motivos, numeros, visao } from "../../data/institu
           ))
         }
       </dl>
+    </div>
+  </section>
+
+  <section class="bg-midnight pb-19">
+    <div class="container-editorial">
+      <div class="grid gap-12 border-t border-white/10 pt-14 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+        <div class="reveal">
+          <p class="eyebrow mb-4">Sobre a Fenié</p>
+          <h2 class="max-w-[22ch] text-[clamp(1.6rem,2.8vw,2.1rem)]">{declaracao.titulo}</h2>
+          <p class="mt-5 max-w-[52ch] text-platina">{declaracao.texto}</p>
+
+          <div class="mt-9 w-15 border-t border-gold" aria-hidden="true"></div>
+          <p class="mt-4 font-body text-[0.98rem] font-bold">{declaracao.assinatura.nome}</p>
+          <p class="mt-0.5 font-mono text-[11.5px] tracking-wide text-platina uppercase">
+            {declaracao.assinatura.cargo}
+          </p>
+        </div>
+
+        <ul class="reveal self-start border-t border-white/10">
+          {
+            diferenciais.map((item) => (
+              <li class="flex items-start gap-3.5 border-b border-white/10 py-3.5">
+                <span class="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                <span class="font-body text-[0.95rem] text-bone">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </section>
 
