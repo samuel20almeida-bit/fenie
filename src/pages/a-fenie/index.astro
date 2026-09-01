@@ -39,13 +39,13 @@ import {
       <div class="grid gap-8 border-t border-white/10 pt-14 max-w-160 md:grid-cols-[auto_1fr] md:gap-x-14">
         <div class="flex items-baseline gap-3 md:contents">
           <p class="eyebrow shrink-0 text-platina/60 line-through decoration-platina/40">Sai</p>
-          <p class="font-body text-[1.05rem] text-platina/70 italic">
+          <p class="font-body text-h3 text-platina/70 italic">
             "Somos uma distribuidora e temos estes produtos."
           </p>
         </div>
         <div class="mt-8 flex items-baseline gap-3 md:contents">
           <p class="eyebrow shrink-0">Entra</p>
-          <p class="font-body text-[1.15rem] font-medium text-bone">
+          <p class="font-body text-lg font-medium text-bone">
             "Conectamos produtos profissionais, conhecimento técnico e suporte comercial para o
             salão trabalhar com mais segurança, resultado e crescimento."
           </p>
@@ -59,11 +59,11 @@ import {
       <div class="reveal grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
         <div class="bg-midnight p-9">
           <p class="eyebrow mb-3.5">Nossa missão</p>
-          <p class="max-w-[42ch] font-body text-[1.02rem] text-bone">{missao}</p>
+          <p class="max-w-[42ch] font-body text-base text-bone">{missao}</p>
         </div>
         <div class="bg-midnight p-9">
           <p class="eyebrow mb-3.5">Nossa visão</p>
-          <p class="max-w-[42ch] font-body text-[1.02rem] text-bone">{visao}</p>
+          <p class="max-w-[42ch] font-body text-base text-bone">{visao}</p>
         </div>
       </div>
 
@@ -74,7 +74,7 @@ import {
               <dt class="text-[clamp(1.9rem,3.4vw,2.6rem)] leading-none font-bold tracking-tight">
                 {n.valor}
               </dt>
-              <dd class="mt-2.5 max-w-[22ch] font-mono text-[11.5px] tracking-wide text-platina uppercase">
+              <dd class="mt-2.5 max-w-[22ch] font-mono text-micro tracking-wide text-platina uppercase">
                 {n.label}
               </dd>
             </div>
@@ -93,8 +93,8 @@ import {
           <p class="mt-5 max-w-[52ch] text-platina">{declaracao.texto}</p>
 
           <div class="mt-9 w-15 border-t border-gold" aria-hidden="true"></div>
-          <p class="mt-4 font-body text-[0.98rem] font-bold">{declaracao.assinatura.nome}</p>
-          <p class="mt-0.5 font-mono text-[11.5px] tracking-wide text-platina uppercase">
+          <p class="mt-4 font-body text-h3 font-bold">{declaracao.assinatura.nome}</p>
+          <p class="mt-0.5 font-mono text-micro tracking-wide text-platina uppercase">
             {declaracao.assinatura.cargo}
           </p>
         </div>
@@ -104,7 +104,7 @@ import {
             diferenciais.map((item) => (
               <li class="flex items-start gap-3.5 border-b border-white/10 py-3.5">
                 <span class="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                <span class="font-body text-[0.95rem] text-bone">{item}</span>
+                <span class="font-body text-base text-bone">{item}</span>
               </li>
             ))
           }
@@ -132,8 +132,8 @@ import {
               style={`transition-delay: ${i * 75}ms`}
             >
               <p class="eyebrow text-platina">{m.n}</p>
-              <h3 class="font-body text-[1.05rem] font-semibold">{m.titulo}</h3>
-              <p class="col-start-2 font-body text-[0.95rem] text-platina/70 italic md:col-start-3 md:text-right">
+              <h3 class="font-body text-h3 font-semibold">{m.titulo}</h3>
+              <p class="col-start-2 font-body text-base text-platina/70 italic md:col-start-3 md:text-right">
                 {m.contra}
               </p>
             </div>
@@ -154,13 +154,13 @@ import {
               style={`transition-delay: ${i * 75}ms`}
             >
               <blockquote>
-                <p class="font-display text-[1.15rem] leading-relaxed italic text-bone">
+                <p class="font-display text-lg leading-relaxed italic text-bone">
                   “{d.texto}”
                 </p>
               </blockquote>
               <figcaption>
-                <p class="font-body text-[0.95rem] font-bold">{d.autor}</p>
-                <p class="mt-0.5 font-mono text-[11.5px] tracking-wide text-platina uppercase">
+                <p class="font-body text-base font-bold">{d.autor}</p>
+                <p class="mt-0.5 font-mono text-micro tracking-wide text-platina uppercase">
                   {d.papel}
                 </p>
               </figcaption>

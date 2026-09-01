@@ -23,16 +23,16 @@ const { curso, class: className = "" } = Astro.props;
   </div>
 
   <div class="flex-1 border-l border-white/10 pl-4 sm:pl-5">
-    <h3 class="font-body text-[1.05rem] font-bold">
+    <h3 class="font-body text-h3 font-bold">
       {curso.nome}{curso.educador && <span class="text-gold"> · {curso.educador}</span>}
     </h3>
-    <p class="mt-2 max-w-[56ch] text-[0.9rem] text-platina">{curso.descricao}</p>
+    <p class="mt-2 max-w-[56ch] text-sm text-platina">{curso.descricao}</p>
 
     <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-      <span class="font-mono text-[11.5px] text-platina">{curso.local}</span>
+      <span class="font-mono text-micro text-platina">{curso.local}</span>
       {
         curso.detalhes.map((d) => (
-          <span class="rounded-full border border-white/15 px-2.5 py-0.5 font-mono text-[10.5px] tracking-wide text-platina uppercase">
+          <span class="rounded-full border border-white/15 px-2.5 py-0.5 font-mono text-micro tracking-wide text-platina uppercase">
             {d}
           </span>
         ))
@@ -41,7 +41,7 @@ const { curso, class: className = "" } = Astro.props;
 
     <a
       href={whatsappLink(`Olá! Quero informações sobre o curso "${curso.nome}" da Fenié Academy.`)}
-      class="mt-3.5 inline-block border-b border-gold pb-0.5 text-[13px] font-semibold"
+      class="mt-3.5 inline-block border-b border-gold pb-0.5 text-caption font-semibold"
     >
       Saber mais e garantir vaga →
     </a>

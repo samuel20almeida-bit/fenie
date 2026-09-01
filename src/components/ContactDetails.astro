@@ -17,7 +17,7 @@ const items = [
       items.map((item) => (
         <div class="bg-midnight p-6">
           <dt class="eyebrow text-platina">{item.label}</dt>
-          <dd class="mt-2 font-body text-[0.98rem] text-bone">
+          <dd class="mt-2 font-body text-base text-bone">
             {item.href ? (
               <a
                 href={item.href}
@@ -44,9 +44,9 @@ const items = [
           href={rede.href}
           target="_blank"
           rel="noopener"
-          class="border-b border-white/10 pb-0.5 text-[13.5px] font-semibold text-platina hover:border-gold hover:text-gold"
+          class="border-b border-white/10 pb-0.5 text-caption font-semibold text-platina hover:border-gold hover:text-gold"
         >
-          {rede.label} <span class="font-mono text-[11.5px]">{rede.handle}</span>
+          {rede.label} <span class="font-mono text-micro">{rede.handle}</span>
         </a>
       ))
     }

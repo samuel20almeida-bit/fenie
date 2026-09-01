@@ -34,8 +34,8 @@ import { whatsappLink } from "../../lib/whatsapp";
           modalidades.map((m, i) => (
             <div class="reveal bg-midnight p-8" style={`transition-delay: ${i * 75}ms`}>
               <p class="eyebrow text-platina">{String(i + 1).padStart(2, "0")}</p>
-              <h2 class="mt-2.5 font-body text-[1.15rem] font-semibold">{m.nome}</h2>
-              <p class="mt-2.5 text-[0.92rem] text-platina">{m.descricao}</p>
+              <h2 class="mt-2.5 font-body text-lg font-semibold">{m.nome}</h2>
+              <p class="mt-2.5 text-sm text-platina">{m.descricao}</p>
             </div>
           ))
         }
@@ -62,7 +62,7 @@ import { whatsappLink } from "../../lib/whatsapp";
         ))}
       </div>
 
-      <p class="mt-8 font-mono text-[11.5px] text-platina">
+      <p class="mt-8 font-mono text-micro text-platina">
         Datas e formatos podem mudar. Confirme com um consultor antes de se programar.
       </p>
     </div>
@@ -89,8 +89,8 @@ import { whatsappLink } from "../../lib/whatsapp";
                 aria-hidden="true"
               />
               <div>
-                <h3 class="font-body text-[0.98rem] font-bold">{e.nome}</h3>
-                <a href={`#${e.slug}`} class="mt-0.5 block text-[0.82rem] text-platina hover:text-gold">
+                <h3 class="font-body text-h3 font-bold">{e.nome}</h3>
+                <a href={`#${e.slug}`} class="mt-0.5 block text-caption text-platina hover:text-gold">
                   {e.curso} →
                 </a>
               </div>

@@ -33,7 +33,7 @@ const faq = [
           faq.map((item) => (
             <details class="reveal group border-b border-white/10 py-6">
               <summary class="flex cursor-pointer list-none items-center justify-between gap-4 marker:content-none">
-                <span class="font-body text-[0.98rem] font-semibold">{item.q}</span>
+                <span class="font-body text-h3 font-semibold">{item.q}</span>
                 <svg
                   class="h-4 w-4 shrink-0 text-gold transition-transform duration-(--dur-hover-card) ease-(--ease-editorial) group-open:rotate-45"
                   viewBox="0 0 24 24"
@@ -45,7 +45,7 @@ const faq = [
                   <path d="M12 5v14M5 12h14" />
                 </svg>
               </summary>
-              <p class="mt-3.5 max-w-[62ch] text-[0.92rem] text-platina">{item.a}</p>
+              <p class="mt-3.5 max-w-[62ch] text-sm text-platina">{item.a}</p>
             </details>
           ))
         }
