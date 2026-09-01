@@ -127,7 +127,17 @@ componente já existe, só falta o material real entrar:
 
 - **Fotografia**: todo lugar com `<PlaceholderMedia>` está marcado e
   pronto para virar um `<img>` assim que o acervo fechar (briefing
-  cap. 09 — nunca IA, sempre material oficial).
+  cap. 09 — nunca IA, sempre material oficial). Hoje só resta um: a
+  turma da Academy em aula prática, em `AcademyTeaser.astro`.
+- **Hero**: usa o key visual da Olenka com Rodrigo Cintra, embaixador
+  técnico da marca (`public/images/hero/olenka-royal-look.webp`,
+  fornecido pela Fenié). Recortado na proporção do painel (0,96) para o
+  `object-cover` não cortar rosto em nenhuma largura, e o fundo original
+  (#161925) é quase o `midnight-card` do tema, então encaixa sem emenda.
+  Duas ressalvas registradas: é imagem de uma marca do portfólio, não da
+  operação da Fenié — uma foto própria (consultora atendendo um salão)
+  contaria melhor o reposicionamento nesse espaço; e o uso da imagem do
+  embaixador merece confirmação por escrito com a Olenka.
 - **Time Fenié**: `src/components/Consultants.astro` já tem nome, cargo
   e foto reais de Osvaldir Niejelski (CEO) e Ricardo Souza (Diretor de
   Marketing e Comercial). Fotos em `public/images/team/`, recortadas em
