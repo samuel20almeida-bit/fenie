@@ -1,14 +1,29 @@
 ---
 import Button from "./Button.astro";
 import { whatsappLink } from "../lib/whatsapp";
+
+// Key visual real da Olenka (Rodrigo Cintra, embaixador técnico da marca),
+// fornecido pela Fenié — não é banco de imagem nem IA.
+//
+// A foto entra inteira, sem recorte e sem moldura: no desktop ela ocupa a
+// faixa direita da seção em altura cheia, e um gradiente dissolve o lado
+// esquerdo dela no fundo da página. Como o fundo do próprio material
+// (#161925) é quase o midnight do tema, não existe emenda visível — a
+// página e a foto viram uma superfície só. No mobile a mesma foto entra no
+// fluxo, abaixo do texto, dissolvendo pelo topo em vez de pela lateral.
 ---
 
-<section
-  class="border-b border-white/10 pt-33 pb-24"
-  style="background: radial-gradient(ellipse 900px 480px at 82% -10%, color-mix(in oklab, var(--color-gold) 10%, transparent), transparent 60%);"
->
-  <div class="container-editorial grid items-center gap-18 lg:grid-cols-[1.08fr_0.92fr]">
-    <div class="reveal">
+<section class="relative overflow-hidden border-b border-white/10 pt-33 pb-24 lg:min-h-[660px]">
+  <div
+    class="absolute inset-0"
+    style="background: radial-gradient(ellipse 900px 480px at 82% -10%, color-mix(in oklab, var(--color-gold) 10%, transparent), transparent 60%);"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container-editorial relative z-10">
+    <div class="reveal lg:max-w-[32rem]">
+      <div class="mb-6 w-10 border-t border-gold" aria-hidden="true"></div>
       <p class="eyebrow mb-5">Distribuição profissional · Curitiba e região</p>
       {/* A headline lidera pela realidade do salão, não pelo que a Fenié
       vende: "produtos profissionais" era a primeira coisa que o visitante
@@ -31,25 +46,43 @@ import { whatsappLink } from "../lib/whatsapp";
         Atendimento por consultor da sua região · Sem compromisso de compra
       </p>
     </div>
+  </div>
 
+  {
+    /* Depois do texto no DOM para cair abaixo dele no mobile; no desktop sai
+    do fluxo e o z-10 do conteúdo garante que o texto continue por cima. */
+  }
+  <div class="relative z-0 mt-14 lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:w-[54%] lg:overflow-hidden">
+    <img
+      src="/images/hero/olenka-royal-look.webp"
+      alt="Linha profissional Olenka — kit Royal Look, Banho de Colágeno e Blend de Proteínas — com Rodrigo Cintra, embaixador técnico da marca"
+      width="1800"
+      height="1445"
+      fetchpriority="high"
+      decoding="async"
+      class="w-full lg:absolute lg:top-0 lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
+    />
     {
-      /* Key visual real da Olenka (Rodrigo Cintra, embaixador técnico da
-      marca), fornecido pela Fenié — não é banco de imagem nem IA. O fundo
-      original é #161925, praticamente o midnight-card do tema, então a foto
-      encaixa no painel sem emenda visível. Recorte fechado nos dois e nos
-      quatro produtos, na proporção do painel (0,96) para o object-cover não
-      precisar cortar cabeça em nenhuma largura. */
+      /* O segundo gradiente (to top) existe porque a base da foto é o pódio
+      claro: sem ele, a foto corta seco contra a faixa escura da seção
+      seguinte e a emenda aparece. Mesma lógica de dissolver da lateral,
+      aplicada embaixo. */
     }
-    <div class="reveal relative h-[420px] overflow-hidden rounded-editorial border border-white/10 bg-midnight-card lg:h-[520px]">
-      <img
-        src="/images/hero/olenka-royal-look.webp"
-        alt="Linha profissional Olenka — kit Royal Look, Banho de Colágeno e Blend de Proteínas — com Rodrigo Cintra, embaixador técnico da marca"
-        width="1400"
-        height="1458"
-        fetchpriority="high"
-        decoding="async"
-        class="h-full w-full object-cover object-[58%_center]"
-      />
+    <div
+      class="absolute inset-0 lg:hidden"
+      style="background:
+        linear-gradient(to bottom, var(--color-midnight), color-mix(in srgb, var(--color-midnight) 30%, transparent) 34%, transparent 62%),
+        linear-gradient(to top, var(--color-midnight) 0%, color-mix(in srgb, var(--color-midnight) 55%, transparent) 11%, transparent 32%);"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="absolute inset-0 hidden lg:block"
+      style="background:
+        linear-gradient(to right, var(--color-midnight), color-mix(in srgb, var(--color-midnight) 62%, transparent) 26%, transparent 58%),
+        linear-gradient(to top, var(--color-midnight) 0%, color-mix(in srgb, var(--color-midnight) 55%, transparent) 11%, transparent 32%);"
+      aria-hidden="true"
+    >
     </div>
   </div>
 </section>
