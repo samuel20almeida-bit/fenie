@@ -1,0 +1,52 @@
+---
+import Button from "./Button.astro";
+import { metodo } from "../data/institucional";
+
+// Substitui o antigo Pillars. O conceito "Mais que distribuição" era bom e foi
+// preservado no h2 — o que muda é que os três blocos deixam de ser atributos
+// soltos ("atendimento consultivo", "operação próxima") e passam a ser um
+// processo com sequência e nome próprio. Os três movimentos agrupam as seis
+// etapas reais que /solucoes já detalha; nenhuma promessa nova foi criada.
+---
+
+<section id="metodo" class="scroll-mt-24 bg-midnight-alt py-26">
+  <div class="container-editorial">
+    <div class="reveal mb-16 max-w-[60ch]">
+      <p class="eyebrow mb-5">O Método Fenié</p>
+      <h2 class="text-[clamp(1.9rem,3.4vw,2.7rem)]">
+        Mais que <em>distribuição</em>.
+      </h2>
+      <p class="mt-5 max-w-[54ch] text-lg text-platina">
+        Três movimentos que se repetem em cada salão parceiro — do primeiro diagnóstico ao
+        acompanhamento que vem muito depois da primeira compra.
+      </p>
+    </div>
+
+    <ol class="grid gap-x-10 gap-y-12 border-t border-gold/40 pt-9 md:grid-cols-3">
+      {
+        metodo.map((etapa, i) => (
+          <li class="reveal relative" style={`transition-delay: ${i * 75}ms`}>
+            <span
+              class="absolute -top-[42px] left-0 h-2 w-2 rounded-full bg-gold"
+              aria-hidden="true"
+            />
+            <p class="eyebrow text-platina">{etapa.n}</p>
+            <h3 class="mt-3 text-[clamp(1.4rem,2.2vw,1.8rem)]">{etapa.titulo}</h3>
+            <p class="mt-4 max-w-[42ch] text-base text-platina">{etapa.texto}</p>
+            <p class="mt-5 font-mono text-micro tracking-wide text-platina/70 uppercase">
+              {etapa.cobre.join(" · ")}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="reveal mt-16 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-white/10 pt-9">
+      <Button href="/solucoes" variant="outline">Ver as seis etapas em detalhe →</Button>
+      <p class="max-w-[44ch] text-sm text-platina">
+        Cada movimento se desdobra em etapas concretas de escolha, técnica, capacitação, venda,
+        reposição e relacionamento.
+      </p>
+    </div>
+  </div>
+</section>

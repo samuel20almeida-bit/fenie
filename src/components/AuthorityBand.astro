@@ -1,0 +1,30 @@
+---
+import { numeros } from "../data/institucional";
+
+// Prova imediata: os números já existiam, mas só em /a-fenie — quem entrava
+// pela Home nunca via. São afirmações da própria empresa (fonte:
+// data/institucional.ts), não estimativa nossa. Faixa contida de propósito:
+// vem logo depois de uma headline grande, então ancora sem competir com ela.
+---
+
+<section class="border-b border-white/10 bg-midnight-alt py-13" aria-label="A Fenié em números">
+  <div class="container-editorial">
+    <dl class="grid grid-cols-2 gap-x-8 gap-y-9 md:grid-cols-4 md:gap-x-6">
+      {
+        numeros.map((n, i) => (
+          <div
+            class="reveal border-t border-gold/40 pt-4.5"
+            style={`transition-delay: ${i * 75}ms`}
+          >
+            <dt class="text-[clamp(1.6rem,2.6vw,2.1rem)] leading-none font-bold tracking-tight">
+              {n.valor}
+            </dt>
+            <dd class="mt-2.5 max-w-[22ch] font-mono text-micro leading-relaxed tracking-wide text-platina uppercase">
+              {n.label}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

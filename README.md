@@ -77,6 +77,30 @@ uma ferramenta de aviso). O modelo gratuito às vezes demora bastante
 de mensagem depois de alguns segundos, e o front tem um timeout de 45s
 antes de cair no fallback pedindo para usar o WhatsApp.
 
+## Narrativa da Home
+
+A ordem das seções da Home é a jornada do visitante, não um inventário de
+blocos — mexer nela sem motivo quebra o argumento pelo meio:
+
+```
+Hero .............. entender    "Seu salão precisa de mais do que bons produtos."
+AuthorityBand ..... confiar     números reais (12 anos, +400/mês, 95%, +1.000)
+Realidade ......... identificar "eles entendem o que eu vivo"
+Metodo ............ conhecer    Entender → Desenvolver → Acompanhar
+BrandsGrid ........ confiar     portfólio + ponte curadoria→consultoria
+AcademyTeaser ..... desejar     "Aprenda. Pratique. Evolua."
+Depoimentos ....... confiar     voz de cliente real
+Consultants ....... humanizar   Time Fenié, fotos reais
+CtaFinal .......... agir        "Falar com um consultor"
+```
+
+Duas regras de conteúdo aqui: **o Método Fenié não é processo inventado** —
+os três movimentos agrupam as seis etapas reais que `/solucoes` já detalha
+(Escolha, Técnica, Capacitação, Venda, Reposição, Relacionamento). E cada
+item de `realidade` em `data/institucional.ts` carrega o campo `origem`,
+apontando qual dos `motivos` reais o sustenta. Não acrescentar dor,
+número ou etapa sem origem rastreável no material da Fenié.
+
 ## Estrutura de rotas (as quatro portas)
 
 ```

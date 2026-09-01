@@ -60,6 +60,81 @@ export const motivos: Motivo[] = [
   { n: "05", titulo: "Formação contínua", contra: "não apenas vendas" },
 ];
 
+// A leitura da realidade do salão. Cada item é o outro lado de um dos
+// `motivos` acima — que vieram da seção "Por Que Muitos Estão Migrando para a
+// FENIÉ" do site anterior. Ou seja: não é dor inventada para soar consultivo,
+// é exatamente o que a própria Fenié já afirma resolver, dito do ponto de
+// vista de quem vive o problema. Não acrescentar item sem origem real.
+export interface Realidade {
+  titulo: string;
+  texto: string;
+  /** Qual `motivo` sustenta esta leitura — rastreabilidade, não exibido. */
+  origem: string;
+}
+
+export const realidade: Realidade[] = [
+  {
+    titulo: "Catálogo grande não é curadoria",
+    texto:
+      "Escolher sozinho entre dezenas de linhas parecidas custa tempo, dinheiro e prateleira parada.",
+    origem: "03 · kits pensados no salão, não no estoque",
+  },
+  {
+    titulo: "Entregar no prazo é o mínimo",
+    texto:
+      "O que sustenta o salão é o suporte depois do pedido — e é justamente ele que costuma sumir.",
+    origem: "02 · suporte técnico de verdade, não só entrega",
+  },
+  {
+    titulo: "Marca que todo mundo tem não diferencia ninguém",
+    texto:
+      "Trabalhar só com o que qualquer casa de cosméticos vende deixa o seu serviço na média do mercado.",
+    origem: "01 · marcas exclusivas, fora de casas de cosméticos",
+  },
+  {
+    titulo: "Equipe parada trava o crescimento",
+    texto:
+      "Capacitação não pode depender de sobra de agenda nem de curso avulso caro.",
+    origem: "05 · formação contínua, não apenas vendas",
+  },
+];
+
+// O Método Fenié agrupa em três movimentos as seis etapas reais que já estavam
+// descritas em SolutionsList.astro (Escolha, Técnica, Capacitação, Venda,
+// Reposição, Relacionamento). Não é processo novo nem promessa nova: é o
+// mesmo trabalho, nomeado. A página /solucoes segue detalhando as seis.
+export interface EtapaMetodo {
+  n: string;
+  titulo: string;
+  texto: string;
+  /** Etapas de /solucoes que este movimento cobre. */
+  cobre: string[];
+}
+
+export const metodo: EtapaMetodo[] = [
+  {
+    n: "01",
+    titulo: "Entender",
+    texto:
+      "Antes de indicar qualquer linha, a gente entende o salão: perfil de atendimento, serviços que mais rodam, realidade da equipe e o que já não está funcionando.",
+    cobre: ["Escolha"],
+  },
+  {
+    n: "02",
+    titulo: "Desenvolver",
+    texto:
+      "A linha certa chega junto com o encaminhamento técnico e o acesso aos cursos da Fenié Academy — para a equipe aplicar com segurança, não só para o produto entrar no estoque.",
+    cobre: ["Técnica", "Capacitação"],
+  },
+  {
+    n: "03",
+    titulo: "Acompanhar",
+    texto:
+      "Depois do primeiro pedido o consultor continua: reposição no ritmo do salão, oportunidades comerciais e suporte quando aparece dúvida. É aqui que a relação vira parceria.",
+    cobre: ["Venda", "Reposição", "Relacionamento"],
+  },
+];
+
 // Depoimentos reais publicados no site anterior. Só os erros evidentes de
 // digitação do original foram corrigidos ("guenhei" → "ganhei", "então" →
 // "são"); a voz de cada cliente segue intacta.

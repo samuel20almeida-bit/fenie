@@ -4,26 +4,30 @@ import { whatsappLink } from "../lib/whatsapp";
 ---
 
 <section
-  class="border-b border-white/10 pt-33 pb-26"
+  class="border-b border-white/10 pt-33 pb-24"
   style="background: radial-gradient(ellipse 900px 480px at 82% -10%, color-mix(in oklab, var(--color-gold) 10%, transparent), transparent 60%);"
 >
-  <div class="container-editorial grid items-center gap-18 lg:grid-cols-[1.05fr_0.95fr]">
+  <div class="container-editorial grid items-center gap-18 lg:grid-cols-[1.08fr_0.92fr]">
     <div class="reveal">
       <p class="eyebrow mb-5">Distribuição profissional · Curitiba e região</p>
-      <h1 class="max-w-[16ch] text-[clamp(2.4rem,4.6vw,4rem)]">
-        Produtos profissionais, conhecimento técnico e <em>suporte</em> para o seu salão crescer.
+      {/* A headline lidera pela realidade do salão, não pelo que a Fenié
+      vende: "produtos profissionais" era a primeira coisa que o visitante
+      lia, e é exatamente a percepção que o reposicionamento quer deixar
+      para trás. */}
+      <h1 class="max-w-[17ch] text-[clamp(2.4rem,4.6vw,3.7rem)]">
+        Seu salão precisa de mais do que bons <em>produtos</em>.
       </h1>
-      <p class="mt-6.5 max-w-[48ch] text-lg text-platina">
-        A Fenié Pro conecta salões e profissionais da beleza a marcas selecionadas, atendimento
-        consultivo, capacitação e uma operação comercial próxima.
+      <p class="mt-7 max-w-[46ch] text-lg text-platina">
+        A Fenié reúne marcas selecionadas, conhecimento técnico e suporte comercial próximo para o
+        salão comprar melhor, desenvolver a equipe e crescer com consistência.
       </p>
-      <div class="mt-8.5 flex flex-wrap gap-4">
+      <div class="mt-9 flex flex-wrap gap-4">
         <Button href={whatsappLink("Olá! Vim pelo site da Fenié Pro e quero falar com um consultor.")}>
           Falar com um consultor
         </Button>
-        <Button href="/marcas" variant="outline">Conhecer as marcas →</Button>
+        <Button href="#metodo" variant="outline">Como a Fenié trabalha →</Button>
       </div>
-      <p class="mt-3.5 font-mono text-micro tracking-wide text-platina">
+      <p class="mt-4 font-mono text-micro tracking-wide text-platina">
         Atendimento por consultor da sua região · Sem compromisso de compra
       </p>
     </div>

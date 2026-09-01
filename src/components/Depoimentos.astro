@@ -1,0 +1,65 @@
+---
+import { depoimentos } from "../data/institucional";
+
+interface Props {
+  /** Precisa casar com o fundo da seção: o grid usa gap-px + bg-white/10
+   *  para desenhar os fios, então a face dos cards herda a mesma cor. */
+  surface?: "midnight" | "midnight-alt";
+  eyebrow?: string;
+  titulo?: string;
+}
+
+// A seção sempre precisa de um h2 de verdade: antes era só uma eyebrow em
+// <p>, o que deixava um bloco inteiro da página sem cabeçalho na árvore
+// semântica (leitor de tela pula de "Marcas parceiras" direto para "Time
+// Fenié" sem saber que passou por depoimentos).
+const {
+  surface = "midnight-alt",
+  eyebrow = "Depoimentos",
+  titulo = "O que diz quem já <em>trabalha</em> com a gente.",
+} = Astro.props;
+
+// Tailwind precisa das classes literais no código para gerá-las.
+const bg = surface === "midnight" ? "bg-midnight" : "bg-midnight-alt";
+---
+
+<section class={`${bg} py-26`}>
+  <div class="container-editorial">
+    <div class="reveal mb-10 max-w-[52ch]">
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 class="mt-5 text-[clamp(1.8rem,3vw,2.4rem)]" set:html={titulo} />
+    </div>
+
+    <div class="grid gap-px border border-white/10 bg-white/10 lg:grid-cols-[1.4fr_1fr]">
+      <figure class={`reveal flex flex-col justify-between gap-8 ${bg} p-10 md:p-13`}>
+        <blockquote>
+          <p class="font-display text-[clamp(1.5rem,2.4vw,2rem)] leading-snug italic text-bone">
+            “{depoimentos[0].texto}”
+          </p>
+        </blockquote>
+        <figcaption>
+          <p class="font-body text-base font-bold">{depoimentos[0].autor}</p>
+          <p class="mt-0.5 font-mono text-micro tracking-wide text-platina uppercase">
+            {depoimentos[0].papel}
+          </p>
+        </figcaption>
+      </figure>
+      <figure
+        class={`reveal flex flex-col justify-between gap-6 ${bg} p-9`}
+        style="transition-delay: 75ms"
+      >
+        <blockquote>
+          <p class="font-display text-lg leading-relaxed italic text-bone">
+            “{depoimentos[1].texto}”
+          </p>
+        </blockquote>
+        <figcaption>
+          <p class="font-body text-base font-bold">{depoimentos[1].autor}</p>
+          <p class="mt-0.5 font-mono text-micro tracking-wide text-platina uppercase">
+            {depoimentos[1].papel}
+          </p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

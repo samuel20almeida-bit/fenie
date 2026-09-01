@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
-import Pillars from "../../components/Pillars.astro";
+import Metodo from "../../components/Metodo.astro";
+import Depoimentos from "../../components/Depoimentos.astro";
 import CtaFinal from "../../components/CtaFinal.astro";
 import { whatsappLink } from "../../lib/whatsapp";
 import {
   declaracao,
-  depoimentos,
   diferenciais,
   missao,
   motivos,
@@ -113,7 +113,7 @@ import {
     </div>
   </section>
 
-  <Pillars />
+  <Metodo />
 
   <section class="bg-midnight py-26">
     <div class="container-editorial">
@@ -143,39 +143,7 @@ import {
     </div>
   </section>
 
-  <section class="bg-midnight-alt py-26">
-    <div class="container-editorial">
-      <p class="eyebrow reveal mb-10">O que dizem os clientes</p>
-      <div class="grid gap-px border border-white/10 bg-white/10 lg:grid-cols-[1.4fr_1fr]">
-        <figure class="reveal flex flex-col justify-between gap-8 bg-midnight-alt p-10 md:p-13">
-          <blockquote>
-            <p class="font-display text-[clamp(1.5rem,2.4vw,2rem)] leading-snug italic text-bone">
-              “{depoimentos[0].texto}”
-            </p>
-          </blockquote>
-          <figcaption>
-            <p class="font-body text-base font-bold">{depoimentos[0].autor}</p>
-            <p class="mt-0.5 font-mono text-micro tracking-wide text-platina uppercase">
-              {depoimentos[0].papel}
-            </p>
-          </figcaption>
-        </figure>
-        <figure class="reveal flex flex-col justify-between gap-6 bg-midnight-alt p-9" style="transition-delay: 75ms">
-          <blockquote>
-            <p class="font-display text-lg leading-relaxed italic text-bone">
-              “{depoimentos[1].texto}”
-            </p>
-          </blockquote>
-          <figcaption>
-            <p class="font-body text-base font-bold">{depoimentos[1].autor}</p>
-            <p class="mt-0.5 font-mono text-micro tracking-wide text-platina uppercase">
-              {depoimentos[1].papel}
-            </p>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+  <Depoimentos />
 
   <section class="bg-midnight py-26">
     <div class="container-editorial">

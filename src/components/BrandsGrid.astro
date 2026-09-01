@@ -15,7 +15,7 @@ const destaque = marcaDestaque.destaque!;
 // de branco puro: mantém o logo legível sem quebrar o clima editorial
 // escuro do resto do site com 6 retângulos branco-puro em sequência.
 const plateClass =
-  "flex h-24 items-center justify-center rounded-editorial bg-bone p-5";
+  "flex h-18 items-center justify-center rounded-editorial bg-bone p-3.5 sm:h-24 sm:p-5";
 ---
 
 <section class="bg-midnight py-26">
@@ -41,9 +41,14 @@ const plateClass =
       )
     }
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:grid-rows-3">
+    {
+      /* Duas colunas já no mobile: em coluna única as seis marcas viravam uma
+      lista de rolagem sem fim e o portfólio deixava de ser lido como conjunto.
+      A marca em destaque continua ocupando a largura toda. */
+    }
+    <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-[1.3fr_1fr_1fr] lg:grid-rows-3">
       <div
-        class="reveal group flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-7 transition-[color,background-color,border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold sm:col-span-2 lg:col-span-1 lg:row-span-3 pointer-fine:hover:-translate-y-0.5"
+        class="reveal group col-span-2 flex flex-col gap-4.5 rounded-editorial border border-white/10 bg-midnight-card p-6 transition-[color,background-color,border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold sm:p-7 lg:col-span-1 lg:row-span-3 pointer-fine:hover:-translate-y-0.5"
       >
         <div class="flex flex-1 items-center justify-center rounded-editorial bg-white/[0.03] p-5">
           <img
@@ -78,7 +83,7 @@ const plateClass =
       {
         marcasSecundarias.map((marca, i) => (
           <div
-            class="reveal group flex flex-col gap-4 rounded-editorial border border-white/10 bg-midnight-card p-6 transition-[border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold pointer-fine:hover:-translate-y-0.5"
+            class="reveal group flex flex-col gap-3.5 rounded-editorial border border-white/10 bg-midnight-card p-4 transition-[border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold sm:gap-4 sm:p-6 pointer-fine:hover:-translate-y-0.5"
             style={`transition-delay: ${i * 75}ms`}
           >
             <div class={plateClass}>
@@ -103,6 +108,25 @@ const plateClass =
           </div>
         ))
       }
+    </div>
+
+    {
+      /* Fecha o portfólio ligando curadoria a consultoria: sem isso a seção
+      termina como catálogo, e a escolha da linha certa — que é justamente o
+      trabalho da Fenié — fica por conta do visitante. */
+    }
+    <div class="reveal mt-12 flex flex-wrap items-center justify-between gap-x-10 gap-y-5 border-t border-white/10 pt-9">
+      <p class="max-w-[46ch] font-body text-feature font-semibold text-bone">
+        Não sabe qual marca faz mais sentido para a sua operação?
+      </p>
+      <a
+        href={whatsappLink(
+          "Olá! Quero ajuda para escolher as marcas que fazem sentido para o meu salão."
+        )}
+        class="border-b border-gold pb-0.5 text-sm font-semibold text-bone transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) hover:text-gold"
+      >
+        Falar com um consultor →
+      </a>
     </div>
   </div>
 </section>

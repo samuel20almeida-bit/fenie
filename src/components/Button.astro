@@ -2,22 +2,46 @@
 interface Props {
   href: string;
   variant?: "primary" | "outline" | "link";
+  /** `compact` encolhe só no mobile: no header o rótulo inteiro não cabe
+   *  ao lado da logo e do menu em 390px e quebrava em duas linhas. */
+  size?: "default" | "compact";
   class?: string;
 }
 
-const { href, variant = "primary", class: className = "" } = Astro.props;
+const { href, variant = "primary", size = "default", class: className = "" } = Astro.props;
 
 const base =
-  "inline-flex min-h-11 items-center gap-2 font-body text-sm font-semibold transition-transform duration-(--dur-hover-btn) ease-(--ease-editorial) active:scale-[0.97] pointer-fine:hover:scale-[1.02]";
+  "inline-flex min-h-11 items-center gap-2 font-body font-semibold transition-transform duration-(--dur-hover-btn) ease-(--ease-editorial) active:scale-[0.97] pointer-fine:hover:scale-[1.02]";
 
-const variants = {
-  primary: "rounded-full bg-gold px-7 py-3.5 text-midnight hover:bg-gold-hover",
-  outline:
-    "rounded-full border border-white/25 px-7 py-3.5 text-bone hover:border-gold hover:text-gold",
-  link: "border-b border-gold pb-0.5 text-bone hover:text-gold",
+const sizing = {
+  default: "text-sm",
+  compact: "text-caption whitespace-nowrap sm:text-sm",
+};
+
+// Forma e espaçamento juntos: assim nunca há duas classes de padding
+// concorrendo no mesmo elemento (a ordem no atributo não decide quem vence).
+const shape = {
+  primary: {
+    default: "rounded-full px-7 py-3.5",
+    compact: "rounded-full px-5 py-3 sm:px-7 sm:py-3.5",
+  },
+  outline: {
+    default: "rounded-full border border-white/25 px-7 py-3.5",
+    compact: "rounded-full border border-white/25 px-5 py-3 sm:px-7 sm:py-3.5",
+  },
+  link: {
+    default: "border-b border-gold pb-0.5",
+    compact: "border-b border-gold pb-0.5",
+  },
+};
+
+const color = {
+  primary: "bg-gold text-midnight hover:bg-gold-hover",
+  outline: "text-bone hover:border-gold hover:text-gold",
+  link: "text-bone hover:text-gold",
 };
 ---
 
-<a href={href} class:list={[base, variants[variant], className]}>
+<a href={href} class:list={[base, sizing[size], shape[variant][size], color[variant], className]}>
   <slot />
 </a>

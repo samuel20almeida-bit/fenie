@@ -1,21 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Pillars from "../components/Pillars.astro";
+import AuthorityBand from "../components/AuthorityBand.astro";
+import Realidade from "../components/Realidade.astro";
+import Metodo from "../components/Metodo.astro";
 import BrandsGrid from "../components/BrandsGrid.astro";
 import AcademyTeaser from "../components/AcademyTeaser.astro";
+import Depoimentos from "../components/Depoimentos.astro";
 import Consultants from "../components/Consultants.astro";
 import CtaFinal from "../components/CtaFinal.astro";
+
+// Ordem = jornada do visitante, não inventário de seções:
+// entender (Hero) → confiar de cara (números) → se identificar (Realidade) →
+// entender como funciona (Método) → ver o portfólio (Marcas) → desejar
+// (Academy) → confiar de novo, agora pela voz de cliente (Depoimentos) →
+// ver gente de verdade (Time) → agir (CTA).
 ---
 
 <Layout
-  title="Produtos profissionais, conhecimento técnico e suporte para o seu salão crescer"
-  description="A Fenié Pro conecta salões e profissionais da beleza a marcas selecionadas, atendimento consultivo, capacitação e uma operação comercial próxima. Distribuição profissional em Curitiba e região."
+  title="Seu salão precisa de mais do que bons produtos"
+  description="A Fenié Pro reúne marcas selecionadas, conhecimento técnico e suporte comercial próximo para o salão comprar melhor, desenvolver a equipe e crescer com consistência. Distribuição profissional em Curitiba e região."
 >
   <Hero />
-  <Pillars />
+  <AuthorityBand />
+  <Realidade />
+  <Metodo />
   <BrandsGrid />
   <AcademyTeaser />
+  <Depoimentos surface="midnight" />
   <Consultants />
   <CtaFinal />
 </Layout>

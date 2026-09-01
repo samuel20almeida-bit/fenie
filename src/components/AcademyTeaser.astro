@@ -3,6 +3,11 @@ import Button from "./Button.astro";
 import CourseCard from "./CourseCard.astro";
 import PlaceholderMedia from "./PlaceholderMedia.astro";
 import { cursoDestaque } from "../data/cursos";
+
+// A Academy deixa de ser "também oferecemos cursos" e passa a sustentar o
+// movimento "Desenvolver" do Método: é ela que faz a linha indicada virar
+// resultado na cadeira. Por isso a headline curta e o texto ligando
+// explicitamente formação a resultado — não a catálogo de cursos.
 ---
 
 <section class="bg-midnight-alt py-26">
@@ -13,15 +18,15 @@ import { cursoDestaque } from "../data/cursos";
     />
 
     <div class="reveal order-1">
-      <p class="eyebrow mb-4">Fenié Academy</p>
-      <h2 class="text-[clamp(1.7rem,2.8vw,2.2rem)]">
-        Conhecimento técnico para transformar prática em <em>evolução</em> profissional.
+      <p class="eyebrow mb-5">Fenié Academy</p>
+      <h2 class="text-[clamp(1.9rem,3.4vw,2.7rem)]">
+        Aprenda. Pratique. <em>Evolua</em>.
       </h2>
-      <p class="mt-4.5 max-w-[48ch] text-platina">
-        A Fenié Academy reúne cursos técnicos, formações e imersões profissionais para quem vive
-        da beleza e busca evolução real, segurança técnica e crescimento no salão.
+      <p class="mt-5 max-w-[46ch] text-lg text-platina">
+        A Academy não é um extra do catálogo — é como a Fenié garante que a linha indicada vira
+        resultado na cadeira. Cursos técnicos, formações e imersões para quem vive da beleza.
       </p>
-      <Button href="/academy" variant="outline" class="mt-6.5">Ver agenda de cursos →</Button>
+      <Button href="/academy" variant="outline" class="mt-7">Ver agenda de cursos →</Button>
 
       <CourseCard curso={cursoDestaque} class="mt-8" />
     </div>

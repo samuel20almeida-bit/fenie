@@ -1,0 +1,43 @@
+---
+import { realidade } from "../data/institucional";
+
+// Etapa "identificar" da jornada: antes de falar do que a Fenié faz, mostrar
+// que ela entende o que o salão vive. Cada leitura tem origem rastreável nos
+// `motivos` reais (ver data/institucional.ts) — nada de dor genérica de
+// landing page. O layout foge do grid de cards: é uma coluna de leitura com
+// as observações à direita, para soar reconhecimento, não checklist de vendas.
+---
+
+<section class="bg-midnight py-26">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-[0.95fr_1.25fr] lg:gap-20">
+      <div class="reveal lg:sticky lg:top-28 lg:self-start">
+        <p class="eyebrow mb-5">A realidade de quem toca um salão</p>
+        <h2 class="max-w-[16ch] text-[clamp(1.9rem,3.4vw,2.7rem)]">
+          Comprar produto é fácil. Difícil é ter com quem <em>contar</em> depois.
+        </h2>
+        <p class="mt-6 max-w-[42ch] text-platina">
+          A parte simples da distribuição é entregar a caixa. O que decide o resultado do salão
+          acontece antes e depois dela — na escolha da linha certa, na dúvida técnica no meio do
+          atendimento, na equipe que precisa evoluir.
+        </p>
+      </div>
+
+      <ul class="border-t border-white/10">
+        {
+          realidade.map((item, i) => (
+            <li
+              class="reveal border-b border-white/10 py-7"
+              style={`transition-delay: ${i * 75}ms`}
+            >
+              <h3 class="max-w-[30ch] font-body text-feature font-semibold text-bone">
+                {item.titulo}
+              </h3>
+              <p class="mt-2.5 max-w-[54ch] text-base text-platina">{item.texto}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
