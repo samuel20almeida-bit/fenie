@@ -35,6 +35,15 @@ direto num componente — sempre pela variável/utility já existente:
   (`cubic-bezier(.23,1,.32,1)`); a classe `.reveal` implementa a entrada
   por scroll (550ms, dispara uma vez só) via `IntersectionObserver` em
   `src/layouts/Layout.astro`.
+- Logo: `public/images/logo/fenie-pro-logo.webp` é a logo oficial
+  (wordmark + onda), usada em `Header.astro` e `Footer.astro`. Veio como
+  JPEG com fundo sólido; `fenie-pro-mark.webp` é só a onda, recortada do
+  mesmo arquivo e usada como base do favicon (`public/favicon.png`). Fundo
+  removido via `convert -fuzz 12% -transparent "srgb(8,15,41)" -trim`
+  (ImageMagick) — a cor do fundo original já era quase idêntica ao
+  `--color-midnight` do tema, então o recorte cola sem emenda visível em
+  qualquer seção midnight do site. Se a marca mandar um arquivo vetorial
+  (SVG/AI) no futuro, ele substitui o WebP sem precisar desse processo.
 
 ## WhatsApp contextual
 
