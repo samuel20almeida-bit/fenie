@@ -59,7 +59,7 @@ export const categories: Category[] = [
         nome: "Royal Care",
         headline: "Cabelos lisos, hidratados e selados por mais tempo",
         descricao:
-          "Kit shampoo e condicionador de manutenção do liso, com 14 aminoácidos, 7 óleos e o ativo exclusivo Bio Lacase — Sistema Dual Mask.",
+          "Kit shampoo e condicionador de manutenção do liso, com 14 aminoácidos, 7 óleos e o ativo exclusivo Bio Lacase, no Sistema Dual Mask.",
         beneficios: [
           "Maior durabilidade do liso ou alisado",
           "Controle e disciplina dos fios",
@@ -72,7 +72,7 @@ export const categories: Category[] = [
         nome: "Royal Finish",
         headline: "A máscara coringa do cabeleireiro",
         descricao:
-          "Máscara universal que neutraliza as ações químicas e restaura o pH natural do cabelo — uso pré e pós-química.",
+          "Máscara universal que neutraliza as ações químicas e restaura o pH natural do cabelo. Uso pré e pós-química.",
         beneficios: ["Neutralização química universal", "Preparação para químicas", "Neutraliza odores"],
         rendimento: "35 aplicações",
         imagem: "/images/marcas/olenka/royal-finish.webp",
@@ -141,7 +141,7 @@ export const categories: Category[] = [
         nome: "Bio Reconstrutor Self Care",
         headline: "A recuperação e o tratamento que seu cabeleireiro confia, na sua casa",
         descricao:
-          "Versão home care do Bio Reconstrutor — shampoo de tratamento e máscara de reconstrução para uso entre uma e duas vezes por semana.",
+          "Versão home care do Bio Reconstrutor: shampoo de tratamento e máscara de reconstrução para uso entre uma e duas vezes por semana.",
         beneficios: ["Continuidade do tratamento de salão em casa", "Para cabelos danificados", "Uso 1 a 2x por semana"],
         rendimento: "20 aplicações",
         imagem: "/images/marcas/olenka/bio-reconstrutor-self-care.webp",
@@ -171,7 +171,7 @@ export const categories: Category[] = [
         nome: "Hidra 3'",
         headline: "Hidratação e nutrição rápida e eficaz",
         descricao:
-          "Kit shampoo, hidratação profunda e web mask com pró-vitamina B5, óleos de buriti, monoi e proteína da seda — resultado em apenas 3 minutos.",
+          "Kit shampoo, hidratação profunda e web mask com pró-vitamina B5, óleos de buriti, monoi e proteína da seda. Resultado em apenas 3 minutos.",
         beneficios: ["Hidratação profunda express (3 minutos)", "Ideal para todos os tipos de cabelo", "Cabelos leves e macios"],
         rendimento: "45 aplicações",
         imagem: "/images/marcas/olenka/hidra3.webp",
@@ -214,7 +214,7 @@ export const categories: Category[] = [
         nome: "Self Care",
         headline: "A durabilidade do salão para suas clientes",
         descricao:
-          "Linha home care segmentada por tipo de cabelo: cacheados, claros/descoloridos, regeneração intensa e lisos/alisados — cada um com ativos específicos.",
+          "Linha home care segmentada por tipo de cabelo: cacheados, claros/descoloridos, regeneração intensa e lisos/alisados, cada um com ativos específicos.",
         beneficios: ["Uma formulação por tipo de cabelo", "Shampoo e Dual Mousse", "Estende o resultado do serviço de salão"],
         imagem: "/images/marcas/olenka/self-care.webp",
       },
@@ -261,7 +261,7 @@ export const categories: Category[] = [
         nome: "Men's Care",
         headline: "Tratamento e eficácia comprovada para cabelo e couro cabeludo",
         descricao:
-          "Linha completa para o público masculino com Aloe Vera, Tea Tree, Menta, Alantoína e o ativo exclusivo OKnexil — shampoo, condicionador, balm pré/pós-barba, óleo e tônico anti-queda 2x1.",
+          "Linha completa para o público masculino com Aloe Vera, Tea Tree, Menta, Alantoína e o ativo exclusivo OKnexil: shampoo, condicionador, balm pré/pós-barba, óleo e tônico anti-queda 2x1.",
         beneficios: ["Controle de oleosidade, caspa e queda", "Versões profissional (1,5L) e home care", "Tônico anti-queda com eficácia após 4 semanas"],
         imagem: "/images/marcas/olenka/mens-care.webp",
       },
