@@ -1,0 +1,209 @@
+---
+// Acordeão numerado da home — porte do "interactive-accordion" (React +
+// framer-motion) para Astro nativo. Mesma interação: círculo do número que
+// preenche no ativo e ensaia no hover, título que desliza, "+" que gira 45°
+// e fio que cresce da esquerda.
+//
+// Por que portado e não instalado: o projeto não tem React. Trazer
+// @astrojs/react + react + react-dom + framer-motion custaria ~50 KB gzip de
+// runtime num site que hoje entrega quase nada — para um acordeão. E as molas
+// do framer-motion brigariam com a regra de movimento do briefing (cap. 06):
+// uma curva só, --ease-editorial, para tudo. Aqui o estado é <details name>,
+// que já dá exclusividade e acessibilidade sem JS; o JS só existe para animar
+// a altura, e sai de cena em prefers-reduced-motion.
+//
+// Tokens traduzidos do componente original para a paleta oficial:
+//   foreground → bone · muted-foreground → platina
+//   bg-foreground (círculo ativo) → gold, com o número em midnight
+//   bg-border → border
+import { faq } from "../data/faq";
+---
+
+<section class="bg-midnight-alt py-26">
+  <div class="container-editorial">
+    <div class="reveal mb-12 max-w-[52ch]">
+      <p class="eyebrow mb-5">Perguntas frequentes</p>
+      <h2 class="text-[clamp(1.9rem,3.4vw,2.7rem)]">
+        O que o salão pergunta <em>antes</em> de começar.
+      </h2>
+    </div>
+
+    <div id="faq-acordeao" class="reveal max-w-216 border-t border-border">
+      {
+        faq.map((item, i) => (
+          <details name="faq-fenie" class="faq-item group relative block border-b border-border">
+            <summary class="relative flex cursor-pointer list-none items-center gap-4 py-5 marker:content-none sm:gap-6">
+              <span class="faq-num relative flex h-8 w-8 shrink-0 items-center justify-center sm:h-10 sm:w-10">
+                <span class="faq-disco absolute inset-0 rounded-full bg-gold" aria-hidden="true" />
+                <span class="faq-n relative z-10 font-mono text-caption font-medium tracking-wide">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </span>
+
+              <h3 class="faq-titulo flex-1 font-body text-base font-semibold text-platina sm:text-feature">
+                {item.q}
+              </h3>
+
+              <span class="faq-mais flex h-7 w-7 shrink-0 items-center justify-center text-bone sm:h-8 sm:w-8">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path
+                    d="M8 1V15M1 8H15"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+
+              <span class="faq-fio absolute right-0 bottom-0 left-0 h-px bg-gold" aria-hidden="true" />
+            </summary>
+
+            <div class="faq-panel overflow-hidden">
+              <p class="max-w-[62ch] py-5 pl-12 text-sm text-platina sm:py-6 sm:pr-12 sm:pl-16">{item.a}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* O marcador nativo do <summary> não é estilizável — sai nos dois motores. */
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::marker {
+    content: "";
+  }
+
+  /* Uma transição só para todos os estados, na curva do briefing. */
+  .faq-disco,
+  .faq-n,
+  .faq-titulo,
+  .faq-mais,
+  .faq-fio {
+    transition:
+      transform var(--dur-hover-card) var(--ease-editorial),
+      opacity var(--dur-hover-card) var(--ease-editorial),
+      color var(--dur-hover-card) var(--ease-editorial);
+  }
+
+  /* Repouso: círculo ausente, número e título em platina, fio recolhido. */
+  .faq-disco {
+    transform: scale(0);
+    opacity: 0;
+  }
+  .faq-n {
+    color: var(--color-platina);
+  }
+  .faq-mais {
+    opacity: 0.4;
+  }
+  .faq-fio {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  /* Hover: o círculo ensaia e o fio adianta um terço — a dica de que abre. */
+  @media (pointer: fine) {
+    .faq-item:not([open]) summary:hover .faq-disco {
+      transform: scale(0.85);
+      opacity: 0.12;
+    }
+    .faq-item summary:hover .faq-titulo {
+      color: var(--color-bone);
+      transform: translateX(4px);
+    }
+    .faq-item summary:hover .faq-mais {
+      opacity: 1;
+    }
+    .faq-item:not([open]) summary:hover .faq-fio {
+      transform: scaleX(0.3);
+    }
+  }
+
+  /* Aberto: círculo cheio em ouro, número em midnight, "+" vira "×". */
+  .faq-item[open] .faq-disco {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .faq-item[open] .faq-n {
+    color: var(--color-midnight);
+  }
+  .faq-item[open] .faq-titulo {
+    color: var(--color-bone);
+    transform: translateX(4px);
+  }
+  .faq-item[open] .faq-mais {
+    opacity: 1;
+    transform: rotate(45deg);
+  }
+  .faq-item[open] .faq-fio {
+    transform: scaleX(1);
+  }
+
+  .faq-item summary:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  /* Sem JS o <details> abre e fecha na hora: conteúdo nunca fica inacessível. */
+  .faq-panel {
+    height: auto;
+  }
+</style>
+
+<script>
+  // Progressive enhancement: o <details name> já abre, fecha e mantém a
+  // exclusividade sozinho. O JS entra só para dar altura animada — e para
+  // animar TAMBÉM o item que fecha, que a exclusividade nativa fecharia seco.
+  const root = document.getElementById("faq-acordeao");
+
+  if (root) {
+    const items = [...root.querySelectorAll<HTMLDetailsElement>("details")];
+    const reduzido = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    function anima(item: HTMLDetailsElement, abrindo: boolean) {
+      const panel = item.querySelector<HTMLElement>(".faq-panel");
+      if (!panel) return;
+
+      const alvo = abrindo ? panel.scrollHeight : 0;
+      const de = abrindo ? 0 : panel.scrollHeight;
+
+      panel.animate(
+        { height: [`${de}px`, `${alvo}px`] },
+        {
+          duration: 240,
+          easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+        }
+      ).onfinish = () => {
+        if (!abrindo) item.open = false;
+      };
+    }
+
+    for (const item of items) {
+      const summary = item.querySelector("summary");
+      if (!summary) continue;
+
+      summary.addEventListener("click", (event) => {
+        if (reduzido.matches) return; // deixa o comportamento nativo
+
+        event.preventDefault();
+
+        if (item.open) {
+          anima(item, false);
+          return;
+        }
+
+        // fecha os irmãos com animação antes de abrir este
+        for (const outro of items) {
+          if (outro !== item && outro.open) anima(outro, false);
+        }
+
+        item.open = true;
+        anima(item, true);
+      });
+    }
+  }
+</script>
