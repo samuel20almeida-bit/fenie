@@ -19,6 +19,19 @@ import { whatsappLink } from "../lib/whatsapp";
 //   (`md:[&:not(:focus-within):not(:hover)]:group-focus-within:w-[20%]`), que
 //   é ilegível na quinta vez que se lê.
 //
+// SOBRE AS FOTOS: os arquivos originais entregues eram 320x320 com 5 KB, e
+// esticados num painel de 800px o navegador os ampliava 2,6x com filtro
+// bilinear — ficava visivelmente mole. Os arquivos em public/images/team/
+// são esses mesmos 320px reamostrados para 800px em dois passos Lanczos com
+// uma máscara de nitidez contida (unsharp 0x0.7+0.42+0.02), o que degrada
+// bem melhor do que a ampliação em tempo real do navegador.
+//
+// Isso NÃO cria detalhe que não existe: continua sendo um upscale, e num
+// monitor retina ainda aparece. A correção de verdade é receber os retratos
+// originais em ~800x1000; quando chegarem, é só trocar os arquivos, sem
+// mexer neste componente. As versões 320px originais seguem no git, em
+// 68fc3ea.
+//
 // O reveal de nome/cargo só existe onde há cursor de verdade (`pointer: fine`
 // + md). No toque e no mobile os dois painéis ficam abertos e legíveis: a
 // informação nunca fica atrás de um hover que o aparelho não tem. E mesmo
@@ -51,8 +64,8 @@ const time = [
               class="time-foto"
               src={p.foto}
               alt={`Retrato de ${p.nome}`}
-              width="320"
-              height="320"
+              width="800"
+              height="800"
               loading="lazy"
             />
             <div class="time-legenda">
@@ -73,12 +86,6 @@ const time = [
 <style>
   .time-palco {
     display: flex;
-    /* Largura contida de propósito. As fotos do time são 320x320: num palco
-       de 1100px o painel aberto passa de 800px e o navegador amplia a foto
-       2,6x — a moleza aparece. A 820px a ampliação cai para 1,9x. Quando
-       chegarem retratos maiores (ver comentário no fim do arquivo), esta
-       trava pode sair. */
-    max-width: 51.25rem;
     flex-direction: column;
     gap: 0.5rem;
     list-style: none;
@@ -134,7 +141,7 @@ const time = [
     width: 100%;
     height: 16rem;
     object-fit: cover;
-    object-position: center 11%;
+    object-position: center 22%;
   }
 
   .time-legenda {
@@ -169,10 +176,10 @@ const time = [
       flex: 1 1 0;
     }
     .time-foto {
-      /* Altura curta pelo mesmo motivo: o fator de ampliação do object-fit
-         é o maior entre largura e altura, e aqui quem manda é a largura —
-         crescer em altura só pioraria. */
-      height: 20rem;
+      /* Alto o bastante para caber cabeça e ombros no painel aberto: a
+         faixa visível é a altura dividida pelo fator de cover, e num painel
+         de 818x360 sobrava só 44% da foto — cortava testa e queixo. */
+      height: 28rem;
     }
     .time-legenda {
       padding: 1.75rem;
@@ -190,7 +197,7 @@ const time = [
     }
 
     .time-palco .time-card:hover {
-      flex-grow: 2.4;
+      flex-grow: 3;
     }
     .time-palco .time-card:hover::after {
       opacity: 0;
