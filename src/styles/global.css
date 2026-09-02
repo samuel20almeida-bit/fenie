@@ -171,6 +171,103 @@ em {
   }
 }
 
+/* ── Trilho de passos ────────────────────────────────────────────────────────
+   Porte do "PassosNaLinha" (React + motion) para o site: um fio que preenche
+   conforme a pessoa desce, e um ponto que acende quando o preenchimento
+   chega nele. Ver o quanto falta é o que faz alguém terminar de ler.
+
+   Quatro decisões vieram inteiras do original, e não são detalhe:
+
+   1. O fio preenche em `scale`, nunca em `height`/`width`. Dimensão recalcula
+      layout a cada quadro de scroll, e o engasgo aparece justo no gesto que
+      deveria parecer contínuo.
+   2. O "aceso" é OPACIDADE de uma camada por cima, não troca de cor: as duas
+      camadas ficam idênticas em posição, e a de cima só aparece.
+   3. O estado FINAL é o padrão do CSS — fio cheio, pontos acesos. Sem JS ou
+      com `prefers-reduced-motion`, a página mostra tudo pronto. Meia animação
+      é pior que nenhuma para quem pediu para não ter animação.
+   4. Os fios são `aria-hidden`: são decoração. A sequência já está no <ol>,
+      que é o que o leitor de tela anuncia.
+
+   O que mudou daqui para lá: o fio vazio é a cor de borda do tema e o cheio é
+   o gold. No original os dois eram a mesma família; aqui, com o vazio neutro,
+   o preenchimento lê como progresso e não como enfeite. */
+@layer components {
+  .trilho-fio,
+  .trilho-cheio {
+    position: absolute;
+    pointer-events: none;
+  }
+  .trilho-fio {
+    background: var(--color-border);
+  }
+  .trilho-cheio {
+    background: var(--color-gold);
+    will-change: transform;
+  }
+
+  [data-trilho="horizontal"] > .trilho-fio,
+  [data-trilho="horizontal"] > .trilho-cheio {
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    transform-origin: left center;
+  }
+
+  [data-trilho="vertical"] > .trilho-fio,
+  [data-trilho="vertical"] > .trilho-cheio {
+    /* recorta o fio na altura do centro do primeiro e do último ponto, para
+       ele não sobrar acima do 01 nem abaixo do último número */
+    top: var(--trilho-recuo, 2.5rem);
+    bottom: var(--trilho-recuo, 2.5rem);
+    left: var(--trilho-x, 19px);
+    width: 1px;
+    transform-origin: center top;
+  }
+
+  /* ponto do trilho horizontal: a bolinha de 8px que já existia */
+  .trilho-ponto {
+    position: relative;
+    display: block;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 9999px;
+    background: var(--color-border);
+  }
+  .trilho-aceso {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--color-gold);
+  }
+
+  /* ponto do trilho vertical: o número dentro de um círculo */
+  .trilho-numero {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    background: var(--color-midnight-alt);
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    font-weight: 700;
+    color: var(--color-platina);
+  }
+  .trilho-numero > .trilho-aceso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-midnight);
+  }
+}
+
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {

@@ -83,6 +83,23 @@ const localBusiness = {
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;600&display=swap"
     />
+
+    <noscript>
+      <style>
+        /* Sem JS o IntersectionObserver nunca marca .is-visible, e todo o
+           conteúdo do site — que é quase todo .reveal — ficaria em opacity 0.
+           Bug antigo, encontrado ao testar o fallback do trilho.
+
+           `:root .reveal` e não `.reveal`: o Astro injeta este <noscript>
+           ANTES do CSS do site, então em empate de especificidade quem vem
+           depois ganha — e quem vem depois é o opacity: 0. Com (0,2,0) a
+           ordem deixa de importar. */
+        :root .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
     <Header />
@@ -108,6 +125,124 @@ const localBusiness = {
         { threshold: 0.25 }
       );
       items.forEach((item) => observer.observe(item));
+    </script>
+
+    <script>
+      // Trilho de passos — porte do "PassosNaLinha" (React + motion) para JS
+      // vanilla, que é a regra do projeto. Ver global.css para as decisões de
+      // desenho; aqui fica só o que move.
+      //
+      // Nada acontece se a pessoa pediu para não ter animação: o CSS já pinta
+      // o estado final, então sair daqui sem fazer nada entrega fio cheio e
+      // pontos acesos. O mesmo vale se este script não carregar.
+      const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const trilhos = [...document.querySelectorAll<HTMLElement>("[data-trilho]")];
+
+      if (trilhos.length && !semMovimento) {
+        // Janela do original: o fio começa a encher quando o topo da lista
+        // chega a 78% da altura da janela e termina quando o fim dela passa
+        // de 65%. Numa janela curta demais o fio enche antes de a pessoa ler
+        // o primeiro passo, e o efeito perde a função.
+        const INICIO = 0.78;
+        const FIM = 0.65;
+        // Mesma mola do original (framer-motion). Ela existe porque o
+        // progresso cru é áspero: acompanha o tranco da roda do mouse pixel a
+        // pixel, e sem ela o fio anda em degraus.
+        const RIGIDEZ = 110;
+        const AMORTECIMENTO = 28;
+
+        const estados = trilhos.map((el) => ({
+          el,
+          eixo: el.dataset.trilho === "vertical" ? "Y" : "X",
+          cheio: el.querySelector<HTMLElement>(".trilho-cheio"),
+          acesos: [...el.querySelectorAll<HTMLElement>(".trilho-aceso")],
+          x: 0,
+          v: 0,
+          alvo: 0,
+        }));
+
+        function alvoDe(el: HTMLElement) {
+          const r = el.getBoundingClientRect();
+          const vh = window.innerHeight;
+          const percorrido = INICIO * vh - r.top;
+          const total = (INICIO - FIM) * vh + r.height;
+          return Math.min(1, Math.max(0, percorrido / total));
+        }
+
+        function pintar(e: (typeof estados)[number]) {
+          if (e.cheio) e.cheio.style.transform = `scale${e.eixo}(${e.x})`;
+          const total = e.acesos.length;
+          e.acesos.forEach((aceso, i) => {
+            // Acende quando o preenchimento chega no ponto e completa em meio
+            // passo: com transição instantânea o número piscava no limiar.
+            const inicio = i / total;
+            const p = (e.x - inicio) / (0.5 / total);
+            aceso.style.opacity = String(Math.min(1, Math.max(0, p)));
+          });
+        }
+
+        // Estado inicial aplicado de imediato, antes do primeiro quadro: sem
+        // isso o fio cheio do CSS aparece por um instante e depois esvazia.
+        for (const e of estados) {
+          e.x = e.alvo = alvoDe(e.el);
+          pintar(e);
+        }
+
+        const visiveis = new Set<HTMLElement>();
+        const io = new IntersectionObserver(
+          (entradas) => {
+            for (const entrada of entradas) {
+              const alvo = entrada.target as HTMLElement;
+              if (entrada.isIntersecting) visiveis.add(alvo);
+              else visiveis.delete(alvo);
+            }
+            if (visiveis.size && !quadroId) quadroId = requestAnimationFrame(quadro);
+          },
+          // margem larga para o fio já estar no ponto certo quando a seção
+          // entra na tela, não começando do zero na borda
+          { rootMargin: "40% 0px 40% 0px" }
+        );
+        estados.forEach((e) => io.observe(e.el));
+
+        let quadroId = 0;
+        let anterior = 0;
+
+        function quadro(agora: number) {
+          const dt = Math.min(anterior ? (agora - anterior) / 1000 : 0.016, 1 / 30);
+          anterior = agora;
+          let parado = true;
+
+          for (const e of estados) {
+            if (!visiveis.has(e.el)) continue;
+            e.alvo = alvoDe(e.el);
+            // integração semi-implícita: acelera para o alvo e freia pela
+            // velocidade, que é o modelo de mola do original
+            e.v += ((e.alvo - e.x) * RIGIDEZ - e.v * AMORTECIMENTO) * dt;
+            e.x += e.v * dt;
+            if (Math.abs(e.alvo - e.x) > 0.0005 || Math.abs(e.v) > 0.0005) parado = false;
+            else {
+              e.x = e.alvo;
+              e.v = 0;
+            }
+            pintar(e);
+          }
+
+          // Para o laço quando tudo assentou. Ele volta no próximo scroll,
+          // porque o próprio scroll muda o alvo e o observer religa.
+          if (parado || !visiveis.size) {
+            quadroId = 0;
+            anterior = 0;
+          } else {
+            quadroId = requestAnimationFrame(quadro);
+          }
+        }
+
+        const religar = () => {
+          if (visiveis.size && !quadroId) quadroId = requestAnimationFrame(quadro);
+        };
+        window.addEventListener("scroll", religar, { passive: true });
+        window.addEventListener("resize", religar);
+      }
     </script>
   </body>
 </html>

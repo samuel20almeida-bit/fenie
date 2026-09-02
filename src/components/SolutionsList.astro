@@ -45,21 +45,35 @@ const items = [
       </p>
     </div>
 
-    <div>
+    {/* Aqui o trilho é vertical, que é a forma nativa do componente de
+        origem: seis etapas em sequência, com o título parado à esquerda
+        enquanto elas passam. As linhas divisórias entre os itens saíram — o
+        fio já faz esse trabalho, e manter os dois era dividir duas vezes. */}
+    <ol data-trilho="vertical" class="relative">
+      <span class="trilho-fio" aria-hidden="true"></span>
+      <span class="trilho-cheio" aria-hidden="true"></span>
       {
         items.map((item, i) => (
-          <div
-            class="reveal grid grid-cols-[44px_1fr] gap-6 border-t border-border py-7 first:border-t-0 md:grid-cols-[64px_1fr]"
+          <li
+            class="reveal relative flex gap-6 pb-11 last:pb-0"
             style={`transition-delay: ${i * 75}ms`}
           >
-            <p class="eyebrow pt-0.5 text-platina">{item.n}</p>
-            <div>
+            <span class="trilho-numero">
+              {item.n}
+              {/* O mesmo número, de novo, na camada acesa: repetir é o que
+                  permite animar só a opacidade — as duas ficam idênticas em
+                  posição e tamanho, e a de cima simplesmente aparece. */}
+              <span class="trilho-aceso" aria-hidden="true">
+                {item.n}
+              </span>
+            </span>
+            <div class="pt-2">
               <h3 class="font-body text-h3 font-semibold">{item.title}</h3>
               <p class="mt-2 max-w-[52ch] text-sm text-platina">{item.text}</p>
             </div>
-          </div>
+          </li>
         ))
       }
-    </div>
+    </ol>
   </div>
 </section>
