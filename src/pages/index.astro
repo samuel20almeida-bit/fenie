@@ -8,13 +8,14 @@ import BrandsGrid from "../components/BrandsGrid.astro";
 import AcademyTeaser from "../components/AcademyTeaser.astro";
 import Depoimentos from "../components/Depoimentos.astro";
 import Consultants from "../components/Consultants.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
 import CtaFinal from "../components/CtaFinal.astro";
 
 // Ordem = jornada do visitante, não inventário de seções:
 // entender (Hero) → confiar de cara (números) → se identificar (Realidade) →
 // entender como funciona (Método) → ver o portfólio (Marcas) → desejar
 // (Academy) → confiar de novo, agora pela voz de cliente (Depoimentos) →
-// ver gente de verdade (Time) → agir (CTA).
+// ver gente de verdade (Time) → tirar a última dúvida (FAQ) → agir (CTA).
 ---
 
 <Layout
@@ -29,5 +30,6 @@ import CtaFinal from "../components/CtaFinal.astro";
   <AcademyTeaser />
   <Depoimentos />
   <Consultants />
+  <FaqAccordion />
   <CtaFinal />
 </Layout>
