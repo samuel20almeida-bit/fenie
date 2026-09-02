@@ -35,7 +35,7 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
     class="flex w-[min(370px,calc(100vw-2.5rem))] max-h-[min(62vh,30rem)] origin-bottom-right flex-col overflow-hidden rounded-editorial border border-border bg-midnight-card shadow-2xl"
   >
     <header class="flex items-center gap-3 border-b border-border px-4 py-3.5">
-      <span class="feni-avatar" aria-hidden="true">
+      <span class="feni-avatar feni-avatar--cabecalho" aria-hidden="true">
         <img src="/images/assistente/feni.webp" alt="" width="256" height="256" />
       </span>
       <div class="min-w-0 flex-1">
@@ -99,17 +99,27 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
     </a>
   </div>
 
+  {/* O botão fechado é o rosto dela; aberto, volta a ser o disco de gold com
+      o X. A 56px o retrato se lê de verdade, e é o único lugar do site onde
+      ele aparece grande — no chat ele tem 32 e 40px. Para voltar ao ícone de
+      balão de antes, basta trocar a <img> pelo SVG e tirar o data-fechado. */}
   <button
     id="assistente-abrir"
     type="button"
     aria-label="Abrir assistente Feni"
     aria-expanded="false"
-    class="flex h-14 w-14 items-center justify-center rounded-full bg-gold text-midnight shadow-2xl transition-transform duration-(--dur-hover-btn) ease-(--ease-editorial) hover:scale-105 hover:bg-gold-hover active:scale-95"
+    data-fechado="sim"
+    class="feni-botao flex h-14 w-14 items-center justify-center rounded-full shadow-2xl transition-transform duration-(--dur-hover-btn) ease-(--ease-editorial) hover:scale-105 active:scale-95"
   >
-    <svg id="assistente-icone-chat" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M4 12a8 8 0 1 1 3.06 6.29L4 20l1.06-3.4A7.96 7.96 0 0 1 4 12Z" />
-    </svg>
-    <svg id="assistente-icone-fechar" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" hidden aria-hidden="true">
+    <img
+      id="assistente-rosto"
+      src="/images/assistente/feni.webp"
+      alt=""
+      width="256"
+      height="256"
+      class="h-full w-full rounded-full object-cover"
+    />
+    <svg id="assistente-icone-fechar" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
       <path d="M3 3l10 10M13 3L3 13" />
     </svg>
   </button>
@@ -131,8 +141,8 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
      um degrau mais claro. */
   .feni-avatar {
     display: block;
-    height: 2rem;
-    width: 2rem;
+    height: var(--feni-avatar-tam, 2rem);
+    width: var(--feni-avatar-tam, 2rem);
     flex-shrink: 0;
     overflow: hidden;
     border-radius: 9999px;
@@ -144,6 +154,45 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  /* No cabeçalho ela é a identidade da conversa, não uma repetição a cada
+     fala — cabe maior. Nas mensagens fica em 32px: a 40px o avatar disputa
+     espaço com a bolha e empurra o texto. */
+  .feni-avatar--cabecalho {
+    --feni-avatar-tam: 2.5rem;
+  }
+
+  /* Fechado: anel de gold em volta do retrato, com o fundo do tema atrás —
+     o arquivo tem fundo #0C1226 e sem o anel o botão sumiria na página.
+     Aberto: o disco de gold de sempre, agora com o X. */
+  .feni-botao[data-fechado="sim"] {
+    overflow: hidden;
+    border: 2px solid var(--color-gold);
+    background: var(--color-midnight);
+    padding: 0;
+  }
+  .feni-botao[data-fechado="sim"]:hover {
+    border-color: var(--color-gold-hover);
+  }
+  .feni-botao[data-fechado="nao"] {
+    background: var(--color-gold);
+    color: var(--color-midnight);
+  }
+  .feni-botao[data-fechado="nao"]:hover {
+    background: var(--color-gold-hover);
+  }
+
+  /* Quem decide o que aparece é o data-fechado do botão, e mais nada.
+     Antes o script fazia `svg.hidden = false` nos dois ícones — só que
+     `hidden` é propriedade de HTMLElement e um <svg> é SVGElement: a
+     atribuição criava uma propriedade solta em JS, o atributo `hidden`
+     continuava no DOM e a regra [hidden]{display:none} do navegador seguia
+     valendo. O X nunca chegou a aparecer, desde antes deste redesenho. */
+  .feni-botao[data-fechado="sim"] #assistente-icone-fechar {
+    display: none;
+  }
+  .feni-botao[data-fechado="nao"] #assistente-rosto {
+    display: none;
   }
 
   .feni-status {
@@ -264,14 +313,12 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
   const panel = document.getElementById("assistente-panel") as HTMLDivElement | null;
   const openBtn = document.getElementById("assistente-abrir") as HTMLButtonElement | null;
   const closeBtn = document.getElementById("assistente-fechar") as HTMLButtonElement | null;
-  const iconChat = document.getElementById("assistente-icone-chat") as SVGElement | null;
-  const iconClose = document.getElementById("assistente-icone-fechar") as SVGElement | null;
   const messages = document.getElementById("assistente-mensagens") as HTMLDivElement | null;
   const form = document.getElementById("assistente-form") as HTMLFormElement | null;
   const input = document.getElementById("assistente-input") as HTMLInputElement | null;
   const sendBtn = document.getElementById("assistente-enviar") as HTMLButtonElement | null;
 
-  if (root && panel && openBtn && closeBtn && iconChat && iconClose && messages && form && input && sendBtn) {
+  if (root && panel && openBtn && closeBtn && messages && form && input && sendBtn) {
     const assistantUrl = root.dataset.assistantUrl ?? "";
     let opened = false;
     let greeted = false;
@@ -365,8 +412,7 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
       opened = true;
       panel.hidden = false;
       openBtn.setAttribute("aria-expanded", "true");
-      iconChat.hidden = true;
-      iconClose.hidden = false;
+      openBtn.dataset.fechado = "nao";
       if (!greeted) {
         greeted = true;
         // Saudação no tom da persona: direta, sem "Olá! Como posso ajudar?",
@@ -384,8 +430,7 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
       opened = false;
       panel.hidden = true;
       openBtn.setAttribute("aria-expanded", "false");
-      iconChat.hidden = false;
-      iconClose.hidden = true;
+      openBtn.dataset.fechado = "sim";
     }
 
     openBtn.addEventListener("click", () => (opened ? closePanel() : openPanel()));
