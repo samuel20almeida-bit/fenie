@@ -1,7 +1,6 @@
 ---
 import Button from "./Button.astro";
 import CourseCard from "./CourseCard.astro";
-import PlaceholderMedia from "./PlaceholderMedia.astro";
 import { cursoDestaque } from "../data/cursos";
 
 // A Academy deixa de ser "também oferecemos cursos" e passa a sustentar o
@@ -12,10 +11,31 @@ import { cursoDestaque } from "../data/cursos";
 
 <section class="bg-midnight-alt py-26">
   <div class="container-editorial grid items-center gap-16 lg:grid-cols-2">
-    <PlaceholderMedia
-      class="reveal order-2 h-95"
-      caption="Turma da Fenié Academy em aula prática"
-    />
+    {/* Foto real de uma aula prática, no lugar do último placeholder que
+        restava no site — com ela, o PlaceholderMedia ficou sem uso e saiu.
+
+        Duas fotos foram enviadas e esta é a que sustenta o que a seção
+        afirma. Na outra, o telão trazia o slide "O que é o Split Payment?",
+        tema de reforma tributária: a Academy descrita aqui e em /academy é
+        técnica — corte, coloração, mechas, alisamento —, e ilustrar "a linha
+        indicada vira resultado na cadeira" com uma palestra de tributos
+        diria uma coisa que a página não diz. Esta mostra exatamente isso:
+        educador de luvas trabalhando o cabelo, cabeça de treino e aluna
+        filmando a técnica.
+
+        O recorte tira a maior parte do cabelo desfocado em primeiro plano,
+        deixando só o canto — ali ele lê como profundidade, e não como um
+        borrão cobrindo um terço da imagem. */}
+    <figure class="reveal order-2">
+      <img
+        src="/images/academy/turma-fenie-academy.webp"
+        alt="Educador da Fenié Academy, de luvas, demonstrando uma técnica em uma cabeça de treino enquanto uma aluna filma"
+        width="620"
+        height="775"
+        loading="lazy"
+        class="w-full rounded-editorial border border-border object-cover"
+      />
+    </figure>
 
     <div class="reveal order-1">
       <p class="eyebrow mb-5">Fenié Academy</p>
