@@ -29,7 +29,7 @@ const plateClass =
               Um portfólio selecionado para diferentes serviços, técnicas e rotinas do salão.
             </p>
           </div>
-          <a href="/marcas" class="border-b border-gold pb-0.5 text-sm font-semibold">
+          <a href="/marcas" class="border-b border-gold pt-1 pb-0.5 text-sm font-semibold">
             Ver todas as marcas →
           </a>
         </div>
@@ -51,9 +51,14 @@ const plateClass =
         class="reveal group col-span-2 flex flex-col gap-4.5 rounded-editorial border border-border bg-midnight-card p-6 transition-[color,background-color,border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold sm:p-7 lg:col-span-1 lg:row-span-3 pointer-fine:hover:-translate-y-0.5"
       >
         <div class="flex flex-1 items-center justify-center rounded-editorial bg-midnight-hover p-5">
+          {/* Esta é a única imagem da grade sem altura reservada pela caixa
+              (as logos vivem em h-18/h-24), então é a única que precisa dos
+              atributos para não depender da ordem de carregamento. */}
           <img
             src={destaque.imagem}
             alt={destaque.imagemAlt}
+            width="700"
+            height="587"
             class="max-h-70 w-full object-contain"
             loading="lazy"
             decoding="async"
@@ -66,13 +71,13 @@ const plateClass =
           <div class="mt-3.5 flex flex-wrap gap-5">
             <a
               href={marcaDestaque.href}
-              class="border-b border-gold pb-0.5 text-caption font-semibold"
+              class="border-b border-gold pt-1 pb-0.5 text-caption font-semibold"
             >
               Conhecer a marca →
             </a>
             <a
               href="/academy#agenda"
-              class="border-b border-border pb-0.5 text-caption font-semibold text-platina hover:border-gold hover:text-gold"
+              class="border-b border-border pt-1 pb-0.5 text-caption font-semibold text-platina hover:border-gold hover:text-gold"
             >
               Ver agenda da Academy →
             </a>
@@ -100,7 +105,7 @@ const plateClass =
               <h3 class="font-body text-h3 font-bold">{marca.nome}</h3>
               <a
                 href={whatsappLink(`Olá! Quero saber mais sobre a marca ${marca.nome} na Fenié Pro.`)}
-                class="mt-2.5 self-start border-b border-border pb-0.5 text-caption font-semibold text-platina transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) hover:border-gold hover:text-gold"
+                class="mt-2.5 self-start border-b border-border pt-1 pb-0.5 text-caption font-semibold text-platina transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) hover:border-gold hover:text-gold"
               >
                 Falar sobre a marca →
               </a>
@@ -123,7 +128,7 @@ const plateClass =
         href={whatsappLink(
           "Olá! Quero ajuda para escolher as marcas que fazem sentido para o meu salão."
         )}
-        class="border-b border-gold pb-0.5 text-sm font-semibold text-bone transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) hover:text-gold"
+        class="border-b border-gold pt-1 pb-0.5 text-sm font-semibold text-bone transition-colors duration-(--dur-hover-btn) ease-(--ease-editorial) hover:text-gold"
       >
         Falar com um consultor →
       </a>
