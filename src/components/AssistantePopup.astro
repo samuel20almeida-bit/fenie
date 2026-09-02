@@ -18,7 +18,7 @@ import { ASSISTANT_URL } from "../lib/assistant";
 // de componente: reproduzir uma conversa fake com a marca da Fenié seria
 // inventar atendimento que não aconteceu.
 //
-// A persona da Nina não mora aqui — mora no prompt do agente no n8n. O que o
+// A persona da Feni não mora aqui — mora no prompt do agente no n8n. O que o
 // site precisa sustentar é a mesma promessa: ela é assistente virtual e não
 // finge ser gente, e por isso está escrito no cabeçalho.
 const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com um consultor.");
@@ -35,11 +35,13 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
     class="flex w-[min(370px,calc(100vw-2.5rem))] max-h-[min(62vh,30rem)] origin-bottom-right flex-col overflow-hidden rounded-editorial border border-border bg-midnight-card shadow-2xl"
   >
     <header class="flex items-center gap-3 border-b border-border px-4 py-3.5">
-      <span class="nina-avatar" aria-hidden="true">N</span>
+      <span class="feni-avatar" aria-hidden="true">
+        <img src="/images/assistente/feni.webp" alt="" width="256" height="256" />
+      </span>
       <div class="min-w-0 flex-1">
-        <p class="font-body text-sm font-bold text-bone">Nina</p>
+        <p class="font-body text-sm font-bold text-bone">Feni</p>
         <p class="mt-0.5 flex items-center gap-1.5 font-mono text-micro tracking-wide text-platina">
-          <span class="nina-status" aria-hidden="true"></span>
+          <span class="feni-status" aria-hidden="true"></span>
           Assistente virtual da Fenié
         </p>
       </div>
@@ -60,7 +62,7 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
       class="flex-1 space-y-3.5 overflow-y-auto px-4 py-4"
       role="log"
       aria-live="polite"
-      aria-label="Conversa com a Nina"
+      aria-label="Conversa com a Feni"
     >
     </div>
 
@@ -78,7 +80,7 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
           id="assistente-enviar"
           type="submit"
           aria-label="Enviar pergunta"
-          class="nina-enviar flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-[background-color,color,transform] duration-(--dur-hover-btn) ease-(--ease-editorial) active:scale-[0.93]"
+          class="feni-enviar flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-[background-color,color,transform] duration-(--dur-hover-btn) ease-(--ease-editorial) active:scale-[0.93]"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M2 8h12M9 3l5 5-5 5" />
@@ -100,7 +102,7 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
   <button
     id="assistente-abrir"
     type="button"
-    aria-label="Abrir assistente Nina"
+    aria-label="Abrir assistente Feni"
     aria-expanded="false"
     class="flex h-14 w-14 items-center justify-center rounded-full bg-gold text-midnight shadow-2xl transition-transform duration-(--dur-hover-btn) ease-(--ease-editorial) hover:scale-105 hover:bg-gold-hover active:scale-95"
   >
@@ -119,48 +121,51 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
      mensagens aqui nascem de document.createElement no navegador, então não
      recebem o atributo de escopo e o CSS escopado simplesmente não as
      alcança — o avatar virava uma letra solta e a bolha não tinha fundo.
-     Todos os nomes levam prefixo `nina-` justamente para poderem ser globais
+     Todos os nomes levam prefixo `feni-` justamente para poderem ser globais
      sem colidir com nada. */
 
-  /* Avatar da Nina. O original usa um ícone de "sparkles" num gradiente
-     indigo; aqui é a inicial em disco de gold, que é o vocabulário da marca
-     e não precisa de biblioteca de ícone. */
-  .nina-avatar {
-    display: flex;
+  /* Avatar da Feni. O original usa um ícone de "sparkles" num gradiente
+     indigo; aqui é o retrato dela.
+     O anel de gold existe porque o fundo do arquivo (#0C1226) é quase o
+     midnight do tema: sem contorno o disco se dissolveria no painel, que é
+     um degrau mais claro. */
+  .feni-avatar {
+    display: block;
     height: 2rem;
     width: 2rem;
     flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
     border-radius: 9999px;
-    background: var(--color-gold);
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--color-midnight);
+    border: 1px solid color-mix(in srgb, var(--color-gold) 55%, transparent);
+    background: var(--color-midnight);
+  }
+  .feni-avatar img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
-  .nina-status {
+  .feni-status {
     height: 0.375rem;
     width: 0.375rem;
     border-radius: 9999px;
     background: var(--color-gold);
   }
 
-  /* Linha da mensagem: a fala da Nina entra pela esquerda com o avatar; a
+  /* Linha da mensagem: a fala da Feni entra pela esquerda com o avatar; a
      de quem visita, pela direita e sem avatar — a pessoa sabe quem é ela. */
-  .nina-linha {
+  .feni-linha {
     display: flex;
     align-items: flex-end;
     gap: 0.5rem;
-    animation: nina-entra 350ms var(--ease-editorial) both;
+    animation: feni-entra 350ms var(--ease-editorial) both;
   }
-  .nina-linha--eu {
+  .feni-linha--eu {
     flex-direction: row-reverse;
   }
 
-  @keyframes nina-entra {
+  @keyframes feni-entra {
     from {
       opacity: 0;
       transform: translateY(10px) scale(0.97);
@@ -173,7 +178,7 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
 
   /* O canto reto aponta para quem falou — é o detalhe do original que faz a
      bolha parecer sair do avatar em vez de flutuar solta. */
-  .nina-bolha {
+  .feni-bolha {
     max-width: 78%;
     border-radius: 1rem;
     padding: 0.625rem 0.875rem;
@@ -182,13 +187,13 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
     line-height: 1.55;
     white-space: pre-line;
   }
-  .nina-bolha--nina {
+  .feni-bolha--feni {
     border-bottom-left-radius: 0.3rem;
     border: 1px solid var(--color-border);
     background: var(--color-midnight-hover);
     color: var(--color-bone);
   }
-  .nina-bolha--eu {
+  .feni-bolha--eu {
     border-bottom-right-radius: 0.3rem;
     background: var(--color-gold);
     color: var(--color-midnight);
@@ -198,14 +203,14 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
      estava aqui: aquele é um salto de 25% da altura pensado para ícone, e
      em três pontos de 6px lia como pipoca. Este é o do componente de
      origem — 4px de subida e a opacidade indo junto, em cascata. */
-  .nina-pontinho {
+  .feni-pontinho {
     height: 0.375rem;
     width: 0.375rem;
     border-radius: 9999px;
     background: var(--color-platina);
-    animation: nina-pulso 900ms ease-in-out infinite;
+    animation: feni-pulso 900ms ease-in-out infinite;
   }
-  @keyframes nina-pulso {
+  @keyframes feni-pulso {
     0%,
     100% {
       opacity: 0.35;
@@ -219,30 +224,30 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
 
   /* O botão só acende quando há o que enviar — sem isso ele promete uma ação
      que não acontece. */
-  .nina-enviar {
+  .feni-enviar {
     background: var(--color-midnight-hover);
     color: var(--color-platina);
     cursor: not-allowed;
   }
-  .nina-enviar[data-pronto="sim"] {
+  .feni-enviar[data-pronto="sim"] {
     background: var(--color-gold);
     color: var(--color-midnight);
     cursor: pointer;
   }
-  .nina-enviar[data-pronto="sim"]:hover {
+  .feni-enviar[data-pronto="sim"]:hover {
     background: var(--color-gold-hover);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .nina-linha {
+    .feni-linha {
       animation: none;
     }
-    .nina-pontinho {
-      animation: nina-pulso-suave 900ms ease-in-out infinite;
+    .feni-pontinho {
+      animation: feni-pulso-suave 900ms ease-in-out infinite;
     }
     /* Ainda comunica "estou escrevendo", mas sem deslocamento — gentileza,
        não zero (briefing cap. 06). */
-    @keyframes nina-pulso-suave {
+    @keyframes feni-pulso-suave {
       0%,
       100% {
         opacity: 0.35;
@@ -300,20 +305,29 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
       sendBtn.disabled = !pronto;
     }
 
-    function addMessage(text: string, from: "nina" | "eu") {
-      const linha = document.createElement("div");
-      linha.className = `nina-linha nina-linha--${from}`;
+    // Um lugar só para o avatar: ele aparece na fala dela e no indicador de
+    // digitação, e quando o retrato chegar é aqui que o disco vira foto.
+    function criarAvatar() {
+      const avatar = document.createElement("span");
+      avatar.className = "feni-avatar";
+      avatar.setAttribute("aria-hidden", "true");
+      const foto = document.createElement("img");
+      foto.src = "/images/assistente/feni.webp";
+      foto.alt = "";
+      foto.width = 256;
+      foto.height = 256;
+      avatar.appendChild(foto);
+      return avatar;
+    }
 
-      if (from === "nina") {
-        const avatar = document.createElement("span");
-        avatar.className = "nina-avatar";
-        avatar.setAttribute("aria-hidden", "true");
-        avatar.textContent = "N";
-        linha.appendChild(avatar);
-      }
+    function addMessage(text: string, from: "feni" | "eu") {
+      const linha = document.createElement("div");
+      linha.className = `feni-linha feni-linha--${from}`;
+
+      if (from === "feni") linha.appendChild(criarAvatar());
 
       const bolha = document.createElement("p");
-      bolha.className = `nina-bolha nina-bolha--${from}`;
+      bolha.className = `feni-bolha feni-bolha--${from}`;
       bolha.textContent = text;
       linha.appendChild(bolha);
 
@@ -324,23 +338,19 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
 
     function addTypingIndicator() {
       const linha = document.createElement("div");
-      linha.className = "nina-linha nina-linha--nina";
+      linha.className = "feni-linha feni-linha--feni";
       linha.id = "assistente-digitando";
 
-      const avatar = document.createElement("span");
-      avatar.className = "nina-avatar";
-      avatar.setAttribute("aria-hidden", "true");
-      avatar.textContent = "N";
-      linha.appendChild(avatar);
+      linha.appendChild(criarAvatar());
 
       const bolha = document.createElement("div");
-      bolha.className = "nina-bolha nina-bolha--nina flex items-center gap-1.5 py-3.5";
+      bolha.className = "feni-bolha feni-bolha--feni flex items-center gap-1.5 py-3.5";
       // aria-label porque três pontinhos não dizem nada a quem não vê a tela
       bolha.setAttribute("role", "status");
-      bolha.setAttribute("aria-label", "Nina está escrevendo");
+      bolha.setAttribute("aria-label", "Feni está escrevendo");
       for (let i = 0; i < 3; i += 1) {
         const ponto = document.createElement("span");
-        ponto.className = "nina-pontinho";
+        ponto.className = "feni-pontinho";
         ponto.style.animationDelay = `${i * 150}ms`;
         bolha.appendChild(ponto);
       }
@@ -362,8 +372,8 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
         // Saudação no tom da persona: direta, sem "Olá! Como posso ajudar?",
         // e honesta sobre o que ela é.
         addMessage(
-          "Oi, eu sou a Nina — assistente da Fenié. Pergunta o que precisar sobre as marcas, o atendimento ou a Academy.",
-          "nina"
+          "Oi, eu sou a Feni — a assistente virtual da Fenié. Pergunta o que precisar sobre as marcas, o atendimento ou a Academy.",
+          "feni"
         );
       }
       atualizarBotao();
@@ -397,7 +407,7 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
         atualizarBotao();
         addMessage(
           "O assistente ainda não está ativo por aqui — mas dá pra falar direto com a equipe pelo WhatsApp aí embaixo.",
-          "nina"
+          "feni"
         );
         return;
       }
@@ -437,13 +447,13 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
           typeof data.resposta === "string" && data.resposta
             ? data.resposta
             : "Não consegui responder agora — tenta de novo ou chama a gente no WhatsApp aí embaixo.",
-          "nina"
+          "feni"
         );
       } catch {
         typing.linha.remove();
         addMessage(
           "Deu um problema pra responder agora. Chama a gente direto no WhatsApp aí embaixo que a equipe continua o atendimento.",
-          "nina"
+          "feni"
         );
       } finally {
         window.clearTimeout(patienceTimer);
