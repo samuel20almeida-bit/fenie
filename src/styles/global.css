@@ -191,7 +191,11 @@ em {
 
    O que mudou daqui para lá: o fio vazio é a cor de borda do tema e o cheio é
    o gold. No original os dois eram a mesma família; aqui, com o vazio neutro,
-   o preenchimento lê como progresso e não como enfeite. */
+   o preenchimento lê como progresso e não como enfeite.
+
+   As cores são variáveis, como no original, para a mesma peça servir uma
+   seção escura e uma clara na mesma página. O padrão é o fundo escuro; as
+   seções em luz redefinem os tokens logo abaixo. */
 @layer components {
   .trilho-fio,
   .trilho-cheio {
@@ -199,10 +203,10 @@ em {
     pointer-events: none;
   }
   .trilho-fio {
-    background: var(--color-border);
+    background: var(--trilho-vazio, var(--color-border));
   }
   .trilho-cheio {
-    background: var(--color-gold);
+    background: var(--trilho-cheio, var(--color-gold));
     will-change: transform;
   }
 
@@ -233,13 +237,13 @@ em {
     height: 0.5rem;
     width: 0.5rem;
     border-radius: 9999px;
-    background: var(--color-border);
+    background: var(--trilho-vazio, var(--color-border));
   }
   .trilho-aceso {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: var(--color-gold);
+    background: var(--trilho-aceso-fundo, var(--color-gold));
   }
 
   /* ponto do trilho vertical: o número dentro de um círculo */
@@ -252,19 +256,33 @@ em {
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--trilho-vazio, var(--color-border));
     border-radius: 9999px;
-    background: var(--color-midnight-alt);
+    background: var(--trilho-fundo, var(--color-midnight-alt));
     font-family: var(--font-mono);
     font-size: var(--text-caption);
     font-weight: 700;
-    color: var(--color-platina);
+    color: var(--trilho-numero, var(--color-platina));
   }
   .trilho-numero > .trilho-aceso {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-midnight);
+    color: var(--trilho-aceso-texto, var(--color-midnight));
+  }
+
+  /* Seções em luz. O fio cheio NÃO pode ser o gold de marca aqui: #D99A28
+     sobre off-white dá 2,09:1 e um fio de 1px nessa relação simplesmente
+     some. Vale o mesmo par escuro que a seção já usa nas eyebrows. O
+     preenchimento do círculo aceso pode continuar no gold cheio, porque ali
+     ele é área e não fio — e o navy por cima dá 7,58:1. */
+  .luz {
+    --trilho-vazio: var(--color-luz-border);
+    --trilho-cheio: var(--color-gold-ink);
+    --trilho-fundo: var(--color-luz-card);
+    --trilho-numero: var(--color-ink-soft);
+    --trilho-aceso-fundo: var(--color-gold);
+    --trilho-aceso-texto: var(--color-midnight);
   }
 }
 

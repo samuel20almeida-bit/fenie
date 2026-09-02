@@ -28,15 +28,30 @@ import { realidade } from "../data/institucional";
         </p>
       </div>
 
-      <ol class="border-t border-luz-border">
+      {/* Trilho vertical: o fio preenche conforme a pessoa desce e cada
+          número acende quando chega nele. As linhas divisórias entre os
+          itens saíram — o fio já separa, e manter os dois era dividir duas
+          vezes. As cores do trilho vêm do bloco `.luz` em global.css: aqui
+          o fio cheio é o ouro escuro, porque o de marca sobre off-white dá
+          2,09:1 e um fio de 1px nessa relação some. */}
+      <ol data-trilho="vertical" class="relative">
+        <span class="trilho-fio" aria-hidden="true"></span>
+        <span class="trilho-cheio" aria-hidden="true"></span>
         {
           realidade.map((item, i) => (
             <li
-              class="reveal grid grid-cols-[2.5rem_1fr] gap-x-5 border-b border-luz-border py-7 md:grid-cols-[3.5rem_1fr] md:gap-x-6"
+              class="reveal relative grid grid-cols-[2.5rem_1fr] gap-x-5 pb-10 last:pb-0 md:gap-x-6"
               style={`transition-delay: ${i * 60}ms`}
             >
-              <p class="eyebrow pt-1">{item.n}</p>
-              <div>
+              <span class="trilho-numero">
+                {item.n}
+                {/* O mesmo número na camada acesa: repetir é o que permite
+                    animar só a opacidade. */}
+                <span class="trilho-aceso" aria-hidden="true">
+                  {item.n}
+                </span>
+              </span>
+              <div class="pt-1.5">
                 {/* Caixa alta pelo CSS: o texto no DOM segue em caixa mista,
                 então o leitor de tela lê a frase normalmente. */}
                 {/* leading mais solto que o padrão: em caixa alta os acentos

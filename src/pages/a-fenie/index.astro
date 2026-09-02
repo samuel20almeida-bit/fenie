@@ -124,22 +124,34 @@ import {
         </h2>
       </div>
 
-      <div class="max-w-216 border-t border-border">
+      {/* Mesmo trilho vertical das outras sequências. A coluna da direita
+          com o contraponto ("sai" / "entra") continua onde estava: em md ela
+          volta para a terceira coluna, alinhada à direita. O `items-baseline`
+          saiu porque agora a primeira coluna é um círculo de 40px, e alinhar
+          pela linha de base do número dentro dele desalinhava o título. */}
+      <ol data-trilho="vertical" class="relative max-w-216">
+        <span class="trilho-fio" aria-hidden="true"></span>
+        <span class="trilho-cheio" aria-hidden="true"></span>
         {
           motivos.map((m, i) => (
-            <div
-              class="reveal grid grid-cols-[44px_1fr] items-baseline gap-x-6 gap-y-1 border-b border-border py-7 md:grid-cols-[64px_1fr_auto]"
+            <li
+              class="reveal relative grid grid-cols-[2.5rem_1fr] items-start gap-x-6 gap-y-1 pb-9 last:pb-0 md:grid-cols-[2.5rem_1fr_auto]"
               style={`transition-delay: ${i * 75}ms`}
             >
-              <p class="eyebrow text-platina">{m.n}</p>
-              <h3 class="font-body text-h3 font-semibold">{m.titulo}</h3>
-              <p class="col-start-2 font-body text-base text-platina italic md:col-start-3 md:text-right">
+              <span class="trilho-numero">
+                {m.n}
+                <span class="trilho-aceso" aria-hidden="true">
+                  {m.n}
+                </span>
+              </span>
+              <h3 class="pt-2.5 font-body text-h3 font-semibold">{m.titulo}</h3>
+              <p class="col-start-2 font-body text-base text-platina italic md:col-start-3 md:pt-2.5 md:text-right">
                 {m.contra}
               </p>
-            </div>
+            </li>
           ))
         }
-      </div>
+      </ol>
     </div>
   </section>
 
