@@ -2,12 +2,33 @@
 import Button from "./Button.astro";
 import { whatsappLink } from "../lib/whatsapp";
 
-const team = [
-  { name: "Osvaldir Niejelski", role: "CEO", photo: "/images/team/osvaldir-niejelski.webp" },
+// Porte do "Tailwind Image Accordion" para Astro. O original é React com
+// next/image; aqui o site é estático por regra do projeto — mas o componente
+// não precisa de JS nenhum, o acordeão inteiro é :hover em CSS. O que veio
+// para cá foi a mecânica: os painéis dividem a linha por igual, o painel sob
+// o cursor cresce, os outros encolhem e escurecem, e nome e cargo sobem por
+// baixo com um atraso escalonado.
+//
+// Três adaptações:
+//
+// - O original tem três pessoas (fotos de exemplo). A Fenié tem duas, e o
+//   material da empresa proíbe inventar gente — então são duas.
+// - O véu dos painéis inativos sai do `bg-white/30` do original para midnight
+//   translúcido: num site escuro, branco a 30% clareia em vez de recuar.
+// - Escrito em CSS com escopo, não na cadeia de variantes do original
+//   (`md:[&:not(:focus-within):not(:hover)]:group-focus-within:w-[20%]`), que
+//   é ilegível na quinta vez que se lê.
+//
+// O reveal de nome/cargo só existe onde há cursor de verdade (`pointer: fine`
+// + md). No toque e no mobile os dois painéis ficam abertos e legíveis: a
+// informação nunca fica atrás de um hover que o aparelho não tem. E mesmo
+// escondido o texto está no DOM em opacity 0, então leitor de tela lê os dois.
+const time = [
+  { nome: "Osvaldir Niejelski", cargo: "CEO", foto: "/images/team/osvaldir-niejelski.webp" },
   {
-    name: "Ricardo Souza",
-    role: "Diretor de Marketing e Comercial",
-    photo: "/images/team/ricardo-souza.webp",
+    nome: "Ricardo Souza",
+    cargo: "Diretor de Marketing e Comercial",
+    foto: "/images/team/ricardo-souza.webp",
   },
 ];
 ---
@@ -22,29 +43,196 @@ const team = [
       </p>
     </div>
 
-    <div class="reveal flex flex-col divide-y divide-border border-t border-border sm:flex-row sm:divide-x sm:divide-y-0 sm:border-t-0 sm:border-b">
+    <ul class="time-palco reveal">
       {
-        team.map((p) => (
-          <div class="flex flex-1 items-center gap-4 py-6 sm:px-8 sm:py-0 first:sm:pl-0">
+        time.map((p) => (
+          <li class="time-card">
             <img
-              src={p.photo}
-              alt={p.name}
-              width="112"
-              height="112"
-              class="h-14 w-14 shrink-0 rounded-full border border-border object-cover"
+              class="time-foto"
+              src={p.foto}
+              alt={`Retrato de ${p.nome}`}
+              width="320"
+              height="320"
               loading="lazy"
             />
-            <div>
-              <h3 class="font-body text-h3 font-bold">{p.name}</h3>
-              <p class="mt-0.5 text-caption text-platina">{p.role}</p>
+            <div class="time-legenda">
+              <h3 class="time-nome">{p.nome}</h3>
+              <p class="time-cargo">{p.cargo}</p>
             </div>
-          </div>
+          </li>
         ))
       }
-    </div>
+    </ul>
 
     <Button href={whatsappLink("Olá! Quero falar com a equipe da Fenié Pro.")} class="mt-9">
       Falar com a equipe Fenié
     </Button>
   </div>
 </section>
+
+<style>
+  .time-palco {
+    display: flex;
+    /* Largura contida de propósito. As fotos do time são 320x320: num palco
+       de 1100px o painel aberto passa de 800px e o navegador amplia a foto
+       2,6x — a moleza aparece. A 820px a ampliação cai para 1,9x. Quando
+       chegarem retratos maiores (ver comentário no fim do arquivo), esta
+       trava pode sair. */
+    max-width: 51.25rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .time-card {
+    position: relative;
+    /* Sem `flex: 1 1 0` aqui: no mobile o palco é uma coluna, e nesse eixo a
+       base zero é a ALTURA — os dois painéis colapsavam para nada. A divisão
+       igual só faz sentido quando eles estão lado a lado, então ela mora no
+       @media de 768px, junto com flex-direction: row. */
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-editorial);
+    /* A curva é a mesma do resto do site (briefing cap. 06); só a duração é
+       maior porque aqui o que se move é a largura de um painel inteiro. */
+    transition: flex-grow 420ms var(--ease-editorial);
+  }
+
+  /* Véu do fundo da foto: sem ele o nome cai em cima da roupa escura de um e
+     do fundo claro do outro, e só um dos dois fica legível. */
+  .time-card::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 62%;
+    background: linear-gradient(
+      to top,
+      rgb(13 18 40 / 0.94),
+      rgb(13 18 40 / 0.6) 42%,
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  /* Véu dos painéis inativos. Fica acima da foto e abaixo da legenda. */
+  .time-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background: color-mix(in srgb, var(--color-midnight) 58%, transparent);
+    backdrop-filter: blur(2px);
+    transition: opacity 320ms var(--ease-editorial);
+    pointer-events: none;
+  }
+
+  .time-foto {
+    display: block;
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    object-position: center 11%;
+  }
+
+  .time-legenda {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 1.25rem;
+  }
+
+  .time-nome {
+    font-family: var(--font-body);
+    font-size: var(--text-feature);
+    font-weight: 700;
+    color: var(--color-bone);
+  }
+
+  .time-cargo {
+    margin-top: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  @media (min-width: 768px) {
+    .time-palco {
+      flex-direction: row;
+    }
+    .time-card {
+      flex: 1 1 0;
+    }
+    .time-foto {
+      /* Altura curta pelo mesmo motivo: o fator de ampliação do object-fit
+         é o maior entre largura e altura, e aqui quem manda é a largura —
+         crescer em altura só pioraria. */
+      height: 20rem;
+    }
+    .time-legenda {
+      padding: 1.75rem;
+    }
+  }
+
+  /* O acordeão só existe onde há cursor de verdade. Em tela de toque os dois
+     painéis ficam iguais e abertos — não há hover para revelar nada. */
+  @media (min-width: 768px) and (pointer: fine) {
+    .time-palco:hover .time-card {
+      flex-grow: 1;
+    }
+    .time-palco:hover .time-card::after {
+      opacity: 1;
+    }
+
+    .time-palco .time-card:hover {
+      flex-grow: 2.4;
+    }
+    .time-palco .time-card:hover::after {
+      opacity: 0;
+    }
+
+    .time-nome,
+    .time-cargo {
+      opacity: 0;
+      transform: translateY(0.5rem);
+      transition:
+        opacity 220ms var(--ease-editorial),
+        transform 220ms var(--ease-editorial);
+    }
+    /* Sem quebra de linha enquanto o painel está estreito: o cargo do Ricardo
+       tem 32 caracteres e quebraria em quatro linhas a 25% de largura. */
+    .time-nome,
+    .time-cargo {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .time-card:hover .time-nome,
+    .time-card:hover .time-cargo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* O nome entra depois do painel terminar de abrir, o cargo depois do
+       nome — é o escalonamento do componente original. */
+    .time-card:hover .time-nome {
+      transition-delay: 260ms;
+    }
+    .time-card:hover .time-cargo {
+      transition-delay: 380ms;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .time-nome,
+    .time-cargo {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
