@@ -19,16 +19,13 @@
   --color-bone: #f4f1e9; /* off-white: títulos e texto de maior peso */
   --color-coral: #c96a4f; /* fora da paleta: só o aviso de consumidor final */
 
-  /* Bordas em dois degraus. O documento fixa uma cor só (#343A50), mas o
-     site tem 44 fios estruturais: jogar todos nela deixaria a grade mais
-     forte que a borda de input e menu, invertendo a hierarquia e batendo
-     de frente com a regra "bordas sutis" do próprio documento. Então
-     #343A50 fica no papel que ele já ocupa por contraste (elementos
-     interativos, 1,65:1) e o fio estrutural é ele mesmo diluído no fundo
-     — 1,31:1, o mesmo peso do border-white/10 de antes, mas agora
-     derivado do navy da paleta em vez de branco cru. */
+  /* Uma cor de borda só, como o documento fixa: card, separador, divisor
+     de seção e input, tudo em #343A50 (1,65:1 sobre o fundo — discreto de
+     verdade num fio de 1px). Chegou a existir aqui um segundo degrau mais
+     fraco para os fios estruturais; saiu porque a regra 10 do documento é
+     explícita em não criar paleta paralela, e o receio que o justificava
+     não se confirmou ao ver renderizado. */
   --color-border: #343a50;
-  --color-border-subtle: #242a40;
 
   --font-display: "Bodoni Moda", Georgia, "Times New Roman", serif;
   --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -50,7 +47,7 @@
   /* fio de ouro, nunca área — usado em bordas de 1px e sublinhas.
      Agora descende dos tokens de borda da paleta, não mais de bone/platina
      diluídos: a cor da borda passa a ter um dono só. */
-  --hairline: var(--color-border-subtle);
+  --hairline: var(--color-border);
   --hairline-hover: var(--color-border);
 
   /* curva única — vale para tudo (briefing cap. 06) */

@@ -13,7 +13,7 @@ const { curso, class: className = "" } = Astro.props;
 <div
   id={curso.slug}
   class:list={[
-    "flex scroll-mt-28 items-start gap-4 rounded-editorial sm:gap-5 border border-border-subtle bg-midnight-card p-6 transition-[border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold pointer-fine:hover:-translate-y-0.5",
+    "flex scroll-mt-28 items-start gap-4 rounded-editorial sm:gap-5 border border-border bg-midnight-card p-6 transition-[border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold pointer-fine:hover:-translate-y-0.5",
     className,
   ]}
 >
@@ -22,7 +22,7 @@ const { curso, class: className = "" } = Astro.props;
     <p class="eyebrow mt-1.5 text-platina">{curso.dataBase}</p>
   </div>
 
-  <div class="flex-1 border-l border-border-subtle pl-4 sm:pl-5">
+  <div class="flex-1 border-l border-border pl-4 sm:pl-5">
     <h3 class="font-body text-h3 font-bold">
       {curso.nome}{curso.educador && <span class="text-gold"> · {curso.educador}</span>}
     </h3>

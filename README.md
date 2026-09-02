@@ -27,11 +27,11 @@ direto num componente — sempre pela variável/utility já existente:
   `text-platina`, `text-bone` — os quatro degraus de elevação do
   briefing (Midnight → seção alternada → card → hover). Os HEX vêm do
   documento "Paleta visual Fenié"; os nomes dos tokens são os do projeto.
-- Bordas: `border-border` (elementos interativos: input, menu, botão
-  outline) e `border-border-subtle` (fios estruturais de seção e card).
-  **Não usar `border-white/10` e afins** — branco cru não descende da
-  paleta e some do controle quando o fundo muda. Mesma regra para fundo:
-  `bg-midnight-hover` no lugar de `bg-white/5`.
+- Bordas: `border-border` (#343A50) em tudo — card, separador, divisor de
+  seção e input, como o documento fixa. **Não usar `border-white/10` e
+  afins** — branco cru não descende da paleta e some do controle quando o
+  fundo muda. Mesma regra para fundo: `bg-midnight-hover` no lugar de
+  `bg-white/5`.
 - Texto secundário: `text-platina` puro, **sem modificador de opacidade**.
   O platina da paleta (#9DA2B3) já é o degrau de texto secundário, com
   7,28:1 sobre o fundo; diluir para /70 derruba para ~4,1 e reprova no
@@ -132,6 +132,14 @@ Duas adaptações que valem saber antes de mexer:
   sombra dura deslocada) para o midnight + gold da marca. O que ficou do
   desenho original é o que lhe dá identidade: o empilhamento, a rotação
   alternada dos laterais, o card central elevado e o canto chanfrado.
+
+A seção segue o bloco "Aplicação em depoimentos" do documento de paleta:
+fundo #0D1228 (por isso não há prop de superfície — é fixo nas duas
+páginas), card #151B33, citação e nome em #F4F1E9, categoria e palavra
+destacada do heading em #D99A28, borda #343A50, texto auxiliar #9DA2B3.
+A aspa decorativa é gold a 20% atrás da citação; ela substitui as aspas
+tipográficas que envolviam o texto, porque manter as duas pontuaria a
+citação duas vezes.
 
 Acessibilidade: os seis cards continuam no fluxo de teclado e legíveis por
 leitor de tela — o texto está visível na tela, escondê-lo da árvore de

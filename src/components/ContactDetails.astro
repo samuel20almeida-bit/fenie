@@ -9,10 +9,10 @@ const items = [
 ];
 ---
 
-<div class="border-t border-border-subtle pt-14">
+<div class="border-t border-border pt-14">
   <p class="eyebrow mb-5">Onde encontrar a Fenié</p>
 
-  <dl class="grid gap-px border border-border-subtle bg-border-subtle sm:grid-cols-2">
+  <dl class="grid gap-px border border-border bg-border sm:grid-cols-2">
     {
       items.map((item) => (
         <div class="bg-midnight p-6">
@@ -44,7 +44,7 @@ const items = [
           href={rede.href}
           target="_blank"
           rel="noopener"
-          class="border-b border-border-subtle pb-0.5 text-caption font-semibold text-platina hover:border-gold hover:text-gold"
+          class="border-b border-border pb-0.5 text-caption font-semibold text-platina hover:border-gold hover:text-gold"
         >
           {rede.label} <span class="font-mono text-micro">{rede.handle}</span>
         </a>

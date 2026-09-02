@@ -1,13 +1,9 @@
 ---
 import { depoimentos } from "../data/institucional";
 
-interface Props {
-  surface?: "midnight" | "midnight-alt";
-}
-
-const { surface = "midnight-alt" } = Astro.props;
-const bg = surface === "midnight" ? "bg-midnight" : "bg-midnight-alt";
-
+// Sem prop de superfície: o documento de paleta fixa o fundo da seção de
+// depoimentos em #0D1228 (midnight), nas duas páginas onde ela aparece.
+//
 // Porte do "Stagger Testimonials" (21st.dev, @vaib215) para Astro: o original
 // é React com estado, e aqui o site é estático por regra. A mecânica é a
 // mesma — cards sobrepostos, o do centro em destaque e elevado, os laterais
@@ -20,7 +16,7 @@ const bg = surface === "midnight" ? "bg-midnight" : "bg-midnight-alt";
 // do neobrutalismo do original para o midnight + gold da marca.
 ---
 
-<section class={`${bg} py-26`}>
+<section class="bg-midnight py-26">
   <div class="container-editorial">
     <div class="reveal max-w-[54ch]">
       <p class="eyebrow mb-5">Depoimentos</p>
@@ -43,8 +39,9 @@ const bg = surface === "midnight" ? "bg-midnight" : "bg-midnight-alt";
       depoimentos.map((d, i) => (
         <button type="button" class="depo-card" data-index={i}>
           <span class="depo-bisel" aria-hidden="true" />
+          <span class="depo-aspas" aria-hidden="true">“</span>
           <span class="depo-categoria">{d.categoria}</span>
-          <span class="depo-texto">“{d.texto}”</span>
+          <span class="depo-texto">{d.texto}</span>
           <span class="depo-autor">{d.autor}</span>
         </button>
       ))
@@ -91,7 +88,7 @@ const bg = surface === "midnight" ? "bg-midnight" : "bg-midnight-alt";
     cursor: pointer;
     flex-direction: column;
     gap: 0.9rem;
-    border: 1px solid var(--color-border-subtle);
+    border: 1px solid var(--color-border);
     background: var(--color-midnight-card);
     padding: 1.6rem;
     text-align: left;
@@ -129,6 +126,35 @@ const bg = surface === "midnight" ? "bg-midnight" : "bg-midnight-alt";
     background: var(--color-gold);
     box-shadow: 0 18px 40px -12px rgb(0 0 0 / 0.55);
     cursor: default;
+  }
+
+  /* Aspa decorativa em gold com baixa opacidade, como pede o documento de
+     paleta. Ela substitui as aspas tipográficas que envolviam o texto —
+     manter as duas coisas seria pontuar a citação duas vezes. Fica atrás
+     do texto e fora da árvore de acessibilidade: é grafismo, não leitura. */
+  .depo-aspas {
+    position: absolute;
+    /* Abaixo da categoria, atrás da citação: no topo do card ela batia em
+       cima da eyebrow e as duas ficavam ilegíveis. */
+    top: 2.1rem;
+    left: 1rem;
+    z-index: 0;
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    line-height: 1;
+    color: color-mix(in srgb, var(--color-gold) 20%, transparent);
+    pointer-events: none;
+  }
+
+  .depo-card.is-center .depo-aspas {
+    color: color-mix(in srgb, var(--color-midnight) 22%, transparent);
+  }
+
+  .depo-categoria,
+  .depo-texto,
+  .depo-autor {
+    position: relative;
+    z-index: 1;
   }
 
   .depo-categoria {
