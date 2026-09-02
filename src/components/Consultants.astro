@@ -64,8 +64,8 @@ const time = [
               class="time-foto"
               src={p.foto}
               alt={`Retrato de ${p.nome}`}
-              width="800"
-              height="800"
+              width="1200"
+              height="670"
               loading="lazy"
             />
             <div class="time-legenda">
@@ -141,7 +141,7 @@ const time = [
     width: 100%;
     height: 16rem;
     object-fit: cover;
-    object-position: center 22%;
+    object-position: center center;
   }
 
   .time-legenda {
@@ -176,9 +176,6 @@ const time = [
       flex: 1 1 0;
     }
     .time-foto {
-      /* Alto o bastante para caber cabeça e ombros no painel aberto: a
-         faixa visível é a altura dividida pelo fator de cover, e num painel
-         de 818x360 sobrava só 44% da foto — cortava testa e queixo. */
       height: 28rem;
     }
     .time-legenda {
