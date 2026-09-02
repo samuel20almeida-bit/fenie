@@ -189,6 +189,13 @@ em {
    4. Os fios são `aria-hidden`: são decoração. A sequência já está no <ol>,
       que é o que o leitor de tela anuncia.
 
+   O trilho é sempre VERTICAL. Chegou a existir uma variante horizontal, para
+   as fileiras de três e quatro colunas; saiu porque um fio de progresso
+   responde "quanto falta", pergunta que só existe numa lista longa que se
+   percorre rolando — numa fileira que cabe inteira na tela ele não informava
+   nada e ainda ecoava o trilho da seção vizinha. Lá o grafismo passou a ser
+   um fio curto de gold por coluna.
+
    O que mudou daqui para lá: o fio vazio é a cor de borda do tema e o cheio é
    o gold. No original os dois eram a mesma família; aqui, com o vazio neutro,
    o preenchimento lê como progresso e não como enfeite.
@@ -210,17 +217,8 @@ em {
     will-change: transform;
   }
 
-  [data-trilho="horizontal"] > .trilho-fio,
-  [data-trilho="horizontal"] > .trilho-cheio {
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 1px;
-    transform-origin: left center;
-  }
-
-  [data-trilho="vertical"] > .trilho-fio,
-  [data-trilho="vertical"] > .trilho-cheio {
+  .trilho-fio,
+  .trilho-cheio {
     /* recorta o fio na altura do centro do primeiro e do último ponto, para
        ele não sobrar acima do 01 nem abaixo do último número */
     top: var(--trilho-recuo, 2.5rem);
@@ -230,15 +228,6 @@ em {
     transform-origin: center top;
   }
 
-  /* ponto do trilho horizontal: a bolinha de 8px que já existia */
-  .trilho-ponto {
-    position: relative;
-    display: block;
-    height: 0.5rem;
-    width: 0.5rem;
-    border-radius: 9999px;
-    background: var(--trilho-vazio, var(--color-border));
-  }
   .trilho-aceso {
     position: absolute;
     inset: 0;

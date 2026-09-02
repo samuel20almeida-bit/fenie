@@ -33,21 +33,14 @@ const steps = [
       Começar uma conversa com a Fenié é simples.
     </h2>
 
-    {/* Mesmo critério do Método: fio só em md+, onde os quatro passos ficam
-        de fato lado a lado. Em 2x2 o fio cruzaria a grade pela metade. */}
-    <div
-      data-trilho="horizontal"
-      class="relative mt-16 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-border pt-8 text-left md:grid-cols-4 md:gap-8 md:border-t-0"
-    >
-      <span class="trilho-fio hidden md:block" aria-hidden="true"></span>
-      <span class="trilho-cheio hidden md:block" aria-hidden="true"></span>
+    {/* Mesmo critério do Método: quatro passos lado a lado não pedem barra
+        de progresso. Fio curto de gold por passo. */}
+    <div class="mt-16 grid grid-cols-2 gap-x-8 gap-y-12 text-left md:grid-cols-4 md:gap-8">
       {
         steps.map((step, i) => (
-          <div class="reveal relative" style={`transition-delay: ${i * 75}ms`}>
-            <span class="trilho-ponto absolute -top-[35px] left-0 hidden md:block" aria-hidden="true">
-              <span class="trilho-aceso" />
-            </span>
-            <p class="eyebrow text-platina">{step.n}</p>
+          <div class="reveal" style={`transition-delay: ${i * 75}ms`}>
+            <div class="mb-4 w-10 border-t border-gold" aria-hidden="true" />
+            <p class="eyebrow">{step.n}</p>
             <h3 class="mt-2 font-body text-h3 font-semibold">{step.title}</h3>
             <p class="mt-2 text-sm text-platina">{step.text}</p>
           </div>

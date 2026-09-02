@@ -153,7 +153,6 @@ const localBusiness = {
 
         const estados = trilhos.map((el) => ({
           el,
-          eixo: el.dataset.trilho === "vertical" ? "Y" : "X",
           cheio: el.querySelector<HTMLElement>(".trilho-cheio"),
           acesos: [...el.querySelectorAll<HTMLElement>(".trilho-aceso")],
           x: 0,
@@ -170,7 +169,7 @@ const localBusiness = {
         }
 
         function pintar(e: (typeof estados)[number]) {
-          if (e.cheio) e.cheio.style.transform = `scale${e.eixo}(${e.x})`;
+          if (e.cheio) e.cheio.style.transform = `scaleY(${e.x})`;
           const total = e.acesos.length;
           e.acesos.forEach((aceso, i) => {
             // Acende quando o preenchimento chega no ponto e completa em meio
