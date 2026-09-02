@@ -27,6 +27,23 @@
      não se confirmou ao ver renderizado. */
   --color-border: #343a50;
 
+  /* Superfície clara — as seções "em luz" (Realidade e Depoimentos), a
+     direção aprovada depois de ver as quatro paletas lado a lado.
+
+     Não é paleta paralela (regra 10 do documento): o fundo dessas seções é
+     o próprio off-white da paleta (--color-bone) e o texto principal é o
+     próprio navy (--color-midnight) — a superfície inverte, as cores são
+     as mesmas. Os três tokens abaixo são os degraus que faltavam para
+     essa inversão existir sem inventar cor:
+       · o ouro #D99A28 dá 2,09:1 sobre off-white — ilegível —, então sobre
+         a luz ele é o mesmo ouro escurecido até 5,0:1;
+       · a platina #9DA2B3 dá 2,25:1 sobre off-white pelo mesmo motivo;
+       · a borda #343A50 sobre a luz seria um risco preto, não um fio. */
+  --color-luz-card: #fcfaf5; /* card sobre a luz — acima do fundo, sem branco puro */
+  --color-luz-border: #d9d2c2; /* o fio de #343A50 traduzido para a luz */
+  --color-ink-soft: #4b5166; /* o par de --color-platina sobre off-white */
+  --color-gold-ink: #8a5e0c; /* o par de --color-gold sobre off-white */
+
   --font-display: "Bodoni Moda", Georgia, "Times New Roman", serif;
   --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
@@ -108,6 +125,15 @@ em {
 ::selection {
   background: var(--color-gold);
   color: var(--color-midnight);
+}
+
+/* Seções "em luz": mesma paleta, superfície invertida. Fora de @layer de
+   propósito — `em` e `.eyebrow` acima também estão fora de layer, e o que
+   está fora de layer vence o que está dentro; aqui quem decide é a
+   especificidade, e `.luz .eyebrow` (0,2,0) ganha de `.eyebrow` (0,1,0). */
+.luz .eyebrow,
+.luz em {
+  color: var(--color-gold-ink);
 }
 
 .eyebrow {

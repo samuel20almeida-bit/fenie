@@ -7,41 +7,45 @@ import { realidade } from "../data/institucional";
 // landing page. O layout foge do grid de cards: é uma coluna de leitura com
 // as observações numeradas à direita, para soar reconhecimento, não
 // checklist de vendas.
+//
+// Seção "em luz": fundo off-white e texto navy, a inversão de superfície
+// aprovada na comparação das paletas. A classe `.luz` liga o par claro do
+// ouro (ver global.css) — o ouro de marca dá 2,09:1 sobre off-white.
 ---
 
-<section class="bg-midnight py-26">
+<section class="luz bg-bone py-26">
   <div class="container-editorial">
     <div class="grid gap-12 lg:grid-cols-[0.95fr_1.25fr] lg:gap-20">
       <div class="reveal lg:sticky lg:top-28 lg:self-start">
         <p class="eyebrow mb-5">A realidade de quem toca um salão</p>
-        <h2 class="max-w-[20ch] text-[clamp(1.8rem,3vw,2.4rem)]">
+        <h2 class="max-w-[20ch] text-[clamp(1.8rem,3vw,2.4rem)] text-midnight">
           O problema de um salão não é comprar. É tomar <em>boas decisões</em> antes, durante e
           depois da compra.
         </h2>
-        <p class="mt-6 max-w-[44ch] text-platina">
+        <p class="mt-6 max-w-[44ch] text-ink-soft">
           A caixa chegar é só o começo. O que realmente impacta o salão acontece nas escolhas, no
           suporte quando surge uma dúvida e no conhecimento que faz sua equipe evoluir.
         </p>
       </div>
 
-      <ol class="border-t border-border">
+      <ol class="border-t border-luz-border">
         {
           realidade.map((item, i) => (
             <li
-              class="reveal grid grid-cols-[2.5rem_1fr] gap-x-5 border-b border-border py-7 md:grid-cols-[3.5rem_1fr] md:gap-x-6"
+              class="reveal grid grid-cols-[2.5rem_1fr] gap-x-5 border-b border-luz-border py-7 md:grid-cols-[3.5rem_1fr] md:gap-x-6"
               style={`transition-delay: ${i * 60}ms`}
             >
-              <p class="eyebrow pt-1 text-platina">{item.n}</p>
+              <p class="eyebrow pt-1">{item.n}</p>
               <div>
                 {/* Caixa alta pelo CSS: o texto no DOM segue em caixa mista,
                 então o leitor de tela lê a frase normalmente. */}
                 {/* leading mais solto que o padrão: em caixa alta os acentos
                 (É, Ã, Ç) sobem e descem mais, e no mobile as linhas se
                 encostavam. */}
-                <h3 class="max-w-[34ch] font-body text-h3 leading-[1.4] font-bold tracking-[0.01em] text-bone uppercase md:text-feature">
+                <h3 class="max-w-[34ch] font-body text-h3 leading-[1.4] font-bold tracking-[0.01em] text-midnight uppercase md:text-feature">
                   {item.titulo}
                 </h3>
-                <p class="mt-3 max-w-[52ch] text-base text-platina">{item.texto}</p>
+                <p class="mt-3 max-w-[52ch] text-base text-ink-soft">{item.texto}</p>
               </div>
             </li>
           ))
