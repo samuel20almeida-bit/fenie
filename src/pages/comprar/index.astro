@@ -1,0 +1,152 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
+import ProfessionalSignupForm from "../../components/ProfessionalSignupForm.astro";
+import { whatsappLink } from "../../lib/whatsapp";
+import { catalogoUrl } from "../../data/empresa";
+
+// A jornada que faltava (briefing cap. 07, jornada 1). A auditoria mediu
+// que não havia um único link de compra ou de catálogo no site inteiro:
+// todo CTA das sete páginas ia para o WhatsApp, que atende a jornada
+// consultiva. Esta página é a ponte entre desejo e pedido.
+//
+// NÃO É LOJA, e o briefing cap. 11 é explícito: o site gera desejo,
+// autoridade e confiança e direciona para catálogo, cadastro e atendimento.
+// Por isso a página descreve o processo e entrega duas ações — cadastro e
+// consultor — em vez de simular carrinho.
+//
+// PROCEDÊNCIA DE CADA AFIRMAÇÃO ABAIXO, porque nenhuma foi inventada:
+// · atendimento exclusivo a profissionais → aviso já publicado no próprio
+//   formulário de cadastro (ProfessionalSignupForm.astro)
+// · campos do cadastro → os campos reais do formulário
+// · consultor entende antes de indicar → Método "Entender" e a etapa
+//   "Escolha" de /solucoes
+// · consultor de carteira e reposição → etapa "Reposição" de /solucoes
+// · 95% em menos de 48h → `numeros` em data/institucional.ts, o mesmo dado
+//   que a faixa de autoridade da home já exibe
+// A área de atendimento NÃO aparece porque a Fenié ainda não informou quais
+// cidades cobre. Em vez de chutar, a página pergunta pelo WhatsApp.
+
+const passos = [
+  {
+    n: "01",
+    titulo: "Cadastro profissional",
+    texto:
+      "Nome, salão, cidade e o principal interesse. Leva menos de um minuto e é o que permite um consultor chegar já sabendo com quem está falando.",
+  },
+  {
+    n: "02",
+    titulo: "Um consultor assume",
+    texto:
+      "Antes de indicar qualquer linha, o consultor entende o perfil do salão, os serviços que mais rodam e a realidade da equipe. Só então apresenta marcas e condições comerciais.",
+  },
+  {
+    n: "03",
+    titulo: "Pedido e entrega",
+    texto:
+      "Fechado o pedido, a entrega é programada — 95% delas saem em menos de 48h. Depois disso o mesmo consultor segue na reposição e no suporte.",
+  },
+];
+
+const waConsultor = whatsappLink(
+  "Olá! Vim pelo site da Fenié Pro e quero comprar. Meu salão fica em: "
+);
+const waArea = whatsappLink(
+  "Olá! Vim pelo site da Fenié Pro e quero saber se vocês atendem a minha cidade: "
+);
+---
+
+<Layout
+  title="Como comprar"
+  description="Como comprar na Fenié Pro: cadastro profissional, atendimento por consultor e entrega programada. Distribuidora de cosméticos profissionais para salões em Curitiba e região. Não atendemos consumidor final."
+>
+  <section class="py-33">
+    <div class="container-editorial">
+      <div class="max-w-160">
+        <p class="eyebrow mb-5">Área profissional</p>
+        <h1 class="text-[clamp(2rem,4vw,3rem)]">Como comprar na Fenié</h1>
+        <p class="mt-5 text-lg text-platina">
+          A Fenié atende exclusivamente salões e profissionais da beleza. O primeiro pedido
+          começa com um cadastro e um consultor — não com um carrinho.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <Button href="#cadastro">Fazer meu cadastro</Button>
+          <Button href={waConsultor} variant="outline">Falar com um consultor</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-midnight-alt py-26">
+    <div class="container-editorial">
+      <div class="reveal mb-16 max-w-[60ch]">
+        <p class="eyebrow mb-5">O primeiro pedido</p>
+        <h2 class="text-[clamp(1.9rem,3.4vw,2.7rem)]">
+          Três passos, e um <em>consultor</em> em todos eles.
+        </h2>
+      </div>
+
+      {/* Aqui a numeração diz a verdade: é sequência, cada passo depende do
+          anterior. O fio curto de gold separa sem virar barra de progresso —
+          os três cabem na tela de uma vez. */}
+      <ol class="grid gap-x-10 gap-y-12 md:grid-cols-3">
+        {
+          passos.map((passo, i) => (
+            <li class="reveal" style={`transition-delay: ${i * 75}ms`}>
+              <div class="mb-5 w-10 border-t border-gold" aria-hidden="true" />
+              <p class="eyebrow">{passo.n}</p>
+              <h3 class="mt-3 text-[clamp(1.3rem,2.1vw,1.6rem)]">{passo.titulo}</h3>
+              <p class="mt-4 max-w-[42ch] text-base text-platina">{passo.texto}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  {
+    /* O bloco do catálogo só existe quando PUBLIC_CATALOGO_URL está
+       preenchida. Sem ela a página segue coerente: cadastro e consultor
+       continuam sendo as ações. Ver o comentário em data/empresa.ts. */
+    catalogoUrl && (
+      <section class="bg-midnight py-26">
+        <div class="container-editorial">
+          <div class="reveal max-w-160 rounded-editorial border border-border bg-midnight-card p-7 sm:p-9">
+            <p class="eyebrow mb-5">Catálogo B2B</p>
+            <h2 class="text-[clamp(1.6rem,3vw,2rem)]">Já é cliente cadastrado?</h2>
+            <p class="mt-4 max-w-[52ch] text-platina">
+              Acesse o catálogo completo com as marcas, linhas e condições disponíveis para o
+              seu cadastro.
+            </p>
+            <Button href={catalogoUrl} class="mt-7" data-evento="clique_catalogo">
+              Abrir o catálogo
+            </Button>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="bg-midnight py-26">
+    <div class="container-editorial">
+      <div class="max-w-160">
+        <ProfessionalSignupForm />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-midnight-alt py-26">
+    <div class="container-editorial">
+      <div class="reveal max-w-160">
+        <p class="eyebrow mb-5">Ainda com dúvida</p>
+        <h2 class="text-[clamp(1.6rem,3vw,2rem)]">A Fenié atende a minha cidade?</h2>
+        <p class="mt-4 max-w-[52ch] text-platina">
+          A Fenié atua a partir de Curitiba e atende salões conforme a operação de cada região.
+          Mande sua cidade no WhatsApp e a equipe confirma na hora se há atendimento e como
+          funciona a entrega por aí.
+        </p>
+        <Button href={waArea} variant="outline" class="mt-7">Perguntar pela minha cidade</Button>
+      </div>
+    </div>
+  </section>
+</Layout>

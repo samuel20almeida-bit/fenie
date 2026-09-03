@@ -38,3 +38,13 @@ export const enderecoLinha = `${empresa.endereco.logradouro} — ${empresa.ender
 export const mapaLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${empresa.endereco.logradouro}, ${empresa.endereco.bairro}, ${empresa.endereco.cidade} - ${empresa.endereco.uf}`
 )}`;
+
+// URL do catálogo B2B. A Fenié já tem o catálogo — o site não substitui, só
+// direciona (briefing cap. 11). Entra como variável de ambiente na Vercel
+// (PUBLIC_CATALOGO_URL) e não no repositório, porque é endereço operacional
+// que pode mudar sem deploy.
+//
+// Enquanto estiver vazia, o bloco de catálogo em /comprar simplesmente não é
+// renderizado. Link quebrado ou botão "em breve" em produção é pior do que a
+// ausência: promete e não entrega, e some do radar de quem deveria preencher.
+export const catalogoUrl = import.meta.env.PUBLIC_CATALOGO_URL || "";

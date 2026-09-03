@@ -6,9 +6,19 @@ interface Props {
    *  ao lado da logo e do menu em 390px e quebrava em duas linhas. */
   size?: "default" | "compact";
   class?: string;
+  /** Qualquer outro atributo de âncora — `data-evento` da medição,
+   *  `aria-label`, `target`. Sem isso o atributo era silenciosamente
+   *  descartado e o clique não era medido. */
+  [key: string]: unknown;
 }
 
-const { href, variant = "primary", size = "default", class: className = "" } = Astro.props;
+const {
+  href,
+  variant = "primary",
+  size = "default",
+  class: className = "",
+  ...resto
+} = Astro.props;
 
 const base =
   "inline-flex min-h-11 items-center gap-2 font-body font-semibold transition-transform duration-(--dur-hover-btn) ease-(--ease-editorial) active:scale-[0.97] pointer-fine:hover:scale-[1.02]";
@@ -42,6 +52,10 @@ const color = {
 };
 ---
 
-<a href={href} class:list={[base, sizing[size], shape[variant][size], color[variant], className]}>
+<a
+  href={href}
+  class:list={[base, sizing[size], shape[variant][size], color[variant], className]}
+  {...resto}
+>
   <slot />
 </a>

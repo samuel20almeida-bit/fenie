@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import AssistantePopup from "../components/AssistantePopup.astro";
+import Analytics from "../components/Analytics.astro";
 import { empresa, mapaLink } from "../data/empresa";
 import "../styles/global.css";
 
@@ -76,6 +77,8 @@ const localBusiness = {
     <meta name="twitter:image" content={ogImageURL} />
 
     <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} is:inline />
+
+    <Analytics />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

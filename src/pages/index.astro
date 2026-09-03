@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Caminhos from "../components/Caminhos.astro";
 import AuthorityBand from "../components/AuthorityBand.astro";
 import Realidade from "../components/Realidade.astro";
+import Manifesto from "../components/Manifesto.astro";
 import Metodo from "../components/Metodo.astro";
 import BrandsGrid from "../components/BrandsGrid.astro";
 import AcademyTeaser from "../components/AcademyTeaser.astro";
@@ -12,10 +14,16 @@ import FaqAccordion from "../components/FaqAccordion.astro";
 import CtaFinal from "../components/CtaFinal.astro";
 
 // Ordem = jornada do visitante, não inventário de seções:
-// entender (Hero) → confiar de cara (números) → se identificar (Realidade) →
-// entender como funciona (Método) → ver o portfólio (Marcas) → desejar
-// (Academy) → confiar de novo, agora pela voz de cliente (Depoimentos) →
-// ver gente de verdade (Time) → tirar a última dúvida (FAQ) → agir (CTA).
+// entender (Hero) → escolher a porta (Caminhos) → confiar de cara (números) →
+// se identificar (Realidade) → ouvir a tese (Manifesto) → entender como
+// funciona (Método) → ver o portfólio (Marcas) → desejar (Academy) → confiar
+// de novo, agora pela voz de cliente (Depoimentos) → ver gente de verdade
+// (Time) → tirar a última dúvida (FAQ) → agir (CTA).
+//
+// Caminhos entra em segundo lugar, e cedo de propósito: a auditoria mediu
+// que a home convencia e não oferecia saída — todo CTA do site ia parar no
+// WhatsApp, que atende só uma das três jornadas do briefing. Quem já chegou
+// decidido não deveria ter que rolar a página inteira para agir.
 ---
 
 <Layout
@@ -23,8 +31,10 @@ import CtaFinal from "../components/CtaFinal.astro";
   description="A Fenié Pro reúne marcas selecionadas, conhecimento técnico e suporte comercial próximo para o salão comprar melhor, desenvolver a equipe e crescer com consistência. Distribuição profissional em Curitiba e região."
 >
   <Hero />
+  <Caminhos />
   <AuthorityBand />
   <Realidade />
+  <Manifesto />
   <Metodo />
   <BrandsGrid />
   <AcademyTeaser />

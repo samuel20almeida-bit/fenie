@@ -130,6 +130,19 @@ const fieldClass =
       `Sou ${perfilSelecionado.toLowerCase()}. ` +
       `Quero falar sobre: ${interesse}.`;
 
+    // Medição (briefing cap. 15) antes de sair da página. Nenhum dado
+    // pessoal vai junto: só o perfil e o interesse, que são as duas listas
+    // fechadas do formulário e servem para qualificar a origem do lead.
+    // Nome, salão e cidade ficam de fora de propósito.
+    (
+      window as typeof window & {
+        fenieEvento?: (nome: string, props?: Record<string, string | number>) => void;
+      }
+    ).fenieEvento?.("cadastro_profissional", {
+      perfil: perfilSelecionado,
+      interesse,
+    });
+
     window.location.href = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
   });
 </script>

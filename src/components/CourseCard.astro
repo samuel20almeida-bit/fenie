@@ -41,6 +41,8 @@ const { curso, class: className = "" } = Astro.props;
 
     <a
       href={whatsappLink(`Olá! Quero informações sobre o curso "${curso.nome}" da Fenié Academy.`)}
+      data-evento="ver_curso"
+      data-curso={curso.nome}
       class="mt-3.5 inline-block border-b border-gold pt-1 pb-0.5 text-caption font-semibold"
     >
       Saber mais e garantir vaga →

@@ -1,0 +1,76 @@
+---
+import { whatsappLink } from "../lib/whatsapp";
+
+// Os três caminhos do briefing cap. 07, logo abaixo do hero.
+//
+// A auditoria mediu que TODO CTA do site levava ao WhatsApp: de três
+// jornadas, existia uma e meia. Quem chegava decidido a comprar não tinha
+// para onde ir a não ser puxar conversa — que é a jornada consultiva, não a
+// transacional. São pessoas com pressa diferente.
+//
+// Sem numeração, de propósito. 01/02/03 diria que há uma ordem, e não há:
+// são três entradas alternativas. O fio curto de gold por cartão é o mesmo
+// grafismo que abre o hero e separa sem sugerir sequência.
+//
+// Verbo na primeira pessoa do visitante ("Quero...") e não na da empresa
+// ("Conheça..."): o cartão precisa parecer a frase que a pessoa já tem na
+// cabeça quando chega.
+//
+// Cada cartão tem o SEU rótulo de ação, e não três "Começar por aqui"
+// iguais. Um dos três leva para fora do site — dizer "Falar no WhatsApp"
+// avisa antes do clique, em vez de a pessoa descobrir quando o aplicativo
+// abre sozinho.
+const caminhos = [
+  {
+    caminho: "comprar",
+    titulo: "Quero comprar",
+    texto: "Catálogo, cadastro profissional e como funciona o primeiro pedido.",
+    cta: "Ver como comprar",
+    href: "/comprar",
+  },
+  {
+    caminho: "desenvolver",
+    titulo: "Quero desenvolver meu salão",
+    texto: "Um consultor entende sua operação antes de indicar qualquer linha.",
+    cta: "Falar no WhatsApp",
+    href: whatsappLink(
+      "Olá! Vim pelo site da Fenié Pro e quero entender o que meu salão precisa."
+    ),
+  },
+  {
+    caminho: "cursos",
+    titulo: "Quero fazer cursos",
+    texto: "Formações, cursos técnicos e imersões da Fenié Academy.",
+    cta: "Ver a agenda",
+    href: "/academy",
+  },
+];
+---
+
+<section class="bg-midnight py-20" aria-label="Por onde começar">
+  <div class="container-editorial">
+    <p class="eyebrow reveal mb-8">Por onde começar</p>
+
+    <ul class="grid gap-4 md:grid-cols-3 md:gap-5">
+      {
+        caminhos.map((item, i) => (
+          <li class="reveal flex" style={`transition-delay: ${i * 75}ms`}>
+            <a
+              href={item.href}
+              data-evento="escolha_caminho"
+              data-caminho={item.caminho}
+              class="group flex flex-1 flex-col gap-3 rounded-editorial border border-border bg-midnight-card p-6 transition-[border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold sm:p-7 pointer-fine:hover:-translate-y-0.5"
+            >
+              <span class="w-10 border-t border-gold" aria-hidden="true" />
+              <span class="font-body text-h3 font-semibold text-bone">{item.titulo}</span>
+              <span class="max-w-[34ch] text-sm text-platina">{item.texto}</span>
+              <span class="mt-auto pt-3 font-mono text-micro tracking-wide text-gold uppercase">
+                {item.cta} →
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

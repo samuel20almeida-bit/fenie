@@ -1,0 +1,213 @@
+---
+import { META_PIXEL_ID, GA4_ID } from "../lib/analytics";
+
+// Medição — briefing cap. 15. Duas partes:
+//
+// 1. Os snippets de GA4 e Meta, que só existem se houver ID configurado.
+// 2. A camada de eventos, que é sempre renderizada. Ela funciona mesmo sem
+//    destino nenhum: acumula no dataLayer e expõe window.fenieEvento, o que
+//    permite conferir no console do navegador se cada evento dispara ANTES
+//    de ligar o pixel. Custa cerca de 1,5 KB e evita ligar a medição às
+//    cegas.
+//
+// POR QUE AS BIBLIOTECAS SÓ CARREGAM DEPOIS DO `load`: gtag.js e
+// fbevents.js somam perto de 160 KB e são script de terceiro. Medi neste
+// site que uma imagem com fetchpriority alto disputando banda com o CSS
+// custava 260ms de FCP — biblioteca de terceiro no caminho crítico custa
+// mais. O `dataLayer`/`fbq` já existem como fila desde o primeiro byte, e a
+// fila é processada com os horários corretos quando a biblioteca chega:
+// nada de dado se perde, e o primeiro render não espera por ninguém.
+---
+
+{
+  GA4_ID && (
+    <script is:inline define:vars={{ GA4_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", GA4_ID);
+      window.addEventListener("load", function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4_ID;
+        document.head.appendChild(s);
+      });
+    </script>
+  )
+}
+
+{
+  META_PIXEL_ID && (
+    <script is:inline define:vars={{ META_PIXEL_ID }}>
+      (function (f, n) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = true;
+        n.version = "2.0";
+        n.queue = [];
+      })(window);
+      window.fbq("init", META_PIXEL_ID);
+      window.fbq("track", "PageView");
+      window.addEventListener("load", function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://connect.facebook.net/en_US/fbevents.js";
+        document.head.appendChild(s);
+      });
+    </script>
+  )
+}
+
+{
+  META_PIXEL_ID && (
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        alt=""
+        src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+      />
+    </noscript>
+  )
+}
+
+<script>
+  // Camada de eventos. Um ouvinte só, delegado no documento, em vez de um
+  // handler por componente: link novo passa a ser medido sem ninguém
+  // lembrar de instrumentar.
+  type Props = Record<string, string | number>;
+
+  const w = window as typeof window & {
+    fenieEvento?: (nome: string, props?: Props) => void;
+    gtag?: (...args: unknown[]) => void;
+    fbq?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+  };
+
+  // UTM guardada na sessão. O visitante chega por um anúncio, navega três
+  // páginas e só então clica no WhatsApp — sem isso, esse clique apareceria
+  // como tráfego direto e a campanha ficaria sem crédito.
+  const CHAVE_UTM = "fenie_utm";
+  const CAMPOS_UTM = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+
+  function guardarUtm(): void {
+    try {
+      const busca = new URLSearchParams(location.search);
+      const achado: Props = {};
+      for (const campo of CAMPOS_UTM) {
+        const valor = busca.get(campo);
+        if (valor) achado[campo] = valor.slice(0, 120);
+      }
+      // Só sobrescreve quando a visita traz UTM própria: assim a origem da
+      // primeira entrada sobrevive à navegação interna.
+      if (Object.keys(achado).length) sessionStorage.setItem(CHAVE_UTM, JSON.stringify(achado));
+    } catch {
+      /* aba anônima com storage bloqueado — segue sem UTM */
+    }
+  }
+
+  function lerUtm(): Props {
+    try {
+      return JSON.parse(sessionStorage.getItem(CHAVE_UTM) || "{}") as Props;
+    } catch {
+      return {};
+    }
+  }
+
+  // Evento do site → evento padrão da Meta. O que não tem equivalente vai
+  // como trackCustom, que é o caminho certo para nome próprio.
+  const PADRAO_META: Record<string, string> = {
+    clique_whatsapp: "Contact",
+    cadastro_profissional: "Lead",
+    ver_curso: "ViewContent",
+    clique_marca: "ViewContent",
+  };
+
+  function enviar(nome: string, props: Props = {}): void {
+    const dados: Props = { pagina: location.pathname, ...lerUtm(), ...props };
+    w.gtag?.("event", nome, dados);
+    const padrao = PADRAO_META[nome];
+    if (padrao) w.fbq?.("track", padrao, dados);
+    else w.fbq?.("trackCustom", nome, dados);
+    // Sempre no dataLayer, mesmo sem destino: é o que permite conferir a
+    // instrumentação no console antes de existir pixel.
+    w.dataLayer = w.dataLayer || [];
+    w.dataLayer.push({ event: nome, ...dados });
+  }
+
+  guardarUtm();
+  w.fenieEvento = enviar;
+
+  // --- cliques ---------------------------------------------------------
+  // Fase de captura: o evento é registrado mesmo que algum handler mais
+  // abaixo interrompa a propagação.
+  document.addEventListener(
+    "click",
+    (evento) => {
+      const alvo = (evento.target as Element | null)?.closest?.("a[href], button[data-evento]");
+      if (!(alvo instanceof HTMLElement)) return;
+
+      // Marcação explícita ganha: data-evento="ver_curso" data-curso="..."
+      // Aqui os data-* já dizem o que interessa (qual curso, qual marca,
+      // qual caminho), então não se tenta extrair rótulo do texto: quando o
+      // cartão inteiro é o link, textContent gruda título e descrição sem
+      // separador e o resultado é impronunciável.
+      const nome = alvo.dataset.evento;
+      if (nome) {
+        const props: Props = {};
+        for (const [chave, valor] of Object.entries(alvo.dataset)) {
+          if (chave !== "evento" && valor) props[chave] = valor.slice(0, 120);
+        }
+        enviar(nome, props);
+        return;
+      }
+
+      // Sem marcação, o destino do link basta para os dois casos que mais
+      // importam — e nenhum componente precisa ser tocado para isso.
+      const href = alvo.getAttribute("href") || "";
+      if (!href.includes("wa.me/")) return;
+      // Link de WhatsApp sem marcação é sempre um link de texto simples, e
+      // aí o próprio texto é o melhor identificador do CTA que foi clicado.
+      const rotulo = (alvo.getAttribute("aria-label") || alvo.textContent || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 60);
+      enviar("clique_whatsapp", { rotulo });
+    },
+    { capture: true }
+  );
+
+  // --- profundidade de rolagem ----------------------------------------
+  const MARCOS = [25, 50, 75, 90];
+  const atingidos = new Set<number>();
+  let agendado = false;
+
+  function medirRolagem(): void {
+    agendado = false;
+    const alcance = document.documentElement.scrollHeight - window.innerHeight;
+    if (alcance <= 0) return;
+    const pct = (window.scrollY / alcance) * 100;
+    for (const marco of MARCOS) {
+      if (pct >= marco && !atingidos.has(marco)) {
+        atingidos.add(marco);
+        enviar("scroll_profundidade", { percentual: marco });
+      }
+    }
+    if (atingidos.size === MARCOS.length) window.removeEventListener("scroll", aoRolar);
+  }
+
+  function aoRolar(): void {
+    if (agendado) return;
+    agendado = true;
+    requestAnimationFrame(medirRolagem);
+  }
+
+  window.addEventListener("scroll", aoRolar, { passive: true });
+</script>
