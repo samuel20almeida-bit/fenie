@@ -131,6 +131,11 @@ import { META_PIXEL_ID, GA4_ID } from "../lib/analytics";
     // Começar a inscrição é o mesmo gesto com ou sem link de pagamento —
     // quem clica aqui decidiu entrar na turma, e é isso que a Meta otimiza.
     inscricao_curso: "InitiateCheckout",
+    // assistente_aberto e assistente_pergunta ficam de fora de propósito.
+    // São sinais de engajamento, não de contato: mapeá-los para Contact
+    // encheria de ruído justamente o sinal que a Meta usa para otimizar
+    // campanha, e o WhatsApp e o cadastro — que são contato de verdade —
+    // perderiam peso no meio deles.
   };
 
   function enviar(nome: string, props: Props = {}): void {

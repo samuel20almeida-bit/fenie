@@ -408,7 +408,25 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
       return { linha, bolha };
     }
 
+    // Medição (briefing cap. 15). O chat é canal de lead e estava invisível:
+    // dava para ver o clique no WhatsApp que sai dele, mas não quantas
+    // pessoas abrem nem quantas chegam a perguntar algo.
+    //
+    // O TEXTO DA PERGUNTA NÃO VAI JUNTO, só o número dela na conversa.
+    // Pergunta de visitante costuma trazer nome, telefone e nome do salão, e
+    // isso não tem por que circular no GA4 nem na Meta. O conteúdo já chega
+    // ao n8n, que é onde ele serve para alguma coisa.
+    const medir = (nome: string, props: Record<string, string | number> = {}) =>
+      (
+        window as typeof window & {
+          fenieEvento?: (n: string, p?: Record<string, string | number>) => void;
+        }
+      ).fenieEvento?.(nome, props);
+
+    let perguntasFeitas = 0;
+
     function openPanel() {
+      medir("assistente_aberto", { primeira: greeted ? "nao" : "sim" });
       opened = true;
       panel.hidden = false;
       openBtn.setAttribute("aria-expanded", "true");
@@ -445,6 +463,9 @@ const wa = whatsappLink("Olá! Vim do assistente do site e quero continuar com u
       event.preventDefault();
       const pergunta = input.value.trim();
       if (!pergunta || waiting) return;
+
+      perguntasFeitas += 1;
+      medir("assistente_pergunta", { numero: perguntasFeitas });
 
       if (!assistantUrl) {
         addMessage(pergunta, "eu");

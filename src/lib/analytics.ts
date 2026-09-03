@@ -28,5 +28,7 @@ export const EVENTOS = {
   inscricaoCurso: "inscricao_curso",
   cliqueMarca: "clique_marca",
   escolhaCaminho: "escolha_caminho",
+  assistenteAberto: "assistente_aberto",
+  assistentePergunta: "assistente_pergunta",
   scroll: "scroll_profundidade",
 } as const;

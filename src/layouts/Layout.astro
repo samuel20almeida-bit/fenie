@@ -141,8 +141,23 @@ const localBusiness = {
     </noscript>
   </head>
   <body>
+    {/* WCAG 2.4.1. O cabeçalho é sticky e tem seis itens de menu mais o CTA:
+        sem isto, quem navega por teclado atravessa oito paradas em TODA
+        página antes de chegar no conteúdo. Fica invisível até receber foco,
+        e aí aparece como o botão primário do site.
+
+        z-50 porque o header é z-20 e o link precisa passar por cima dele.
+        O `tabindex="-1"` no <main> é o que faz o foco realmente ir para lá:
+        sem ele o navegador rola a página mas deixa o foco onde estava, e a
+        próxima tecla Tab volta para o menu. */}
+    <a
+      href="#conteudo"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-gold focus:px-6 focus:py-3 focus:font-body focus:text-sm focus:font-semibold focus:text-midnight"
+    >
+      Pular para o conteúdo
+    </a>
     <Header />
-    <main>
+    <main id="conteudo" tabindex="-1">
       <slot />
     </main>
     <Footer />
