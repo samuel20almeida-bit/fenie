@@ -34,8 +34,14 @@ const steps = [
     </h2>
 
     {/* Mesmo critério do Método: quatro passos lado a lado não pedem barra
-        de progresso. Fio curto de gold por passo. */}
-    <div class="mt-16 grid grid-cols-2 gap-x-8 gap-y-12 text-left md:grid-cols-4 md:gap-8">
+        de progresso. Fio curto de gold por passo.
+
+        Uma coluna só abaixo de 375px: com duas, a coluna fica em 120px a
+        320px de tela e "relacionamento" mede 145px — a palavra vazava da
+        coluna e empurrava 1px de rolagem horizontal na página inteira. De
+        375px para cima a coluna passa de 148px e cabe, então o layout de
+        duas colunas continua igual ao que era. */}
+    <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 text-left min-[375px]:grid-cols-2 md:grid-cols-4 md:gap-8">
       {
         steps.map((step, i) => (
           <div class="reveal" style={`transition-delay: ${i * 75}ms`}>

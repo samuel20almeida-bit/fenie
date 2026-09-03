@@ -53,12 +53,40 @@ import { whatsappLink } from "../lib/whatsapp";
     do fluxo e o z-10 do conteúdo garante que o texto continue por cima. */
   }
   <div class="relative z-0 mt-14 lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:w-[54%] lg:overflow-hidden">
+    {/* srcset porque esta é a imagem do LCP e o custo dela muda muito com a
+        tela: no celular a foto ocupa 390px (780 em DPR2) e o arquivo de
+        1800px mandava 5,3x mais pixel do que a tela usa — 94 KB para exibir
+        o equivalente a 33 KB.
+
+        CUIDADO COM O `sizes`: a tentação é escrever 54vw, copiando o
+        `lg:w-[54%]` do wrapper. Está errado. A partir de lg a imagem é
+        `h-full w-auto max-w-none`, ou seja, quem manda na largura dela é a
+        ALTURA da seção vezes a proporção — ela transborda o wrapper de
+        propósito, e o `overflow-hidden` acima é que corta. Medido no
+        navegador, a caixa real é 867px a 1024, 990 a 1280 e estaciona em
+        992 de 1440 para cima. Com 54vw o navegador pedia 778px para uma
+        caixa de 992 e servia o arquivo de 900 ampliado.
+
+        Daí os três degraus abaixo: as larguras são as medidas, não as do
+        layout. O candidato de 1200 existe para o desktop em DPR1, que
+        precisa de 992px — sem ele o navegador pulava direto para 1800 e
+        baixava 97 KB no lugar de 51 KB.
+
+        SEM `fetchpriority="high"`, e isso foi medido, não suposto. O atributo
+        serve para quando o preload scanner acha a imagem do LCP tarde; aqui
+        ele não acha, porque a tag está no HTML inicial. O que o "high" fazia
+        era pôr a foto para disputar banda com o CSS, que é quem bloqueia o
+        render. Em 1,6 Mbps com 150ms de latência, mediana de 5 cargas: FCP e
+        LCP caem de 1260ms para 968ms no celular e de 1368ms para 1112ms no
+        desktop — e a própria foto fica pronta ANTES (960ms para 681ms),
+        porque para de brigar com o CSS e pega o cano livre. */}
     <img
       src="/images/hero/olenka-royal-look.webp"
+      srcset="/images/hero/olenka-royal-look-900.webp 900w, /images/hero/olenka-royal-look-1200.webp 1200w, /images/hero/olenka-royal-look.webp 1800w"
+      sizes="(min-width: 1280px) 992px, (min-width: 1024px) 87vw, 100vw"
       alt="Linha profissional Olenka — kit Royal Look, Banho de Colágeno e Blend de Proteínas — com Rodrigo Cintra, embaixador técnico da marca"
       width="1800"
       height="1445"
-      fetchpriority="high"
       decoding="async"
       class="w-full lg:absolute lg:top-0 lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
     />

@@ -250,7 +250,11 @@ em {
     background: var(--trilho-fundo, var(--color-midnight-alt));
     font-family: var(--font-mono);
     font-size: var(--text-caption);
-    font-weight: 700;
+    /* 600 e não 700: o pedido ao Google carrega JetBrains Mono em 400, 500
+       e 600. Pedindo 700 aqui, o navegador não tinha o arquivo e sintetizava
+       o negrito engrossando os traços — numa mono, isso borra o algarismo
+       dentro do círculo de 2.5rem. 600 é o peso real mais próximo. */
+    font-weight: 600;
     color: var(--trilho-numero, var(--color-platina));
   }
   .trilho-numero > .trilho-aceso {
