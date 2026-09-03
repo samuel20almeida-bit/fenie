@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
 import ProfessionalSignupForm from "../../components/ProfessionalSignupForm.astro";
+import Faq from "../../components/Faq.astro";
 import { whatsappLink } from "../../lib/whatsapp";
 import { catalogoUrl } from "../../data/empresa";
 
@@ -135,17 +136,29 @@ const waArea = whatsappLink(
     </div>
   </section>
 
-  <section class="bg-midnight-alt py-26">
+  {/* O FAQ mora aqui porque é aqui que estas perguntas nascem: quatro das
+      cinco são de compra — se vende para consumidor final, como conhecer
+      preços e condições, se dá para pedir orientação e se atende fora de
+      Curitiba. Ele já existia na home e em /contato, mas não na página da
+      jornada de compra, que é justamente onde a dúvida trava a decisão.
+
+      Ele também substitui uma seção inteira que eu tinha escrito aqui só
+      para responder "vocês atendem minha cidade?" — o FAQ já respondia isso
+      desde antes, e manter as duas era dizer a mesma coisa duas vezes na
+      mesma página. O CTA de baixo herdou a mensagem com a cidade, que era a
+      parte útil daquela seção. */}
+  <Faq />
+
+  <section class="bg-midnight py-26">
     <div class="container-editorial">
       <div class="reveal max-w-160">
         <p class="eyebrow mb-5">Ainda com dúvida</p>
-        <h2 class="text-[clamp(1.6rem,3vw,2rem)]">A Fenié atende a minha cidade?</h2>
+        <h2 class="text-[clamp(1.6rem,3vw,2rem)]">Sua pergunta não estava aí em cima?</h2>
         <p class="mt-4 max-w-[52ch] text-platina">
-          A Fenié atua a partir de Curitiba e atende salões conforme a operação de cada região.
-          Mande sua cidade no WhatsApp e a equipe confirma na hora se há atendimento e como
-          funciona a entrega por aí.
+          Mande sua cidade e o que seu salão atende. A equipe confirma na hora se há atendimento
+          na sua região e como funciona a entrega por aí.
         </p>
-        <Button href={waArea} variant="outline" class="mt-7">Perguntar pela minha cidade</Button>
+        <Button href={waArea} class="mt-7">Falar com um consultor</Button>
       </div>
     </div>
   </section>

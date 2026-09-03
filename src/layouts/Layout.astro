@@ -20,6 +20,11 @@ const ogImageURL = new URL(ogImage, Astro.site);
 // LocalBusiness: distribuição profissional com endereço fixo em Curitiba.
 // Sem CEP e sem geo porque o site anterior não publica nenhum dos dois —
 // preencher assim que a informação for confirmada, não chutar.
+// Uma constante porque a URL agora aparece três vezes: no preload, na folha
+// não-bloqueante e no fallback sem JS. Três cópias divergiriam sozinhas.
+const fontesHref =
+  "https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;600&display=swap";
+
 const localBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -80,14 +85,45 @@ const localBusiness = {
 
     <Analytics />
 
+    {/* O Google Fonts era o único ponto único de falha do site: a folha
+        bloqueava o render, então quando fonts.googleapis.com não responde a
+        página inteira fica em branco. Medido neste sandbox, onde o domínio é
+        inalcançável: 12,5 SEGUNDOS de tela branca com o link bloqueante,
+        64ms sem ele. Rede corporativa que bloqueia o domínio, DNS ruim ou
+        pico de latência produzem o mesmo efeito no mundo real.
+
+        `media="print"` faz o navegador buscar a folha sem esperar por ela
+        para pintar; o onload devolve `all` e ela passa a valer. O preload
+        acima existe porque `media="print"` também rebaixa a prioridade do
+        pedido — com ele a folha continua vindo cedo, só que sem segurar o
+        primeiro pixel.
+
+        CORRIGINDO O QUE EU MESMO DISSE ANTES: isto não troca "risco raro e
+        severo" por "incômodo frequente". O FOUT já acontecia em toda carga
+        sem cache, porque a URL sempre teve `display=swap` — com a folha
+        bloqueante o navegador esperava o CSS, pedia as fontes e pintava em
+        fonte de sistema do mesmo jeito. A sequência visual é a mesma; o que
+        muda é que ela começa antes. O único custo real é a folha chegar um
+        pouco depois, e o preload cobre isso.
+
+        A correção definitiva continua sendo hospedar as fontes no próprio
+        domínio, o que elimina o terceiro de vez. Não dá para fazer daqui: o
+        sandbox não alcança o domínio para baixar os arquivos. */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href={fontesHref} />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href={fontesHref}
+      media="print"
+      onload="this.media='all';this.onload=null;"
     />
 
     <noscript>
+      {/* Sem JS o onload acima nunca dispara e a folha ficaria só para
+          impressão: aqui ela entra de novo, bloqueante mesmo, que é o
+          comportamento correto quando não há script para destravá-la. */}
+      <link rel="stylesheet" href={fontesHref} />
       <style>
         /* Sem JS o IntersectionObserver nunca marca .is-visible, e todo o
            conteúdo do site — que é quase todo .reveal — ficaria em opacity 0.
