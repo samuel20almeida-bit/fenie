@@ -128,6 +128,9 @@ import { META_PIXEL_ID, GA4_ID } from "../lib/analytics";
     cadastro_profissional: "Lead",
     ver_curso: "ViewContent",
     clique_marca: "ViewContent",
+    // Começar a inscrição é o mesmo gesto com ou sem link de pagamento —
+    // quem clica aqui decidiu entrar na turma, e é isso que a Meta otimiza.
+    inscricao_curso: "InitiateCheckout",
   };
 
   function enviar(nome: string, props: Props = {}): void {

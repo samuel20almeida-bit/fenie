@@ -25,6 +25,7 @@ export const EVENTOS = {
   cliqueCatalogo: "clique_catalogo",
   cadastroProfissional: "cadastro_profissional",
   verCurso: "ver_curso",
+  inscricaoCurso: "inscricao_curso",
   cliqueMarca: "clique_marca",
   escolhaCaminho: "escolha_caminho",
   scroll: "scroll_profundidade",

@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
 import CourseCard from "../../components/CourseCard.astro";
 import CtaFinal from "../../components/CtaFinal.astro";
-import { cursos, educadores, modalidades } from "../../data/cursos";
+import { cursos, cursoHref, educadores, modalidades } from "../../data/cursos";
 import { whatsappLink } from "../../lib/whatsapp";
 ---
 
@@ -90,7 +90,12 @@ import { whatsappLink } from "../../lib/whatsapp";
               />
               <div>
                 <h3 class="font-body text-h3 font-bold">{e.nome}</h3>
-                <a href={`#${e.slug}`} class="mt-0.5 block py-1 text-caption text-platina hover:text-gold">
+                <a
+                  href={cursoHref(e)}
+                  data-evento="ver_curso"
+                  data-curso={e.curso}
+                  class="mt-0.5 block py-1 text-caption text-platina hover:text-gold"
+                >
                   {e.curso} →
                 </a>
               </div>
