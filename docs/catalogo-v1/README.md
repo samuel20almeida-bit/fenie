@@ -2,6 +2,12 @@
 
 Atualizado em 06/10/2026. Este diretório organiza a execução do documento funcional enviado por Samuel. O documento original está em `escopo-original.md`. A demonstração não é o catálogo comercial e não substitui o Meloja.
 
+## Atualização: planilha recebida e importação preparada
+
+Samuel forneceu a planilha de precificação e o link do Meloja. A aba CATALOGO contém 627 registros; 414 passaram pela verificação estrutural da prévia e 213 ficaram em revisão. O laboratório agora usa os campos comerciais desses 414 produtos, com PREÇO PRATICADO, filtro por linha e fotos marcadas como pendentes. Pedidos reais permanecem desativados.
+
+Detalhes em [auditoria-planilha.md](auditoria-planilha.md). A recomendação de revisão dos preços e do WhatsApp continua válida. O acesso ao Meloja foi bloqueado pelo Cloudflare neste navegador; as fotografias e descrições ainda precisam de uma exportação/acervo acessível.
+
 ## Decisões confirmadas com Samuel
 
 | Decisão | Definição |
@@ -10,7 +16,7 @@ Atualizado em 06/10/2026. Este diretório organiza a execução do documento fun
 | Preços | Públicos, sem login de clientes |
 | Jornada | Encontrar → selecionar quantidade → carrinho → resumo → WhatsApp |
 | Código | Conta `samuel20almeida-bit`; repositório Fenié existente |
-| Dados iniciais | Exportação do catálogo atual do Meloja |
+| Dados iniciais | Planilha CATALOGO enviada; Meloja como referência visual a conferir |
 | Conclusão comercial | Atendimento confirma disponibilidade, frete, pagamento e condições |
 | Escopo | Sem pagamento online, ERP, CRM ou integração de estoque na V1 |
 
@@ -24,14 +30,14 @@ Atualizado em 06/10/2026. Este diretório organiza a execução do documento fun
 
 ## O que ainda não está implementado
 
-Importação real do Meloja, imagens oficiais por SKU, administração no CMS, rotas comerciais individuais, atualização de preços em tempo de execução, coleta de analytics em um destino real e ativação do WhatsApp comercial. O laboratório usa seis registros ilustrativos do protótipo; SKUs `DEMO-*` foram criados só para testar o formato.
+Conferência do Meloja, imagens oficiais por SKU, administração no CMS, rotas comerciais individuais, atualização de preços em tempo de execução, coleta de analytics em um destino real e ativação do WhatsApp comercial. Os seis registros ilustrativos originais permanecem somente como fixtures de teste; o laboratório carrega o snapshot comercial em revisão.
 
 ## Organização do trabalho
 
 | Etapa | Entrega verificável | Responsável | Dependência |
 | --- | --- | --- | --- |
 | 1 — Base | Plano, modelo e laboratório de fluxo | Desenvolvimento | Concluída nesta branch |
-| 2 — Cadastro | Produtos reais saneados e revisados | Fenié + desenvolvimento | Exportação do Meloja |
+| 2 — Cadastro | Produtos reais saneados e revisados | Fenié + desenvolvimento | Importação preparada; 213 registros em revisão e fotos pendentes |
 | 3 — Administração | Equipe publica produto e preço no painel | Desenvolvimento + responsável do catálogo | Projeto CMS e acessos |
 | 4 — Catálogo real | URLs, carrinho, revisão e WhatsApp funcionando | Desenvolvimento | Cadastro e número aprovados |
 | 5 — Validação | Testes internos em Android, iPhone e desktop | Fenié + desenvolvimento | Preview com dados reais |
@@ -42,7 +48,7 @@ As etapas 2 e 3 podem avançar em paralelo. O prazo de construção será estima
 
 ## Dados para a próxima etapa
 
-1. Exportação do Meloja, com preços e identificadores, e o link do catálogo atual para conferência visual. A disponibilidade de exportação será verificada; não foi presumida uma API de integração.
+1. Fotos oficiais/descrições ou exportação do Meloja que permita complementar a planilha já lida. O link foi recebido, mas este navegador foi bloqueado pelo Cloudflare.
 2. Confirmação do WhatsApp de pedidos. O protótipo e o site existente usam `+55 41 99840-2800`, mas atendimento institucional e pedidos podem ter destinos diferentes.
 3. Nome de quem revisará preços, produtos e alterações no painel. Também definir quem confirma as solicitações recebidas no WhatsApp.
 
@@ -53,11 +59,11 @@ Não enviar senhas ou tokens na conversa. Os acessos de administração deverão
 ```bash
 npm ci
 npm run test:catalog
-npm run validate:catalog -- public/catalogo-lab/demo.json
+npm run validate:catalog -- public/catalogo-lab/catalog-preview.json
 npm run build
 npm run dev
 ```
 
-Abrir `/catalogo-lab/`. A página é responsiva e marcada como `noindex`. As URLs com `#` são exclusivas do laboratório; as URLs finais estão descritas em `arquitetura.md`.
+Abrir `/catalogo-lab/`. A página é responsiva e marcada como `noindex`. As URLs com `#` são exclusivas do laboratório; as URLs finais estão descritas em `arquitetura.md`. Para conferir as regras de importação, executar `python3 tests/import_fenie_sheet_test.py`.
 
 Documentos de execução: `arquitetura.md`, `backlog.md`, `dados-e-migracao.md` e `piloto.md`. O arquivo `modelo-produtos.csv` contém somente cabeçalhos para a coleta dos dados reais.

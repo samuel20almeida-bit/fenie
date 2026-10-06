@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test:catalog": "node --test tests/catalog.test.mjs",
+    "test:catalog": "node --test tests/catalog*.test.mjs",
     "validate:catalog": "node scripts/validate-catalog.mjs"
   },
   "dependencies": {
