@@ -1,5 +1,13 @@
 # Fenié Pro — site institucional
 
+## Projeto Catálogo Fenié PRO V1
+
+A organização da nova V1 está em [docs/catalogo-v1/README.md](docs/catalogo-v1/README.md).
+A demonstração responsiva pode ser aberta em `/catalogo-lab/` após `npm run dev`.
+Ela usa dados ilustrativos e não envia pedidos reais. Validação: `npm run test:catalog`
+e `npm run validate:catalog -- public/catalogo-lab/demo.json`.
+CMS, cadastro real e lançamento serão executados nas próximas etapas documentadas.
+
 ## Stack
 
 **Astro + Tailwind v4.** Cada página é HTML/CSS estático por padrão —

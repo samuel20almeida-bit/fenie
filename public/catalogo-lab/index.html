@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Fenié PRO · Laboratório do catálogo</title>
+  <link rel="stylesheet" href="./prototype.css">
+  <link rel="stylesheet" href="./lab.css">
+</head>
+<body>
+  <a class="skip" href="#view">Ir ao conteúdo</a>
+  <div class="demo-banner">Demonstração · produtos, embalagens e preços ilustrativos. Pedidos reais estão desativados.</div>
+  <div class="shell"><main class="phone"><div class="app">
+    <header class="topbar">
+      <a href="#/" class="brand" aria-label="Fenié PRO — Catálogo"><span class="brand-main">FENIÉ</span><span class="brand-sub">PRO</span></a>
+      <a href="#/carrinho" class="cart-link">Pedido <span id="cartBadge" class="count">0</span></a>
+    </header>
+    <section id="view" tabindex="-1"><div class="main"><p role="status">Carregando catálogo…</p></div></section>
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <a href="#/">Catálogo</a><button data-action="focus-search">Buscar</button><a href="#/carrinho">Pedido</a>
+    </nav>
+  </div></main></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p>Ative o JavaScript para testar o carrinho desta demonstração.</p></noscript>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>
