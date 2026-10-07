@@ -2,7 +2,11 @@
 
 Atualizado em 06/10/2026. Este diretório organiza a execução do documento funcional enviado por Samuel. O documento original está em `escopo-original.md`. A demonstração não é o catálogo comercial e não substitui o Meloja.
 
-## Atualização: planilha recebida e importação preparada
+## Atualização Mercos — 07/10/2026
+
+A prévia atual usa **701 registros ativos e exibidos, com códigos únicos**, da extração Mercos. Os preços são os de **Preço de Tabela**, conforme confirmado por Samuel. Há cinco fotos oficiais candidatas da Rigolim. O catálogo anterior de 414 produtos foi reconciliado; cadastros sem correspondência elegível foram retirados da prévia. Detalhes e validação em [mercos.md](mercos.md). Pedidos reais continuam desativados.
+
+## Histórico: planilha recebida e importação preparada
 
 Samuel forneceu a planilha de precificação e o link do Meloja. A aba CATALOGO contém 627 registros; 414 passaram pela verificação estrutural da prévia e 213 ficaram em revisão. O laboratório agora usa os campos comerciais desses 414 produtos, com PREÇO PRATICADO, filtro por linha e fotos marcadas como pendentes. Pedidos reais permanecem desativados.
 

@@ -23,10 +23,10 @@ test('explicit product type wins over a multi-product line name',()=>{
 test('brand, draft category, source line, SKU search and ordering compose correctly',()=>{
   const filters={brand:'OLENKA',category:'tratamento'};
   const lines=availableLines(products,filters);
-  assert.ok(lines.includes('ROYAL'));
-  const list=navigateProducts(products,{...filters,line:'ROYAL',query:'shampoo',sort:'priceAsc'});
+  assert.ok(lines.includes('Shampoos e condicionadores'));
+  const list=navigateProducts(products,{...filters,line:'Shampoos e condicionadores',query:'shampoo',sort:'priceAsc'});
   assert.ok(list.length>0);
-  assert.ok(list.every(p=>p.brand==='OLENKA'&&p.line==='ROYAL'&&categoryFor(p)==='tratamento'));
+  assert.ok(list.every(p=>p.brand==='OLENKA'&&p.line==='Shampoos e condicionadores'&&categoryFor(p)==='tratamento'));
   assert.ok(list.every((p,i)=>!i||p.priceCents>=list[i-1].priceCents));
   const sku=list[0].sku;
   assert.equal(navigateProducts(products,{query:sku})[0].sku,sku);

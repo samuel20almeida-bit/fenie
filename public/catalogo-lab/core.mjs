@@ -15,7 +15,7 @@ export function validateCatalog(data) {
     ids.add(p.id); skus.add(p.sku); slugs.add(p.slug);
     if (!Number.isSafeInteger(p.priceCents) || p.priceCents < 0 || p.priceCents > 100000000) throw new Error(`Preço inválido: ${p.sku}`);
     if (!['active', 'unavailable', 'hidden', 'consult'].includes(p.status)) throw new Error(`Status inválido: ${p.sku}`);
-    if (p.image && !/^https:\/\//.test(p.image)) throw new Error(`Imagem deve usar HTTPS: ${p.sku}`);
+    if (p.image && !/^https:\/\//.test(p.image) && !/^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|png|webp)$/.test(p.image)) throw new Error(`Imagem deve usar HTTPS ou um arquivo local de produto: ${p.sku}`);
     if (p.image && !p.imageAlt?.trim()) throw new Error(`Texto alternativo obrigatório: ${p.sku}`);
     if (p.keywords && (!Array.isArray(p.keywords) || p.keywords.some(k => typeof k !== 'string'))) throw new Error(`Palavras-chave inválidas: ${p.sku}`);
   }

@@ -9,6 +9,11 @@ test('validates unique SKU, slug, cents and status', () => {
   assert.throws(() => validateCatalog({ products: [...products, products[0]] }));
   assert.throws(() => validateCatalog({ products: [{ ...products[0], priceCents: 12.9 }] }));
 });
+test('accepts local product images and rejects unsafe paths', () => {
+  const p={...products[0],image:'./assets/products/RGL-SPT-VOL-200.jpg',imageAlt:'Produto Rigolim'};
+  assert.doesNotThrow(()=>validateCatalog({products:[p]}));
+  for(const image of ['../private.jpg','./assets/products/../private.jpg','javascript:alert(1)','data:image/png;base64,abc']) assert.throws(()=>validateCatalog({products:[{...p,image}]}));
+});
 test('search matches accents, SKU, keywords and combined filters', () => {
   assert.equal(searchProducts(products, { query: 'coloracao', brand: 'MUP Color', category: 'Coloração' }).length, 1);
   assert.equal(searchProducts(products, { query: products[0].sku }).length, 1);

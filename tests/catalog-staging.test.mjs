@@ -10,7 +10,11 @@ test('staging is commercial-only, unique, under review and contains no ambiguous
   assert.equal(payload.products.length, payload.summary.previewProducts);
   assert.ok(payload.products.every(p => p.status === 'consult'));
   assert.ok(payload.products.every(p => p.sku !== 'MAK-SOM-MAR'));
-  const allowed = ['id','sku','slug','name','brand','line','category','size','priceCents','status','order','keywords','reviewPending'];
+  const allowed = ['id','sku','slug','name','brand','line','category','sourceGroup','size','priceCents','status','order','keywords','reviewPending','image','imageAlt','imageSource'];
   for (const p of payload.products) assert.ok(Object.keys(p).every(key => allowed.includes(key)), `Unexpected public field for ${p.sku}`);
   assert.equal(payload.summary.commercialOrdersEnabled, false);
+  assert.equal(payload.summary.previewProducts, 701);
+  assert.equal(payload.summary.priceField, 'Mercos — Preço de Tabela');
+  assert.equal(payload.products.filter(p=>p.image).length, 5);
+  for (const sku of ['GLY-COL-989','GLY-MSQ-HYD-500','DOH-FNL-BTS-60','MAK-SOM-MAR','OLK-SH-BIO-280','MAK-PCL-BSC','PHL-SH-EXT-300','SFO-SH-ACM-1000']) assert.ok(!payload.products.some(p=>p.sku===sku));
 });

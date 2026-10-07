@@ -10,6 +10,7 @@ export const CATEGORIES = [
   { id: 'transformacao', name: 'Alisamento e relaxamento', short: 'Alisamento', icon: 'wave' },
   { id: 'maquiagem', name: 'Maquiagem', short: 'Makeup', icon: 'brush' },
   { id: 'acessorios', name: 'Acessórios e papel', short: 'Acessórios', icon: 'sheets' },
+  { id: 'educacao', name: 'Cursos e educação', short: 'Educação', icon: 'sheets' },
   { id: 'outros', name: 'Outros produtos', short: 'Outros', icon: 'grid' },
 ];
 
@@ -17,6 +18,9 @@ export const CATEGORIES = [
 // Prefer an explicit product type over the name of a multi-product line.
 export function categoryFor(product) {
   const name = normalize(product.name);
+  const group = normalize(product.sourceGroup);
+  if (group === 'cursos') return 'educacao';
+  if (group === 'acessorios' || group === 'papel para mechas') return 'acessorios';
   if (/papel para mechas|clipe|grampo|luva|filtro de cafe/.test(name)) return 'acessorios';
   if (/bruma fixadora|sombra|batom|blush|maquiagem|mascara de cilios|delineador|corretivo|base facial|po facial/.test(name) || product.brand === 'MUP MAKEUP') return 'maquiagem';
   if (/descolor|po para mechas/.test(name)) return 'descoloracao';
@@ -24,7 +28,7 @@ export function categoryFor(product) {
   if (/matiz|olenkolor/.test(name)) return 'matizacao';
   if (/coloracao|tintura/.test(name)) return 'coloracao';
   if (/alisante|progressiva|realinhamento|relaxer|redutor de volume|btx|thioglycolate|reducter/.test(name)) return 'transformacao';
-  if (/finalizador|leave.?in|creme para pentear|ativador.*cacho|mousse|fixador|spray.*brilho|cera|pomada|texturizador|snow|protetor termico|acelerador de escova|silicone/.test(name)) return 'finalizacao';
+  if (/finalizador|leave.?in|creme para pentear|ativador.*(?:cacho|my curly)|geleia|mousse|fixador|spray.*brilho|cera|pomada|texturizador|snow|protetor termico|acelerador de escova|silicone/.test(name)) return 'finalizacao';
   if (/shampoo|shampooing|condicion|conditioner|mascara|masque|mask|baume|balm|reconstru|nutri|hidrat|ampola|serum|acidifica/.test(name)) return 'tratamento';
   return 'outros';
 }
