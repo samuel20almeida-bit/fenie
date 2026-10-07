@@ -12,6 +12,6 @@ A logo enviada por Samuel foi copiada, sem alteração dos bytes, para `public/c
 
 ## Verificação
 
-23 testes Node passaram, incluindo integridade das 24 fichas, filtros combinados, busca por benefícios, fontes oficiais, prevenção de preço editorial e resumo do carrinho. Validador, sintaxe JavaScript, compilação Astro e `git diff --check` passaram. A logo mantém o SHA-256 do arquivo enviado; o snapshot comercial é idêntico ao publicado na etapa de fotos. Conferência visual e de interação da nova prévia será registrada após o deploy.
+23 testes Node passaram, incluindo integridade das 24 fichas, filtros combinados, busca por benefícios, fontes oficiais, prevenção de preço editorial e resumo do carrinho. Validador, sintaxe JavaScript, compilação Astro e `git diff --check` passaram. A logo mantém o SHA-256 do arquivo enviado; o snapshot comercial é idêntico ao publicado na etapa de fotos. Conferência no navegador desktop após o deploy: logo e três seleções visíveis; seleção de tratamentos com 12 produtos; ficha Biomask com preço de R$ 89,90, indicação, benefícios e modo de uso; foto carregada, ampliação 2×, Escape e retorno do foco; quantidade sincronizada entre destaque e catálogo; carrinho com duas Biomask e três Volumizer, subtotal de R$ 515,80; mensagem de demonstração com nomes e SKUs Mercos preservados. A validação em dispositivos móveis reais ainda está pendente.
 
 Pedidos reais permanecem desativados. Fotos e embalagens ainda precisam da conferência comercial da Fenié.
