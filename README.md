@@ -4,8 +4,8 @@
 
 A organização da nova V1 está em [docs/catalogo-v1/README.md](docs/catalogo-v1/README.md).
 A demonstração responsiva pode ser aberta em `/catalogo-lab/` após `npm run dev`.
-Ela usa 701 registros comerciais da exportação Mercos, com preços da tabela padrão, e não envia pedidos reais. Validação: `npm run test:catalog`
-e `npm run validate:catalog -- public/catalogo-lab/demo.json`.
+Ela usa 701 registros comerciais da exportação Mercos, com preços da tabela padrão e 141 fotos oficiais candidatas de cinco marcas, e não envia pedidos reais. Fontes e pendências em [fotos.md](docs/catalogo-v1/fotos.md). Validação: `npm run test:catalog`
+e `npm run validate:catalog -- public/catalogo-lab/catalog-preview.json`.
 CMS, cadastro real e lançamento serão executados nas próximas etapas documentadas.
 
 ## Stack

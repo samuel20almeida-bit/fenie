@@ -13,7 +13,9 @@
     "priceField": "Mercos — Preço de Tabela",
     "priceDate": "2026-10-07",
     "commercialOrdersEnabled": false,
-    "officialImageCandidates": 5
+    "officialImageCandidates": 141,
+    "missingImages": 560,
+    "photosUpdatedAt": "2026-10-07"
   },
   "products": [
     {
@@ -41,7 +43,7 @@
         "Embalagem da foto oficial"
       ],
       "image": "./assets/products/RGL-SPT-VOL-200.jpg",
-      "imageAlt": "Foto da loja oficial Rigolim: Spray Texturizador Volumizer - Rigolim 200ml; embalagem em conferência",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Spray Texturizador Volumizer - Rigolim 200ml; embalagem em conferência",
       "imageSource": "https://www.rigolim.com.br/produto-para-penteado/novo-spray-texturizador-rigolim-hair-and-co-volumizer-200ml"
     },
     {
@@ -89,10 +91,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/spray_fixador_rigolim_hair_and_co_dark_300ml_707_1_3f7854f7b87bc4f76e4ce87af30cbb30.png",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Dark Spray Fixador 300ml - Rigolim; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/spray/dark-spray-fixador-de-cabelo-rigolim-hair-co-300ml"
     },
     {
       "id": "RGL-OLE-COI-60",
@@ -114,10 +119,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/oleo_capilar_antifrizz_soft_oil_clean_oil_rigo_1_20260122112452_ba61caea29c1.jpg",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Óleo Soft Oil 60ml - Rigolim; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/oleos/oleo-para-cabelo-clean-oil-rigolim-hair-co"
     },
     {
       "id": "RGL-PMD-PTC-150",
@@ -139,10 +147,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/creme_antifrizz_perfect_cream_rigolim_hair_an_1_20260122111723_9210a5b6d860.jpg",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Pomada Perfect Cream 150g - Rigolim; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/oleo/perfect-cream-rigolim-hair-co-150g-pomada-anti-frizz-modeladora"
     },
     {
       "id": "RGL-ACS-CM7-6",
@@ -164,10 +175,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/novo_clipe_de_metal_no_07_rigolim_hair_and_co_6un_1094_1_d4b290414680531a7d070155c35bf769.jpg",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Clipe de Metal Nº7 - Rigolim 6un; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/acessorios-para-penteados/novo-clipe-de-metal-no07-rigolim-hair-and-co-6un"
     },
     {
       "id": "RGL-ACS-GPA-40",
@@ -189,10 +203,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/novo_grampo_aberto_rigolim_hair_and_co_40un_1092_1_fd881e2a0ac3e3d0077e9259cef2b265.jpg",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Grampo Aberto - Rigolim 40un; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/acessorios-para-penteados/novo-grampo-aberto-rigolim-hair-and-co-40un"
     },
     {
       "id": "RGL-PO-SNW-10",
@@ -214,10 +231,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/p_texturizador_e_volumador_para_cabelo_snow_ri_1_20260122112519_f32237b8c83f.jpg",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Pó Snow - Rigolim 10g; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/po-para-volume/po-texturizador-snow-rigolim-hair-co-5g"
     },
     {
       "id": "RGL-CRA-LGS-300",
@@ -239,10 +259,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/cera_lquida_rigolim_hair_and_co_light_spray_300m_1_20260707154538_b1da8c4407bd.jpg",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Cera Líquida Light Spray Rigolim 300ml 215g; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/rigolim-hair-co/light-spray-rigolim-hair-co"
     },
     {
       "id": "RGL-SPR-STD-300",
@@ -264,10 +287,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/extra_forte_rigolim_hair_and_co_ultra_spray_300ml_872_1_e1bcdd35a52db181ac874c9099471255.png",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Ultra Spray Extra Forte - Rigolim Hair 300ml; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/produtos-para-penteados/extra-forte-rigolim-hair-and-co-ultra-spray-300ml"
     },
     {
       "id": "RGL-CAT-MCL-300",
@@ -294,7 +320,7 @@
         "Embalagem da foto oficial"
       ],
       "image": "./assets/products/RGL-CAT-MCL-300.jpg",
-      "imageAlt": "Foto da loja oficial Rigolim: Creme Ativador My Curly - Rigolim Hair Co 300ml; embalagem em conferência",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Creme Ativador My Curly - Rigolim Hair Co 300ml; embalagem em conferência",
       "imageSource": "https://www.rigolim.com.br/my-curly/creme-ativador-rigolim-hair-and-co-my-curly-300-ml"
     },
     {
@@ -322,7 +348,7 @@
         "Embalagem da foto oficial"
       ],
       "image": "./assets/products/RGL-CPA-MCL-300.jpg",
-      "imageAlt": "Foto da loja oficial Rigolim: Creme para Pentear My Curly - Rigolim Hair and Co 300ml; embalagem em conferência",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Creme para Pentear My Curly - Rigolim Hair and Co 300ml; embalagem em conferência",
       "imageSource": "https://www.rigolim.com.br/my-curly/creme-de-pentear-rigolim-hair-and-co-my-curly-300ml"
     },
     {
@@ -345,10 +371,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/spray_de_brilho_dry_shine_rigolim_hair_and_co_1_20260122112616_2486d5e4e8af.jpg",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Spray de Brilho Dry Shine Rigolim 300ml; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/produtos-para-penteados/spray-de-brilho-rigolim-hair-and-co-dry-shine-300ml"
     },
     {
       "id": "RGL-SPB-GWV-120",
@@ -370,10 +399,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/spray_de_brilho_liquido_glow_wave_rigolim_hair_1_20260122112644_afaa566a6ccf.jpg",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Spray de Brilho Liquido Glow Wave 120ml Rigolim; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/vip/spray-de-brilho-liquido-rigolim-hair-and-co-glow-wave-120-ml"
     },
     {
       "id": "RGL-HBM-CRB-20",
@@ -395,10 +427,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/907088/cera_em_basto_stick_hair_balm_rigolim_hair_and_1_20260122111053_ac1c8fa6b6cf.jpg",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Cera em Bastao Hair Balm Rigolim 20g; embalagem em conferência",
+      "imageSource": "https://www.rigolim.com.br/produto-para-penteado/cera-em-bastao-rigolim-and-co-hair-balm-20g"
     },
     {
       "id": "RGL-MOS-MCL-200",
@@ -425,7 +460,7 @@
         "Embalagem da foto oficial"
       ],
       "image": "./assets/products/RGL-MOS-MCL-200.jpg",
-      "imageAlt": "Foto da loja oficial Rigolim: Mousse Modelador My Curly - Rigolim 200ml; embalagem em conferência",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Mousse Modelador My Curly - Rigolim 200ml; embalagem em conferência",
       "imageSource": "https://www.rigolim.com.br/my-curly/mousse-modelador-rigolim-hair-and-co-my-curly-200ml"
     },
     {
@@ -473,10 +508,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://loja.olenkacosmeticos.com.br/wp-content/uploads/2023/05/Royal-Look-Alisante-1l-Olenka-500x640.jpg",
+      "imageAlt": "Foto da loja oficial OLENKA: Alisante Capilar Royal Look Olenka 1L; embalagem em conferência",
+      "imageSource": "https://loja.olenkacosmeticos.com.br/produto/alisante-capilar-royal-look-olenka-1l/"
     },
     {
       "id": "OLK-SPY-RBD-250",
@@ -523,10 +561,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://loja.olenkacosmeticos.com.br/wp-content/uploads/2023/05/Royal-Soft-Alisante-1kg-Olenka-500x640.jpg",
+      "imageAlt": "Foto da loja oficial OLENKA: Alisante Royal Soft Olenka 1kg; embalagem em conferência",
+      "imageSource": "https://loja.olenkacosmeticos.com.br/produto/alisante-royal-soft-olenka-1kg/"
     },
     {
       "id": "OLK-MSK-FNS-500",
@@ -623,10 +664,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://loja.olenkacosmeticos.com.br/wp-content/uploads/2023/05/Royal-Care-Dual-Mask-250ml-Olenka-500x640.jpg",
+      "imageAlt": "Foto da loja oficial OLENKA: Dual Mask Royal Care 250ml; embalagem em conferência",
+      "imageSource": "https://loja.olenkacosmeticos.com.br/produto/dual-mask-royal-care-manutencao-250ml/"
     },
     {
       "id": "OLK-SPY-BIO-500",
@@ -1598,10 +1642,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://loja.olenkacosmeticos.com.br/wp-content/uploads/2023/05/Especialidades-Condicionador-15l-Olenka-500x640.jpg",
+      "imageAlt": "Foto da loja oficial OLENKA: Condicionador de Tratamento Especialidades Olenka 1,5l; embalagem em conferência",
+      "imageSource": "https://loja.olenkacosmeticos.com.br/produto/condicionador-especialidades-olenka-15l/"
     },
     {
       "id": "OLK-KIT-MEN-1.5",
@@ -1673,10 +1720,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://loja.olenkacosmeticos.com.br/wp-content/uploads/2023/06/Mens-Care-Condicionador-15l-Olenka-500x640.jpg",
+      "imageAlt": "Foto da loja oficial OLENKA: Condicionador Revitalizante de Tratamento Men's Care Olenka 1,5l; embalagem em conferência",
+      "imageSource": "https://loja.olenkacosmeticos.com.br/produto/condicionador-revitalizante-de-tratamento-mens-care-15l/"
     },
     {
       "id": "OLK-BLM-MEN-300",
@@ -5084,10 +5134,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/1_und_Select_One.png?v=1789577116&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Progressiva Select One 1lt - Prohall; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/select-one-um-so-passo-1l"
     },
     {
       "id": "PHL-REA-BUX-1000",
@@ -5109,10 +5162,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/Burix_One_1L.png?v=1789577175&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Progresiva Burix One 1L - Prohall; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/reestruturacao-molecular-tanino-organica-burix-one-1l"
     },
     {
       "id": "PHL-REA-BUX-120",
@@ -5134,10 +5190,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/reestruturacao-molecular-tanino-organica-burix-one-120ml-636361.jpg?v=1749047922&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Progressiva Burix One Prohall 120ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/reestruturacao-molecular-tanino-organica-burix-one-120ml"
     },
     {
       "id": "PHL-REA-BUX-300",
@@ -5159,10 +5218,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/Burix_One_300ml.png?v=1789579228&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Realinhamento Burix One 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/reestruturacao-molecular-tanino-organica-burix-one-300ml"
     },
     {
       "id": "PHL-REA-BLD-1000",
@@ -5184,10 +5246,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/Select_Blond_1L.png?v=1789579667&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Progressiva Select Blond 1L Prohall; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/select-blond-1l"
     },
     {
       "id": "PHL-BTX-BLD-1000",
@@ -5234,10 +5299,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/ampola-de-reconstrucao-intensa-anti-danos-capilares-pror-15ml-119007.jpg?v=1742474156&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Ampola de Reconstrução Intensa Anti-Danos Capilares PRO.R 15ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/ampola-de-reconstrucao-intensa-anti-danos-capilares-pro-r-15ml"
     },
     {
       "id": "PHL-CX-PROR-15",
@@ -5259,10 +5327,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/box-de-ampolas-reconstrucao-intensa-pror-15ml-12-unidades-360702.jpg?v=1742474151&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Box de Ampolas Reconstrução Intensa PRO.R 15ml - 12 Unidades; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/box-de-ampolas-reconstrucao-intensa-pro-r-15ml-12-unidades"
     },
     {
       "id": "PHL-SH-BUX-300",
@@ -5284,10 +5355,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-burix-care-300ml-128792.jpg?v=1742474124&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Burix Care 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-burix-care-300ml"
     },
     {
       "id": "PHL-COND-BUX-300",
@@ -5309,10 +5383,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/condicionador-burix-care-300ml-705642.jpg?v=1742474123&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Condicionador Burix Care 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/condicionador-burix-care-300ml"
     },
     {
       "id": "PHL-SH-BIO-1000",
@@ -5334,10 +5411,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-biomask-professional-1l-977574.jpg?v=1742474213&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Biomask Professional Prohall 1L; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-biomask-professional-1l"
     },
     {
       "id": "PHL-COND-BIO-1000",
@@ -5359,10 +5439,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/condicionador-biomask-professional-1-l-386572.jpg?v=1742474214&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Condicionador Profissional Biomask 1L; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/condicionador-biomask-professional-1l"
     },
     {
       "id": "PHL-MSK-BIO-500",
@@ -5384,10 +5467,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-ultra-hidratante-biomask-professional-500g-6119759.jpg?v=1752209466&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Máscara Profissional de Hidratação Biomask 500g; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-ultra-hidratante-biomask-professional-500g"
     },
     {
       "id": "PHL-SH-BIO-300",
@@ -5409,10 +5495,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-home-care-biomask-300ml-prohall-prohall-cosmetic-4696025.jpg?v=1774080909&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Biomask Care 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-home-care-biomask-300ml"
     },
     {
       "id": "PHL-COND-BIO-300",
@@ -5434,10 +5523,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/condicionador-home-care-biomask-300ml-prohall-prohall-cosmetic-condicionador-6128378.jpg?v=1785859267&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Condicionador Biomask Care 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/condicionador-home-care-biomask-300ml"
     },
     {
       "id": "PHL-MSK-BIO-300",
@@ -5509,10 +5601,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/condicionador-profissional-macadamia-extreme-repair-1-litro-646722.jpg?v=1742474234&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Condicionador Profissional Macadâmia Extreme Repair 1 Litro; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/condicionador-profissional-macadamia-extreme-repair-1-litro"
     },
     {
       "id": "PHL-MSK-EXT-500",
@@ -5559,10 +5654,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/condicionador-ou-leave-in-extreme-repair-macadamia-300ml-prohall-prohall-cosmetic-6433849.jpg?v=1772755033&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Condicionador Home Care Extreme Repair 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/condicionador-ou-leave-in-extreme-repair-macadamia-300ml"
     },
     {
       "id": "PHL-MSK-EXT-300",
@@ -5609,10 +5707,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-select-care-1-litro-759517.jpg?v=1742474189&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Profissional Select Care 1 Litro; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-select-care-1-litro"
     },
     {
       "id": "PHL-COND-SEL-1000",
@@ -5634,10 +5735,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/condicionador-pos-quimica-select-care-1-litro-710208.jpg?v=1742474190&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Condicionador Profissional Select Care 1 Litro; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/condicionador-pos-quimica-select-care-1-litro"
     },
     {
       "id": "PHL-MSK-SEL-500",
@@ -5659,10 +5763,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-hidratante-pos-quimica-select-care-500g-597089.jpg?v=1742474190&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Máscara Profissional de Hidratação Select Care 500g; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-hidratante-pos-quimica-select-care-500g"
     },
     {
       "id": "PHL-SH-SEL-300",
@@ -5684,10 +5791,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-pos-quimica-select-care-300ml-1829058.jpg?v=1760183280&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Home Care Select Care 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-pos-quimica-select-care-300ml"
     },
     {
       "id": "PHL-COND-SEL-300",
@@ -5709,10 +5819,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/condicionador-pos-quimica-select-care-300ml-3057907.jpg?v=1767783485&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Condicionador Home Care Select Care 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/condicionador-pos-quimica-select-care-300ml"
     },
     {
       "id": "PHL-MSK-SEL-300",
@@ -5734,10 +5847,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-hidratante-pos-quimica-select-care-300g-9285972.jpg?v=1765380552&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Máscara Home Care de Manutenção Select Care 300g; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-hidratante-pos-quimica-select-care-300g"
     },
     {
       "id": "PHL-SH-FOR-500",
@@ -5759,10 +5875,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-de-crescimento-fortificante-force-hair-500ml-497709.jpg?v=1742474212&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Force Hair Prohall 500ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-de-crescimento-fortificante-force-hair-500ml"
     },
     {
       "id": "PHL-TON-FOR-120",
@@ -5784,10 +5903,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/tonico-force-hair-crescimento-capilar-acelerado-120ml-517706.jpg?v=1742474208&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Tônico Capilar Force Hair Prohall 120ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/tonico-force-hair-crescimento-capilar-acelerado-120ml"
     },
     {
       "id": "PHL-SPY-TWT-200",
@@ -5834,10 +5956,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-ultra-hidratante-low-poo-twist-curls-300ml-588187.jpg?v=1742474204&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Twist Cachos 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-ultra-hidratante-low-poo-twist-curls-300ml"
     },
     {
       "id": "PHL-SH-ABD-300",
@@ -5859,10 +5984,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-matizador-e-manutencao-para-loiros-all-blond-300ml-789992.jpg?v=1749464593&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo All Blond 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-matizador-e-manutencao-para-loiros-all-blond-300ml"
     },
     {
       "id": "PHL-MSK-ABD-300",
@@ -5884,10 +6012,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-matizadora-e-nutritiva-all-blond-300g-916908.jpg?v=1742474201&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Máscara Matizadora All Blond 300g; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-matizadora-e-nutritiva-all-blond-300g"
     },
     {
       "id": "PHL-SPR-ABD-150",
@@ -5909,10 +6040,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/spray-matizador-e-protetor-termico-all-blond-150ml-8829681.jpg?v=1752209467&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Spray All Blond 150ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/spray-matizador-e-protetor-termico-all-blond-150ml"
     },
     {
       "id": "PHL-SH-DTX-1000",
@@ -5934,10 +6068,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-degan-limpeza-profunda-detox-vegano-1l-952706.jpg?v=1742474198&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Degan 1L; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-degan-limpeza-profunda-detox-vegano-1l"
     },
     {
       "id": "PHL-SH-PBO-300",
@@ -5959,10 +6096,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-de-reconstrucao-intensiva-proboo-fiber-300ml-540132.jpg?v=1742474137&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo de Reconstrução Intensiva Proboo Fiber 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-de-reconstrucao-intensiva-proboo-fiber-300ml"
     },
     {
       "id": "PHL-COND-PBO-300",
@@ -5984,10 +6124,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/condicionador-de-reconstrucao-intensiva-proboo-fiber-300ml-530047.jpg?v=1742474136&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Condicionador de Reconstrução Intensiva Proboo Fiber 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/condicionador-de-reconstrucao-intensiva-proboo-fiber-300ml"
     },
     {
       "id": "PHL-MSK-PBO-300",
@@ -6009,10 +6152,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-de-reconstrucao-intensiva-proboo-fiber-300g-220010.jpg?v=1742474136&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Máscara de Reconstrução Intensiva Proboo Fiber 300g; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-de-reconstrucao-intensiva-proboo-fiber-300g"
     },
     {
       "id": "PHL-MSK-PBO-500",
@@ -6034,10 +6180,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-de-reconstrucao-sos-proboo-fiber-500g-251346.jpg?v=1742474200&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Máscara Reconstrutora Proboo Fiber 500g; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-de-reconstrucao-sos-proboo-fiber-500g"
     },
     {
       "id": "PHL-SH-EQZ-300",
@@ -6109,10 +6258,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-reconstrutora-neutralizante-equalize-mask-300g-930817.jpg?v=1742474138&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Máscara Equalize Prohall 300g; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-reconstrutora-neutralizante-equalize-mask-300g"
     },
     {
       "id": "PHL-MSK-EQZ-500",
@@ -6134,10 +6286,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-neutralizadora-de-ph-equalize-mask-500g-353797.jpg?v=1742474193&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Máscara Neutralizante Equalize Mask 500g; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-neutralizadora-de-ph-equalize-mask-500g"
     },
     {
       "id": "PHL-OIL-AMB-60",
@@ -6159,10 +6314,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/oleo-finalizador-ambar-60ml-377767.jpg?v=1742474115&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Óleo Finalizador Ambar Oil Elixir de Proteção Prohall 60ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/oleo-finalizador-ambar-60ml"
     },
     {
       "id": "PHL-OIL-ABS-60",
@@ -6184,10 +6342,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/oleo-reparador-de-pontas-serum-absolut-oil-60ml-160610.jpg?v=1742474227&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Óleo Finalizador Absolut Oil 60ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/oleo-reparador-de-pontas-serum-absolut-oil-60ml"
     },
     {
       "id": "PHL-CX-ABS-7",
@@ -6209,10 +6370,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/oleo-reparador-de-pontas-serum-absolut-oil-caixa-com-12-x-7ml-917782.jpg?v=1742474225&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Óleo Reparador de Pontas Sérum Absolut Oil Caixa com 12 X 7ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/oleo-reparador-de-pontas-serum-absolut-oil-caixa-com-12-x-7ml"
     },
     {
       "id": "PHL-OIL-ABS-7",
@@ -6234,10 +6398,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/oleo-reparador-de-pontas-serum-absolut-oil-7ml-197048.jpg?v=1742474227&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Óleo Reparador de Pontas Sérum Absolut Oil 7ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/oleo-reparador-de-pontas-serum-absolut-oil-7ml"
     },
     {
       "id": "MAK-BRM-120",
@@ -6259,10 +6426,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/bruma-capa-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Bruma Fixadora 120ml; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/bruma-fixadora-mup-makeup-120ml/"
     },
     {
       "id": "DOH-SH-DIL-250",
@@ -6559,10 +6729,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/796445/blond_vivance_bifasico_250ml_597_1_bf1a73690216f4b0eaf03da99dd65da0.jpg",
+      "imageAlt": "Foto da loja oficial DOHA: Bifásico Blond Vivance - 250ml; embalagem em conferência",
+      "imageSource": "https://loja.dohaprofessional.com/leave-in/blond-vivance-bifasico-250ml"
     },
     {
       "id": "DOH-ACD-BV-250",
@@ -6734,10 +6907,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/796445/dna_link_mascara_liquida_250ml_521_1_2cdf29d236616a9f83cd45ec863762cf.jpg",
+      "imageAlt": "Foto da loja oficial DOHA: Máscara Líquida DNA Link Doha - 250ml; embalagem em conferência",
+      "imageSource": "https://loja.dohaprofessional.com/mascara/dna-link-mascara-link-250ml"
     },
     {
       "id": "DOH-MSL-DNL-60",
@@ -9480,10 +9656,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/btx-capilar-organico-blend-repair-1kg-893377.jpg?v=1742474259&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: BTX Capilar Orgânico Blend Repair 1kg; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/btx-capilar-organico-blend-repair-1kg"
     },
     {
       "id": "GLY-KIT-DIF-4",
@@ -9681,10 +9860,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://images.tcdn.com.br/img/img_prod/796445/biolizz_liss_intense_condicionador_240ml_607_1_998be1ad5e8fdb033fba838fb8030610.jpg",
+      "imageAlt": "Foto da loja oficial DOHA: Condicionador Biolizz Liss Intense 240ml; embalagem em conferência",
+      "imageSource": "https://loja.dohaprofessional.com/condicionador/biolizz-liss-intense-condicionador-240ml"
     },
     {
       "id": "DOH-MSC-BLI-200",
@@ -10744,11 +10926,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/kit-cronograma-capilar-premium-com-3-ampolas-617190.jpg?v=1742474135&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Kit Cronograma Capilar Premium com 3 Ampolas; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/kit-cronograma-capilar-premium-com-3-ampolas"
     },
     {
       "id": "GLY-SH-MOF-500",
@@ -13156,11 +13341,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/cc120-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Base Líquida MUP Makeup C130; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/base-liquida-mup-makeup-c130-30ml/"
     },
     {
       "id": "MAK-BSE-C160-1",
@@ -13182,11 +13370,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/cc160-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Base Líquida MUP Makeup C160; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/base-liquida-mup-makeup-c160-30ml/"
     },
     {
       "id": "MAK-BSE-C180-1",
@@ -13208,11 +13399,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/cc180-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Base Líquida MUP Makeup C180; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/base-liquida-mup-makeup-c180-30ml/"
     },
     {
       "id": "MAK-BSE-M220-1",
@@ -13234,11 +13428,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/mm220-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Base Líquida MUP Makeup M220; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/base-liquida-mup-makeup-m220-30ml/"
     },
     {
       "id": "MAK-BSE-M240-1",
@@ -13260,11 +13457,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/mm240-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Base Líquida MUP Makeup M240; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/base-liquida-mup-makeup-m240-30ml/"
     },
     {
       "id": "MAK-BSE-M280-1",
@@ -13286,11 +13486,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/mm280-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Base Líquida MUP Makeup M280; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/base-liquida-mup-makeup-m280-30ml/"
     },
     {
       "id": "MAK-BSE-E340-1",
@@ -13312,11 +13515,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/ee340-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Base Líquida MUP Makeup E340; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/base-liquida-mup-makeup-e340-30ml/"
     },
     {
       "id": "MAK-BSE-E360-1",
@@ -13338,11 +13544,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/ee360-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Base Líquida MUP Makeup E360; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/base-liquida-mup-makeup-e360-30ml/"
     },
     {
       "id": "MAK-BSE-E380-1",
@@ -13364,11 +13573,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/ee380-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Base Líquida MUP Makeup E380; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/base-liquida-mup-makeup-e380-30ml/"
     },
     {
       "id": "MAK-PRM-GLO",
@@ -13390,11 +13602,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/1-10-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Primer Glow; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/primer-glow-mup-makeup-24ml/"
     },
     {
       "id": "MAK-COR-AMA",
@@ -13416,11 +13631,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/amarelo-1-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Corretivo Camuflagem MUP Makeup Amarelo; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/corretivo-camuflagem-mup-makeup-amarelo-3g/"
     },
     {
       "id": "MAK-COR-VER",
@@ -13442,11 +13660,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/verde-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Corretivo Camuflagem MUP Makeup Verde; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/corretivo-camuflagem-mup-makeup-verde-3g/"
     },
     {
       "id": "MAK-COR-LAR",
@@ -13468,11 +13689,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/laranja-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Corretivo Camuflagem MUP Makeup Laranja; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/corretivo-camuflagem-mup-makeup-laranja-3g/"
     },
     {
       "id": "MAK-BTL-CHO-1",
@@ -13494,11 +13718,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/1-5-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Líquido Matte MUP Makeup Chocolate; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-liquido-matte-mup-makeup-chocolate-4ml/"
     },
     {
       "id": "MAK-BTL-MAT-1",
@@ -13520,11 +13747,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/4-5-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Líquido Matte MUP Makeup Rosa Matte; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-liquido-matte-mup-makeup-rosa-matte-4ml/"
     },
     {
       "id": "MAK-BTL-INT-1",
@@ -13546,11 +13776,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/7-4-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Líquido Matte MUP Makeup Bordô Intenso; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-liquido-matte-mup-makeup-bordo-intenso-4ml/"
     },
     {
       "id": "MAK-BTL-VER-1",
@@ -13572,11 +13805,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/10-3-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Líquido Matte MUP Makeup Vermelho Vibrante; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-liquido-matte-mup-makeup-vermelho-vibrante-4ml/"
     },
     {
       "id": "MAK-BTB-RED-1",
@@ -13598,11 +13834,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/1-3-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Bala Soft Matte MUP Makeup Red Carpet; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-bala-soft-matte-mup-makeup-red-carpet-38g/"
     },
     {
       "id": "MAK-BTB-MAT-1",
@@ -13624,11 +13863,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/4-3-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Bala Soft Matte MUP Makeup Nude Matte; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-bala-soft-matte-mup-makeup-nude-matte-38g/"
     },
     {
       "id": "MAK-BTB-CAR-1",
@@ -13650,11 +13892,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/batom-soft-matte-vinho-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Bala Soft Matte MUP Makeup Carmim; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-bala-soft-matte-mup-makeup-carmim-38g/"
     },
     {
       "id": "MAK-BTB-MAR-1",
@@ -13676,11 +13921,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/10-2-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Bala Soft Matte MUP Makeup Marrom; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-bala-soft-matte-mup-makeup-marrom-38g/"
     },
     {
       "id": "MAK-BTB-COR-1",
@@ -13702,11 +13950,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/batom-cremoso-coral-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Bala Cremoso MUP Makeup Coral; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-bala-cremoso-mup-makeup-coral-38g/"
     },
     {
       "id": "MAK-BTB-ROS-1",
@@ -13728,11 +13979,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/5-2-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Bala Cremoso MUP Makeup Nude Rosado; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-bala-cremoso-mup-makeup-nude-rosado-38g/"
     },
     {
       "id": "MAK-BTB-NUD-1",
@@ -13780,11 +14034,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/11-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Batom Bala Cremoso MUP Makeup Nude Intenso; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/batom-bala-cremoso-mup-makeup-nude-intenso-38g/"
     },
     {
       "id": "MAK-AMI-STD-120",
@@ -13806,11 +14063,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/capa-am-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Água Micelar; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/agua-micelar-mup-makeup-120ml/"
     },
     {
       "id": "MAK-DMQ-200",
@@ -13858,11 +14118,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/capa-po-20-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pó Compacto MUP Makeup COR 20; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/po-compacto-mup-makeup-cor-20-10g/"
     },
     {
       "id": "MAK-POC-40",
@@ -13884,11 +14147,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/po-40-capa-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pó Compacto MUP Makeup COR 40; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/po-compacto-mup-makeup-cor-40-10g/"
     },
     {
       "id": "MAK-POC-60",
@@ -13910,11 +14176,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/po-60-capa-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pó Compacto MUP Makeup COR 60; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/po-compacto-mup-makeup-cor-60-10g/"
     },
     {
       "id": "MAK-POC-80",
@@ -13936,11 +14205,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/po-80-capa-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pó Compacto MUP Makeup COR 80; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/po-compacto-mup-makeup-cor-80-10g/"
     },
     {
       "id": "MAK-BLU-BZT",
@@ -13962,11 +14234,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/capa-bronzant-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Blush Compacto MUP Makeup Bronzant; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/blush-compacto-mup-makeup-bronzant-6g/"
     },
     {
       "id": "MAK-BLU-VIN",
@@ -13988,11 +14263,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/capa-vinho-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Blush Compacto MUP Makeup Vinho; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/blush-compacto-mup-makeup-vinho-6g/"
     },
     {
       "id": "MAK-BLU-RSM",
@@ -14014,11 +14292,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/capa-rosa-matte-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Blush Compacto MUP Makeup Rosa Matte; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/blush-compacto-mup-makeup-rosa-matte-6g/"
     },
     {
       "id": "MAK-BLU-COR",
@@ -14040,11 +14321,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/capa-coral-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Blush Compacto MUP Makeup Coral; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/blush-compacto-mup-makeup-coral-6g/"
     },
     {
       "id": "MAK-ILU-DOU",
@@ -14066,11 +14350,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/5-9-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Iluminador MUP Makeup Dourado; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/iluminador-compacto-mup-makeup-dourado-6g/"
     },
     {
       "id": "MAK-ILU-ROS",
@@ -14092,11 +14379,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/3-8-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Iluminador MUP Makeup Rosé; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/iluminador-compacto-mup-makeup-rose-6g/"
     },
     {
       "id": "MAK-ILU-BRZ",
@@ -14118,11 +14408,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/1-8-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Iluminador MUP Makeup Bronzé; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/iluminador-compacto-mup-makeup-bronze-6g/"
     },
     {
       "id": "MAK-DSB-DBW",
@@ -14144,11 +14437,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/duo-sobrancelha-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Duo de Sobrancelha MUP Makeup Dark Brown; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/duo-de-sobrancelha-mup-makeup-dark-brown-5g/"
     },
     {
       "id": "MAK-POF-TLC",
@@ -14170,11 +14466,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/branco-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pó Facial MUP Makeup Translúcido; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/po-facial-mup-makeup-translucido-10g/"
     },
     {
       "id": "MAK-POF-AMR",
@@ -14196,11 +14495,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/amarelo-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pó Facial MUP Makeup Amarelado; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/po-facial-mup-makeup-amarelado-10g/"
     },
     {
       "id": "MAK-MCI-PTT",
@@ -14222,11 +14524,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/1-7-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Máscara de Cílios Preta MUP Makeup; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/mascara-de-cilios-preta-mup-makeup-5ml/"
     },
     {
       "id": "MAK-DEL-PT",
@@ -14248,11 +14553,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/delienador-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Delineador Líquido Preto; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/delineador-liquido-preto-mup-makeup-4-ml/"
     },
     {
       "id": "MAK-SOM-BRO",
@@ -14274,11 +14582,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/bronze-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Sombra Líquida Cintilante Bronze; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/sombra-liquida-cintilante-bronze-mup-makeup-4ml/"
     },
     {
       "id": "MAK-GLO-VNL",
@@ -14300,11 +14611,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/1-1-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Gloss Labial Vinil; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/gloss-labial-vinil-mup-makeup-4ml/"
     },
     {
       "id": "MAK-GLO-ROS",
@@ -14326,11 +14640,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/6-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Gloss Labial Rosé; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/gloss-labial-rose-mup-makeup-4ml/"
     },
     {
       "id": "MAK-COR-C115",
@@ -14352,11 +14669,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/c115-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Corretivo Líquido MUP Makeup C115; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/corretivo-liquido-mup-makeup-c115-4ml/"
     },
     {
       "id": "MAK-COR-M135",
@@ -14378,11 +14698,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/m135-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Corretivo Líquido MUP Makeup M135; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/corretivo-liquido-mup-makeup-m135-4ml/"
     },
     {
       "id": "MAK-COR-M285",
@@ -14404,11 +14727,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/m235-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Corretivo Líquido MUP Makeup M285; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/corretivo-liquido-mup-makeup-m285-4ml/"
     },
     {
       "id": "MAK-COR-E365",
@@ -14430,11 +14756,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/e335-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Corretivo Líquido MUP Makeup E365; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/corretivo-liquido-mup-makeup-e365-4ml/"
     },
     {
       "id": "OLK-ACS-ESC-RQT",
@@ -14990,10 +15319,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/Select_One_300ml.png?v=1789577045&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Realinhamento Select One 300ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/select-one-um-so-passo-300ml"
     },
     {
       "id": "OLK-TRS-RDC",
@@ -15174,11 +15506,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/esponja-redonda--640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Esponja Redonda MUP Makeup; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/esponja-redonda-mup-makeup/"
     },
     {
       "id": "OLK-ACS-AVT",
@@ -15232,7 +15567,7 @@
         "Embalagem da foto oficial"
       ],
       "image": "./assets/products/RGL-GLF-MCL-300.jpg",
-      "imageAlt": "Foto da loja oficial Rigolim: Geléia Fixadora My Curly Rigolim - Hair and Co; embalagem em conferência",
+      "imageAlt": "Foto da loja oficial RIGOLIM: Geléia Fixadora My Curly Rigolim - Hair and Co; embalagem em conferência",
       "imageSource": "https://www.rigolim.com.br/my-curly/geleia-fixadora-rigolim-hair-and-co-my-curly-300ml"
     },
     {
@@ -15487,11 +15822,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/coxinha-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Esponja Gota MUP Makeup; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/esponja-gota-mup-makeup/"
     },
     {
       "id": "MAK-ESP-TAG",
@@ -15513,11 +15851,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/essponja-po-triangulo-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Esponja Triangular MUP Makeup; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/esponja-triangular-mup-makeup/"
     },
     {
       "id": "SFO-PBT-VTA-50",
@@ -15616,11 +15957,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/pincel-po--640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pincel de Pó Facial MUP Makeup; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/pincel-de-po-facial-mup-makeup/"
     },
     {
       "id": "MAK-PCL-PIL",
@@ -15642,11 +15986,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/pincel-iluminador-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pincel de Pó Iluminador MUP Makeup; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/pincel-de-po-iluminador/"
     },
     {
       "id": "MAK-PCL-SBR",
@@ -15668,11 +16015,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/pincel-sombra-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pincel de Sombra Redondo MUP Makeup; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/pincel-de-sombra-redondo-mup-makeup/"
     },
     {
       "id": "MAK-PCL-SBC",
@@ -15694,11 +16044,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://www.mupmakeup.com/wp-content/uploads/2026/05/pincel-sobrancelha-640x800.png",
+      "imageAlt": "Foto da loja oficial MUP MAKEUP: Pincel para Sobrancelhas Mupmakeup; embalagem em conferência",
+      "imageSource": "https://www.mupmakeup.com/produto/pincel-para-sobrancelhas-mupmakeup/"
     },
     {
       "id": "ACS-ESC-RQT-OLK",
@@ -16128,10 +16481,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/secar-sem-frizz-controle-de-frizz-e-protecao-sem-uso-de-secador-200ml-prohall-prohall-8465158.png?v=1780390639&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Secar sem frizz Prohall 200ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/secar-sem-frizz-controle-de-frizz-e-protecao-sem-uso-de-secador-200ml"
     },
     {
       "id": "PHL-SH-PTM-400",
@@ -16153,10 +16509,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-masculino-3-em-1-limpeza-fortalecimento-e-nutricao-selve-putos-machos-400ml-prohall-prohall-shampoo-1610193.png?v=1787764870&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Selve Putos macho 400ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-masculino-3x1-selve-putos"
     },
     {
       "id": "ACS-PRS-MET-12",
@@ -16338,11 +16697,14 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
         "Disponibilidade comercial",
-        "Embalagem"
-      ]
+        "Embalagem",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://loja.olenkacosmeticos.com.br/wp-content/uploads/2023/06/Kit-Hidra-3-500x640.jpg",
+      "imageAlt": "Foto da loja oficial OLENKA: Kit Hidra 3' Completo Olenka (shampoo + Dual Mask+ Web Mask); embalagem em conferência",
+      "imageSource": "https://loja.olenkacosmeticos.com.br/produto/shampoo-hidratante-1-500ml-dual-mask-500ml-web-mask-500g/"
     },
     {
       "id": "CUR-FN-CCH",
@@ -16688,10 +17050,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/hair-splash-bruma-ametista-perfume-capilar-sofisticado-prohall-prohall-perfume-capilar-9864469.png?v=1783373294&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Hair Splash Bruma Ametista 120ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/hair-splash-bruma-ametista"
     },
     {
       "id": "PHL-RVB-MBA-150",
@@ -16713,10 +17078,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mousse-de-blindagem-e-controle-do-frizz-150ml-raizes-vibes-prohall-prohall-cosmetic-3442988.png?v=1780390633&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Mousse Blindagem Adaptativa Raizes e Vibes Prohall 150ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mousse-blindagem-para-cachos-raizesevibes"
     },
     {
       "id": "PHL-RVB-SH-250",
@@ -16738,10 +17106,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/shampoo-para-cachos-limpeza-e-maciez-250ml-raizes-vibes-prohall-prohall-cosmetic-7034899.png?v=1780390632&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Shampoo Adaptativo Raizes e Vibes Prohall 250ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/shampoo-adaptativo-raizes-vibes"
     },
     {
       "id": "PHL-HSP-DCM-120",
@@ -16789,10 +17160,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/ativador-de-cachos-day-after-adaptativo-120ml-raizes-vibes-prohall-prohall-1477338.png?v=1780390639&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Ativador Day After Adaptativo Prohall 120ML; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/ativador-day-after-adaptativo-raizes-vibes"
     },
     {
       "id": "PHL-RVB-SRN-120",
@@ -16814,10 +17188,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/serum-noturno-revitalizador-de-curvas-120ml-raizes-vibes-prohall-prohall-cosmetic-8763973.png?v=1780390632&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Serum Noturno Adaptativo Prohall 120ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/serum-noturno-adaptativo-raizes-vibes"
     },
     {
       "id": "PHL-RVB-GDI-450",
@@ -16839,10 +17216,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/gelatina-de-definicao-e-fixacao-duradoura-para-cachos-e-curvas-450g-raizes-vibes-prohall-prohall-cosmetic-5441150.png?v=1780390637&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Gelatina Definição Intensa Adaptativa Prohall 450g; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/gelatina-de-definicao-intensa-adaptativa-raizes-vibes"
     },
     {
       "id": "PHL-RVB-BTC-30",
@@ -16864,10 +17244,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/potencializador-de-cachos-booster-concentrado-30ml-raizes-vibes-prohall-prohall-cosmetic-5962843.png?v=1780390638&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Booster Concentrado Adaptativo Prohall 30ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/booster-concentrado-adaptativo-raizes-vibes"
     },
     {
       "id": "PHL-RVB-COND-250",
@@ -16889,10 +17272,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/condicionador-para-cachos-e-curvas-adaptativo-250ml-raizes-vibes-prohall-prohall-cosmetic-7935263.png?v=1780390638&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Condicioanador Adaptativo Raizes e Vibes 250ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/condicionador-adaptativo-raizes-vibes"
     },
     {
       "id": "PHL-RVB-MAD-250",
@@ -16914,10 +17300,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-capilar-nutricao-resistencia-e-maciez-250g-raizes-vibes-prohall-prohall-cosmetic-7451510.png?v=1780390634&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Mascara Adaptativa 250g Raizes e Vibes 250G; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-adaptativa-raizes-vibes"
     },
     {
       "id": "PHL-RVB-LID-250",
@@ -16939,10 +17328,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/Leave-inAdaptativo200ml.png?v=1781635414&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Leave-in Definição Adaptativo Raizes & Vibes Prohall 200ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/secar-sem-frizz-controle-de-frizz-e-protecao-sem-uso-de-secador-200ml-copia"
     },
     {
       "id": "PHL-RVB-OBA-60",
@@ -16964,10 +17356,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/oleo-bifasico-nutricao-e-brilho-imediato-adaptativo-60ml-raizes-vibes-prohall-prohall-cosmetic-4820568.png?v=1780390633&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Oleo Bifasico Adaptativo 60ml Raizes Vaibes; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/oleo-bifasico-adaptativo-raizes-vibes"
     },
     {
       "id": "PHL-RVB-CPA-2ABC-450",
@@ -16989,10 +17384,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/creme-de-pentear-ultra-hidratante-curvaturas-2abc-450g-raizes-vibes-prohall-prohall-cosmetic-6346577.png?v=1780390639&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Creme de pentear adaptativo ondulados 2ABC 450G; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/creme-de-pentear-adaptativo-curvaturas-2abc-raizes-vibes"
     },
     {
       "id": "PHL-RVB-CPA-4ABC-450",
@@ -17014,10 +17412,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/creme-de-pentear-adaptativo-curvaturas-4abc-450g-raizes-vibes-prohall-prohall-cosmetic-3422759.png?v=1780390638&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Creme de Pentear Adaptativo Crespos 4ABC 450G; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/creme-de-pentear-adaptativo-curvaturas-4abc-raizes-vibes"
     },
     {
       "id": "PHL-RVB-MAD-450",
@@ -17039,10 +17440,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/mascara-de-hidratacao-curvas-e-cachos-adaptativa-450g-raizes-vibes-prohall-prohall-cosmetic-9252693.png?v=1780390634&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Mascara adaptativa Raizes e Vaibes 450G; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/mascara-adaptativa-450g-raizes-vibes"
     },
     {
       "id": "PHL-BSP-INF-200",
@@ -17090,10 +17494,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/creme-de-pentear-antifrizz-curvaturas-3abc-450g-raizes-vibes-prohall-prohall-cosmetic-8287546.png?v=1780390638&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Creme de Pentear Adaptativo cacheados 3ABC 450G; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/creme-de-pentear-adaptativo-curvaturas-3abc-raizes-vibes"
     },
     {
       "id": "PHL-HSP-PRE-120",
@@ -17167,10 +17574,13 @@
         ""
       ],
       "reviewPending": [
-        "Foto oficial",
         "Taxonomia final",
-        "Disponibilidade comercial"
-      ]
+        "Disponibilidade comercial",
+        "Embalagem da foto oficial"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0895/5586/1810/files/spray-capilar-6-em-1-partiu-treino-protecao-uv-e-antifrizz-pre-treino-prohall-prohall-6428123.png?v=1781218945&width=600",
+      "imageAlt": "Foto da loja oficial PROHALL: Spray Capilar Partiu Treino Prohall 200ml; embalagem em conferência",
+      "imageSource": "https://lojaprohall.com.br/products/partiu-treino-spray-capilar-6-em-1"
     },
     {
       "id": "SFO-ACF-EQU-500",

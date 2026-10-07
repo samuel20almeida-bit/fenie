@@ -8,7 +8,7 @@ Dos 414 produtos anteriores, 272 continuam na prévia com nomes e preços Mercos
 
 A categoria principal do Mercos inclui marcas e grupos. Cursos, acessórios, papel e combos não são tratados como fabricantes. Quando possível, uma marca explicitamente cadastrada na base anterior é preservada se o grupo Mercos estiver vazio. Outras marcas e embalagens ausentes ficam identificadas para conferência. O filtro Grupo de produtos usa a subcategoria Mercos; as categorias visuais continuam provisórias. Descrições não são importadas automaticamente: a exportação contém inconsistências de conteúdo.
 
-Cinco fotos da loja oficial Rigolim foram adicionadas como candidatas, sem edição, com fonte em `imageSource`, texto alternativo e identificação de embalagem em conferência. Em falha de imagem, a vitrine retorna ao marcador de foto pendente. A coleção está em `public/catalogo-lab/assets/products/`, com nomes por SKU.
+O lote de fotos agora reúne 141 candidatas de cinco marcas, sem edição, com fonte em `imageSource`, texto alternativo e identificação de embalagem em conferência. Em falha de imagem, a vitrine retorna ao marcador de foto pendente. As cinco imagens Rigolim iniciais estão em `public/catalogo-lab/assets/products/`; as 136 novas usam URLs oficiais. Cobertura, divergências e fontes em [fotos.md](fotos.md).
 
 O Excel original, a comparação completa, estoque, comissões, preços mínimos e tabelas alternativas ficam fora do repositório e do payload público. A prévia continua sem pedidos reais.
 
@@ -16,7 +16,7 @@ O Excel original, a comparação completa, estoque, comissões, preços mínimos
 
 `python3 scripts/import-mercos.py /caminho/exportacao.xlsx /caminho/catalogo-anterior.json public/catalogo-lab/catalog-preview.json`
 
-O importador lê `Planilha1`, valida os cabeçalhos e utiliza somente campos comerciais permitidos. A reconciliação local é gravada ao lado da fonte privada. Fotografias existentes no catálogo anterior são preservadas como candidatas. Para adicionar novas fotos, conferir o SKU, copiar o original para a pasta de produtos e registrar imagem, texto alternativo e página de origem no cadastro.
+O importador lê `Planilha1`, valida os cabeçalhos e utiliza somente campos comerciais permitidos. A reconciliação local é gravada ao lado da fonte privada. Fotografias existentes no catálogo anterior são preservadas como candidatas. Para adicionar novas fotos, seguir a conferência e o importador específico de [fotos.md](fotos.md).
 
 ## Validação
 

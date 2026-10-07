@@ -21,11 +21,14 @@ test('a previous cart with a now hidden product requires removal before a messag
   delete cart['PHL-MSK-TWT-300'];
   assert.doesNotThrow(()=>buildMessage(cart,products,{demo:true}));
 });
-test('all five image candidates exist locally and link to the official source',async()=>{
+test('image candidates link to official sources and local images exist',async()=>{
+  const sources = new Set(['www.rigolim.com.br','lojaprohall.com.br','www.mupmakeup.com','loja.olenkacosmeticos.com.br','loja.dohaprofessional.com']);
   for(const product of products.filter(p=>p.image)){
-    const file=new URL('../public/catalogo-lab/'+product.image,import.meta.url);
-    assert.ok((await stat(file)).size>1000);
-    assert.match(product.imageSource,/^https:\/\/www\.rigolim\.com\.br\//);
+    if(product.image.startsWith('./')){
+      const file=new URL('../public/catalogo-lab/'+product.image,import.meta.url);
+      assert.ok((await stat(file)).size>1000);
+    } else assert.equal(new URL(product.image).protocol,'https:');
+    assert.ok(sources.has(new URL(product.imageSource).hostname));
     assert.ok(product.reviewPending.includes('Embalagem da foto oficial'));
   }
 });
