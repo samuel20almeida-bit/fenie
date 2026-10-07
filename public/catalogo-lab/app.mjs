@@ -116,6 +116,11 @@ function refreshQuantity(context,id,value) {
 }
 document.querySelector('#searchForm').addEventListener('submit',e=>{e.preventDefault();if(!catalogReady)return;showHome();document.querySelector('#results')?.scrollIntoView();});
 searchInput.addEventListener('input',()=>{if(!catalogReady)return;filters.query=searchInput.value;if(filters.line&&!availableLines(products,filters).includes(filters.line))filters.line='';pageLimit=24;showHome();});
+document.addEventListener('input',e=>{
+  if(!catalogReady||!e.target.dataset.quantity)return;
+  const value=Number(e.target.value);
+  if(Number.isInteger(value)&&value>=1&&value<=MAX_QUANTITY) refreshQuantity(e.target.dataset.context,e.target.dataset.quantity,value);
+});
 document.addEventListener('change',e=>{
   if(!catalogReady)return;
   if(e.target.dataset.quantity) {refreshQuantity(e.target.dataset.context,e.target.dataset.quantity,Number(e.target.value));return;}
