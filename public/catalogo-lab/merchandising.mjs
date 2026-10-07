@@ -19,7 +19,8 @@ export function validateEditorial(data, products) {
     if (!/^[a-z]+$/.test(group.id) || ids.has(group.id) || !group.title?.trim() || !group.description?.trim() || !Array.isArray(group.skus) || !group.skus.length || new Set(group.skus).size !== group.skus.length || group.skus.some(sku => !seen.has(sku)) || !group.skus.includes(group.coverSku)) throw Error('Seleção editorial inválida');
     ids.add(group.id);
   }
-  if (new Set(data.featured).size !== data.featured.length || data.featured.some(sku => !seen.has(sku))) throw Error('Destaques inválidos');
+  if (data.priorityBrand && !products.some(p => p.brand === data.priorityBrand)) throw Error('Marca prioritária inválida');
+  if (new Set(data.featured).size !== data.featured.length || data.featured.some(sku => { const p=bySku.get(sku); return !p?.image || ['hidden','unavailable'].includes(p.status) || (data.priorityBrand && p.brand !== data.priorityBrand); })) throw Error('Destaques inválidos');
   return data;
 }
 

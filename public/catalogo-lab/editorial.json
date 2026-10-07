@@ -1,14 +1,14 @@
 {
   "version": 1,
   "reviewedAt": "2026-10-07",
-  "selectionPolicy": "Curadoria editorial com fotos candidatas e conteúdo conferido em fontes oficiais; não representa ranking de vendas ou disponibilidade.",
+  "selectionPolicy": "Olenka é a marca carro-chefe da Fenié, conforme orientação comercial de Samuel. Os destaques usam fotos oficiais candidatas; não representam ranking por produto, estoque ou promoção. As demais seleções mantêm conteúdo conferido nas fontes oficiais.",
   "featured": [
-    "PHL-MSK-BIO-500",
-    "RGL-SPT-VOL-200",
-    "MAK-PRM-GLO",
-    "PHL-MSK-PBO-300",
-    "RGL-CAT-MCL-300",
-    "MAK-BRM-120"
+    "OLK-ALI-RLK-1000",
+    "OLK-ALI-RST-1000",
+    "OLK-KIT-HID3-3",
+    "OLK-MSK-RYC-250",
+    "OLK-COND-ESP-1.5",
+    "OLK-COND-MEN-1.5"
   ],
   "collections": [
     {
@@ -587,5 +587,6 @@
       "sourceName": "Pincel De Pó Facial MUP Makeup",
       "reviewedAt": "2026-10-07"
     }
-  ]
+  ],
+  "priorityBrand": "OLENKA"
 }
