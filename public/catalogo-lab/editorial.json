@@ -1,0 +1,591 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-07",
+  "selectionPolicy": "Curadoria editorial com fotos candidatas e conteúdo conferido em fontes oficiais; não representa ranking de vendas ou disponibilidade.",
+  "featured": [
+    "PHL-MSK-BIO-500",
+    "RGL-SPT-VOL-200",
+    "MAK-PRM-GLO",
+    "PHL-MSK-PBO-300",
+    "RGL-CAT-MCL-300",
+    "MAK-BRM-120"
+  ],
+  "collections": [
+    {
+      "id": "tratamento",
+      "title": "Tratamento e cuidado",
+      "description": "Limpeza, hidratação e reconstrução para cuidar dos fios.",
+      "icon": "drop",
+      "coverSku": "PHL-MSK-BIO-500",
+      "skus": [
+        "PHL-SH-BIO-300",
+        "PHL-COND-BIO-300",
+        "PHL-MSK-BIO-500",
+        "PHL-SH-SEL-300",
+        "PHL-COND-SEL-300",
+        "PHL-MSK-SEL-300",
+        "PHL-SH-PBO-300",
+        "PHL-COND-PBO-300",
+        "PHL-MSK-PBO-300",
+        "PHL-OIL-AMB-60",
+        "PHL-OIL-ABS-60",
+        "PHL-AMP-PROR-15"
+      ]
+    },
+    {
+      "id": "finalizacao",
+      "title": "Finalização e penteados",
+      "description": "Textura, definição e acabamento para cada produção.",
+      "icon": "spark",
+      "coverSku": "RGL-SPT-VOL-200",
+      "skus": [
+        "RGL-SPT-VOL-200",
+        "RGL-OLE-COI-60",
+        "RGL-PMD-PTC-150",
+        "RGL-CAT-MCL-300",
+        "RGL-MOS-MCL-200",
+        "RGL-CPA-MCL-300"
+      ]
+    },
+    {
+      "id": "makeup",
+      "title": "Maquiagem profissional",
+      "description": "Preparação, aplicação e finalização da maquiagem.",
+      "icon": "brush",
+      "coverSku": "MAK-BRM-120",
+      "skus": [
+        "MAK-BRM-120",
+        "MAK-PRM-GLO",
+        "MAK-AMI-STD-120",
+        "MAK-POF-TLC",
+        "MAK-ESP-GOT",
+        "MAK-PCL-PFC"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "sku": "PHL-SH-BIO-300",
+      "brand": "PROHALL",
+      "mercosName": "Shampoo Biomask Care 300ml",
+      "displayName": "Biomask · Shampoo",
+      "summary": "Limpeza com cuidado hidratante para a rotina dos fios.",
+      "indication": "Todos os tipos de cabelo, especialmente os que precisam de hidratação e cuidado após processos químicos.",
+      "benefits": [
+        "Limpeza dos fios e couro cabeludo",
+        "Auxilia na hidratação",
+        "Maciez e brilho"
+      ],
+      "howToUse": [
+        "Massageie o shampoo nos cabelos molhados.",
+        "Enxágue bem; repita a lavagem se necessário."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/shampoo-home-care-biomask-300ml",
+      "sourceName": "Shampoo Hidratante Diário: cabelos secos nunca mais | Biomask 300ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-COND-BIO-300",
+      "brand": "PROHALL",
+      "mercosName": "Condicionador Biomask Care 300ml",
+      "displayName": "Biomask · Condicionador",
+      "summary": "Condicionamento para recuperar o toque macio dos cabelos ressecados.",
+      "indication": "Cabelos secos, ressecados ou quimicamente tratados.",
+      "benefits": [
+        "Hidratação e nutrição",
+        "Toque mais macio",
+        "Ajuda no controle do frizz"
+      ],
+      "howToUse": [
+        "Após o shampoo, retire o excesso de água.",
+        "Distribua no comprimento e nas pontas e massageie.",
+        "Aguarde de 2 a 3 minutos e enxágue completamente."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/condicionador-home-care-biomask-300ml",
+      "sourceName": "Condicionador de hidratação intensa para fios secos | Biomask 300ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-MSK-BIO-500",
+      "brand": "PROHALL",
+      "mercosName": "Máscara Profissional de Hidratação Biomask 500g",
+      "displayName": "Biomask · Máscara",
+      "summary": "Tratamento hidratante para fios secos e com sinais de danos.",
+      "indication": "Todos os tipos de cabelo que precisam de hidratação, incluindo fios com química ou em transição.",
+      "benefits": [
+        "Reposição de hidratação",
+        "Brilho e maciez",
+        "Auxilia no alinhamento dos fios"
+      ],
+      "howToUse": [
+        "Após lavar, distribua a máscara nos fios úmidos, mecha a mecha.",
+        "Use um pente para uniformizar a distribuição.",
+        "Deixe agir por 5 minutos e enxágue totalmente."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/mascara-ultra-hidratante-biomask-professional-500g",
+      "sourceName": "Máscara Ultra Hidratante: Reparação Profunda e Brilho Imediato | Biomask 500g",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-SH-SEL-300",
+      "brand": "PROHALL",
+      "mercosName": "Shampoo Home Care Select Care 300ml",
+      "displayName": "Select Care · Shampoo",
+      "summary": "Limpeza suave para cuidar da hidratação dos fios no dia a dia.",
+      "indication": "Todos os tipos de cabelo, inclusive fios quimicamente tratados ou em transição.",
+      "benefits": [
+        "Limpeza delicada",
+        "Preserva a hidratação dos fios",
+        "Maciez e movimento"
+      ],
+      "howToUse": [
+        "Massageie nos cabelos molhados.",
+        "Enxágue com bastante água.",
+        "Repita a aplicação, se necessário."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/shampoo-pos-quimica-select-care-300ml",
+      "sourceName": "Shampoo Pós-Química: Prolonga os resultados antifrizz por mais tempo | Select Care 300ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-COND-SEL-300",
+      "brand": "PROHALL",
+      "mercosName": "Condicionador Home Care Select Care 300ml",
+      "displayName": "Select Care · Condicionador",
+      "summary": "Cuidado condicionante para fios mais macios e maleáveis.",
+      "indication": "Todos os tipos de cabelo; o fabricante também indica para fios naturais, com química ou em transição.",
+      "benefits": [
+        "Ajuda a suavizar o ressecamento",
+        "Hidratação e maciez",
+        "Brilho e maleabilidade"
+      ],
+      "howToUse": [
+        "Depois do shampoo, aplique no comprimento e nas pontas.",
+        "Massageie e aguarde de 2 a 3 minutos.",
+        "Enxágue completamente."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/condicionador-pos-quimica-select-care-300ml",
+      "sourceName": "Condicionador Pós-Química: Prolonga os resultados antifrizz | Select Care 300ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-MSK-SEL-300",
+      "brand": "PROHALL",
+      "mercosName": "Máscara Home Care de Manutenção Select Care 300g",
+      "displayName": "Select Care · Máscara",
+      "summary": "Hidratação para compor a rotina de tratamento e manutenção capilar.",
+      "indication": "Todos os tipos de cabelo, incluindo fios com química; o fabricante sugere uso semanal.",
+      "benefits": [
+        "Hidratação dos fios",
+        "Auxilia no controle do frizz",
+        "Toque macio e brilho"
+      ],
+      "howToUse": [
+        "Após lavar, aplique no comprimento e nas pontas.",
+        "Deixe agir de 5 a 10 minutos.",
+        "Enxágue bem e finalize como preferir."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/mascara-hidratante-pos-quimica-select-care-300g",
+      "sourceName": "Máscara Pós-Química: Prolonga os efeitos antifrizz por muito mais tempo | Select Care 300g",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-SH-PBO-300",
+      "brand": "PROHALL",
+      "mercosName": "Shampoo de Reconstrução Intensiva Proboo Fiber 300ml",
+      "displayName": "Proboo Fiber · Shampoo",
+      "summary": "Limpeza para a rotina de cuidado dos cabelos fragilizados.",
+      "indication": "Fios danificados, frágeis ou opacos que precisam de cuidado reconstrutor.",
+      "benefits": [
+        "Limpeza sem ressecar",
+        "Auxilia no fortalecimento",
+        "Maciez e brilho"
+      ],
+      "howToUse": [
+        "Aplique nos cabelos molhados e massageie suavemente.",
+        "Enxágue completamente.",
+        "Repita a aplicação, se necessário."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/shampoo-de-reconstrucao-intensiva-proboo-fiber-300ml",
+      "sourceName": "Shampoo de Reconstrução Profunda e Reposição de massa | Proboo Fiber 300ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-COND-PBO-300",
+      "brand": "PROHALL",
+      "mercosName": "Condicionador de Reconstrução Intensiva Proboo Fiber 300ml",
+      "displayName": "Proboo Fiber · Condicionador",
+      "summary": "Condicionamento para complementar o tratamento dos fios fragilizados.",
+      "indication": "Todos os tipos de cabelo, especialmente os danificados, opacos ou com sinais de fragilidade.",
+      "benefits": [
+        "Auxilia na resistência dos fios",
+        "Hidratação e retenção de umidade",
+        "Toque macio e controle do frizz"
+      ],
+      "howToUse": [
+        "Após o shampoo, aplique no comprimento e nas pontas.",
+        "Massageie e aguarde de 1 a 3 minutos.",
+        "Enxágue completamente."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/condicionador-de-reconstrucao-intensiva-proboo-fiber-300ml",
+      "sourceName": "Condicionador de Reconstrução Profunda e Reposição de massa | Proboo Fiber 300ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-MSK-PBO-300",
+      "brand": "PROHALL",
+      "mercosName": "Máscara de Reconstrução Intensiva Proboo Fiber 300g",
+      "displayName": "Proboo Fiber · Máscara",
+      "summary": "Tratamento reconstrutor para cabelos danificados e opacos.",
+      "indication": "Cabelos com sinais de danos que precisam de fortalecimento e hidratação.",
+      "benefits": [
+        "Cuidado reconstrutor",
+        "Auxilia no fortalecimento",
+        "Hidratação e brilho"
+      ],
+      "howToUse": [
+        "Lave com shampoo e retire o excesso de água.",
+        "Aplique no comprimento e nas pontas, massageando.",
+        "Deixe agir de 5 a 10 minutos e enxágue bem."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/mascara-de-reconstrucao-intensiva-proboo-fiber-300g",
+      "sourceName": "Máscara de Reconstrução Profunda e Reposição de massa | Proboo Fiber 300g",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-OIL-AMB-60",
+      "brand": "PROHALL",
+      "mercosName": "Óleo Finalizador Ambar Oil Elixir de Proteção Prohall 60ml",
+      "displayName": "Âmbar Oil · Finalizador",
+      "summary": "Óleo de finalização para um acabamento mais macio e luminoso.",
+      "indication": "Quem busca nutrição e controle do frizz na finalização.",
+      "benefits": [
+        "Nutrição dos fios",
+        "Brilho no acabamento",
+        "Auxilia no controle do frizz"
+      ],
+      "howToUse": [
+        "Espalhe uma pequena quantidade entre as mãos.",
+        "Distribua do comprimento às pontas, evitando a raiz.",
+        "Finalize como desejar."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/oleo-finalizador-ambar-60ml",
+      "sourceName": "Óleo Finalizador Brilho Espelhado para Cabelo Opaco | Ambar Oil Elixir 60ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-OIL-ABS-60",
+      "brand": "PROHALL",
+      "mercosName": "Óleo Finalizador Absolut Oil 60ml",
+      "displayName": "Absolut Oil · Sérum",
+      "summary": "Sérum para finalizar com maciez, brilho e proteção térmica, segundo o fabricante.",
+      "indication": "Todos os tipos de cabelo, especialmente para quem busca nutrição e alinhamento na finalização.",
+      "benefits": [
+        "Brilho e maciez",
+        "Auxilia no controle do frizz",
+        "Proteção térmica descrita pelo fabricante"
+      ],
+      "howToUse": [
+        "Espalhe uma pequena quantidade entre as mãos.",
+        "Distribua do comprimento às pontas, evitando a raiz.",
+        "Finalize como desejar."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/oleo-reparador-de-pontas-serum-absolut-oil-60ml",
+      "sourceName": "Óleo para Reparar Pontas Duplas e Eliminar o Frizz | Absolut Oil 60ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "PHL-AMP-PROR-15",
+      "brand": "PROHALL",
+      "mercosName": "Ampola de Reconstrução Intensa Anti-Danos Capilares PRO.R 15ml",
+      "displayName": "PRO.R · Ampola",
+      "summary": "Tratamento reconstrutor para cabelos com porosidade e fragilidade.",
+      "indication": "Fios danificados, porosos ou fragilizados.",
+      "benefits": [
+        "Cuidado reconstrutor",
+        "Auxilia na resistência à quebra",
+        "Brilho e toque sedoso"
+      ],
+      "howToUse": [
+        "Em recipiente não metálico, misture o conteúdo da ampola com igual quantidade de água.",
+        "Misture até ficar homogêneo e aplique nos cabelos limpos e úmidos, mecha a mecha.",
+        "Deixe agir por 5 minutos e enxágue completamente."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://lojaprohall.com.br/products/ampola-de-reconstrucao-intensa-anti-danos-capilares-pro-r-15ml",
+      "sourceName": "Ampola Reconstrutora: Freia a Quebra do Cabelo e Repara Instantaneamente | PRO.R 15ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "RGL-SPT-VOL-200",
+      "brand": "RIGOLIM",
+      "mercosName": "Spray Texturizador Volumizer - Rigolim 200ml",
+      "displayName": "Volumizer · Texturizador",
+      "summary": "Spray para criar estrutura e volume e preparar ondas e cachos.",
+      "indication": "Penteados que precisam de volume na raiz e textura nos fios.",
+      "benefits": [
+        "Volume e textura",
+        "Estrutura para modelar",
+        "Secagem rápida"
+      ],
+      "howToUse": [
+        "Agite bem antes de aplicar.",
+        "Para volume, borrife na raiz com o cabelo seco, a cerca de 20 cm, e escove elevando a mecha.",
+        "Para ondas e cachos, distribua na mecha seca com um pente antes de modelar."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://www.rigolim.com.br/produto-para-penteado/novo-spray-texturizador-rigolim-hair-and-co-volumizer-200ml",
+      "sourceName": "Spray Texturizador Volumizer - Rigolim 200ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "RGL-OLE-COI-60",
+      "brand": "RIGOLIM",
+      "mercosName": "Óleo Soft Oil 60ml - Rigolim",
+      "displayName": "Soft Oil · Óleo antifrizz",
+      "summary": "Óleo para o acabamento de penteados e para o cuidado diário.",
+      "indication": "Todos os tipos de cabelo, secos ou úmidos, conforme a indicação do fabricante.",
+      "benefits": [
+        "Auxilia no controle do frizz",
+        "Brilho no acabamento",
+        "Facilita o desembaraço"
+      ],
+      "howToUse": [
+        "Espalhe uma pequena quantidade entre as mãos.",
+        "Distribua uniformemente do comprimento às pontas.",
+        "Pode ser usado antes ou depois da escova, conforme a orientação da embalagem."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://www.rigolim.com.br/oleos/oleo-para-cabelo-clean-oil-rigolim-hair-co",
+      "sourceName": "OLEO CAPILAR ANTIFRIZZ - SOFT OIL - RIGOLIM HAIR AND CO 60ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "RGL-PMD-PTC-150",
+      "brand": "RIGOLIM",
+      "mercosName": "Pomada Perfect Cream 150g - Rigolim",
+      "displayName": "Perfect Cream · Antifrizz",
+      "summary": "Creme multifuncional para alinhar os fios durante a finalização.",
+      "indication": "Preparação para escova, modelador e construção de penteados.",
+      "benefits": [
+        "Auxilia no alinhamento",
+        "Controle do frizz",
+        "Proteção térmica descrita pelo fabricante"
+      ],
+      "howToUse": [
+        "Para escovar, espalhe uma pequena quantidade nos cabelos secos ou úmidos.",
+        "Antes do modelador, use na mecha seca uma porção equivalente a um grão de arroz.",
+        "Em penteados, distribua uma pequena quantidade na mecha com frizz."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://www.rigolim.com.br/oleo/perfect-cream-rigolim-hair-co-150g-pomada-anti-frizz-modeladora",
+      "sourceName": "CREME ANTIFRIZZ  - PERFECT CREAM - RIGOLIM HAIR AND CO 150g",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "RGL-CAT-MCL-300",
+      "brand": "RIGOLIM",
+      "mercosName": "Creme Ativador My Curly - Rigolim Hair Co 300ml",
+      "displayName": "My Curly · Ativador de cachos",
+      "summary": "Creme sem enxágue para modelar e definir cachos e ondas.",
+      "indication": "Cabelos ondulados, cacheados, crespos e em transição.",
+      "benefits": [
+        "Definição dos cachos",
+        "Nutrição e maciez",
+        "Auxilia no controle do frizz"
+      ],
+      "howToUse": [
+        "Distribua nos fios úmidos ou molhados, do comprimento às pontas.",
+        "Aplique mecha a mecha e finalize com fitagem ou amassando os cachos.",
+        "Deixe secar naturalmente ou use difusor. Não enxágue."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://www.rigolim.com.br/my-curly/creme-ativador-rigolim-hair-and-co-my-curly-300-ml",
+      "sourceName": "Creme Ativador My Curly - Rigolim Hair Co 300ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "RGL-MOS-MCL-200",
+      "brand": "RIGOLIM",
+      "mercosName": "Mousse Modelador My Curly - Rigolim 200ml",
+      "displayName": "My Curly · Mousse",
+      "summary": "Mousse leve para definir os fios preservando o volume.",
+      "indication": "Cabelos lisos, ondulados, cacheados, crespos e em transição.",
+      "benefits": [
+        "Definição com leveza",
+        "Auxilia no controle do frizz",
+        "Preserva o volume dos fios"
+      ],
+      "howToUse": [
+        "Agite e pressione o aplicador com o bico voltado para baixo.",
+        "Espalhe a mousse entre as mãos e distribua no comprimento e nas pontas.",
+        "Finalize com fitagem, amassando, com difusor ou escovando, conforme o resultado desejado."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://www.rigolim.com.br/my-curly/mousse-modelador-rigolim-hair-and-co-my-curly-200ml",
+      "sourceName": "Mousse Modelador My Curly - Rigolim 200ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "RGL-CPA-MCL-300",
+      "brand": "RIGOLIM",
+      "mercosName": "Creme para Pentear My Curly - Rigolim Hair and Co 300ml",
+      "displayName": "My Curly · Creme para pentear",
+      "summary": "Creme de pentear para desembaraçar e finalizar com maciez.",
+      "indication": "Todos os tipos de cabelo; também indicado para retenção de cachos e ondas.",
+      "benefits": [
+        "Facilita o desembaraço",
+        "Hidratação e maciez",
+        "Auxilia no controle do frizz"
+      ],
+      "howToUse": [
+        "Aplique uma pequena quantidade nos cabelos úmidos ou molhados, do comprimento às pontas.",
+        "Finalize deixando secar naturalmente ou com difusor.",
+        "Na finalização habitual, o produto é sem enxágue."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://www.rigolim.com.br/my-curly/creme-de-pentear-rigolim-hair-and-co-my-curly-300ml",
+      "sourceName": "Creme para Pentear My Curly - Rigolim Hair and Co 300ml",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "MAK-BRM-120",
+      "brand": "MUP MAKEUP",
+      "mercosName": "Bruma Fixadora 120ml",
+      "displayName": "Bruma · Fixação da maquiagem",
+      "summary": "Bruma para preparar a pele ou finalizar a maquiagem com frescor.",
+      "indication": "Preparação da pele e finalização de produções de maquiagem.",
+      "benefits": [
+        "Auxilia na fixação",
+        "Ajuda a prolongar a maquiagem",
+        "Acabamento fresco"
+      ],
+      "howToUse": [
+        "O fabricante indica borrifar no rosto antes ou depois da maquiagem.",
+        "Siga as orientações de aplicação e os cuidados do rótulo."
+      ],
+      "usageCompleteness": "overview",
+      "sourceUrl": "https://www.mupmakeup.com/produto/bruma-fixadora-mup-makeup-120ml/",
+      "sourceName": "Bruma Fixadora MUP Makeup – 120ML",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "MAK-PRM-GLO",
+      "brand": "MUP MAKEUP",
+      "mercosName": "Primer Glow",
+      "displayName": "Primer Glow · Preparação",
+      "summary": "Primer para preparar a pele e criar uma base com luminosidade natural.",
+      "indication": "Todos os tipos de pele, segundo o fabricante.",
+      "benefits": [
+        "Luminosidade natural",
+        "Hidratação da pele",
+        "Auxilia na fixação da maquiagem"
+      ],
+      "howToUse": [
+        "Use na preparação da pele, antes da base, do corretivo e do pó.",
+        "A página não detalha quantidade ou técnica de aplicação; siga as instruções do rótulo."
+      ],
+      "usageCompleteness": "overview",
+      "sourceUrl": "https://www.mupmakeup.com/produto/primer-glow-mup-makeup-24ml/",
+      "sourceName": "Primer Glow MUP Makeup – 24ML",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "MAK-AMI-STD-120",
+      "brand": "MUP MAKEUP",
+      "mercosName": "Água Micelar",
+      "displayName": "Água micelar · Limpeza",
+      "summary": "Cuidado de limpeza para remover impurezas e preparar a pele.",
+      "indication": "Limpeza diária de todos os tipos de pele, conforme a indicação do fabricante.",
+      "benefits": [
+        "Remoção de impurezas",
+        "Hidratação e suavidade",
+        "Sensação de frescor"
+      ],
+      "howToUse": [
+        "O fabricante indica o uso na rotina de limpeza e antes da preparação com primer.",
+        "A página não detalha a técnica de aplicação; consulte as instruções do rótulo."
+      ],
+      "usageCompleteness": "overview",
+      "sourceUrl": "https://www.mupmakeup.com/produto/agua-micelar-mup-makeup-120ml/",
+      "sourceName": "Água Micelar MUP Makeup -120ML",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "MAK-POF-TLC",
+      "brand": "MUP MAKEUP",
+      "mercosName": "Pó Facial MUP Makeup Translúcido",
+      "displayName": "Pó facial · Translúcido",
+      "summary": "Pó solto fino para selar a maquiagem com acabamento aveludado.",
+      "indication": "Finalização da maquiagem em todos os tipos de pele, segundo o fabricante.",
+      "benefits": [
+        "Auxilia na selagem da maquiagem",
+        "Acabamento matificado",
+        "Textura fina e aveludada"
+      ],
+      "howToUse": [
+        "O fabricante indica na finalização, após base e corretivo, para selar a maquiagem.",
+        "A página não detalha a quantidade de aplicação; siga as instruções do rótulo."
+      ],
+      "usageCompleteness": "overview",
+      "sourceUrl": "https://www.mupmakeup.com/produto/po-facial-mup-makeup-translucido-10g/",
+      "sourceName": "Pó Facial Translúcido MUP Makeup -10G",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "MAK-ESP-GOT",
+      "brand": "MUP MAKEUP",
+      "mercosName": "Esponja Gota MUP Makeup",
+      "displayName": "Esponja · Gota",
+      "summary": "Esponja para aplicar base e corretivo e alcançar áreas menores do rosto.",
+      "indication": "Aplicação de maquiagem com acabamento leve ou cobertura mais densa.",
+      "benefits": [
+        "Formato que facilita o manuseio",
+        "Aplicação de base e corretivo",
+        "Uso úmido ou seco conforme o acabamento"
+      ],
+      "howToUse": [
+        "Use úmida para acabamento leve e natural ou seca para cobertura mais densa.",
+        "Após usar, lave com água e sabão até remover os resíduos.",
+        "Deixe secar naturalmente e guarde somente quando estiver seca."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://www.mupmakeup.com/produto/esponja-gota-mup-makeup/",
+      "sourceName": "Esponja Gota MUP Makeup",
+      "reviewedAt": "2026-10-07"
+    },
+    {
+      "sku": "MAK-PCL-PFC",
+      "brand": "MUP MAKEUP",
+      "mercosName": "Pincel de Pó Facial MUP Makeup",
+      "displayName": "Pincel · Pó facial",
+      "summary": "Pincel de cerdas macias para aplicar pós soltos ou compactos.",
+      "indication": "Selagem da maquiagem e retoques de produtos em pó.",
+      "benefits": [
+        "Aplicação de pó solto ou compacto",
+        "Distribuição uniforme",
+        "Acabamento leve"
+      ],
+      "howToUse": [
+        "Passe no pó e retire o excesso antes de aplicar.",
+        "Distribua pelo rosto com movimentos circulares.",
+        "Lave regularmente com água e sabão neutro e deixe secar naturalmente."
+      ],
+      "usageCompleteness": "steps",
+      "sourceUrl": "https://www.mupmakeup.com/produto/pincel-de-po-facial-mup-makeup/",
+      "sourceName": "Pincel De Pó Facial MUP Makeup",
+      "reviewedAt": "2026-10-07"
+    }
+  ]
+}
