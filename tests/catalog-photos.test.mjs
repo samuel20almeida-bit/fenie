@@ -5,6 +5,7 @@ import {applyPhotos} from '../scripts/import-catalog-photos.mjs';
 
 const catalog = JSON.parse(await readFile(new URL('../public/catalogo-lab/catalog-preview.json', import.meta.url)));
 const manifest = JSON.parse(await readFile(new URL('../docs/catalogo-v1/fontes-fotos.json', import.meta.url)));
+const supplied = JSON.parse(await readFile(new URL('../docs/catalogo-v1/fotos-drive-olenka.json', import.meta.url)));
 const productFor = sku => catalog.products.find(p => p.sku === sku);
 const commercial = p => Object.fromEntries(Object.entries(p).filter(([key]) => !['image','imageAlt','imageSource','reviewPending'].includes(key)));
 
@@ -22,15 +23,16 @@ test('photo import preserves all commercial fields, ignores manufacturer prices 
 test('141 photos have SKU-specific provenance; different makeup shades use different originals', () => {
   assert.equal(manifest.photos.length, 141);
   assert.equal(new Set(manifest.photos.map(p => p.sku)).size, 141);
-  assert.equal(catalog.products.filter(p => p.image?.startsWith('./')).length, 5);
-  assert.equal(catalog.products.filter(p => p.image?.startsWith('https://')).length, 136);
+  assert.equal(catalog.products.filter(p => p.image?.startsWith('./')).length, 23);
+  assert.equal(catalog.products.filter(p => p.image?.startsWith('https://')).length, 134);
   const shades = manifest.photos.filter(p => p.brand === 'MUP MAKEUP');
   assert.equal(shades.length, 56);
   assert.equal(new Set(shades.map(p => p.image)).size, 56);
   assert.equal(new Set(shades.map(p => p.sha256)).size, 56);
   for (const photo of manifest.photos) {
-    assert.equal(productFor(photo.sku).image, photo.catalogImage);
-    assert.equal(productFor(photo.sku).imageSource, photo.page);
+    const current = supplied.photos.find(p => p.sku === photo.sku) ?? photo;
+    assert.equal(productFor(photo.sku).image, current.catalogImage);
+    assert.equal(productFor(photo.sku).imageSource, current.page);
     assert.ok(productFor(photo.sku).imageAlt.includes(productFor(photo.sku).name));
   }
 });

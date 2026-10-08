@@ -21,14 +21,22 @@ test('a previous cart with a now hidden product requires removal before a messag
   delete cart['PHL-MSK-TWT-300'];
   assert.doesNotThrow(()=>buildMessage(cart,products,{demo:true}));
 });
-test('image candidates link to official sources and local images exist',async()=>{
+test('image candidates link to documented official or Fenié sources and local images exist',async()=>{
   const sources = new Set(['www.rigolim.com.br','lojaprohall.com.br','www.mupmakeup.com','loja.olenkacosmeticos.com.br','loja.dohaprofessional.com']);
+  const supplied=JSON.parse(await readFile(new URL('../docs/catalogo-v1/fotos-drive-olenka.json',import.meta.url)));
   for(const product of products.filter(p=>p.image)){
     if(product.image.startsWith('./')){
       const file=new URL('../public/catalogo-lab/'+product.image,import.meta.url);
       assert.ok((await stat(file)).size>1000);
     } else assert.equal(new URL(product.image).protocol,'https:');
-    assert.ok(sources.has(new URL(product.imageSource).hostname));
-    assert.ok(product.reviewPending.includes('Embalagem da foto oficial'));
+    if(new URL(product.imageSource).hostname==='drive.google.com'){
+      const photo=supplied.photos.find(p=>p.sku===product.sku);
+      assert.equal(product.imageSource,photo?.page);
+      assert.equal(product.image,photo?.catalogImage);
+      assert.ok(product.reviewPending.includes('Embalagem atual a confirmar'));
+    } else {
+      assert.ok(sources.has(new URL(product.imageSource).hostname));
+      assert.ok(product.reviewPending.includes('Embalagem da foto oficial'));
+    }
   }
 });
