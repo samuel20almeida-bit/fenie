@@ -34,8 +34,8 @@ body { background: var(--bg); font-size: 14px; }
 .catalog-nav > span { color: #776d65; font-size: 10px; }
 .main { max-width: 1296px; padding: 24px 32px 44px; }
 .eyebrow { color: #8a523b; font-size: 10px; letter-spacing: .14em; margin-bottom: 8px; }
-.catalog-intro { display: grid; grid-template-columns: minmax(0,1fr) 340px; align-items: center; min-height: 270px; background: #202129; color: #fff; overflow: hidden; border-radius: 3px; }
-.intro-copy { padding: 25px 38px; }
+.catalog-intro { display: grid; grid-template-columns: minmax(0,1fr) 340px; align-items: center; min-height: 220px; background: #202129; color: #fff; overflow: hidden; border-radius: 3px; }
+.intro-copy { padding: 20px 38px; }
 .intro-copy .eyebrow { color: #dfbd9d; font-size: 9px; }
 .intro-copy h1 { font-family: var(--serif); font-size: clamp(32px,3.2vw,42px); line-height: 1.08; letter-spacing: -.035em; font-weight: 400; }
 .intro-copy > p:not(.eyebrow) { max-width: 440px; color: #d3ced0; font-size: 12px; line-height: 1.7; margin-top: 12px; }
@@ -48,9 +48,9 @@ body { background: var(--bg); font-size: 14px; }
 .intro-actions .primary:hover { background: #fff0dd; }
 .secondary { border-radius: 3px; border-color: #cfc5bc; font-size: 12px; }
 button.intro-link { font-size: 12px; color: #f2e6da; border: 0; border-bottom: 1px solid #827367; background: transparent; border-radius: 0; padding: 0 0 3px; }
-.intro-note { margin-top: 13px; font-size: 9px; letter-spacing: .08em; color: #bcb3aa; }
+.intro-note { display: none; margin-top: 13px; font-size: 9px; letter-spacing: .08em; color: #bcb3aa; }
 .intro-photo { align-self: stretch; background: #1b2029; display: grid; place-items: center; }
-.intro-photo img { display: block; width: 100%; height: 270px; object-fit: contain; }
+.intro-photo img { display: block; width: 100%; height: 220px; object-fit: contain; }
 .salon-journey { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; margin: 0 0 27px; padding: 15px 0; border-bottom: 1px solid var(--line); }
 .salon-journey > button, .salon-journey > a { display: flex; align-items: center; gap: 12px; text-align: left; padding: 3px 22px; background: transparent; border: 0; color: var(--ink); min-width: 0; }
 .salon-journey > :first-child { padding-left: 0; }
@@ -73,7 +73,7 @@ button.intro-link { font-size: 12px; color: #f2e6da; border: 0; border-bottom: 1
 .carousel-controls button { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; color: var(--ink); background: #fff; border: 1px solid #d0c5bc; border-radius: 50%; font-size: 18px; }
 .carousel-controls button:hover { background: #f2ebe4; border-color: #98775f; }
 .product-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; align-items: stretch; }
-.featured-grid { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc((100% - 54px)/4); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; gap: 18px; padding: 0 0 13px; scrollbar-width: thin; scrollbar-color: #c5b29e transparent; }
+.featured-grid { position: relative; display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc((100% - 54px)/4); overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; gap: 18px; padding: 0 0 13px; scrollbar-width: thin; scrollbar-color: #c5b29e transparent; }
 .featured-grid > article { scroll-snap-align: start; }
 .product-card { display: flex; flex-direction: column; border: 1px solid #e3ddd7; border-radius: 3px; background: #fff; overflow: hidden; box-shadow: none; }
 .product-card:hover { border-color: #b59780; transform: none; box-shadow: 0 7px 20px #3023190a; }
@@ -92,7 +92,7 @@ button.intro-link { font-size: 12px; color: #f2e6da; border: 0; border-bottom: 1
 .status { font-size: 10px; color: #72675d; margin: 0 0 10px; }
 .status > span { background: #ae8663; }
 .card-actions { display: flex; gap: 8px; }
-.stepper { height: 42px; border-radius: 3px; border-color: #d9d1c9; background: #fff; }
+.stepper { position: relative; height: 42px; border-radius: 3px; border-color: #d9d1c9; background: #fff; }
 .stepper button { flex: 0 0 26px; width: 26px; height: 40px; color: #534840; font-size: 17px; }
 .stepper input { width: 27px; height: 40px; font-size: 12px; color: var(--ink); }
 .add-btn { flex: 1; height: 42px; font-size: 11px; padding: 8px 10px; font-weight: 600; }
