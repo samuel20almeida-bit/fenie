@@ -19,3 +19,9 @@ Pedidos reais permanecem desativados. Fotos e embalagens ainda precisam da confe
 ## Ajuste de prioridade comercial
 
 Olenka também aparece primeiro na lista de marcas. Os seis destaques são Royal Look, Royal Soft, Kit Hidra 3', Dual Mask Royal Care e os condicionadores Especialidades e Men's Care. O banner usa a imagem Olenka já existente no repositório. Preços, nomes, SKUs e o snapshot Mercos não foram alterados. As 24 fichas e três seleções anteriores continuam disponíveis abaixo da vitrine Olenka.
+
+## Reorganização visual — 08/10/2026
+
+Após o feedback de Samuel, o cabeçalho passa a ter fundo claro, logo original sem placa ou legenda agregada e navegação própria. A aplicação usa CSS para excluir apenas as margens transparentes do arquivo original, preservando proporção e todos os pixels visíveis. O PNG permanece byte a byte idêntico ao recebido. O banner escuro foi substituído por composição clara de texto e fotografia inteira da campanha Olenka, sem corte de rostos ou embalagens.
+
+A vitrine apresenta seis produtos em cards com alturas de texto e posições de preço/quantidade uniformes. Seleções e marcas são seções secundárias; categorias, marca, grupo e ordenação ficam agrupados na lateral do catálogo em desktop, acima dos resultados nas telas menores. As contagens de categoria levam em conta a marca selecionada. Dados comerciais, seis destaques Olenka, 24 fichas e fluxo de demonstração são mantidos.
