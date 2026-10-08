@@ -11,6 +11,7 @@
 }
 html { scroll-padding-top: 142px; }
 body { background: var(--bg); font-size: 14px; }
+#view:focus { outline: none; }
 .review-banner { padding: 5px 18px; background: #eee9e4; color: #655e58; font-size: 10px; }
 .topbar { background: #fff; color: var(--ink); border-bottom: 1px solid var(--line); }
 .header-inner { max-width: 1296px; padding: 9px 32px; grid-template-columns: 154px minmax(200px,1fr) 148px; gap: 35px; }
@@ -82,12 +83,14 @@ button.intro-link { font-size: 12px; color: #f2e6da; border: 0; border-bottom: 1
 .product-photo { background: #f7f5f1; border-radius: 0; }
 .product-photo img { padding: 12px; }
 .product-photo small { font-size: 8px; background: #fffaf2ed; color: #66584b; border: 0; margin: 0; padding: 3px 7px; }
-.product-info { padding: 15px 17px 0; }
+.product-info { display: flex; flex: 1; flex-direction: column; padding: 15px 17px 0; }
+.featured-grid .product-visual { height: 200px; }
+.featured-grid .product-benefit { display: none; }
 .brandline { font-size: 9px; letter-spacing: .14em; color: #8a523b; margin-bottom: 6px; font-weight: 700; }
 .product-info h3, .featured-grid .product-info h3, .product-card .product-info:has(.product-benefit) h3 { font-family: var(--sans); font-size: 14px; font-weight: 600; line-height: 1.45; min-height: 61px; }
 .product-benefit { font-size: 11px; color: #6d6865; margin-top: 7px; min-height: 34px; }
 .size { font-size: 10px; color: #776f68; margin-top: 5px; }
-.price { font-size: 24px; font-weight: 600; letter-spacing: -.04em; margin: 8px 0 0; color: #252326; }
+.price { font-size: 24px; font-weight: 600; letter-spacing: -.04em; margin: auto 0 0; padding-top: 8px; color: #252326; }
 .card-bottom { padding: 11px 17px 17px; }
 .status { font-size: 10px; color: #72675d; margin: 0 0 10px; }
 .status > span { background: #ae8663; }
@@ -273,7 +276,7 @@ button.intro-link { font-size: 12px; color: #f2e6da; border: 0; border-bottom: 1
   .brandline { font-size: 8px; }
   .product-info h3, .featured-grid .product-info h3, .results-section .product-info h3, .product-card .product-info:has(.product-benefit) h3 { font-size: 12px; line-height: 1.45; min-height: 70px; }
   .size { font-size: 10px; margin-top: 6px; }
-  .price, .results-section .price { font-size: 21px; margin-top: 8px; }
+  .price, .results-section .price { font-size: 21px; margin-top: auto; }
   .card-bottom, .results-section .card-bottom { padding: 11px 11px 12px; }
   .status { font-size: 9px; margin-bottom: 8px; }
   .card-actions { flex-direction: column; gap: 7px; }
