@@ -66,3 +66,5 @@ Referências de pesquisa:
 ## Verificação da etapa 1
 
 Testes de seleção B2B, identidade dos SKUs, composição dos filtros, sugestões sem duplicação, revalidação de preços e inclusão atômica da lista. Conferir no navegador: abrir bancada, ler ficha e dica, adicionar produtos, salvar lista, editar quantidade, recarregar e somar ao pedido. O catálogo permanece uma prévia; nenhuma campanha, mensagem a clientes ou compra real é disparada.
+
+Verificação em 08/10/2026: 27 testes passaram; validador dos 701 SKUs, sintaxe JavaScript, build Astro e diff sem erros. No navegador desktop: seleção de quatro itens de revenda; categoria Tratamento com três itens; retorno aos 701 produtos; seleção profissional com cinco itens; ficha Dual Mask e complementares; dicas expandidas; lista salva com 12 unidades persistindo após recarga (R$ 708,00), ajustada para duas e somada à unidade existente no carrinho (três unidades, R$ 177,00). Carrinho e lista de teste foram limpos. Sem erros de app.mjs observados. Testes em dispositivos móveis reais pendentes.

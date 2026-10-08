@@ -14,7 +14,7 @@ test('B2B selections use exact Mercos identities and compose with brand/category
   assert.equal(retail.length,4);
   assert.ok(retail.every(p=>p.brand==='OLENKA'));
   assert.equal(navigateProducts(retail,{brand:'RIGOLIM'}).length,0);
-  assert.ok(navigateProducts(retail,{category:'tratamento'}).length<=retail.length);
+  assert.equal(navigateProducts(retail,{category:'tratamento'}).length,3);
   assert.equal(salonProducts(products,'desconhecida').length,0);
   assert.equal(salonProducts(products).length,701);
   assert.equal(JSON.stringify(products),before);
