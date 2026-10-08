@@ -1,0 +1,321 @@
+@import "tailwindcss";
+
+/*
+  Fenié Pro — brand tokens
+  Origem: briefing estratégico (paleta medida, contraste, movimento e
+  dimensionamento) + documento "Paleta visual Fenié", que fixou os HEX
+  oficiais. Os NOMES dos tokens são os do projeto (usados em ~200 lugares);
+  os VALORES são os do documento de paleta. Não são valores arbitrários —
+  cada um tem uma razão documentada; não redefinir sem revisar lá primeiro.
+*/
+@theme {
+  --color-midnight: #0d1228; /* fundo principal */
+  --color-midnight-alt: #11172e; /* seção alternada — degrau entre fundo e card */
+  --color-midnight-card: #151b33; /* superfície: cards, blocos, inputs */
+  --color-midnight-hover: #1d2440; /* card em hover — um passo acima da superfície */
+  --color-gold: #d99a28; /* acento de marca: CTA, links, destaques */
+  --color-gold-hover: #e7b34a; /* gold light: hover e estados ativos */
+  --color-platina: #9da2b3; /* texto secundário, metadados, labels */
+  --color-bone: #f4f1e9; /* off-white: títulos e texto de maior peso */
+  --color-coral: #c96a4f; /* fora da paleta: só o aviso de consumidor final */
+
+  /* Uma cor de borda só, como o documento fixa: card, separador, divisor
+     de seção e input, tudo em #343A50 (1,65:1 sobre o fundo — discreto de
+     verdade num fio de 1px). Chegou a existir aqui um segundo degrau mais
+     fraco para os fios estruturais; saiu porque a regra 10 do documento é
+     explícita em não criar paleta paralela, e o receio que o justificava
+     não se confirmou ao ver renderizado. */
+  --color-border: #343a50;
+
+  /* Superfície clara — as seções "em luz" (Realidade e Depoimentos), a
+     direção aprovada depois de ver as quatro paletas lado a lado.
+
+     Não é paleta paralela (regra 10 do documento): o fundo dessas seções é
+     o próprio off-white da paleta (--color-bone) e o texto principal é o
+     próprio navy (--color-midnight) — a superfície inverte, as cores são
+     as mesmas. Os três tokens abaixo são os degraus que faltavam para
+     essa inversão existir sem inventar cor:
+       · o ouro #D99A28 dá 2,09:1 sobre off-white — ilegível —, então sobre
+         a luz ele é o mesmo ouro escurecido até 5,0:1;
+       · a platina #9DA2B3 dá 2,25:1 sobre off-white pelo mesmo motivo;
+       · a borda #343A50 sobre a luz seria um risco preto, não um fio. */
+  --color-luz-card: #fcfaf5; /* card sobre a luz — acima do fundo, sem branco puro */
+  --color-luz-border: #d9d2c2; /* o fio de #343A50 traduzido para a luz */
+  --color-ink-soft: #4b5166; /* o par de --color-platina sobre off-white */
+  --color-gold-ink: #8a5e0c; /* o par de --color-gold sobre off-white */
+
+  --font-display: "Bodoni Moda", Georgia, "Times New Roman", serif;
+  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --radius-editorial: 6px;
+
+  /* Escala tipográfica nomeada — consolida os tamanhos que existiam como
+     text-[...] arbitrário e quase-duplicado em cada componente. Onde o
+     Tailwind já tinha um degrau certo (text-sm/base/lg), reaproveitamos
+     em vez de criar mais um token. */
+  --text-micro: 0.6875rem; /* 11px — legendas mono, rodapé, badges */
+  --text-caption: 0.8125rem; /* 13px — links pequenos, meta-texto */
+  --text-h3: 1.05rem; /* 16.8px — título de card/componente */
+  --text-feature: 1.35rem; /* 21.6px — título em destaque dentro de um grid */
+}
+
+:root {
+  /* fio de ouro, nunca área — usado em bordas de 1px e sublinhas.
+     Agora descende dos tokens de borda da paleta, não mais de bone/platina
+     diluídos: a cor da borda passa a ter um dono só. */
+  --hairline: var(--color-border);
+  --hairline-hover: var(--color-border);
+
+  /* curva única — vale para tudo (briefing cap. 06) */
+  --ease-editorial: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-scroll: 550ms;
+  --dur-cascade: 75ms;
+  --dur-hover-card: 240ms;
+  --dur-hover-btn: 200ms;
+  --dur-image: 700ms;
+
+  /* respiro de seção: 76 / 104px, fecho 132px */
+  --section-y-sm: 4.75rem;
+  --section-y: 6.5rem;
+  --section-y-lg: 8.25rem;
+}
+
+html {
+  background: var(--color-midnight);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-midnight);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dentro de @layer base de propósito: fora de layer, estas declarações
+   venceriam qualquer utility do Tailwind (regra da cascata — o que está
+   fora de layer ganha do que está dentro), e um `leading-*` ou
+   `tracking-*` num h1/h2/h3 seria silenciosamente ignorado. No layer
+   base, o padrão continua valendo em todo heading e ainda pode ser
+   ajustado ponto a ponto onde o caso pede. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+}
+
+/* citação com aspas — a única situação que ainda usa a serifada
+   (identidade da marca virou sans bold, alinhada à logo) */
+blockquote {
+  font-family: var(--font-display);
+}
+
+em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-midnight);
+}
+
+/* Seções "em luz": mesma paleta, superfície invertida. Fora de @layer de
+   propósito — `em` e `.eyebrow` acima também estão fora de layer, e o que
+   está fora de layer vence o que está dentro; aqui quem decide é a
+   especificidade, e `.luz .eyebrow` (0,2,0) ganha de `.eyebrow` (0,1,0). */
+.luz .eyebrow,
+.luz em {
+  color: var(--color-gold-ink);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+/* contêiner 1180px padrão · imersivo 1440px (briefing cap. 06)
+
+   Precisa viver em @layer components: CSS sem layer vence as utilities do
+   Tailwind (que ficam em @layer utilities), e sem isso todo `max-w-160`
+   escrito ao lado de .container-editorial era silenciosamente ignorado —
+   a coluna de texto abria 1180px em vez dos 640px pedidos. */
+@layer components {
+  .container-editorial {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  .container-immersive {
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-editorial,
+    .container-immersive {
+      padding-inline: 2.5rem;
+    }
+  }
+}
+
+/* ── Trilho de passos ────────────────────────────────────────────────────────
+   Porte do "PassosNaLinha" (React + motion) para o site: um fio que preenche
+   conforme a pessoa desce, e um ponto que acende quando o preenchimento
+   chega nele. Ver o quanto falta é o que faz alguém terminar de ler.
+
+   Quatro decisões vieram inteiras do original, e não são detalhe:
+
+   1. O fio preenche em `scale`, nunca em `height`/`width`. Dimensão recalcula
+      layout a cada quadro de scroll, e o engasgo aparece justo no gesto que
+      deveria parecer contínuo.
+   2. O "aceso" é OPACIDADE de uma camada por cima, não troca de cor: as duas
+      camadas ficam idênticas em posição, e a de cima só aparece.
+   3. O estado FINAL é o padrão do CSS — fio cheio, pontos acesos. Sem JS ou
+      com `prefers-reduced-motion`, a página mostra tudo pronto. Meia animação
+      é pior que nenhuma para quem pediu para não ter animação.
+   4. Os fios são `aria-hidden`: são decoração. A sequência já está no <ol>,
+      que é o que o leitor de tela anuncia.
+
+   O trilho é sempre VERTICAL. Chegou a existir uma variante horizontal, para
+   as fileiras de três e quatro colunas; saiu porque um fio de progresso
+   responde "quanto falta", pergunta que só existe numa lista longa que se
+   percorre rolando — numa fileira que cabe inteira na tela ele não informava
+   nada e ainda ecoava o trilho da seção vizinha. Lá o grafismo passou a ser
+   um fio curto de gold por coluna.
+
+   O que mudou daqui para lá: o fio vazio é a cor de borda do tema e o cheio é
+   o gold. No original os dois eram a mesma família; aqui, com o vazio neutro,
+   o preenchimento lê como progresso e não como enfeite.
+
+   As cores são variáveis, como no original, para a mesma peça servir uma
+   seção escura e uma clara na mesma página. O padrão é o fundo escuro; as
+   seções em luz redefinem os tokens logo abaixo. */
+@layer components {
+  .trilho-fio,
+  .trilho-cheio {
+    position: absolute;
+    pointer-events: none;
+  }
+  .trilho-fio {
+    background: var(--trilho-vazio, var(--color-border));
+  }
+  .trilho-cheio {
+    background: var(--trilho-cheio, var(--color-gold));
+    will-change: transform;
+  }
+
+  .trilho-fio,
+  .trilho-cheio {
+    /* recorta o fio na altura do centro do primeiro e do último ponto, para
+       ele não sobrar acima do 01 nem abaixo do último número */
+    top: var(--trilho-recuo, 2.5rem);
+    bottom: var(--trilho-recuo, 2.5rem);
+    left: var(--trilho-x, 19px);
+    width: 1px;
+    transform-origin: center top;
+  }
+
+  .trilho-aceso {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--trilho-aceso-fundo, var(--color-gold));
+  }
+
+  /* ponto do trilho vertical: o número dentro de um círculo */
+  .trilho-numero {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--trilho-vazio, var(--color-border));
+    border-radius: 9999px;
+    background: var(--trilho-fundo, var(--color-midnight-alt));
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    /* 600 e não 700: o pedido ao Google carrega JetBrains Mono em 400, 500
+       e 600. Pedindo 700 aqui, o navegador não tinha o arquivo e sintetizava
+       o negrito engrossando os traços — numa mono, isso borra o algarismo
+       dentro do círculo de 2.5rem. 600 é o peso real mais próximo. */
+    font-weight: 600;
+    color: var(--trilho-numero, var(--color-platina));
+  }
+  .trilho-numero > .trilho-aceso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--trilho-aceso-texto, var(--color-midnight));
+  }
+
+  /* Seções em luz. O fio cheio NÃO pode ser o gold de marca aqui: #D99A28
+     sobre off-white dá 2,09:1 e um fio de 1px nessa relação simplesmente
+     some. Vale o mesmo par escuro que a seção já usa nas eyebrows. O
+     preenchimento do círculo aceso pode continuar no gold cheio, porque ali
+     ele é área e não fio — e o navy por cima dá 7,58:1. */
+  .luz {
+    --trilho-vazio: var(--color-luz-border);
+    --trilho-cheio: var(--color-gold-ink);
+    --trilho-fundo: var(--color-luz-card);
+    --trilho-numero: var(--color-ink-soft);
+    --trilho-aceso-fundo: var(--color-gold);
+    --trilho-aceso-texto: var(--color-midnight);
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* entrada por scroll — estado inicial; JS liga .is-visible, once (cap. 06) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--dur-scroll) var(--ease-editorial),
+    transform var(--dur-scroll) var(--ease-editorial);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  /* reduced motion é mais suave, não zero: mantém um fade curto de
+     opacidade e só remove o deslocamento (briefing cap. 06 + regra do
+     Emil Kowalski — "gentler, not zero"). !important vence a regra
+     universal de 0.001ms acima, que existe como piso de segurança. */
+  .reveal {
+    transform: none;
+    transition: opacity 150ms ease !important;
+  }
+}

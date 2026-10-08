@@ -1,0 +1,216 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
+import { cursos, cursoHref, type Curso } from "../../data/cursos";
+import { whatsappLink } from "../../lib/whatsapp";
+
+// A página que faltava entre a agenda e a conversa. O briefing cap. 10
+// desenha o fluxo site → Academy → CURSO → landing page → WhatsApp /
+// pagamento; a auditoria mediu que o site fazia site → Academy → WhatsApp,
+// pulando os dois passos onde a decisão de compra se forma.
+//
+// O que a URL própria destrava, e é o motivo principal desta rota existir:
+// não dá para anunciar um cartão dentro de uma lista. Com endereço próprio,
+// cada curso pode receber tráfego pago direto, tem título e descrição
+// próprios no Google, e gera evento e pageview separados — que é o que
+// permite comparar cursos entre si na medição da onda 1.
+//
+// O QUE AINDA FALTA nesta página é programa e investimento. Estão como
+// campos opcionais em data/cursos.ts e aparecem sozinhos quando forem
+// preenchidos. Preferi lacuna declarada a texto inventado: programa de curso
+// é promessa técnica, e inventar tópico de aula é criar informação que a
+// Fenié teria de honrar na sala.
+
+export function getStaticPaths() {
+  return cursos.map((curso) => ({ params: { curso: curso.slug }, props: { curso } }));
+}
+
+interface Props {
+  curso: Curso;
+}
+
+const { curso } = Astro.props;
+const outros = cursos.filter((c) => c.slug !== curso.slug);
+
+// Data legível a partir do bloco que a agenda já usa ("16-17" + "Mar 26").
+const dataLonga = `${curso.dataTopo} · ${curso.dataBase}`;
+
+const acaoHref =
+  curso.inscricaoUrl ??
+  whatsappLink(
+    `Olá! Quero garantir minha vaga no curso "${curso.nome}" da Fenié Academy (${dataLonga}).`
+  );
+const acaoRotulo = curso.inscricaoUrl ? "Fazer minha inscrição" : "Garantir vaga pelo WhatsApp";
+
+const ficha = [
+  { termo: "Quando", valor: dataLonga },
+  { termo: "Onde", valor: curso.local },
+  ...(curso.cargaHoraria ? [{ termo: "Carga horária", valor: curso.cargaHoraria }] : []),
+  ...(curso.investimento ? [{ termo: "Investimento", valor: curso.investimento }] : []),
+];
+
+// A ficha tem 2, 3 ou 4 linhas conforme o que a Fenié já divulgou. Com uma
+// contagem fixa de colunas sobrava uma célula cinza vazia do tamanho de
+// meia tela — o número de colunas passa a ser o número de linhas.
+const colunasFicha =
+  { 2: "sm:grid-cols-2", 3: "sm:grid-cols-2 lg:grid-cols-3", 4: "sm:grid-cols-2 lg:grid-cols-4" }[
+    ficha.length
+  ] ?? "sm:grid-cols-2";
+
+// Sem programa e sem "para quem", não há nada entre o CTA do topo e o de
+// baixo: dois botões idênticos a meia tela de distância leem como
+// enchimento. O segundo só aparece quando existe conteúdo para atravessar.
+const repetirCta = Boolean(curso.paraQuem || curso.programa);
+
+const descricaoSeo = `${curso.descricao} ${dataLonga}, ${curso.local}.`.slice(0, 300);
+---
+
+<Layout title={curso.nome} description={descricaoSeo}>
+  <section class="pt-24 pb-6">
+    <div class="container-editorial">
+      <a
+        href="/academy#agenda"
+        class="inline-block py-1 font-mono text-micro tracking-wide text-platina uppercase transition-colors hover:text-gold"
+      >
+        ← Agenda da Fenié Academy
+      </a>
+
+      <div class="mt-8 max-w-160">
+        <p class="eyebrow mb-5">
+          Fenié Academy{curso.educador && <> · com {curso.educador}</>}
+        </p>
+        <h1 class="text-[clamp(1.9rem,3.8vw,2.9rem)]">{curso.nome}</h1>
+        <p class="mt-5 text-lg text-platina">{curso.descricao}</p>
+
+        {
+          curso.detalhes.length > 0 && (
+            <div class="mt-6 flex flex-wrap gap-2">
+              {curso.detalhes.map((d) => (
+                <span class="rounded-full border border-border px-3 py-1 font-mono text-micro tracking-wide text-platina uppercase">
+                  {d}
+                </span>
+              ))}
+            </div>
+          )
+        }
+
+        <Button
+          href={acaoHref}
+          class="mt-8"
+          data-evento="inscricao_curso"
+          data-curso={curso.nome}
+        >
+          {acaoRotulo}
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-midnight-alt py-19">
+    <div class="container-editorial">
+      <dl class:list={["grid gap-px border border-border bg-border", colunasFicha]}>
+        {
+          ficha.map((linha) => (
+            <div class="reveal bg-midnight-alt p-6">
+              <dt class="eyebrow text-platina">{linha.termo}</dt>
+              <dd class="mt-2.5 max-w-[30ch] font-body text-base font-semibold text-bone">
+                {linha.valor}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="mt-6 font-mono text-micro text-platina">
+        Datas e formatos podem mudar. Confirme com um consultor antes de se programar.
+      </p>
+    </div>
+  </section>
+
+  {
+    (curso.paraQuem || curso.programa) && (
+      <section class="bg-midnight py-26">
+        <div class="container-editorial">
+          <div class="max-w-160">
+            {curso.paraQuem && (
+              <div class="reveal mb-14">
+                <p class="eyebrow mb-4">Para quem é</p>
+                <p class="max-w-[54ch] text-lg text-platina">{curso.paraQuem}</p>
+              </div>
+            )}
+
+            {curso.programa && (
+              <div class="reveal">
+                <p class="eyebrow mb-4">O que você sai sabendo</p>
+                <ul class="mt-6 flex flex-col divide-y divide-border border-y border-border">
+                  {curso.programa.map((item) => (
+                    <li class="flex gap-4 py-4.5">
+                      <span class="mt-2 h-px w-4 shrink-0 bg-gold" aria-hidden="true" />
+                      <span class="max-w-[54ch] text-base text-bone">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    repetirCta && (
+      <section class="bg-midnight-alt py-26">
+        <div class="container-editorial">
+          <div class="reveal max-w-160">
+            <p class="eyebrow mb-5">Sua vaga</p>
+            <h2 class="text-[clamp(1.6rem,3vw,2rem)]">
+              {curso.educador ? `Turma com ${curso.educador}` : "Turmas com vagas limitadas"}
+            </h2>
+            <p class="mt-4 max-w-[52ch] text-platina">
+              Fale com a equipe da Academy para confirmar disponibilidade, condições e o que
+              levar no dia.
+            </p>
+            <Button
+              href={acaoHref}
+              class="mt-7"
+              data-evento="inscricao_curso"
+              data-curso={curso.nome}
+            >
+              {acaoRotulo}
+            </Button>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    outros.length > 0 && (
+      <section class="bg-midnight py-26">
+        <div class="container-editorial">
+          <p class="eyebrow reveal mb-8">Também na agenda</p>
+          <ul class="grid gap-4 md:grid-cols-3">
+            {outros.map((o, i) => (
+              <li class="reveal flex" style={`transition-delay: ${i * 75}ms`}>
+                <a
+                  href={cursoHref(o)}
+                  data-evento="ver_curso"
+                  data-curso={o.nome}
+                  class="flex flex-1 flex-col gap-2.5 rounded-editorial border border-border bg-midnight-card p-6 transition-[border-color,transform] duration-(--dur-hover-card) ease-(--ease-editorial) hover:border-gold pointer-fine:hover:-translate-y-0.5"
+                >
+                  <span class="eyebrow text-platina">
+                    {o.dataTopo} · {o.dataBase}
+                  </span>
+                  <span class="font-body text-h3 font-semibold text-bone">{o.nome}</span>
+                  <span class="mt-auto pt-3 font-mono text-micro tracking-wide text-gold uppercase">
+                    Ver o curso →
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+</Layout>

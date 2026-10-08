@@ -1,0 +1,64 @@
+---
+import Button from "./Button.astro";
+import { whatsappLink } from "../lib/whatsapp";
+
+const steps = [
+  {
+    n: "01",
+    title: "Fale com a equipe",
+    text: "Inicie o atendimento pelo WhatsApp e conte o que procura.",
+  },
+  {
+    n: "02",
+    title: "Apresente a realidade do salão",
+    text: "Informe sua cidade, perfil de atendimento, principais serviços e marcas de interesse.",
+  },
+  {
+    n: "03",
+    title: "Receba orientação comercial",
+    text: "Um consultor apresenta possibilidades, condições e próximos passos adequados ao seu perfil.",
+  },
+  {
+    n: "04",
+    title: "Desenvolva o relacionamento",
+    text: "Após o primeiro pedido, o atendimento continua com reposição, acompanhamento e suporte.",
+  },
+];
+---
+
+<section class="bg-midnight py-26 text-center">
+  <div class="container-editorial">
+    <p class="eyebrow mb-5">Primeiro atendimento</p>
+    <h2 class="mx-auto max-w-[22ch] text-[clamp(1.8rem,3.2vw,2.4rem)]">
+      Começar uma conversa com a Fenié é simples.
+    </h2>
+
+    {/* Mesmo critério do Método: quatro passos lado a lado não pedem barra
+        de progresso. Fio curto de gold por passo.
+
+        Uma coluna só abaixo de 375px: com duas, a coluna fica em 120px a
+        320px de tela e "relacionamento" mede 145px — a palavra vazava da
+        coluna e empurrava 1px de rolagem horizontal na página inteira. De
+        375px para cima a coluna passa de 148px e cabe, então o layout de
+        duas colunas continua igual ao que era. */}
+    <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 text-left min-[375px]:grid-cols-2 md:grid-cols-4 md:gap-8">
+      {
+        steps.map((step, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 75}ms`}>
+            <div class="mb-4 w-10 border-t border-gold" aria-hidden="true" />
+            <p class="eyebrow">{step.n}</p>
+            <h3 class="mt-2 font-body text-h3 font-semibold">{step.title}</h3>
+            <p class="mt-2 text-sm text-platina">{step.text}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <Button
+      href={whatsappLink("Olá! Quero começar uma conversa com a Fenié.")}
+      class="mt-14"
+    >
+      Quero falar com um consultor
+    </Button>
+  </div>
+</section>
